@@ -1,0 +1,4 @@
+enum BackgroundType {
+  Christmas,
+  Patreon,
+}

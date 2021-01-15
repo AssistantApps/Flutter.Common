@@ -1,0 +1,33 @@
+name: assistantapps_flutter_common
+description: A new Flutter package project.
+version: 0.0.1
+author: Kurt Lourens
+homepage: https://assistantapps.com
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  # Base
+  http: 0.12.2
+
+  # UI
+  pagination_view: ^1.0.3+2
+  animated_background: ^1.0.5
+  timeline_tile: 0.1.2
+  octo_image: ^0.3.0
+  cached_network_image: ^2.5.0
+  flutter_markdown: 0.4.1
+
+  # Misc
+  enum_to_string: 1.0.9
+  url_launcher: 5.4.10
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
