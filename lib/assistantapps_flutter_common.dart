@@ -1,5 +1,11 @@
 library assistantapps_flutter_common;
 
+//Contracts
+export 'contracts/results/result.dart';
+export 'contracts/results/resultWithValue.dart';
+export 'contracts/results/resultWithDoubleValue.dart';
+export 'contracts/results/paginationResultWithValue.dart';
+
 //Pages
 export 'pages/donators/donatorsPage.dart';
 export 'pages/misc/patronListPage.dart';
