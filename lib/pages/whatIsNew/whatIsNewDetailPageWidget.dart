@@ -9,14 +9,14 @@ import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../helpers/updateHelper.dart';
 
-class WhatIsNewDetailPage extends StatelessWidget {
+class WhatIsNewDetailPageWidget extends StatelessWidget {
   final String currentWhatIsNewGuid;
   final VersionViewModel version;
   final String pendingAppStoreRelease;
   final Color androidColour;
   final Color iosColour;
 
-  WhatIsNewDetailPage(
+  WhatIsNewDetailPageWidget(
     this.currentWhatIsNewGuid,
     this.version,
     this.pendingAppStoreRelease,

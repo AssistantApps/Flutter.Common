@@ -11,13 +11,13 @@ import '../../contracts/results/resultWithValue.dart';
 import '../../services/api/interface/IpatreonApiService.dart';
 import '../../services/json/backupJsonService.dart';
 
-class PatronListPage extends StatelessWidget {
+class PatronListPageWidget extends StatelessWidget {
   final String joinPatreon;
   final IPatreonApiService patreonApiService;
   final Widget Function(BuildContext) fullPageLoading;
   final String noItems;
   final String failedLatestDisplayingOld;
-  PatronListPage(
+  PatronListPageWidget(
     this.joinPatreon,
     this.patreonApiService,
     this.fullPageLoading, {

@@ -6,7 +6,7 @@ import '../../contracts/enum/platformType.dart';
 import '../../contracts/generated/versionViewModel.dart';
 import '../../services/api/interface/IversionApiService.dart';
 
-class WhatIsNewPage extends StatelessWidget {
+class WhatIsNewPageWidget extends StatelessWidget {
   final String currentWhatIsNewGuid;
   final String release;
   final String current;
@@ -18,7 +18,7 @@ class WhatIsNewPage extends StatelessWidget {
   final void Function(VersionViewModel) onTap;
   final IVersionApiService versionApiService;
 
-  WhatIsNewPage(
+  WhatIsNewPageWidget(
       this.currentWhatIsNewGuid,
       this.release,
       this.current,

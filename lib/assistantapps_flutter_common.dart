@@ -1,16 +1,19 @@
 library assistantapps_flutter_common;
 
 //Contracts
+export 'contracts/enum/donationType.dart';
+export 'contracts/enum/platformType.dart';
+
 export 'contracts/results/result.dart';
 export 'contracts/results/resultWithValue.dart';
 export 'contracts/results/resultWithDoubleValue.dart';
 export 'contracts/results/paginationResultWithValue.dart';
 
 //Pages
-export 'pages/donators/donatorsPage.dart';
-export 'pages/misc/patronListPage.dart';
-export 'pages/whatIsNew/whatIsNewPage.dart';
-export 'pages/whatIsNew/whatIsNewDetailPage.dart';
+export 'pages/donators/donatorsPageWidget.dart';
+export 'pages/misc/patronListPageWidget.dart';
+export 'pages/whatIsNew/whatIsNewPageWidget.dart';
+export 'pages/whatIsNew/whatIsNewDetailPageWidget.dart';
 
 //Services
 

@@ -7,11 +7,11 @@ import '../../contracts/generated/donationViewModel.dart';
 import '../../services/api/interface/IdonatorApiService.dart';
 import '../../services/json/interface/IbackupJsonService.dart';
 
-class DonatorsPage extends StatelessWidget {
+class DonatorsPageWidget extends StatelessWidget {
   final IDonatorApiService donatorApiService;
   final IBackupJsonService backupJsonService;
   final Widget loadMoreItemWidget;
-  const DonatorsPage(
+  const DonatorsPageWidget(
       this.donatorApiService, this.backupJsonService, this.loadMoreItemWidget,
       {Key key})
       : super(key: key);
