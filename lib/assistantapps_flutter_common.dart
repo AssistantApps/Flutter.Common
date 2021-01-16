@@ -1,9 +1,13 @@
 library assistantapps_flutter_common;
 
 // Components
+export 'components/adaptive/bottomModal.dart';
 export 'components/adaptive/button.dart';
+export 'components/adaptive/checkbox.dart';
 export 'components/adaptive/paginationControl.dart';
 export 'components/adaptive/searchBar.dart';
+export 'components/adaptive/segmentedControl.dart';
+export 'components/common/card.dart';
 export 'components/common/image.dart';
 export 'components/common/newBanner.dart';
 export 'components/common/space.dart';
@@ -15,16 +19,23 @@ export 'components/list/searchableList.dart';
 export 'components/menu/popupMenu.dart';
 export 'components/modalBottomSheet/assistantAppsModalBottomSheet.dart';
 
+// Constants
+export 'constants/ExternalUrls.dart';
+export 'constants/SupportedLanguages.dart';
+export 'constants/UIConstants.dart';
+
 // Contracts
 export 'contracts/data/assistantAppLinks.dart';
 export 'contracts/enum/backgroundType.dart';
 export 'contracts/enum/donationType.dart';
 export 'contracts/enum/enumBase.dart';
+export 'contracts/enum/localeKey.dart';
 export 'contracts/enum/platformType.dart';
 export 'contracts/generated/donationViewModel.dart';
 export 'contracts/generated/patreonViewModel.dart';
 export 'contracts/generated/versionSearchViewModel.dart';
 export 'contracts/generated/versionViewModel.dart';
+export 'contracts/misc/popupMenuActionItem.dart';
 export 'contracts/results/result.dart';
 export 'contracts/results/resultWithValue.dart';
 export 'contracts/results/resultWithDoubleValue.dart';
@@ -35,14 +46,16 @@ export 'contracts/localizationMap.dart';
 export 'env/assistantAppsEnvironmentSettings.dart';
 
 // Helpers
+export 'helpers/colourHelper.dart';
 export 'helpers/dateHelper.dart';
 export 'helpers/deviceHelper.dart';
 export 'helpers/externalHelper.dart';
 export 'helpers/jsonHelper.dart';
+export 'helpers/stringHelper.dart';
 export 'helpers/updateHelper.dart';
 
 // Integration
-export 'integration/dependencyInjection.dart';
+export 'integration/dependencyInjection.dart' hide getEnv;
 export 'integration/translationDelegate.dart';
 
 // Pages
@@ -67,12 +80,14 @@ export 'services/api/versionApiService.dart';
 export 'services/base/interface/ILoadingWidgetService.dart';
 export 'services/base/interface/ILoggingService.dart';
 export 'services/base/interface/INavigationService.dart';
+export 'services/base/interface/IThemeService.dart';
 export 'services/base/interface/ITranslationsService.dart';
 
 //Base implementations
 export 'services/base/loadingWidgetService.dart';
 export 'services/base/loggingService.dart';
 export 'services/base/navigationService.dart';
+export 'services/base/themeService.dart';
 export 'services/base/translationsService.dart';
 
 //Json Interfaces

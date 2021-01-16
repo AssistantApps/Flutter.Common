@@ -12,6 +12,8 @@ class ITranslationService {
     return this;
   }
 
+  get currentLanguage => 'en';
+
   String fromKey(LocaleKey key) {
     return "${key.toString()}";
   }
@@ -29,4 +31,10 @@ class ITranslationService {
   Locale getLocaleFromKey(String supportedLanguageKey) {
     return Locale(supportedLanguageKey);
   }
+
+  Locale getLocaleFromLocalMap(LocalizationMap localeMap) =>
+      Locale(localeMap.code);
+
+  Iterable<Locale> supportedLocales() =>
+      supportedLanguagesCodes.map<Locale>((language) => Locale(language, ""));
 }

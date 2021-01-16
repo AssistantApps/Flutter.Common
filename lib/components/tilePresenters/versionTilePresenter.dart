@@ -41,8 +41,7 @@ Widget Function(BuildContext context, VersionViewModel version)
       topLineStyle: LineStyle(color: getTheme().getSecondaryColour(context)),
     );
     if (version.guid.toLowerCase() == versionGuid.toLowerCase()) {
-      return wrapInNewBanner(
-          context, Translations.fromKey(LocaleKey.current), child);
+      return wrapInNewBanner(context, LocaleKey.current, child);
     }
     return child;
   };

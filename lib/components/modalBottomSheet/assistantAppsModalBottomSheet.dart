@@ -19,12 +19,9 @@ import '../common/text.dart';
 import '../menu/popupMenu.dart';
 
 class AssistantAppsModalBottomSheet extends StatefulWidget {
-  final IDataJsonRepository dataService;
-  AssistantAppsModalBottomSheet(this.dataService);
-
   @override
   _AssistantAppsModalBottomSheetWidget createState() =>
-      _AssistantAppsModalBottomSheetWidget(this.dataService);
+      _AssistantAppsModalBottomSheetWidget();
 }
 
 class _AssistantAppsModalBottomSheetWidget
@@ -34,8 +31,7 @@ class _AssistantAppsModalBottomSheetWidget
         AfterLayoutMixin<AssistantAppsModalBottomSheet> {
   List<AssistantAppLinks> assistantAppLinks;
   bool isLoading = true;
-  final IDataJsonRepository dataService;
-  _AssistantAppsModalBottomSheetWidget(this.dataService) {
+  _AssistantAppsModalBottomSheetWidget() {
     assistantAppLinks = List<AssistantAppLinks>();
   }
 
@@ -46,7 +42,7 @@ class _AssistantAppsModalBottomSheetWidget
 
   Future getAppLinksFuture(BuildContext context) async {
     ResultWithValue<List<AssistantAppLinks>> assistantAppsResult =
-        await dataService.getAssistantApps(context);
+        await getAssistantAppsData().getAssistantApps(context);
     if (assistantAppsResult.hasFailed) return;
 
     this.setState(() {

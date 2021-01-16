@@ -67,4 +67,12 @@ class TranslationService implements ITranslationService {
     }
     return Locale(supportedLanguageKey);
   }
+
+  @override
+  Locale getLocaleFromLocalMap(LocalizationMap localeMap) =>
+      Locale(localeMap.code);
+
+  @override
+  Iterable<Locale> supportedLocales() =>
+      supportedLanguagesCodes.map<Locale>((language) => Locale(language, ""));
 }

@@ -51,7 +51,7 @@ Widget localImage(
 }
 
 Widget getCorrectlySizedImageFromIcon(context, IconData icon,
-        {double size = 35}) =>
+        {Color colour, double size = 35}) =>
     ConstrainedBox(
       constraints: BoxConstraints(
         maxWidth: size,
@@ -60,7 +60,7 @@ Widget getCorrectlySizedImageFromIcon(context, IconData icon,
       child: Center(
         child: Icon(
           icon,
-          color: getTheme().getSecondaryColour(context),
+          color: colour ?? getTheme().getSecondaryColour(context),
           size: size,
         ),
       ),

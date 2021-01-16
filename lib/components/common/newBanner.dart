@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-Widget wrapInNewBanner(BuildContext context, String message, Widget child) =>
+import '../../contracts/enum/localeKey.dart';
+import '../../integration/dependencyInjection.dart';
+
+Widget wrapInNewBanner(BuildContext context, LocaleKey message, Widget child) =>
     ClipRect(
       child: Banner(
-        message: message,
+        message: Translations.fromKey(message),
         location: BannerLocation.topEnd,
         child: child,
       ),

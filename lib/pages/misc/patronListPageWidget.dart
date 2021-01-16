@@ -10,13 +10,9 @@ import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/patreonViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
-import '../../services/api/interface/IPatreonApiService.dart';
 import '../../services/json/backupJsonService.dart';
 
 class PatronListPageWidget extends StatelessWidget {
-  final IPatreonApiService patreonApiService;
-  PatronListPageWidget(this.patreonApiService);
-
   Future<ResultWithValue<List<PatreonViewModel>>> wrapPatronsListCall(
     BuildContext context,
     Future<ResultWithValue<List<PatreonViewModel>>> Function() getPatrons,
@@ -37,7 +33,7 @@ class PatronListPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var apiFunc = () => this.patreonApiService.getPatrons();
+    var apiFunc = () => getAssistantAppsPatreons().getPatrons();
     var backupFunc = () => BackupJsonService().getPatrons(context);
     return BackgroundWrapper(
       backgroundType: BackgroundType.Patreon,
