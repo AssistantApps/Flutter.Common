@@ -60,7 +60,7 @@ export 'integration/translationDelegate.dart';
 
 // Pages
 export 'pages/donators/donatorsPageWidget.dart';
-export 'pages/misc/patronListPageWidget.dart';
+export 'pages/patrons/patronListPageWidget.dart';
 export 'pages/whatIsNew/whatIsNewPageWidget.dart';
 export 'pages/whatIsNew/whatIsNewDetailPageWidget.dart';
 

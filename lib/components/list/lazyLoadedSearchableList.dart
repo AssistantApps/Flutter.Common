@@ -1,9 +1,8 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pagination_view/pagination_view.dart';
 
 import '../../contracts/results/paginationResultWithValue.dart';
+import '../../integration/dependencyInjection.dart';
 
 class LazyLoadSearchableList<T> extends StatefulWidget {
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
@@ -115,9 +114,7 @@ class _LazyLoadSearchableListWidget<T>
       onEmpty: Center(
         child: Text(widget.emptyMessage ?? 'Sorry! This is empty'),
       ),
-      bottomLoader: Center(
-        child: getLoading().smallLoadingTile(context),
-      ),
+      bottomLoader: Center(child: getLoading().smallLoadingTile(context)),
       initialLoader: getLoading().fullPageLoading(context),
       scrollController: _scrollController,
       key: Key('lazyLoaded'),

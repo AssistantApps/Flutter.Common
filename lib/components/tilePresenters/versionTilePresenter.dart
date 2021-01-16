@@ -15,7 +15,8 @@ Widget Function(BuildContext context, VersionViewModel version)
   String versionGuid,
   void Function(VersionViewModel) onTap,
 ) {
-  return (BuildContext context, VersionViewModel version) {
+  Widget Function(BuildContext, VersionViewModel) presenter =
+      (BuildContext context, VersionViewModel version) {
     bool isCurrentVersion =
         version.guid.toLowerCase() == versionGuid.toLowerCase();
     String dateToDisplay = getVersionReleaseDate(
@@ -32,7 +33,7 @@ Widget Function(BuildContext context, VersionViewModel version)
             .replaceAll('{0}', version.buildName),
         subtitle: genericEllipsesText(dateToDisplay),
         trailing: Icon(Icons.chevron_right),
-        onTap: onTap,
+        onTap: () => onTap(version),
       ),
       indicatorStyle: IndicatorStyle(
         width: 25,
@@ -45,4 +46,5 @@ Widget Function(BuildContext context, VersionViewModel version)
     }
     return child;
   };
+  return presenter;
 }

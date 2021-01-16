@@ -6,10 +6,9 @@ import '../../contracts/data/assistantAppLinks.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseJsonService.dart';
-import 'interface/IdataJsonRepository.dart';
+import 'interface/IdataJsonService.dart';
 
-class DataJsonRepository extends BaseJsonService
-    implements IDataJsonRepository {
+class DataJsonService extends BaseJsonService implements IDataJsonService {
   //
 
   @override

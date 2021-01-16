@@ -1,27 +1,15 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget searchBar(
-        context,
-        TextEditingController controller,
-        Color primaryColour,
-        Color secondaryColour,
-        String hintText,
-        String searchItems,
+Widget searchBar(context, TextEditingController controller, String hintText,
         void Function(String) onSearchTextChanged) =>
-    _androidSearchBar(context, controller, primaryColour, secondaryColour,
-        hintText, searchItems, onSearchTextChanged);
+    _androidSearchBar(context, controller, hintText, onSearchTextChanged);
 
-Widget _androidSearchBar(
-    context,
-    TextEditingController controller,
-    Color primaryColour,
-    Color secondaryColour,
-    String hintText,
-    String searchItems,
-    void Function(String) onSearchTextChanged) {
+Widget _androidSearchBar(context, TextEditingController controller,
+    String hintText, void Function(String) onSearchTextChanged) {
   return Container(
-    color: primaryColour,
+    color: getTheme().getPrimaryColour(context),
     child: Padding(
       padding: const EdgeInsets.all(4.0),
       child: Card(
@@ -29,9 +17,11 @@ Widget _androidSearchBar(
           leading: Icon(Icons.search),
           title: TextField(
             controller: controller,
-            cursorColor: secondaryColour,
+            cursorColor: getTheme().getSecondaryColour(context),
             decoration: InputDecoration(
-                hintText: hintText == null ? searchItems : hintText,
+                hintText: hintText == null
+                    ? Translations.fromKey(LocaleKey.searchItems)
+                    : hintText,
                 border: InputBorder.none),
             onChanged: onSearchTextChanged,
           ),

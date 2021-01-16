@@ -43,6 +43,7 @@ class PatronListPageWidget extends StatelessWidget {
         (_, __) => false,
         backupListGetter: () => wrapPatronsListCall(context, backupFunc),
         minListForSearch: 20000,
+        addFabPadding: true,
       ),
     );
   }

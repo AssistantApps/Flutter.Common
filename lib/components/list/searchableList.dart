@@ -1,23 +1,20 @@
-import 'package:assistantapps_flutter_common/contracts/enum/localeKey.dart';
-import 'package:assistantapps_flutter_common/integration/dependencyInjection.dart';
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../contracts/results/resultWithValue.dart';
-import '../common/space.dart';
-import 'listWithScrollbar.dart';
 
 class SearchableList<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Future<ResultWithValue<List<T>>> Function() backupListGetter;
+  final LocaleKey backupListWarningMessage;
   final Widget Function(BuildContext context, T) listItemDisplayer;
   final bool Function(T, String) listItemSearch;
   final void Function() deleteAll;
   final int minListForSearch;
   final Key key;
-  final Widget searchBar;
   final Widget firstListItemWidget;
   final Widget lastListItemWidget;
   final String hintText;
+  final String loadingText;
   final bool preloadListItems;
   final bool addFabPadding;
 
@@ -26,15 +23,16 @@ class SearchableList<T> extends StatefulWidget {
     this.listItemDisplayer,
     this.listItemSearch, {
     this.key,
-    this.searchBar,
     this.firstListItemWidget,
     this.lastListItemWidget,
     this.hintText,
+    this.loadingText,
     this.deleteAll,
     this.preloadListItems = false,
     this.minListForSearch = 10,
     this.addFabPadding = false,
     this.backupListGetter,
+    this.backupListWarningMessage,
   });
   @override
   SearchableListWidget<T> createState() => SearchableListWidget<T>(
@@ -43,6 +41,7 @@ class SearchableList<T> extends StatefulWidget {
         listItemSearch,
         key,
         hintText,
+        loadingText,
         deleteAll,
         preloadListItems,
         minListForSearch,
@@ -63,6 +62,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
   bool hasLoaded = false;
   bool usingBackupGetter = false;
   String hintText;
+  String loadingText;
   final bool preloadListItems;
   final bool addFabPadding;
 
@@ -72,6 +72,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
     this.listItemSearch,
     this.key,
     this.hintText,
+    this.loadingText,
     this.deleteAll,
     this.preloadListItems,
     this.minListForSearch,
@@ -130,14 +131,18 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
 
   @override
   Widget build(BuildContext context) {
-    if (!hasLoaded) return getLoading().fullPageLoading(context);
+    if (!hasLoaded)
+      return getLoading().fullPageLoading(context,
+          loadingText: loadingText ?? Translations.fromKey(LocaleKey.loading));
 
     List<Widget> columnWidgets = List<Widget>();
     if (_listResults.length > minListForSearch) {
-      columnWidgets.add(widget.searchBar);
+      columnWidgets.add(
+        searchBar(context, controller, hintText, onSearchTextChanged),
+      );
     }
 
-    if (this.usingBackupGetter) {
+    if (this.usingBackupGetter && widget.backupListWarningMessage != null) {
       columnWidgets.add(
         Container(
           color: Colors.red,
@@ -145,7 +150,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
           child: Padding(
             padding: EdgeInsets.only(top: 4, bottom: 4),
             child: Text(
-              Translations.fromKey(LocaleKey.failedLatestDisplayingOld),
+              Translations.fromKey(widget.backupListWarningMessage),
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -188,8 +193,11 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
           : _listResults;
 
       List<Widget> additionalWidgets = List<Widget>();
+      if (deleteAll != null) {
+        additionalWidgets.add(deleteAllButton(context));
+      }
       if (addFabPadding) {
-        additionalWidgets.add(emptySpace(10));
+        additionalWidgets.add(emptySpace10x());
       }
       if (widget.lastListItemWidget != null) {
         additionalWidgets.add(widget.lastListItemWidget);
@@ -227,6 +235,17 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
     }
 
     return Column(key: key, children: columnWidgets);
+  }
+
+  Widget deleteAllButton(context) {
+    return Container(
+      child: MaterialButton(
+        child: Text(Translations.fromKey(LocaleKey.deleteAll)),
+        color: Colors.red,
+        onPressed: () => deleteAll(),
+      ),
+      margin: EdgeInsets.all(4),
+    );
   }
 
   onSearchTextChanged(String searchText) async {
