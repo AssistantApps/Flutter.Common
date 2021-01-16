@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../components/lazyLoadedSearchableList.dart';
+import '../../components/list/lazyLoadedSearchableList.dart';
 import '../../components/tilePresenters/donationTilePresenter.dart';
 import '../../constants/UIConstants.dart';
 import '../../contracts/generated/donationViewModel.dart';
-import '../../services/api/interface/IdonatorApiService.dart';
+import '../../services/api/interface/IDonatorApiService.dart';
 import '../../services/json/interface/IbackupJsonService.dart';
 
 class DonatorsPageWidget extends StatelessWidget {

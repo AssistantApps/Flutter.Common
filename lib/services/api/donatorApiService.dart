@@ -1,14 +1,12 @@
 import '../../constants/ApiUrls.dart';
 import '../../contracts/generated/donationViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
+import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
-import 'interface/IdonatorApiService.dart';
+import 'interface/IDonatorApiService.dart';
 
 class DonatorApiService extends BaseApiService implements IDonatorApiService {
-  final String assistantAppsAppGuid;
-  DonatorApiService(String baseUrl, this.assistantAppsAppGuid,
-      {void Function(String) debugLogger, void Function(String) errorLogger})
-      : super(baseUrl, debugLogger: debugLogger, errorLogger: errorLogger);
+  DonatorApiService() : super(getEnv().assistantAppsApiUrl);
 
   Future<PaginationResultWithValue<List<DonationViewModel>>> getDonators(
       {int page = 1}) async {
@@ -26,7 +24,7 @@ class DonatorApiService extends BaseApiService implements IDonatorApiService {
       });
       return paginationResult;
     } catch (exception) {
-      this.error("donators Api Exception: ${exception.toString()}");
+      getLog().e("donators Api Exception: ${exception.toString()}");
       return PaginationResultWithValue<List<DonationViewModel>>(
           false, List<DonationViewModel>(), 1, 0, exception.toString());
     }

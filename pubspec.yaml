@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
     
   # Base
+  get_it: 4.0.2
   http: 0.12.2
 
   # UI
@@ -22,6 +23,9 @@ dependencies:
   octo_image: ^0.3.0
   cached_network_image: ^2.5.0
   flutter_markdown: 0.4.1
+  after_layout: ^1.0.7+2
+  modal_bottom_sheet: ^1.0.0+1
+  material_segmented_control: 2.1.0+1
 
   # Misc
   enum_to_string: 1.0.9

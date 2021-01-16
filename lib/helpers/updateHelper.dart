@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-
+import '../contracts/enum/localeKey.dart';
+import '../integration/dependencyInjection.dart';
 import 'dateHelper.dart';
 
-String getVersionReleaseDate(BuildContext context, bool isCurrentVersion,
-    DateTime dateTime, String pendingAppStoreRelease) {
+String getVersionReleaseDate(bool isCurrentVersion, DateTime dateTime) {
   if (dateTime.isAfter(DateTime.now())) {
     if (isCurrentVersion) return simpleDate(DateTime.now());
-    return pendingAppStoreRelease;
+    return Translations.fromKey(LocaleKey.pendingAppStoreRelease);
   }
   return simpleDate(dateTime);
 }

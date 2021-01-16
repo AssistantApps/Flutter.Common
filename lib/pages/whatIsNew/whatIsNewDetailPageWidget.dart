@@ -1,8 +1,10 @@
-import 'package:assistantapps_flutter_common/helpers/genericHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import '../../components/adaptive/listWithScrollbar.dart';
+import '../../assistantapps_flutter_common.dart';
+import '../../components/common/space.dart';
+import '../../components/common/text.dart';
+import '../../components/list/listWithScrollbar.dart';
 import '../../contracts/enum/platformType.dart';
 import '../../contracts/generated/versionViewModel.dart';
 import '../../helpers/deviceHelper.dart';
@@ -12,17 +14,13 @@ import '../../helpers/updateHelper.dart';
 class WhatIsNewDetailPageWidget extends StatelessWidget {
   final String currentWhatIsNewGuid;
   final VersionViewModel version;
-  final String pendingAppStoreRelease;
-  final Color androidColour;
-  final Color iosColour;
+  final List<Widget> Function() additionalBuilder;
 
   WhatIsNewDetailPageWidget(
     this.currentWhatIsNewGuid,
-    this.version,
-    this.pendingAppStoreRelease,
-    this.androidColour,
-    this.iosColour,
-  );
+    this.version, {
+    this.additionalBuilder,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +31,8 @@ class WhatIsNewDetailPageWidget extends StatelessWidget {
         version.guid.toLowerCase() == currentWhatIsNewGuid.toLowerCase();
 
     columnWidgets.add(genericItemText(getVersionReleaseDate(
-      context,
       isCurrentVersion,
       this.version.activeDate,
-      pendingAppStoreRelease,
     )));
 
     List<Widget> wrapChildren = List<Widget>();
@@ -44,14 +40,14 @@ class WhatIsNewDetailPageWidget extends StatelessWidget {
       if (plat == PlatformType.iOS) {
         wrapChildren.add(Chip(
           label: Text('iOS', style: TextStyle(color: Colors.white)),
-          backgroundColor: iosColour,
+          backgroundColor: getTheme().getIosColour(),
         ));
       }
       if (!isApple) {
         if (plat == PlatformType.Android)
           wrapChildren.add(Chip(
             label: Text('Android', style: TextStyle(color: Colors.white)),
-            backgroundColor: androidColour,
+            backgroundColor: getTheme().getAndroidColour(),
           ));
         if (plat == PlatformType.Web) {
           wrapChildren.add(Chip(label: Text('Web')));
@@ -63,6 +59,10 @@ class WhatIsNewDetailPageWidget extends StatelessWidget {
       alignment: WrapAlignment.center,
       children: wrapChildren,
     ));
+
+    if (additionalBuilder != null) {
+      columnWidgets.addAll(additionalBuilder());
+    }
 
     columnWidgets.add(MarkdownBody(
       data: this.version.markdown,

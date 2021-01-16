@@ -4,18 +4,16 @@ import '../../contracts/generated/versionSearchViewModel.dart';
 import '../../contracts/generated/versionViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
-import 'interface/IversionApiService.dart';
+import 'interface/IVersionApiService.dart';
 
 class VersionApiService extends BaseApiService implements IVersionApiService {
-  final String assistantAppsAppGuid;
-  VersionApiService(String baseUrl, this.assistantAppsAppGuid,
-      {void Function(String) debugLogger, void Function(String) errorLogger})
-      : super(baseUrl, debugLogger: debugLogger, errorLogger: errorLogger);
+  VersionApiService() : super(getEnv().assistantAppsApiUrl);
 
   Future<ResultWithValue<VersionViewModel>> getLatest(
       List<PlatformType> platforms) async {
-    var url = "${ApiUrls.appVersion}/$assistantAppsAppGuid";
+    var url = "${ApiUrls.appVersion}/$getEnv().assistantAppsAppGuid";
     try {
       final response = await this.apiGet(url);
       if (response.hasFailed) {
@@ -25,7 +23,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       return ResultWithValue(
           true, VersionViewModel.fromRawJson(response.value), '');
     } catch (exception) {
-      this.error("getLatest Api Exception: ${exception.toString()}");
+      getLog().e("getLatest Api Exception: ${exception.toString()}");
       return ResultWithValue<VersionViewModel>(
           false, VersionViewModel(), exception.toString());
     }
@@ -35,7 +33,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       String langCode, List<PlatformType> platforms,
       {int page = 1}) async {
     VersionSearchViewModel body = VersionSearchViewModel(
-      appGuid: this.assistantAppsAppGuid,
+      appGuid: getEnv().assistantAppsAppGuid,
       languageCode: langCode,
       platforms: platforms,
       page: page,
@@ -53,7 +51,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       });
       return paginationResult;
     } catch (exception) {
-      this.error("getHistory Api Exception: ${exception.toString()}");
+      getLog().e("getHistory Api Exception: ${exception.toString()}");
       return PaginationResultWithValue<List<VersionViewModel>>(
           false, List<VersionViewModel>(), 0, 0, exception.toString());
     }

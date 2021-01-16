@@ -1,0 +1,20 @@
+String joinStringList(List<String> array, String separator) {
+  if (array.length == 1) return array[0];
+
+  String result = '';
+  int maxIndex = array.length - 1;
+  for (var index = 0; index < maxIndex; index++) {
+    result += array[index] + separator;
+  }
+  return result + array[maxIndex];
+}
+
+String padString(String input, int numChars) {
+  String padding = '';
+  for (var paddingIndex = 0;
+      paddingIndex < numChars - input.length;
+      paddingIndex++) {
+    padding += '0';
+  }
+  return padding + input;
+}

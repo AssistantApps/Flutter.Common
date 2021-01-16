@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/data/assistantAppLinks.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../integration/dependencyInjection.dart';
 import '../BaseJsonService.dart';
 import 'interface/IdataJsonRepository.dart';
 
@@ -22,7 +23,7 @@ class DataJsonRepository extends BaseJsonService
           list.map((m) => AssistantAppLinks.fromJson(m)).toList();
       return ResultWithValue<List<AssistantAppLinks>>(true, assistAppItems, '');
     } catch (exception) {
-      print(
+      getLog().e(
           "DataJsonRepository getAssistantApps Exception: ${exception.toString()}");
       return ResultWithValue<List<AssistantAppLinks>>(
           false, List<AssistantAppLinks>(), exception.toString());

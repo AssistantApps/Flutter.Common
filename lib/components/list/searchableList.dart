@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'package:assistantapps_flutter_common/contracts/enum/localeKey.dart';
+import 'package:assistantapps_flutter_common/integration/dependencyInjection.dart';
 import 'package:flutter/material.dart';
 
-import '../contracts/results/resultWithValue.dart';
-import '../helpers/genericHelper.dart';
-import 'adaptive/listWithScrollbar.dart';
+import '../../contracts/results/resultWithValue.dart';
+import '../common/space.dart';
+import 'listWithScrollbar.dart';
 
 class SearchableList<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Future<ResultWithValue<List<T>>> Function() backupListGetter;
-  final String backupListWarningMessage;
-  final String noItems;
   final Widget Function(BuildContext context, T) listItemDisplayer;
   final bool Function(T, String) listItemSearch;
   final void Function() deleteAll;
@@ -19,18 +18,13 @@ class SearchableList<T> extends StatefulWidget {
   final Widget firstListItemWidget;
   final Widget lastListItemWidget;
   final String hintText;
-  final Widget Function(BuildContext) fullPageLoading;
   final bool preloadListItems;
   final bool addFabPadding;
-
-  final void Function(String) debug;
-  final void Function(String) error;
 
   SearchableList(
     this.listGetter,
     this.listItemDisplayer,
-    this.listItemSearch,
-    this.fullPageLoading, {
+    this.listItemSearch, {
     this.key,
     this.searchBar,
     this.firstListItemWidget,
@@ -41,10 +35,6 @@ class SearchableList<T> extends StatefulWidget {
     this.minListForSearch = 10,
     this.addFabPadding = false,
     this.backupListGetter,
-    this.backupListWarningMessage,
-    this.noItems,
-    this.debug,
-    this.error,
   });
   @override
   SearchableListWidget<T> createState() => SearchableListWidget<T>(
@@ -54,12 +44,9 @@ class SearchableList<T> extends StatefulWidget {
         key,
         hintText,
         deleteAll,
-        fullPageLoading,
         preloadListItems,
         minListForSearch,
         addFabPadding,
-        debug,
-        error,
       );
 }
 
@@ -76,11 +63,8 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
   bool hasLoaded = false;
   bool usingBackupGetter = false;
   String hintText;
-  final Widget Function(BuildContext) fullPageLoading;
   final bool preloadListItems;
   final bool addFabPadding;
-  final void Function(String) debug;
-  final void Function(String) error;
 
   SearchableListWidget(
     this.listGetter,
@@ -89,14 +73,11 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
     this.key,
     this.hintText,
     this.deleteAll,
-    this.fullPageLoading,
     this.preloadListItems,
     this.minListForSearch,
     this.addFabPadding,
-    this.debug,
-    this.error,
   ) {
-    debug("SearchableListWidget ctor");
+    getLog().d("SearchableListWidget ctor");
   }
 
   @override
@@ -149,14 +130,14 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
 
   @override
   Widget build(BuildContext context) {
-    if (!hasLoaded) return fullPageLoading(context);
+    if (!hasLoaded) return getLoading().fullPageLoading(context);
 
     List<Widget> columnWidgets = List<Widget>();
     if (_listResults.length > minListForSearch) {
       columnWidgets.add(widget.searchBar);
     }
 
-    if (this.usingBackupGetter && widget.backupListWarningMessage != null) {
+    if (this.usingBackupGetter) {
       columnWidgets.add(
         Container(
           color: Colors.red,
@@ -164,7 +145,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
           child: Padding(
             padding: EdgeInsets.only(top: 4, bottom: 4),
             child: Text(
-              widget.backupListWarningMessage,
+              Translations.fromKey(LocaleKey.failedLatestDisplayingOld),
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -183,7 +164,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
       noItemsList.add(
         Container(
           child: Text(
-            widget.noItems,
+            Translations.fromKey(LocaleKey.noItems),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(fontSize: 20),

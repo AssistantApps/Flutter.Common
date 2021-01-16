@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../contracts/enum/localeKey.dart';
+import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
 import 'button.dart';
 
@@ -17,14 +19,12 @@ Widget paginationControl(
       ],
     );
 
-Widget smallLoadMorePageButton(
-        BuildContext context, String loadMore, Color colour) =>
-    smallPageButton(context, loadMore, Icons.navigate_next, colour);
+Widget smallLoadMorePageButton(BuildContext context) => smallPageButton(
+    context, Translations.fromKey(LocaleKey.loadMore), Icons.navigate_next);
 
-Widget smallPageButton(
-    BuildContext context, String title, IconData icon, Color colour) {
+Widget smallPageButton(BuildContext context, String title, IconData icon) {
   return ListTile(
-    leading: getCorrectlySizedImageFromIcon(context, icon, colour),
+    leading: getCorrectlySizedImageFromIcon(context, icon),
     title: Text(title),
   );
 }

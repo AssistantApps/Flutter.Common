@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:octo_image/octo_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+
+import '../../integration/dependencyInjection.dart';
 
 Widget networkImage(
   String imageUrl, {
@@ -48,7 +50,7 @@ Widget localImage(
   );
 }
 
-Widget getCorrectlySizedImageFromIcon(context, IconData icon, Color colour,
+Widget getCorrectlySizedImageFromIcon(context, IconData icon,
         {double size = 35}) =>
     ConstrainedBox(
       constraints: BoxConstraints(
@@ -58,7 +60,7 @@ Widget getCorrectlySizedImageFromIcon(context, IconData icon, Color colour,
       child: Center(
         child: Icon(
           icon,
-          color: colour,
+          color: getTheme().getSecondaryColour(context),
           size: size,
         ),
       ),

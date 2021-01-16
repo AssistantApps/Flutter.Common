@@ -1,8 +1,9 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pagination_view/pagination_view.dart';
 
-import '../contracts/results/paginationResultWithValue.dart';
+import '../../contracts/results/paginationResultWithValue.dart';
 
 class LazyLoadSearchableList<T> extends StatefulWidget {
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
@@ -18,8 +19,6 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
   final Widget loadMoreItemWidget;
   final String errorMessage;
   final String emptyMessage;
-  final Widget Function(BuildContext context) smallLoadingTile;
-  final Widget Function(BuildContext context) fullPageLoading;
 
   LazyLoadSearchableList(
     this.listGetter,
@@ -31,8 +30,6 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
     this.loadingText,
     this.addFabPadding = false,
     this.loadMoreItemWidget,
-    this.smallLoadingTile,
-    this.fullPageLoading,
     this.errorMessage,
     this.emptyMessage,
   });
@@ -47,8 +44,6 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
         hintText,
         loadingText,
         addFabPadding,
-        smallLoadingTile,
-        fullPageLoading,
       );
 }
 
@@ -68,8 +63,6 @@ class _LazyLoadSearchableListWidget<T>
   final String loadingText;
   final bool addFabPadding;
   // bool usingBackupGetter = false;
-  final Widget Function(BuildContext context) smallLoadingTile;
-  final Widget Function(BuildContext context) fullPageLoading;
 
   _LazyLoadSearchableListWidget(
     this.listGetter,
@@ -80,8 +73,6 @@ class _LazyLoadSearchableListWidget<T>
     this.hintText,
     this.loadingText,
     this.addFabPadding,
-    this.smallLoadingTile,
-    this.fullPageLoading,
   );
 
   Future<List<T>> getMoreData(int page) async {
@@ -125,9 +116,9 @@ class _LazyLoadSearchableListWidget<T>
         child: Text(widget.emptyMessage ?? 'Sorry! This is empty'),
       ),
       bottomLoader: Center(
-        child: smallLoadingTile(context),
+        child: getLoading().smallLoadingTile(context),
       ),
-      initialLoader: fullPageLoading(context),
+      initialLoader: getLoading().fullPageLoading(context),
       scrollController: _scrollController,
       key: Key('lazyLoaded'),
     );

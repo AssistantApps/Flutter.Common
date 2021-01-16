@@ -1,29 +1,21 @@
 import 'package:flutter/material.dart';
 
 import '../../components/fun/backgroundWrapper.dart';
-import '../../components/searchableList.dart';
+import '../../components/list/searchableList.dart';
 import '../../components/tilePresenters/patreonTilePresenter.dart';
 import '../../constants/AppImage.dart';
 import '../../constants/ExternalUrls.dart';
 import '../../contracts/enum/backgroundType.dart';
+import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/patreonViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
-import '../../services/api/interface/IpatreonApiService.dart';
+import '../../integration/dependencyInjection.dart';
+import '../../services/api/interface/IPatreonApiService.dart';
 import '../../services/json/backupJsonService.dart';
 
 class PatronListPageWidget extends StatelessWidget {
-  final String joinPatreon;
   final IPatreonApiService patreonApiService;
-  final Widget Function(BuildContext) fullPageLoading;
-  final String noItems;
-  final String failedLatestDisplayingOld;
-  PatronListPageWidget(
-    this.joinPatreon,
-    this.patreonApiService,
-    this.fullPageLoading, {
-    this.noItems,
-    this.failedLatestDisplayingOld,
-  });
+  PatronListPageWidget(this.patreonApiService);
 
   Future<ResultWithValue<List<PatreonViewModel>>> wrapPatronsListCall(
     BuildContext context,
@@ -35,7 +27,7 @@ class PatronListPageWidget extends StatelessWidget {
     List<PatreonViewModel> list = List<PatreonViewModel>();
     list.addAll(patronsResult.value);
     list.add(PatreonViewModel(
-      name: joinPatreon,
+      name: Translations.fromKey(LocaleKey.joinPatreon),
       imageUrl: AppImage.onlinePatreonIcon,
       url: ExternalUrls.patreon,
     ));
@@ -53,10 +45,7 @@ class PatronListPageWidget extends StatelessWidget {
         () => wrapPatronsListCall(context, apiFunc),
         patronTilePresenter,
         (_, __) => false,
-        fullPageLoading,
         backupListGetter: () => wrapPatronsListCall(context, backupFunc),
-        backupListWarningMessage: failedLatestDisplayingOld,
-        noItems: noItems,
         minListForSearch: 20000,
       ),
     );

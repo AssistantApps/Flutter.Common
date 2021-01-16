@@ -4,14 +4,11 @@ import '../../contracts/generated/donationViewModel.dart';
 import '../../contracts/generated/patreonViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../integration/dependencyInjection.dart';
 import '../BaseJsonService.dart';
 import 'interface/IbackupJsonService.dart';
 
 class BackupJsonService extends BaseJsonService implements IBackupJsonService {
-  BackupJsonService(
-      {void Function(String) debugLogger, void Function(String) errorLogger})
-      : super(debugLogger: debugLogger, errorLogger: errorLogger);
-
   Future<ResultWithValue<List<PatreonViewModel>>> getPatrons(context) async {
     try {
       dynamic jsonString =
@@ -22,7 +19,7 @@ class BackupJsonService extends BaseJsonService implements IBackupJsonService {
 
       return ResultWithValue<List<PatreonViewModel>>(true, backupItems, '');
     } catch (exception) {
-      this.error("BackupJsonService getPatrons() Ex: ${exception.toString()}");
+      getLog().e("BackupJsonService getPatrons() Ex: ${exception.toString()}");
       return ResultWithValue<List<PatreonViewModel>>(
           false, List<PatreonViewModel>(), exception.toString());
     }
@@ -48,8 +45,8 @@ class BackupJsonService extends BaseJsonService implements IBackupJsonService {
       return PaginationResultWithValue<List<DonationViewModel>>(
           true, filteredItems, page, totalPages, '');
     } catch (exception) {
-      this.error(
-          "BackupJsonService getDonations() Ex: ${exception.toString()}");
+      getLog()
+          .e("BackupJsonService getDonations() Ex: ${exception.toString()}");
       return PaginationResultWithValue<List<DonationViewModel>>(
           false, List<DonationViewModel>(), 1, 0, exception.toString());
     }
