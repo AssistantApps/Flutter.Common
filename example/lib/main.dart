@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
 void main() {
   runApp(MyApp());
