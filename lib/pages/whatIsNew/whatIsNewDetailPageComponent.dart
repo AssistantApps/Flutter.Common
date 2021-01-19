@@ -11,12 +11,12 @@ import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../helpers/updateHelper.dart';
 
-class WhatIsNewDetailPageWidget extends StatelessWidget {
+class WhatIsNewDetailPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;
   final VersionViewModel version;
   final List<Widget> Function() additionalBuilder;
 
-  WhatIsNewDetailPageWidget(
+  WhatIsNewDetailPageComponent(
     this.currentWhatIsNewGuid,
     this.version, {
     this.additionalBuilder,

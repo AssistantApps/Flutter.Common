@@ -5,6 +5,7 @@ class AppImage {
   static const String twitter = 'twitter.png';
   static const String assistantApps = 'assistantApps.png';
 
+  static const String error = base + 'error.png';
   static const String snowflake = base + 'special/snowflake.png';
   static const String specialPatreonLogo = base + 'special/patreonTile.png';
 

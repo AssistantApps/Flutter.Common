@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/common/image.dart';
+import '../../constants/AppImage.dart';
+import '../../constants/UIConstants.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';
@@ -16,7 +19,8 @@ class LoadingWidgetService implements ILoadingWidgetService {
   Widget smallLoadingTile(BuildContext context, {String loadingText}) =>
       ListTile(
         leading: smallLoadingIndicator(),
-        title: Text(loadingText ?? Translations.fromKey(LocaleKey.loading)),
+        title:
+            Text(loadingText ?? getTranslations().fromKey(LocaleKey.loading)),
       );
 
   @override
@@ -42,9 +46,30 @@ class LoadingWidgetService implements ILoadingWidgetService {
               )
             ], mainAxisAlignment: MainAxisAlignment.center),
             Row(children: <Widget>[
-              Text(loadingText ?? Translations.fromKey(LocaleKey.loading))
+              Text(loadingText ?? getTranslations().fromKey(LocaleKey.loading))
             ], mainAxisAlignment: MainAxisAlignment.center),
           ],
         ),
       );
+
+  @override
+  Widget customErrorWidget(BuildContext context, {String text}) {
+    return Center(
+      child: Column(
+        children: [
+          localImage(
+            AppImage.error,
+            width: 500,
+            padding: EdgeInsets.all(8),
+            package: UIConstants.CommonPackage,
+          ),
+          Text(
+            text ?? getTranslations().fromKey(LocaleKey.somethingWentWrong),
+            style: TextStyle(fontSize: 30),
+            textAlign: TextAlign.center,
+          )
+        ],
+      ),
+    );
+  }
 }

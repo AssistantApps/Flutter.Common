@@ -51,6 +51,7 @@ export 'helpers/dateHelper.dart';
 export 'helpers/deviceHelper.dart';
 export 'helpers/externalHelper.dart';
 export 'helpers/jsonHelper.dart';
+export 'helpers/snapshotHelper.dart';
 export 'helpers/stringHelper.dart';
 export 'helpers/updateHelper.dart';
 
@@ -59,36 +60,45 @@ export 'integration/dependencyInjection.dart' hide getEnv;
 export 'integration/translationDelegate.dart';
 
 // Pages
-export 'pages/donators/donatorsPageWidget.dart';
-export 'pages/patrons/patronListPageWidget.dart';
-export 'pages/whatIsNew/whatIsNewPageWidget.dart';
-export 'pages/whatIsNew/whatIsNewDetailPageWidget.dart';
+export 'pages/donators/donatorsPageComponent.dart';
+export 'pages/language/languagePageContent.dart';
+export 'pages/patrons/patronListPageComponent.dart';
+export 'pages/whatIsNew/whatIsNewPageComponent.dart';
+export 'pages/whatIsNew/whatIsNewDetailPageComponent.dart';
 
 //Services
 
 //Api Interfaces
 export 'services/api/interface/IDonatorApiService.dart';
 export 'services/api/interface/IPatreonApiService.dart';
+export 'services/api/interface/ITranslationApiService.dart';
 export 'services/api/interface/IVersionApiService.dart';
 
 //Api implementations
 export 'services/api/donatorApiService.dart';
 export 'services/api/patreonApiService.dart';
+export 'services/api/translationApiService.dart';
 export 'services/api/versionApiService.dart';
 
 //Base Interfaces
+export 'services/base/interface/IAnalyticsService.dart';
 export 'services/base/interface/ILoadingWidgetService.dart';
 export 'services/base/interface/ILoggingService.dart';
 export 'services/base/interface/INavigationService.dart';
+export 'services/base/interface/ISnackbarService.dart';
 export 'services/base/interface/IThemeService.dart';
 export 'services/base/interface/ITranslationsService.dart';
+export 'services/base/interface/IUpdateService.dart';
 
 //Base implementations
+export 'services/base/analyticsService.dart';
 export 'services/base/loadingWidgetService.dart';
 export 'services/base/loggingService.dart';
 export 'services/base/navigationService.dart';
+export 'services/base/snackbarService.dart';
 export 'services/base/themeService.dart';
 export 'services/base/translationsService.dart';
+export 'services/base/updateService.dart';
 
 //Json Interfaces
 export 'services/json/interface/IbackupJsonService.dart';

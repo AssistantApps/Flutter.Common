@@ -12,7 +12,7 @@ class BaseApiService {
   Future<ResultWithValue<String>> apiPost(String url, dynamic body) async {
     try {
       getLog().d('post request to: $_baseUrl/$url');
-      getLog().d('post request body: $body');
+      // getLog().d('post request body: $body');
       final response = await http.post('$_baseUrl/$url',
           body: body, headers: {"Content-Type": "application/json"});
       if (response.statusCode != 200) {

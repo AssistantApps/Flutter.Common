@@ -57,7 +57,8 @@ class _AssistantAppsModalBottomSheetWidget
     widgets.add(
       localImage('${AppImage.base}${AppImage.assistantApps}', height: 75),
     );
-    widgets.add(genericItemName(Translations.fromKey(LocaleKey.assistantApps)));
+    widgets.add(
+        genericItemName(getTranslations().fromKey(LocaleKey.assistantApps)));
     widgets.add(genericItemDescription(
       'This app is part of the AssistantApps range',
     ));

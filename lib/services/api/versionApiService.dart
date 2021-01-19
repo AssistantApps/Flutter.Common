@@ -13,7 +13,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
 
   Future<ResultWithValue<VersionViewModel>> getLatest(
       List<PlatformType> platforms) async {
-    var url = "${ApiUrls.appVersion}/$getEnv().assistantAppsAppGuid";
+    var url = "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}";
     try {
       final response = await this.apiGet(url);
       if (response.hasFailed) {

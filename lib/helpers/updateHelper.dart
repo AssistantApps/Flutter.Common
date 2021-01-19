@@ -5,7 +5,7 @@ import 'dateHelper.dart';
 String getVersionReleaseDate(bool isCurrentVersion, DateTime dateTime) {
   if (dateTime.isAfter(DateTime.now())) {
     if (isCurrentVersion) return simpleDate(DateTime.now());
-    return Translations.fromKey(LocaleKey.pendingAppStoreRelease);
+    return getTranslations().fromKey(LocaleKey.pendingAppStoreRelease);
   }
   return simpleDate(dateTime);
 }

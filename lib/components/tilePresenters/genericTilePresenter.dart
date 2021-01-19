@@ -6,6 +6,7 @@ ListTile genericListTileWithSubtitle(context,
     {@required String leadingImage,
     String imageBackgroundColour,
     bool imageGreyScale = false,
+    String imagePackage,
     @required String name,
     String description,
     Widget subtitle,
@@ -19,7 +20,7 @@ ListTile genericListTileWithSubtitle(context,
   if (title == null || title.length == 0) title = ' ';
 
   return ListTile(
-    leading: genericTileImage(leadingImage),
+    leading: genericTileImage(leadingImage, imagePackage: imagePackage),
     title: Text(
       title,
       maxLines: maxLines,
@@ -67,7 +68,7 @@ ListTile genericListTileWithNetworkImage(context,
   );
 }
 
-Widget genericTileImage(String leadingImage) {
+Widget genericTileImage(String leadingImage, {String imagePackage}) {
   if (leadingImage == null) return null;
 
   String prefix = '';
@@ -76,5 +77,5 @@ Widget genericTileImage(String leadingImage) {
   }
 
   String fullPath = '$prefix$leadingImage';
-  return localImage(fullPath);
+  return localImage(fullPath, package: imagePackage);
 }

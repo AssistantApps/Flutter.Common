@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: A new Flutter package project.
-version: 0.0.5
+version: 0.0.6
 author: Kurt Lourens
 homepage: https://assistantapps.com
 
@@ -26,12 +26,20 @@ dependencies:
   after_layout: ^1.0.7+2
   modal_bottom_sheet: ^1.0.0+1
   material_segmented_control: 2.1.0+1
+  flushbar: 1.10.4
+  fl_chart: ^0.12.2
 
   # Misc
   enum_to_string: 1.0.9
   url_launcher: 5.4.10
+  package_info: 0.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter:
+  assets:
+    - assets/images/
+    - assets/images/donations
+    - assets/images/special

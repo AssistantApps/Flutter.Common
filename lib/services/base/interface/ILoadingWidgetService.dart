@@ -11,4 +11,6 @@ class ILoadingWidgetService {
 
   Widget fullPageLoading(BuildContext context, {String loadingText}) =>
       Container();
+
+  Widget customErrorWidget(BuildContext context, {String text}) => Container();
 }

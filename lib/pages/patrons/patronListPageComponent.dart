@@ -12,7 +12,7 @@ import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../services/json/backupJsonService.dart';
 
-class PatronListPageWidget extends StatelessWidget {
+class PatronListPageComponent extends StatelessWidget {
   Future<ResultWithValue<List<PatreonViewModel>>> wrapPatronsListCall(
     BuildContext context,
     Future<ResultWithValue<List<PatreonViewModel>>> Function() getPatrons,
@@ -23,7 +23,7 @@ class PatronListPageWidget extends StatelessWidget {
     List<PatreonViewModel> list = List<PatreonViewModel>();
     list.addAll(patronsResult.value);
     list.add(PatreonViewModel(
-      name: Translations.fromKey(LocaleKey.joinPatreon),
+      name: getTranslations().fromKey(LocaleKey.joinPatreon),
       imageUrl: AppImage.onlinePatreonIcon,
       url: ExternalUrls.patreon,
     ));

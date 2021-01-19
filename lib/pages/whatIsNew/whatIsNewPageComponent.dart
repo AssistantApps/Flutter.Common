@@ -6,14 +6,14 @@ import '../../components/tilePresenters/versionTilePresenter.dart';
 import '../../contracts/enum/platformType.dart';
 import '../../contracts/generated/versionViewModel.dart';
 
-class WhatIsNewPageWidget extends StatelessWidget {
+class WhatIsNewPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;
   final String selectedLanguage;
   final List<PlatformType> platforms;
   final Widget loadMoreItemWidget;
   final void Function(VersionViewModel) onTap;
 
-  WhatIsNewPageWidget(
+  WhatIsNewPageComponent(
     this.currentWhatIsNewGuid,
     this.selectedLanguage,
     this.platforms,

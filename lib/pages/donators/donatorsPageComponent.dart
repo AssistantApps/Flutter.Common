@@ -6,9 +6,9 @@ import '../../components/tilePresenters/donationTilePresenter.dart';
 import '../../constants/UIConstants.dart';
 import '../../contracts/generated/donationViewModel.dart';
 
-class DonatorsPageWidget extends StatelessWidget {
+class DonatorsPageComponent extends StatelessWidget {
   final Widget loadMoreItemWidget;
-  const DonatorsPageWidget(this.loadMoreItemWidget, {Key key})
+  const DonatorsPageComponent(this.loadMoreItemWidget, {Key key})
       : super(key: key);
 
   @override

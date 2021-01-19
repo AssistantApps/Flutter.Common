@@ -133,7 +133,8 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
   Widget build(BuildContext context) {
     if (!hasLoaded)
       return getLoading().fullPageLoading(context,
-          loadingText: loadingText ?? Translations.fromKey(LocaleKey.loading));
+          loadingText:
+              loadingText ?? getTranslations().fromKey(LocaleKey.loading));
 
     List<Widget> columnWidgets = List<Widget>();
     if (_listResults.length > minListForSearch) {
@@ -150,7 +151,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
           child: Padding(
             padding: EdgeInsets.only(top: 4, bottom: 4),
             child: Text(
-              Translations.fromKey(widget.backupListWarningMessage),
+              getTranslations().fromKey(widget.backupListWarningMessage),
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -169,7 +170,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
       noItemsList.add(
         Container(
           child: Text(
-            Translations.fromKey(LocaleKey.noItems),
+            getTranslations().fromKey(LocaleKey.noItems),
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(fontSize: 20),
@@ -240,7 +241,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
   Widget deleteAllButton(context) {
     return Container(
       child: MaterialButton(
-        child: Text(Translations.fromKey(LocaleKey.deleteAll)),
+        child: Text(getTranslations().fromKey(LocaleKey.deleteAll)),
         color: Colors.red,
         onPressed: () => deleteAll(),
       ),

@@ -6,4 +6,5 @@ class UIConstants {
   static const int DonationsPageSize = 20;
   static ShapeBorder noBorderRadius =
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(0));
+  static const String CommonPackage = 'assistantapps_flutter_common';
 }

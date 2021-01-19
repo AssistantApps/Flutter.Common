@@ -23,7 +23,7 @@ Widget popupMenu(
     items.add(PopupMenuActionItem(
       icon: Icons.edit,
       onPressed: onEdit,
-      text: Translations.fromKey(LocaleKey.edit),
+      text: getTranslations().fromKey(LocaleKey.edit),
     ));
   }
 
@@ -31,7 +31,7 @@ Widget popupMenu(
     items.add(PopupMenuActionItem(
       icon: Icons.delete,
       onPressed: onDelete,
-      text: Translations.fromKey(LocaleKey.delete),
+      text: getTranslations().fromKey(LocaleKey.delete),
       style: TextStyle(color: Colors.red),
     ));
   }

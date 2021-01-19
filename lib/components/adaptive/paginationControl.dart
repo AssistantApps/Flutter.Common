@@ -19,8 +19,8 @@ Widget paginationControl(
       ],
     );
 
-Widget smallLoadMorePageButton(BuildContext context) => smallPageButton(
-    context, Translations.fromKey(LocaleKey.loadMore), Icons.navigate_next);
+Widget smallLoadMorePageButton(BuildContext context) => smallPageButton(context,
+    getTranslations().fromKey(LocaleKey.loadMore), Icons.navigate_next);
 
 Widget smallPageButton(BuildContext context, String title, IconData icon) {
   return ListTile(

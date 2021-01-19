@@ -19,7 +19,7 @@ class TranslationsDelegate extends LocalizationsDelegate<ITranslationService> {
   @override
   Future<ITranslationService> load(Locale locale) {
     getLog().d('load: ' + locale.languageCode);
-    return Translations.load(newLocale ?? locale);
+    return getTranslations().load(newLocale ?? locale);
   }
 
   @override

@@ -33,13 +33,17 @@ Widget networkImage(
 
 Widget localImage(
   String imagePath, {
+  String package,
   BoxFit boxfit,
   double height,
   double width,
   EdgeInsetsGeometry padding = EdgeInsets.zero,
 }) {
   var image = Image(
-    image: AssetImage(imagePath),
+    image: AssetImage(
+      imagePath,
+      package: package,
+    ),
     fit: boxfit,
     height: height,
     width: width,

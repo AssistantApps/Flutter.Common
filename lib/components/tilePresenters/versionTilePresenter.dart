@@ -29,7 +29,8 @@ Widget Function(BuildContext context, VersionViewModel version)
       rightChild: genericListTileWithSubtitle(
         context,
         leadingImage: null,
-        name: Translations.fromKey(LocaleKey.release)
+        name: getTranslations()
+            .fromKey(LocaleKey.release)
             .replaceAll('{0}', version.buildName),
         subtitle: genericEllipsesText(dateToDisplay),
         trailing: Icon(Icons.chevron_right),

@@ -20,7 +20,7 @@ Widget _androidSearchBar(context, TextEditingController controller,
             cursorColor: getTheme().getSecondaryColour(context),
             decoration: InputDecoration(
                 hintText: hintText == null
-                    ? Translations.fromKey(LocaleKey.searchItems)
+                    ? getTranslations().fromKey(LocaleKey.searchItems)
                     : hintText,
                 border: InputBorder.none),
             onChanged: onSearchTextChanged,

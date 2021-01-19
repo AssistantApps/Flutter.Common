@@ -6,7 +6,7 @@ import '../../integration/dependencyInjection.dart';
 Widget wrapInNewBanner(BuildContext context, LocaleKey message, Widget child) =>
     ClipRect(
       child: Banner(
-        message: Translations.fromKey(message),
+        message: getTranslations().fromKey(message),
         location: BannerLocation.topEnd,
         child: child,
       ),
