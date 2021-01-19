@@ -41,5 +41,5 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
-    - assets/images/donations
-    - assets/images/special
+    - assets/images/donations/
+    - assets/images/special/

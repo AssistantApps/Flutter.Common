@@ -24,4 +24,10 @@ class TranslationGetGraphViewModel {
           (dynamic innerJson) => innerJson,
         ),
       );
+
+  String toRawJson() => json.encode(toJson());
+
+  Map<String, dynamic> toJson() => {
+        'AppGuidList': appGuidList,
+      };
 }

@@ -39,11 +39,9 @@ Widget localImage(
   double width,
   EdgeInsetsGeometry padding = EdgeInsets.zero,
 }) {
-  var image = Image(
-    image: AssetImage(
-      imagePath,
-      package: package,
-    ),
+  var image = Image.asset(
+    imagePath,
+    package: package,
     fit: boxfit,
     height: height,
     width: width,

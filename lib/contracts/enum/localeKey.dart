@@ -348,4 +348,6 @@ enum LocaleKey {
   proceduralStats,
   statAlwaysIncluded,
   statPossible,
+  translationPercentageComplete,
+  useTranslationTool,
 }

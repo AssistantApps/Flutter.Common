@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
 
@@ -74,7 +75,7 @@ ParticleOptions getParticleOptions(
   int particleCount = 50,
 }) {
   ParticleOptions options = ParticleOptions(
-    image: Image(image: AssetImage(image)),
+    image: Image.asset(image, package: UIConstants.CommonPackage),
     spawnMaxSpeed: spawnMaxSpeed,
     spawnMinSpeed: spawnMinSpeed,
     particleCount: particleCount,

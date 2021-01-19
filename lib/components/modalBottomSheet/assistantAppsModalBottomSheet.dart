@@ -5,6 +5,7 @@ import '../../components/common/image.dart';
 import '../../components/tilePresenters/genericTilePresenter.dart';
 import '../../constants/AppImage.dart';
 import '../../constants/ExternalUrls.dart';
+import '../../constants/UIConstants.dart';
 import '../../contracts/data/assistantAppLinks.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/misc/popupMenuActionItem.dart';
@@ -55,7 +56,11 @@ class _AssistantAppsModalBottomSheetWidget
     List<Widget> widgets = List<Widget>();
     widgets.add(emptySpace(1));
     widgets.add(
-      localImage('${AppImage.base}${AppImage.assistantApps}', height: 75),
+      localImage(
+        '${AppImage.base}${AppImage.assistantApps}',
+        package: UIConstants.CommonPackage,
+        height: 75,
+      ),
     );
     widgets.add(
         genericItemName(getTranslations().fromKey(LocaleKey.assistantApps)));

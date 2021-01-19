@@ -12,21 +12,21 @@ enum DonationType {
 String getImage(DonationType donation) {
   switch (donation) {
     case DonationType.PAYPAL:
-      return "payPal.png";
+      return 'payPal.png';
     case DonationType.BRAVEREWARDS:
-      return "bat.png";
+      return 'bat.png';
     case DonationType.BUYMEACOFFEE:
-      return "buyMeACoffee.png";
+      return 'buyMeACoffee.png';
     case DonationType.KOFI:
-      return "kofi.png";
+      return 'kofi.png';
     case DonationType.PATREON:
-      return "patreon.png";
+      return 'patreon.png';
     case DonationType.GOOGLEPLAY:
-      return "googlePay.png";
+      return 'googlePay.png';
     case DonationType.APPLEPLAY:
-      return "applePay.png";
+      return 'applePay.png';
     case DonationType.UNKNOWN:
     default:
-      return "unknown.png";
+      return 'unknownDonation.png';
   }
 }

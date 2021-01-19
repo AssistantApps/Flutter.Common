@@ -16,4 +16,5 @@ class ExternalUrls {
   static const String defaultProfilePic =
       'https://assistantapps.com/assets/favicon/android-icon-192x192.png';
   static const String assistantAppsWebsite = 'https://assistantapps.com';
+  static const String assistantAppsToolSite = 'https://tools.assistantapps.com';
 }

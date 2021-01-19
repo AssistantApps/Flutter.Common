@@ -14,12 +14,12 @@ class TranslationApiService extends BaseApiService
 
   Future<ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>>
       getTranslationsPerLanguageChart() async {
-    var url = "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}";
+    var url = ApiUrls.translationsPerLanguageGraph;
     TranslationGetGraphViewModel data = TranslationGetGraphViewModel(
       appGuidList: [getEnv().assistantAppsAppGuid],
     );
     try {
-      final response = await this.apiPost(url, data);
+      final response = await this.apiPost(url, data.toRawJson());
       if (response.hasFailed) {
         return ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>(
             false,
