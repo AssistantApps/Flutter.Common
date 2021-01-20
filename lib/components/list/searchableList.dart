@@ -1,12 +1,16 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../assistantapps_flutter_common.dart';
+import '../grid/gridWithScrollbar.dart';
 
 class SearchableList<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Future<ResultWithValue<List<T>>> Function() backupListGetter;
   final LocaleKey backupListWarningMessage;
-  final Widget Function(BuildContext context, T) listItemDisplayer;
+  final Widget Function(BuildContext, T) listItemDisplayer;
+  final Widget Function(BuildContext, T, int) listItemWithIndexDisplayer;
   final bool Function(T, String) listItemSearch;
   final void Function() deleteAll;
   final int minListForSearch;
@@ -17,11 +21,14 @@ class SearchableList<T> extends StatefulWidget {
   final String loadingText;
   final bool preloadListItems;
   final bool addFabPadding;
+  final bool useGridView;
+  final int Function(Breakpoint) gridViewColumnCalculator;
 
   SearchableList(
-    this.listGetter,
+    this.listGetter, {
+    this.listItemSearch,
     this.listItemDisplayer,
-    this.listItemSearch, {
+    this.listItemWithIndexDisplayer,
     this.key,
     this.firstListItemWidget,
     this.lastListItemWidget,
@@ -31,6 +38,8 @@ class SearchableList<T> extends StatefulWidget {
     this.preloadListItems = false,
     this.minListForSearch = 10,
     this.addFabPadding = false,
+    this.useGridView = false,
+    this.gridViewColumnCalculator,
     this.backupListGetter,
     this.backupListWarningMessage,
   });
@@ -38,6 +47,7 @@ class SearchableList<T> extends StatefulWidget {
   SearchableListWidget<T> createState() => SearchableListWidget<T>(
         listGetter(),
         listItemDisplayer,
+        listItemWithIndexDisplayer,
         listItemSearch,
         key,
         hintText,
@@ -53,6 +63,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
   TextEditingController controller = TextEditingController();
   Future<ResultWithValue<List<T>>> listGetter;
   final Widget Function(BuildContext context, T) listItemDisplayer;
+  final Widget Function(BuildContext, T, int) listItemWithIndexDisplayer;
   final bool Function(T, String) listItemSearch;
   final void Function() deleteAll;
   List<T> _searchResult = [];
@@ -69,6 +80,7 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
   SearchableListWidget(
     this.listGetter,
     this.listItemDisplayer,
+    this.listItemWithIndexDisplayer,
     this.listItemSearch,
     this.key,
     this.hintText,
@@ -127,6 +139,14 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
       hasLoaded = true;
       _listResults = [];
     });
+  }
+
+  Widget useListItemDisplayer(BuildContext context, T data, int index) {
+    if (listItemDisplayer != null) {
+      return listItemDisplayer(context, data);
+    } else {
+      return listItemWithIndexDisplayer(context, data, index);
+    }
   }
 
   @override
@@ -209,30 +229,54 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
 
       List<Widget> preloadedList = List<Widget>();
       if (preloadListItems) {
-        for (var listItem in list) {
-          preloadedList.add(listItemDisplayer(context, listItem));
+        for (var listItemIndex = 0;
+            listItemIndex < list.length;
+            listItemIndex++) {
+          var listItem = list[listItemIndex];
+          preloadedList.add(useListItemDisplayer(
+            context,
+            listItem,
+            listItemIndex,
+          ));
         }
       }
 
-      columnWidgets.add(
-        Expanded(
-          child: listWithScrollbar(
-            itemCount: listLength,
-            itemBuilder: (context, index) {
-              if (widget.firstListItemWidget != null) {
-                if (index == 0) return widget.firstListItemWidget;
-                index = index - 1;
-              }
-              if (index >= list.length) {
-                int modifier = (widget.firstListItemWidget != null) ? 2 : 1;
-                return additionalWidgets[listLength - index - modifier];
-              }
-              if (preloadListItems) return preloadedList[index];
-              return listItemDisplayer(context, list[index]);
-            },
+      if (widget.useGridView) {
+        columnWidgets.add(
+          Expanded(
+            child: gridWithScrollbar(
+              itemCount: listLength,
+              itemBuilder: (context, index) {
+                if (index >= list.length) {
+                  return additionalWidgets[listLength - index - 1];
+                }
+                return useListItemDisplayer(context, list[index], index);
+              },
+              gridViewColumnCalculator: widget.gridViewColumnCalculator,
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        columnWidgets.add(
+          Expanded(
+            child: listWithScrollbar(
+              itemCount: listLength,
+              itemBuilder: (context, index) {
+                if (widget.firstListItemWidget != null) {
+                  if (index == 0) return widget.firstListItemWidget;
+                  index = index - 1;
+                }
+                if (index >= list.length) {
+                  int modifier = (widget.firstListItemWidget != null) ? 2 : 1;
+                  return additionalWidgets[listLength - index - modifier];
+                }
+                if (preloadListItems) return preloadedList[index];
+                return useListItemDisplayer(context, list[index], index);
+              },
+            ),
+          ),
+        );
+      }
     }
 
     return Column(key: key, children: columnWidgets);
@@ -257,7 +301,8 @@ class SearchableListWidget<T> extends State<SearchableList<T>> {
     }
 
     _listResults.forEach((item) {
-      if (listItemSearch(item, searchText.toLowerCase())) {
+      if (listItemSearch == null ||
+          listItemSearch(item, searchText.toLowerCase())) {
         _searchResult.add(item);
       }
     });

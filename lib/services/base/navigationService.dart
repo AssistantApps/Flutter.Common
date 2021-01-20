@@ -46,8 +46,12 @@ class NavigationService implements INavigationService {
   }
 
   @override
-  Future navigateAwayFromHomeAsync(context,
-      {Function navigateTo, String navigateToNamed}) async {
+  Future navigateAwayFromHomeAsync(
+    context, {
+    Function navigateTo,
+    String navigateToNamed,
+    Map<String, String> navigateToNamedParameters,
+  }) async {
     if (navigateTo != null) {
       if (Navigator.canPop(context)) {
         Navigator.push(

@@ -39,8 +39,8 @@ class PatronListPageComponent extends StatelessWidget {
       backgroundType: BackgroundType.Patreon,
       body: SearchableList<PatreonViewModel>(
         () => wrapPatronsListCall(context, apiFunc),
-        patronTilePresenter,
-        (_, __) => false,
+        listItemDisplayer: patronTilePresenter,
+        listItemSearch: (_, __) => false,
         backupListGetter: () => wrapPatronsListCall(context, backupFunc),
         minListForSearch: 20000,
         addFabPadding: true,

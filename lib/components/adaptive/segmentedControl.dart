@@ -4,6 +4,18 @@ import 'package:material_segmented_control/material_segmented_control.dart';
 
 import '../../integration/dependencyInjection.dart';
 
+Widget adaptiveSegmentedControl(BuildContext context,
+        {@required List<Widget> controlItems,
+        @required int currentSelection,
+        @required void Function(int) onSegmentChosen}) =>
+    androidSegmentedControl(
+        context, controlItems, currentSelection, onSegmentChosen);
+// isiOS
+//     ? androidSegmentedControl(
+//         context, controlItems, currentSelection, onSegmentChosen)
+//     : androidSegmentedControl(
+//         context, controlItems, currentSelection, onSegmentChosen);
+
 Widget androidSegmentedControl(BuildContext context, List<Widget> controlItems,
     int currentSelection, void Function(int) onSegmentChosen) {
   Map<int, Widget> map = Map<int, Widget>();

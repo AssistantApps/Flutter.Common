@@ -28,4 +28,10 @@ class ThemeService implements IThemeService {
   Color getAndroidColour() => HexColor('689f38');
   @override
   Color getIosColour() => HexColor('607d8b');
+  @override
+  Color getCardTextColour(BuildContext context) => Color(0);
+  @override
+  bool useWhiteForeground(Color backgroundColor) => false;
+  @override
+  Color getForegroundTextColour(Color backgroundColor) => Color(0);
 }

@@ -36,3 +36,13 @@ Widget genericItemDescription(String description, {TextStyle textStyle}) =>
       ),
       margin: const EdgeInsets.all(4.0),
     );
+
+Widget genericItemGroup(String group) => Container(
+      child: Text(
+        group,
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+        style: TextStyle(fontSize: 20),
+      ),
+      margin: const EdgeInsets.all(4.0),
+    );

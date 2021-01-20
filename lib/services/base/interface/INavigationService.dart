@@ -10,8 +10,12 @@ class INavigationService {
     return Future.value(false);
   }
 
-  Future navigateAwayFromHomeAsync(context,
-      {Function navigateTo, String navigateToNamed}) async {}
+  Future navigateAwayFromHomeAsync(
+    context, {
+    Function navigateTo,
+    String navigateToNamed,
+    Map<String, String> navigateToNamedParameters,
+  }) async {}
 
   Future<T> navigateAsync<T extends Object>(context,
       {Function navigateTo, String navigateToNamed}) async {

@@ -52,18 +52,22 @@ Widget localImage(
   );
 }
 
-Widget getCorrectlySizedImageFromIcon(context, IconData icon,
-        {Color colour, double size = 35}) =>
+Widget getCorrectlySizedImageFromIcon(
+  context,
+  IconData icon, {
+  Color colour,
+  double maxSize = 35,
+}) =>
     ConstrainedBox(
       constraints: BoxConstraints(
-        maxWidth: size,
-        maxHeight: size,
+        maxWidth: maxSize,
+        maxHeight: maxSize,
       ),
       child: Center(
         child: Icon(
           icon,
           color: colour ?? getTheme().getSecondaryColour(context),
-          size: size,
+          size: maxSize,
         ),
       ),
     );
