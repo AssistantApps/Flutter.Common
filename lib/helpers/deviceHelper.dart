@@ -1,11 +1,10 @@
-import 'dart:io';
-
 import 'package:universal_platform/universal_platform.dart';
 
 bool isDebugingIos = false;
 
-bool isApple = Platform.isIOS || Platform.isMacOS || isDebugingIos;
+bool isApple =
+    UniversalPlatform.isIOS || UniversalPlatform.isMacOS || isDebugingIos;
 
-bool isiOS = Platform.isIOS;
-bool isAndroid = Platform.isAndroid;
+bool isiOS = UniversalPlatform.isIOS;
+bool isAndroid = UniversalPlatform.isAndroid;
 bool isWeb = UniversalPlatform.isWeb;

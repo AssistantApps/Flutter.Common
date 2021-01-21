@@ -48,7 +48,8 @@ initBaseDependencyInjection(
   registerSingletonWithBackup<INavigationService>(
       navigation, NavigationService());
   registerSingletonWithBackup<IThemeService>(theme, ThemeService());
-  getIt.registerSingleton<ILoadingWidgetService>(LoadingWidgetService());
+  registerSingletonWithBackup<ILoadingWidgetService>(
+      loading, LoadingWidgetService());
   registerSingletonWithBackup<ISnackbarService>(snackbar, SnackbarService());
   registerSingletonWithBackup<IUpdateService>(update, UpdateService());
 
