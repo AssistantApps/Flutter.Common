@@ -35,6 +35,8 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
       this.version.activeDate,
     )));
 
+    columnWidgets.add(emptySpace(1));
+
     List<Widget> wrapChildren = List<Widget>();
     for (var plat in this.version.platforms) {
       if (plat == PlatformType.iOS) {

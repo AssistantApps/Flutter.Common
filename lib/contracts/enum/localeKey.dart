@@ -447,4 +447,5 @@ enum LocaleKey {
   foundIn,
   translationPercentageComplete,
   useTranslationTool,
+  norwegian,
 }

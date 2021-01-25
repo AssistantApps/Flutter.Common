@@ -21,6 +21,7 @@ final List<LocalizationMap> supportedLanguageMaps = [
   LocalizationMap(LocaleKey.hungarian, 'hu', 'hu', 18),
   LocalizationMap(LocaleKey.simplifiedChinese, 'zh-hans', 'cn', 13),
   LocalizationMap(LocaleKey.traditionalChinese, 'zh-hant', 'cn', 15),
+  LocalizationMap(LocaleKey.norwegian, 'no', 'no', 16),
   LocalizationMap(LocaleKey.afrikaans, 'af', 'za', 19),
   // LocalizationMap(LocaleKey.arabic, 'ar', 'ar', 20),
 ];
