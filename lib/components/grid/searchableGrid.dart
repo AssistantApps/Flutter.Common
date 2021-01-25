@@ -1,15 +1,18 @@
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
 import '../searchable.dart';
 
-class SearchableList<T> extends StatelessWidget {
+class SearchableGrid<T> extends StatelessWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Future<ResultWithValue<List<T>>> Function() backupListGetter;
-  final Widget Function(BuildContext, T) listItemDisplayer;
-  final Widget Function(BuildContext, T, int) listItemWithIndexDisplayer;
-  final bool Function(T, String) listItemSearch;
+  final Widget Function(BuildContext, T) gridItemDisplayer;
+  final Widget Function(BuildContext, T, int) gridItemWithIndexDisplayer;
+  final int Function(Breakpoint) gridViewColumnCalculator;
+  //
+  final bool Function(T, String) gridItemSearch;
   final void Function() deleteAll;
   final LocaleKey backupListWarningMessage;
   final int minListForSearch;
@@ -20,11 +23,12 @@ class SearchableList<T> extends StatelessWidget {
   final String loadingText;
   final bool addFabPadding;
 
-  SearchableList(
+  SearchableGrid(
     this.listGetter, {
-    this.listItemSearch,
-    this.listItemDisplayer,
-    this.listItemWithIndexDisplayer,
+    this.gridItemSearch,
+    this.gridItemDisplayer,
+    this.gridItemWithIndexDisplayer,
+    this.gridViewColumnCalculator,
     this.key,
     this.firstListItemWidget,
     this.lastListItemWidget,
@@ -37,17 +41,31 @@ class SearchableList<T> extends StatelessWidget {
     this.backupListWarningMessage,
   });
 
+  Widget localGridWithScrollbar({
+    int itemCount,
+    Key key,
+    Widget Function(BuildContext, int) itemBuilder,
+    bool shrinkWrap,
+  }) {
+    return gridWithScrollbar(
+      key: key,
+      itemCount: itemCount,
+      itemBuilder: itemBuilder,
+      gridViewColumnCalculator: gridViewColumnCalculator,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Searchable(
       listGetter,
-      listWithScrollbar,
+      localGridWithScrollbar,
       backupListGetter: backupListGetter,
-      itemDisplayer: listItemDisplayer,
-      itemWithIndexDisplayer: listItemWithIndexDisplayer,
+      itemDisplayer: gridItemDisplayer,
+      itemWithIndexDisplayer: gridItemWithIndexDisplayer,
       //
       key: key,
-      listItemSearch: listItemSearch,
+      listItemSearch: gridItemSearch,
       minListForSearch: minListForSearch,
       backupListWarningMessage: backupListWarningMessage,
       //

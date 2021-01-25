@@ -1,3 +1,5 @@
+import 'package:assistantapps_flutter_common/components/grid/searchableGrid.dart';
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/fun/backgroundWrapper.dart';
@@ -37,13 +39,22 @@ class PatronListPageComponent extends StatelessWidget {
     var backupFunc = () => BackupJsonService().getPatrons(context);
     return BackgroundWrapper(
       backgroundType: BackgroundType.Patreon,
-      body: SearchableList<PatreonViewModel>(
+      body: SearchableGrid<PatreonViewModel>(
         () => wrapPatronsListCall(context, apiFunc),
-        listItemDisplayer: patronTilePresenter,
-        listItemSearch: (_, __) => false,
+        gridItemDisplayer: patronTilePresenter,
+        gridItemSearch: (_, __) => false,
         backupListGetter: () => wrapPatronsListCall(context, backupFunc),
         minListForSearch: 20000,
         addFabPadding: true,
+        gridViewColumnCalculator: (Breakpoint breakpoint) {
+          if (breakpoint.window == WindowSize.xsmall) return 2;
+          if (breakpoint.window == WindowSize.small) return 3;
+          if (breakpoint.window == WindowSize.medium) return 4;
+          if (breakpoint.window == WindowSize.large) return 5;
+          if (breakpoint.window == WindowSize.xlarge) return 6;
+
+          return 4;
+        },
       ),
     );
   }

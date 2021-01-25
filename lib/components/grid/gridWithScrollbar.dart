@@ -6,25 +6,34 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../assistantapps_flutter_common.dart';
 import '../../helpers/columnHelper.dart';
 
-Widget gridWithScrollbar(
-        {int itemCount,
-        Key key,
-        Widget Function(BuildContext, int) itemBuilder,
-        EdgeInsetsGeometry padding,
-        int Function(Breakpoint) gridViewColumnCalculator,
-        Function(int) staggeredTileBuilder,
-        bool shrinkWrap = false}) =>
+Widget gridWithScrollbar({
+  int itemCount,
+  Key key,
+  Widget Function(BuildContext, int) itemBuilder,
+  int Function(Breakpoint) gridViewColumnCalculator,
+  bool shrinkWrap = true,
+}) =>
     BreakpointBuilder(
         builder: (BuildContext innerContext, Breakpoint breakpoint) {
       var columnCalc = gridViewColumnCalculator ?? getCustomColumnCount;
       var crossAxisCount = columnCalc(breakpoint);
+      // var listView = GridView.builder(
+      //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      //     crossAxisCount: crossAxisCount,
+      //   ),
+      //   shrinkWrap: shrinkWrap,
+      //   padding: const EdgeInsets.all(8),
+      //   physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+      //   itemCount: itemCount,
+      //   itemBuilder: itemBuilder,
+      //   key: Key('grid-cross-axis$crossAxisCount'),
+      // );
       var listView = StaggeredGridView.countBuilder(
         primary: false,
         shrinkWrap: true,
         padding: const EdgeInsets.all(8),
         physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
-        staggeredTileBuilder:
-            staggeredTileBuilder ?? (_) => StaggeredTile.fit(1),
+        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
         crossAxisCount: crossAxisCount,
         crossAxisSpacing: 4,
         mainAxisSpacing: 4,

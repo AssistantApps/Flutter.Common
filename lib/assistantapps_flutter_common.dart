@@ -14,6 +14,7 @@ export 'components/common/space.dart';
 export 'components/common/text.dart';
 export 'components/grid/gridWithScrollbar.dart';
 export 'components/grid/responsiveStaggeredGrid.dart';
+export 'components/grid/searchableGrid.dart';
 export 'components/fun/backgroundWrapper.dart';
 export 'components/list/lazyLoadedSearchableList.dart';
 export 'components/list/listWithScrollbar.dart';
