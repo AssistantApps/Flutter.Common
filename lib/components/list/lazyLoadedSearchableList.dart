@@ -53,7 +53,7 @@ class _LazyLoadSearchableListWidget<T>
       listGetter;
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
       backupListGetter;
-  List<int> fetchedPages = List<int>();
+  List<int> fetchedPages = List.empty(growable: true);
   int totalPages = 1;
   final int pageSize;
   final Widget Function(BuildContext context, T) listItemDisplayer;
