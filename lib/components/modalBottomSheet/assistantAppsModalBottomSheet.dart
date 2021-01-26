@@ -16,7 +16,7 @@ import '../../helpers/stringHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/space.dart';
 import '../common/text.dart';
-import '../menu/popupMenu.dart';
+import '../tilePresenters/assistantAppLinkPresenter.dart';
 
 class AssistantAppsModalBottomSheet extends StatefulWidget {
   @override
@@ -102,22 +102,7 @@ class _AssistantAppsModalBottomSheetWidget
             );
 
         widgets.add(
-          Card(
-            child: genericListTileWithNetworkImage(
-              context,
-              imageUrl: appLink.iconUrl,
-              name: appLink.name,
-              onTap: (appLink.home != null)
-                  ? () => launchExternalURL(appLink.home)
-                  : () {},
-              trailing: popupMenu(
-                context,
-                customIcon: Icons.open_in_new,
-                additionalItems: popups,
-              ),
-              subtitle: Text(platforms, maxLines: 1),
-            ),
-          ),
+          assistantAppLinkPresenter(context, appLink, platforms, popups),
         );
         widgets.add(emptySpace(1));
       }

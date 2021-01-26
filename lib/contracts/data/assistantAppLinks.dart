@@ -4,10 +4,12 @@
 
 import 'dart:convert';
 
+import 'package:assistantapps_flutter_common/helpers/jsonHelper.dart';
+
 class AssistantAppLinks {
   AssistantAppLinks({
     this.name,
-    this.iconUrl,
+    this.icon,
     this.home,
     this.ios,
     this.android,
@@ -15,7 +17,7 @@ class AssistantAppLinks {
   });
 
   final String name;
-  final String iconUrl;
+  final String icon;
   final String home;
   final String ios;
   final String android;
@@ -26,11 +28,11 @@ class AssistantAppLinks {
 
   factory AssistantAppLinks.fromJson(Map<String, dynamic> json) =>
       AssistantAppLinks(
-        name: json["name"],
-        iconUrl: json["iconUrl"],
-        home: json["home"],
-        ios: json["ios"],
-        android: json["android"],
-        web: json["web"],
+        name: readStringSafe(json, 'name'),
+        icon: readStringSafe(json, 'iconUrl'),
+        home: readStringSafe(json, 'home'),
+        ios: readStringSafe(json, 'ios'),
+        android: readStringSafe(json, 'android'),
+        web: readStringSafe(json, 'web'),
       );
 }

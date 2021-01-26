@@ -92,20 +92,11 @@ export 'services/base/interface/IAnalyticsService.dart';
 export 'services/base/interface/ILoadingWidgetService.dart';
 export 'services/base/interface/ILoggingService.dart';
 export 'services/base/interface/INavigationService.dart';
+export 'services/base/interface/INotificationService.dart';
 export 'services/base/interface/ISnackbarService.dart';
 export 'services/base/interface/IThemeService.dart';
 export 'services/base/interface/ITranslationsService.dart';
 export 'services/base/interface/IUpdateService.dart';
-
-//Base implementations
-export 'services/base/analyticsService.dart';
-export 'services/base/loadingWidgetService.dart';
-export 'services/base/loggingService.dart';
-export 'services/base/navigationService.dart';
-export 'services/base/snackbarService.dart';
-export 'services/base/themeService.dart';
-export 'services/base/translationsService.dart';
-export 'services/base/updateService.dart';
 
 //Json Interfaces
 export 'services/json/interface/IbackupJsonService.dart';

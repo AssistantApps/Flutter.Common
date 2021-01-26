@@ -1,3 +1,5 @@
+import 'package:assistantapps_flutter_common/services/base/interface/INotificationService.dart';
+import 'package:assistantapps_flutter_common/services/base/notificationService.dart';
 import 'package:get_it/get_it.dart';
 
 import '../env/assistantAppsEnvironmentSettings.dart';
@@ -32,7 +34,7 @@ import '../services/json/interface/IdataJsonService.dart';
 
 final getIt = GetIt.instance;
 
-initBaseDependencyInjection(
+void initBaseDependencyInjection(
   AssistantAppsEnvironmentSettings _env, {
   ILoggerService logger,
   IAnalyticsService analytics,
@@ -41,6 +43,7 @@ initBaseDependencyInjection(
   ILoadingWidgetService loading,
   ISnackbarService snackbar,
   IUpdateService update,
+  INotificationService notification,
 }) {
   getIt.registerSingleton<AssistantAppsEnvironmentSettings>(_env);
   registerSingletonWithBackup<ILoggerService>(logger, LoggerService());
@@ -52,6 +55,8 @@ initBaseDependencyInjection(
       loading, LoadingWidgetService());
   registerSingletonWithBackup<ISnackbarService>(snackbar, SnackbarService());
   registerSingletonWithBackup<IUpdateService>(update, UpdateService());
+  registerSingletonWithBackup<INotificationService>(
+      notification, NotificationService());
 
   getIt.registerSingleton<ITranslationService>(TranslationService());
 
@@ -76,6 +81,7 @@ ILoadingWidgetService getLoading() => getIt<ILoadingWidgetService>();
 ISnackbarService getSnackbar() => getIt<ISnackbarService>();
 IUpdateService getUpdate() => getIt<IUpdateService>();
 ITranslationService getTranslations() => getIt<ITranslationService>();
+INotificationService getNotifications() => getIt<INotificationService>();
 
 // AssistantApps API
 IDonatorApiService getAssistantAppsDonators() => getIt<IDonatorApiService>();

@@ -31,7 +31,8 @@ class WhatIsNewPageComponent extends StatelessWidget {
         page: page,
       ),
       20,
-      versionTilePresenter(context, currentWhatIsNewGuid, onTap),
+      listItemWithIndexDisplayer:
+          versionTilePresenter(context, currentWhatIsNewGuid, onTap),
       loadMoreItemWidget: loadMoreItemWidget,
     );
   }

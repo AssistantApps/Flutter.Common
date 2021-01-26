@@ -68,7 +68,8 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
 
     columnWidgets.add(MarkdownBody(
       data: this.version.markdown,
-      onTapLink: (String link) => launchExternalURL(link),
+      onTapLink: (String text, String link, String title) =>
+          launchExternalURL(link),
     ));
 
     return listWithScrollbar(

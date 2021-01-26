@@ -8,14 +8,20 @@ import '../../helpers/dateHelper.dart';
 import 'genericTilePresenter.dart';
 
 Widget donationTilePresenter(BuildContext context, DonationViewModel donator) =>
-    genericListTileWithSubtitle(
-      context,
-      leadingImage: '${AppImage.donationsFolder}${getImage(donator.type)}',
-      imagePackage: UIConstants.CommonPackage,
-      name: donator.username,
-      subtitle: Text(
-        simpleDate(donator.date.toLocal()),
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
+    ListTile(
+      leading: Padding(
+        padding: EdgeInsets.all(4),
+        child: genericTileImage(
+          '${AppImage.donationsFolder}${getImage(donator.type)}',
+          imagePackage: UIConstants.CommonPackage,
+        ),
       ),
+      title: normalText(donator.username),
+      subtitle: normalText(simpleDate(donator.date.toLocal())),
+    );
+
+Widget normalText(String text) => Text(
+      text,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
     );

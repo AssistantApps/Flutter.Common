@@ -9,14 +9,14 @@ import '../common/newBanner.dart';
 import '../common/text.dart';
 import 'genericTilePresenter.dart';
 
-Widget Function(BuildContext context, VersionViewModel version)
+Widget Function(BuildContext context, VersionViewModel version, int index)
     versionTilePresenter(
   BuildContext context,
   String versionGuid,
   void Function(VersionViewModel) onTap,
 ) {
-  Widget Function(BuildContext, VersionViewModel) presenter =
-      (BuildContext context, VersionViewModel version) {
+  Widget Function(BuildContext, VersionViewModel, int index) presenter =
+      (BuildContext context, VersionViewModel version, int index) {
     bool isCurrentVersion =
         version.guid.toLowerCase() == versionGuid.toLowerCase();
     String dateToDisplay = getVersionReleaseDate(
@@ -41,6 +41,7 @@ Widget Function(BuildContext context, VersionViewModel version)
         color: getTheme().getSecondaryColour(context),
       ),
       topLineStyle: LineStyle(color: getTheme().getSecondaryColour(context)),
+      isFirst: index == 0,
     );
     if (version.guid.toLowerCase() == versionGuid.toLowerCase()) {
       return wrapInNewBanner(context, LocaleKey.current, child);

@@ -448,4 +448,6 @@ enum LocaleKey {
   translationPercentageComplete,
   useTranslationTool,
   norwegian,
+  nmsfm,
+  nmsfmSubtitle,
 }

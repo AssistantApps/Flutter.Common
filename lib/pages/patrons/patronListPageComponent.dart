@@ -1,9 +1,7 @@
-import 'package:assistantapps_flutter_common/components/grid/searchableGrid.dart';
-import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/fun/backgroundWrapper.dart';
-import '../../components/list/searchableList.dart';
+import '../../components/grid/searchableGrid.dart';
 import '../../components/tilePresenters/patreonTilePresenter.dart';
 import '../../constants/AppImage.dart';
 import '../../constants/ExternalUrls.dart';
@@ -11,6 +9,7 @@ import '../../contracts/enum/backgroundType.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/patreonViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../helpers/columnHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../services/json/backupJsonService.dart';
 
@@ -46,15 +45,7 @@ class PatronListPageComponent extends StatelessWidget {
         backupListGetter: () => wrapPatronsListCall(context, backupFunc),
         minListForSearch: 20000,
         addFabPadding: true,
-        gridViewColumnCalculator: (Breakpoint breakpoint) {
-          if (breakpoint.window == WindowSize.xsmall) return 2;
-          if (breakpoint.window == WindowSize.small) return 3;
-          if (breakpoint.window == WindowSize.medium) return 4;
-          if (breakpoint.window == WindowSize.large) return 5;
-          if (breakpoint.window == WindowSize.xlarge) return 6;
-
-          return 4;
-        },
+        gridViewColumnCalculator: patreonCustomColumnCount,
       ),
     );
   }

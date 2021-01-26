@@ -10,7 +10,8 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
       backupListGetter;
   final int pageSize;
-  final Widget Function(BuildContext context, T) listItemDisplayer;
+  final Widget Function(BuildContext, T) listItemDisplayer;
+  final Widget Function(BuildContext, T, int) listItemWithIndexDisplayer;
   final String customKey;
   final String hintText;
   final String loadingText;
@@ -21,8 +22,9 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
 
   LazyLoadSearchableList(
     this.listGetter,
-    this.pageSize,
-    this.listItemDisplayer, {
+    this.pageSize, {
+    this.listItemDisplayer,
+    this.listItemWithIndexDisplayer,
     this.customKey,
     this.backupListGetter,
     this.hintText,
@@ -39,6 +41,7 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
         backupListGetter,
         pageSize,
         listItemDisplayer,
+        listItemWithIndexDisplayer,
         customKey,
         hintText,
         loadingText,
@@ -57,6 +60,7 @@ class _LazyLoadSearchableListWidget<T>
   int totalPages = 1;
   final int pageSize;
   final Widget Function(BuildContext context, T) listItemDisplayer;
+  final Widget Function(BuildContext, T, int) listItemWithIndexDisplayer;
   final String key;
   final String hintText;
   final String loadingText;
@@ -68,6 +72,7 @@ class _LazyLoadSearchableListWidget<T>
     this.backupListGetter,
     this.pageSize,
     this.listItemDisplayer,
+    this.listItemWithIndexDisplayer,
     this.key,
     this.hintText,
     this.loadingText,
@@ -101,11 +106,19 @@ class _LazyLoadSearchableListWidget<T>
     return [];
   }
 
+  Widget useItemDisplayer(BuildContext context, T data, int index) {
+    if (listItemDisplayer != null) {
+      return listItemDisplayer(context, data);
+    } else {
+      return listItemWithIndexDisplayer(context, data, index);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return PaginationView<T>(
       itemBuilder: (BuildContext innerCtxt, T user, int index) =>
-          listItemDisplayer(innerCtxt, user),
+          useItemDisplayer(innerCtxt, user, index),
       paginationViewType: PaginationViewType.listView,
       pageFetch: getMoreData,
       onError: (dynamic error) => Center(

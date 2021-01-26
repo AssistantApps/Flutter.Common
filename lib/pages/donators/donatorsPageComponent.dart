@@ -16,7 +16,7 @@ class DonatorsPageComponent extends StatelessWidget {
     return LazyLoadSearchableList<DonationViewModel>(
       (int page) => getAssistantAppsDonators().getDonators(page: page),
       UIConstants.DonationsPageSize,
-      donationTilePresenter,
+      listItemDisplayer: donationTilePresenter,
       backupListGetter: (int page) => getAssistantAppsBackup().getDonations(
         context,
         page: page,

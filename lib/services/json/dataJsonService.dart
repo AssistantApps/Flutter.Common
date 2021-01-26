@@ -13,10 +13,12 @@ class DataJsonService extends BaseJsonService implements IDataJsonService {
 
   @override
   Future<ResultWithValue<List<AssistantAppLinks>>> getAssistantApps(
-      BuildContext context,
-      {String path = 'data/assistantAppLinks'}) async {
+      BuildContext context) async {
     try {
-      dynamic responseJson = await this.getJsonFromAssets(context, path);
+      dynamic responseJson = await this.getJsonFromCommonPackage(
+        context,
+        'data/assistantAppLinks',
+      );
       List list = json.decode(responseJson);
       List<AssistantAppLinks> assistAppItems =
           list.map((m) => AssistantAppLinks.fromJson(m)).toList();
