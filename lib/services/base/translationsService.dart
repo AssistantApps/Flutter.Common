@@ -29,7 +29,7 @@ class TranslationService implements ITranslationService {
 
   @override
   String fromKey(LocaleKey key) {
-    String keyString = EnumToString.parse(key);
+    String keyString = EnumToString.convertToString(key);
     return _localisedValues[keyString] ?? "$keyString";
   }
 
