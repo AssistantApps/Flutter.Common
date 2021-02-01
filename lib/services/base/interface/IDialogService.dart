@@ -5,10 +5,10 @@ import '../../../contracts/search/dropdownOption.dart';
 
 class IDialogService {
   //
-  void showSimpleDialog<T>(context, String title, Widget content,
-      {List<T> buttons}) {}
-  void showSimpleHelpDialog<T>(context, String title, String helpContent,
-      {List<T> buttons}) {}
+  void showSimpleDialog(context, String title, Widget content,
+      {List<Widget> buttons}) {}
+  void showSimpleHelpDialog(context, String title, String helpContent,
+      {List<Widget> buttons}) {}
   Widget simpleDialogCloseButton(context, {Function onTap}) => Container();
   Widget simpleDialogPositiveButton(context,
           {LocaleKey title, Function onTap}) =>
@@ -19,4 +19,9 @@ class IDialogService {
       {String title, Function(String) onSuccess}) {}
   void showStarDialog(context, String title,
       {int currentRating = 0, Function(int) onSuccess}) {}
+  Future<String> asyncInputDialog(BuildContext context, String title,
+          {String defaultText,
+          List<Widget> actions,
+          TextInputType inputType}) async =>
+      '';
 }

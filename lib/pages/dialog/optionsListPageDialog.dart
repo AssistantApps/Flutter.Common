@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
-import '../../components/dialog/asyncInputDialog.dart';
 import '../../contracts/search/dropdownOption.dart';
 
 class OptionsListPageDialog extends StatefulWidget {
@@ -52,7 +51,7 @@ class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
     if (addOption != null) {
       floatingActionButtonWidget = FloatingActionButton(
         onPressed: () async {
-          var temp = await asyncInputDialog(
+          var temp = await getDialog().asyncInputDialog(
               context, getTranslations().fromKey(LocaleKey.addTag));
           if (temp == '' ||
               temp == ' ' ||
