@@ -37,8 +37,8 @@ class BaseWidgetService implements IBaseWidgetService {
     Widget title,
     List<ActionItem> actions,
     List<ActionItem> shortcutActions,
-    bool showBackAction,
-    bool showHomeAction,
+  bool showHomeAction = false,
+  bool showBackAction = true,
   }) =>
       adaptiveAppBarForSubPageHelper(
         context,
