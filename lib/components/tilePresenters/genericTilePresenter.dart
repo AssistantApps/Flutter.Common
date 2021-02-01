@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../contracts/enum/localeKey.dart';
+import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
 
 ListTile genericListTileWithSubtitle(context,
@@ -31,6 +33,35 @@ ListTile genericListTileWithSubtitle(context,
     // dense: true,
     onTap: (onTap != null) ? onTap : null,
     onLongPress: (onLongPress != null) ? onLongPress : null,
+  );
+}
+
+ListTile genericListTile(context,
+    {@required String leadingImage,
+    String imageBackgroundColour,
+    @required String name,
+    String description,
+    int quantity,
+    int maxLines = 1,
+    String onLongPressAnalyticsEvent,
+    Widget trailing,
+    Function onTap,
+    Function onLongPress}) {
+  Widget subtitle = (quantity != null && quantity > 0)
+      ? Text(
+          "${getTranslations().fromKey(LocaleKey.quantity)}: ${quantity.toString()}")
+      : null;
+  return genericListTileWithSubtitle(
+    context,
+    leadingImage: leadingImage,
+    imageBackgroundColour: imageBackgroundColour,
+    name: name,
+    description: description,
+    subtitle: subtitle,
+    maxLines: maxLines,
+    trailing: trailing,
+    onTap: onTap,
+    onLongPress: onLongPress,
   );
 }
 
@@ -68,12 +99,16 @@ ListTile genericListTileWithNetworkImage(context,
   );
 }
 
-Widget genericTileImage(String leadingImage, {String imagePackage}) {
+Widget genericTileImage(
+  String leadingImage, {
+  String imagePackage,
+}) {
   if (leadingImage == null) return null;
 
+  String imageAssetsPathPrefix = getPath().imageAssetPathPrefix();
   String prefix = '';
-  if (!leadingImage.contains('assets/images')) {
-    prefix = 'assets/images/';
+  if (!leadingImage.contains(imageAssetsPathPrefix)) {
+    prefix = '$imageAssetsPathPrefix/';
   }
 
   String fullPath = '$prefix$leadingImage';

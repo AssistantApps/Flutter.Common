@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class IThemeService {
+  //
+  // Theme
+  //
   ThemeData getTheme(BuildContext context) => ThemeData();
   Color getPrimaryColour(BuildContext context) => Color(0);
   Color getSecondaryColour(BuildContext context) => Color(0);
@@ -16,4 +19,6 @@ class IThemeService {
   Color getCardTextColour(BuildContext context) => Color(0);
   bool useWhiteForeground(Color backgroundColor) => false;
   Color getForegroundTextColour(Color backgroundColor) => Color(0);
+  Color fabForegroundColourSelector(BuildContext context) => Color(0);
+  Color fabColourSelector(BuildContext context) => Color(0);
 }

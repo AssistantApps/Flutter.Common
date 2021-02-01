@@ -133,7 +133,7 @@ enum LocaleKey {
   rarity,
   minValue,
   maxValue,
-  upgradeModule,
+  upgradeModules,
   homeUseCompactTiles,
   settings,
   appLanguage,

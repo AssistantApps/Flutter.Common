@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+
 class INavigationService {
-  Future<bool> navigateBackOrHomeAsync(context) async {
+  Future<bool> navigateBackOrHomeAsync(BuildContext context) async {
     return Future.value(true);
   }
 
-  Future<bool> navigateHomeAsync(context,
+  Future<bool> navigateHomeAsync(BuildContext context,
       {Function navigateTo,
       String navigateToNamed,
       bool pushReplacement}) async {
@@ -11,7 +13,7 @@ class INavigationService {
   }
 
   Future navigateAwayFromHomeAsync(
-    context, {
+    BuildContext context, {
     Function navigateTo,
     String navigateToNamed,
     Map<String, String> navigateToNamedParameters,
@@ -21,4 +23,6 @@ class INavigationService {
       {Function navigateTo, String navigateToNamed}) async {
     return Future.value(null);
   }
+
+  Future pop<T extends Object>(BuildContext context, [T result]) async {}
 }

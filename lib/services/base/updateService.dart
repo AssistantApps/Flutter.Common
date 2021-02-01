@@ -29,7 +29,7 @@ class UpdateService implements IUpdateService {
     }
 
     List<PlatformType> platforms = List<PlatformType>();
-    if (isApple) platforms.add(PlatformType.iOS);
+    if (isApple) platforms.add(PlatformType.Apple);
     if (isAndroid) platforms.add(PlatformType.Android);
     ResultWithValue<VersionViewModel> serverVersionResult =
         await getAssistantAppsVersions().getLatest(platforms);

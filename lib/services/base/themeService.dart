@@ -1,9 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../helpers/colourHelper.dart';
 import 'interface/IThemeService.dart';
 
 class ThemeService implements IThemeService {
+  //
+  // Theme
+  //
   @override
   ThemeData getTheme(BuildContext context) => ThemeData();
   @override
@@ -34,4 +38,8 @@ class ThemeService implements IThemeService {
   bool useWhiteForeground(Color backgroundColor) => false;
   @override
   Color getForegroundTextColour(Color backgroundColor) => Color(0);
+  @override
+  Color fabForegroundColourSelector(BuildContext context) => Color(0);
+  @override
+  Color fabColourSelector(BuildContext context) => Color(0);
 }
