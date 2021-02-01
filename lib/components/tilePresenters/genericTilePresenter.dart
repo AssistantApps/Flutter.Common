@@ -105,10 +105,12 @@ Widget genericTileImage(
 }) {
   if (leadingImage == null) return null;
 
-  String imageAssetsPathPrefix = getPath().imageAssetPathPrefix();
   String prefix = '';
-  if (!leadingImage.contains(imageAssetsPathPrefix)) {
-    prefix = '$imageAssetsPathPrefix/';
+  if (imagePackage == null) {
+    String imageAssetsPathPrefix = getPath().imageAssetPathPrefix();
+    if (!leadingImage.contains(imageAssetsPathPrefix)) {
+      prefix = '$imageAssetsPathPrefix/';
+    }
   }
 
   String fullPath = '$prefix$leadingImage';
