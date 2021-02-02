@@ -93,14 +93,16 @@ class _LazyLoadSearchableListWidget<T>
       return temp.value;
     }
 
-    final tempBackup = await backupListGetter(pageToGet);
-    if (tempBackup.isSuccess) {
-      this.setState(() {
-        fetchedPages.add(tempBackup.currentPage);
-        totalPages = tempBackup.totalPages;
-        // usingBackupGetter = true;
-      });
-      return tempBackup.value;
+    if (this.backupListGetter != null) {
+      final tempBackup = await this.backupListGetter(pageToGet);
+      if (tempBackup.isSuccess) {
+        this.setState(() {
+          fetchedPages.add(tempBackup.currentPage);
+          totalPages = tempBackup.totalPages;
+          // usingBackupGetter = true;
+        });
+        return tempBackup.value;
+      }
     }
 
     return [];

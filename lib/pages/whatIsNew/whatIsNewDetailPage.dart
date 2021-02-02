@@ -6,8 +6,13 @@ import '../../integration/dependencyInjection.dart';
 class WhatIsNewDetailPage extends StatelessWidget {
   final VersionViewModel version;
   final String analyticsKey;
+  final List<Widget> Function() additionalBuilder;
 
-  WhatIsNewDetailPage(this.analyticsKey, this.version) {
+  WhatIsNewDetailPage(
+    this.analyticsKey,
+    this.version, {
+    this.additionalBuilder,
+  }) {
     getAnalytics().trackEvent(this.analyticsKey);
   }
 
@@ -23,6 +28,7 @@ class WhatIsNewDetailPage extends StatelessWidget {
       body: WhatIsNewDetailPageComponent(
         getEnv().assistantAppsAppGuid,
         version,
+        additionalBuilder: additionalBuilder,
       ),
     );
   }
