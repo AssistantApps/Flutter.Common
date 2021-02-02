@@ -6,7 +6,7 @@ import '../../integration/dependencyInjection.dart';
 class WhatIsNewPage extends StatelessWidget {
   final String analyticsKey;
   final String selectedLanguage;
-  final List<Widget> Function() additionalBuilder;
+  final List<Widget> Function(VersionViewModel) additionalBuilder;
 
   WhatIsNewPage(
     this.analyticsKey, {

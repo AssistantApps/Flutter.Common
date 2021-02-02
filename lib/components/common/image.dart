@@ -1,7 +1,9 @@
+import 'package:assistantapps_flutter_common/helpers/pathHelper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:octo_image/octo_image.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../integration/dependencyInjection.dart';
 
 Widget networkImage(
@@ -33,15 +35,15 @@ Widget networkImage(
 
 Widget localImage(
   String imagePath, {
-  String package,
+  String imagePackage,
   BoxFit boxfit,
   double height,
   double width,
   EdgeInsetsGeometry padding = EdgeInsets.zero,
 }) {
   var image = Image.asset(
-    imagePath,
-    package: package,
+    getImagePath(imagePath, imagePackage: imagePackage),
+    package: imagePackage,
     fit: boxfit,
     height: height,
     width: width,
@@ -71,3 +73,20 @@ Widget getCorrectlySizedImageFromIcon(
         ),
       ),
     );
+
+Widget getListTileImage(
+  String partialPath, {
+  double size = 35,
+  EdgeInsets padding,
+  String package,
+}) {
+  var child = ConstrainedBox(
+    constraints: BoxConstraints(
+      maxWidth: size,
+      maxHeight: size,
+    ),
+    child: localImage(partialPath, imagePackage: package),
+  );
+  if (padding == null) return child;
+  return Padding(padding: padding, child: child);
+}

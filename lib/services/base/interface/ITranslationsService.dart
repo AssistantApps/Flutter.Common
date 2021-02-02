@@ -18,11 +18,6 @@ class ITranslationService {
     return "${key.toString()}";
   }
 
-  @Deprecated('Temporary method, preferably use fromKey(LocaleKey)')
-  String fromString(String key) {
-    return "${key.toString()}";
-  }
-
   LocalizationMap getCurrentLocalizationMap(
       BuildContext context, String currentLanguageCodeSetting) {
     return englishLanguageMap;
@@ -37,4 +32,6 @@ class ITranslationService {
 
   Iterable<Locale> supportedLocales() =>
       supportedLanguagesCodes.map<Locale>((language) => Locale(language, ""));
+
+  Future<String> langaugeSelectionPage(BuildContext context) async => '';
 }

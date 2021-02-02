@@ -14,7 +14,7 @@ import '../../helpers/updateHelper.dart';
 class WhatIsNewDetailPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;
   final VersionViewModel version;
-  final List<Widget> Function() additionalBuilder;
+  final List<Widget> Function(VersionViewModel) additionalBuilder;
 
   WhatIsNewDetailPageComponent(
     this.currentWhatIsNewGuid,
@@ -63,7 +63,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
     ));
 
     if (additionalBuilder != null) {
-      columnWidgets.addAll(additionalBuilder());
+      columnWidgets.addAll(additionalBuilder(this.version));
     }
 
     columnWidgets.add(MarkdownBody(

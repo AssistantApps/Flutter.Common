@@ -1,5 +1,9 @@
-import 'package:assistantapps_flutter_common/contracts/enum/platformType.dart';
+import 'package:flutter/material.dart';
 import 'package:universal_platform/universal_platform.dart';
+
+import '../contracts/enum/platformType.dart';
+import '../contracts/misc/actionItem.dart';
+import '../integration/dependencyInjection.dart';
 
 bool isDebugingIos = false;
 
@@ -16,4 +20,38 @@ List<PlatformType> getPlatforms() {
   if (isAndroid) plats.add(PlatformType.Android);
   if (isWeb) plats.add(PlatformType.Web);
   return plats;
+}
+
+List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
+  List<Widget> result = List<Widget>();
+  for (var action in actions) {
+    if (action.image != null) {
+      result.add(InkWell(child: action.image, onTap: action.onPressed));
+    } else {
+      result.add(
+        IconButton(icon: Icon(action.icon), onPressed: action.onPressed),
+      );
+    }
+  }
+  return result;
+}
+
+List<Widget> actionItemToAppleAction(context, List<ActionItem> actions) {
+  List<Widget> result = List<Widget>();
+  for (var action in actions) {
+    if (action.image != null) {
+      result.add(InkWell(child: action.image, onTap: action.onPressed));
+    } else {
+      result.add(
+        InkWell(
+          child: Icon(
+            action.icon,
+            color: getTheme().getPrimaryColour(context),
+          ),
+          onTap: action.onPressed,
+        ),
+      );
+    }
+  }
+  return result;
 }

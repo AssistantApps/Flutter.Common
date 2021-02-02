@@ -6,7 +6,7 @@ import '../../integration/dependencyInjection.dart';
 class WhatIsNewDetailPage extends StatelessWidget {
   final VersionViewModel version;
   final String analyticsKey;
-  final List<Widget> Function() additionalBuilder;
+  final List<Widget> Function(VersionViewModel) additionalBuilder;
 
   WhatIsNewDetailPage(
     this.analyticsKey,

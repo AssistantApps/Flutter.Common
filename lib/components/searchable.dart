@@ -206,6 +206,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
             overflow: TextOverflow.ellipsis,
             style: TextStyle(fontSize: 20),
           ),
+          width: double.infinity,
           margin: EdgeInsets.only(top: 30),
         ),
       );

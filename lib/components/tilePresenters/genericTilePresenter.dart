@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/localeKey.dart';
+import '../../helpers/colourHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
 
 ListTile genericListTileWithSubtitle(context,
     {@required String leadingImage,
     String imageBackgroundColour,
-    bool imageGreyScale = false,
     String imagePackage,
     @required String name,
     String description,
@@ -22,7 +22,11 @@ ListTile genericListTileWithSubtitle(context,
   if (title == null || title.length == 0) title = ' ';
 
   return ListTile(
-    leading: genericTileImage(leadingImage, imagePackage: imagePackage),
+    leading: genericTileImage(
+      leadingImage,
+      imagePackage: imagePackage,
+      imageBackgroundColour: imageBackgroundColour,
+    ),
     title: Text(
       title,
       maxLines: maxLines,
@@ -102,6 +106,7 @@ ListTile genericListTileWithNetworkImage(context,
 Widget genericTileImage(
   String leadingImage, {
   String imagePackage,
+  String imageBackgroundColour,
 }) {
   if (leadingImage == null) return null;
 
@@ -114,5 +119,11 @@ Widget genericTileImage(
   }
 
   String fullPath = '$prefix$leadingImage';
-  return localImage(fullPath, package: imagePackage);
+  Widget child = localImage(fullPath, imagePackage: imagePackage);
+  if (imageBackgroundColour == null) return child;
+
+  return Container(
+    child: child,
+    color: HexColor(imageBackgroundColour),
+  );
 }

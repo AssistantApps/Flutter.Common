@@ -58,7 +58,7 @@ class _AssistantAppsModalBottomSheetWidget
     widgets.add(
       localImage(
         '${AppImage.base}${AppImage.assistantApps}',
-        package: UIConstants.CommonPackage,
+        imagePackage: UIConstants.CommonPackage,
         height: 75,
       ),
     );

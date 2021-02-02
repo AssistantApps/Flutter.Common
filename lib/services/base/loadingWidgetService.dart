@@ -61,7 +61,7 @@ class LoadingWidgetService implements ILoadingWidgetService {
             AppImage.error,
             width: 500,
             padding: EdgeInsets.all(8),
-            package: UIConstants.CommonPackage,
+            imagePackage: UIConstants.CommonPackage,
           ),
           Text(
             text ?? getTranslations().fromKey(LocaleKey.somethingWentWrong),
