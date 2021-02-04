@@ -450,4 +450,8 @@ enum LocaleKey {
   norwegian,
   nmsfm,
   nmsfmSubtitle,
+  steamNews,
+  steamBranches,
+  nmsNews,
+  nmsNewsExplanation,
 }
