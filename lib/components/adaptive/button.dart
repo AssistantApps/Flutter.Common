@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 Widget positiveButton(
-    {String title, String eventString, EdgeInsets padding, Function onPress}) {
+    {String title,
+    String eventString,
+    EdgeInsets padding,
+    Color colour,
+    Function onPress}) {
   var textWidget = Text(title, textAlign: TextAlign.center);
   return ElevatedButton(
     child: padding == null
@@ -10,6 +14,9 @@ Widget positiveButton(
             padding: padding,
             child: textWidget,
           ),
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all<Color>(colour),
+    ),
     onPressed: (onPress != null) ? onPress : null,
   );
 }
