@@ -167,7 +167,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
           loadingText:
               loadingText ?? getTranslations().fromKey(LocaleKey.loading));
 
-    List<Widget> columnWidgets = List<Widget>();
+    List<Widget> columnWidgets = List.empty(growable: true);
     if (_listResults.length > minListForSearch) {
       columnWidgets.add(
         searchBar(context, controller, hintText, onSearchTextChanged),
@@ -194,7 +194,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
 
     if (_searchResult.length == 0 && controller.text.isNotEmpty ||
         _listResults.length == 0 && controller.text.isEmpty) {
-      List<Widget> noItemsList = List<Widget>();
+      List<Widget> noItemsList = List.empty(growable: true);
       if (widget.firstListItemWidget != null) {
         noItemsList.add(widget.firstListItemWidget);
       }
@@ -216,7 +216,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
           ? _searchResult
           : _listResults;
 
-      List<Widget> additionalWidgets = List<Widget>();
+      List<Widget> additionalWidgets = List.empty(growable: true);
       if (deleteAll != null) {
         additionalWidgets.add(deleteAllButton(context));
       }

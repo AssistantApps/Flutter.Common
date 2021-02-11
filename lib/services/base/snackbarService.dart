@@ -9,7 +9,7 @@ class SnackbarService implements ISnackbarService {
   static const defaultDismissDirection = FlushbarDismissDirection.VERTICAL;
 
   void showSnackbar(context, LocaleKey lang,
-      {Duration duration, FlatButton action}) {
+      {Duration duration, TextButton action}) {
     var textString = Text(
       getTranslations().fromKey(lang),
       style: TextStyle(color: Colors.black),

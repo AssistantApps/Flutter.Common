@@ -23,7 +23,7 @@ List<PlatformType> getPlatforms() {
 }
 
 List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
-  List<Widget> result = List<Widget>();
+  List<Widget> result = List.empty(growable: true);
   for (var action in actions) {
     if (action.image != null) {
       result.add(InkWell(child: action.image, onTap: action.onPressed));
@@ -37,7 +37,7 @@ List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
 }
 
 List<Widget> actionItemToAppleAction(context, List<ActionItem> actions) {
-  List<Widget> result = List<Widget>();
+  List<Widget> result = List.empty(growable: true);
   for (var action in actions) {
     if (action.image != null) {
       result.add(InkWell(child: action.image, onTap: action.onPressed));

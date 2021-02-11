@@ -28,7 +28,7 @@ class UpdateService implements IUpdateService {
       return ResultWithValue<bool>(false, false, versionResult.errorMessage);
     }
 
-    List<PlatformType> platforms = List<PlatformType>();
+    List<PlatformType> platforms = List.empty(growable: true);
     if (isApple) platforms.add(PlatformType.Apple);
     if (isAndroid) platforms.add(PlatformType.Android);
     ResultWithValue<VersionViewModel> serverVersionResult =
@@ -77,9 +77,11 @@ class UpdateService implements IUpdateService {
       context,
       LocaleKey.updateAvailable,
       duration: Duration(minutes: 5),
-      action: FlatButton(
+      action: TextButton(
         child: Text(getTranslations().fromKey(storeLocale)),
-        textColor: Colors.black,
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),
         onPressed: () => launchExternalURL(externalUrl),
       ),
     );

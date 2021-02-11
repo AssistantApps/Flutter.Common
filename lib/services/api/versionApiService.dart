@@ -43,7 +43,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
           await this.apiPost(ApiUrls.versionSearch, body.toRawJson());
       if (response.hasFailed) {
         return PaginationResultWithValue<List<VersionViewModel>>(
-            false, List<VersionViewModel>(), 0, 0, response.errorMessage);
+            false, List.empty(growable: true), 0, 0, response.errorMessage);
       }
       var paginationResult = PaginationResultWithValueMapper()
           .fromRawJson<List<VersionViewModel>>(response.value, (List valueDyn) {
@@ -53,7 +53,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
     } catch (exception) {
       getLog().e("getHistory Api Exception: ${exception.toString()}");
       return PaginationResultWithValue<List<VersionViewModel>>(
-          false, List<VersionViewModel>(), 0, 0, exception.toString());
+          false, List.empty(growable: true), 0, 0, exception.toString());
     }
   }
 }

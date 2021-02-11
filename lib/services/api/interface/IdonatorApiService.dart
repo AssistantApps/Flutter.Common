@@ -6,6 +6,6 @@ class IDonatorApiService {
   Future<PaginationResultWithValue<List<DonationViewModel>>> getDonators(
       {int page = 1}) async {
     return PaginationResultWithValue<List<DonationViewModel>>(
-        false, List<DonationViewModel>(), 1, 0, '');
+        false, List.empty(growable: true), 1, 0, '');
   }
 }

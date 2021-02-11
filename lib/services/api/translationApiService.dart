@@ -22,9 +22,7 @@ class TranslationApiService extends BaseApiService
       final response = await this.apiPost(url, data.toRawJson());
       if (response.hasFailed) {
         return ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>(
-            false,
-            List<TranslationsPerLanguageGraphViewModel>(),
-            response.errorMessage);
+            false, List.empty(growable: true), response.errorMessage);
       }
       final List newsList = json.decode(response.value);
       var chartData = newsList
@@ -34,8 +32,8 @@ class TranslationApiService extends BaseApiService
     } catch (exception) {
       getLog().e(
           "getTranslationsPerLanguageChart Api Exception: ${exception.toString()}");
-      return ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>(false,
-          List<TranslationsPerLanguageGraphViewModel>(), exception.toString());
+      return ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>(
+          false, List.empty(growable: true), exception.toString());
     }
   }
 }

@@ -15,7 +15,7 @@ class DonatorApiService extends BaseApiService implements IDonatorApiService {
       final response = await this.apiGet(url);
       if (response.hasFailed) {
         return PaginationResultWithValue<List<DonationViewModel>>(
-            false, List<DonationViewModel>(), 1, 0, response.errorMessage);
+            false, List.empty(growable: true), 1, 0, response.errorMessage);
       }
       var paginationResult = PaginationResultWithValueMapper()
           .fromRawJson<List<DonationViewModel>>(response.value,
@@ -26,7 +26,7 @@ class DonatorApiService extends BaseApiService implements IDonatorApiService {
     } catch (exception) {
       getLog().e("donators Api Exception: ${exception.toString()}");
       return PaginationResultWithValue<List<DonationViewModel>>(
-          false, List<DonationViewModel>(), 1, 0, exception.toString());
+          false, List.empty(growable: true), 1, 0, exception.toString());
     }
   }
 }

@@ -21,7 +21,7 @@ class PatronListPageComponent extends StatelessWidget {
     ResultWithValue<List<PatreonViewModel>> patronsResult = await getPatrons();
     if (!patronsResult.isSuccess) return patronsResult;
 
-    List<PatreonViewModel> list = List<PatreonViewModel>();
+    List<PatreonViewModel> list = List.empty(growable: true);
     list.addAll(patronsResult.value);
     list.add(PatreonViewModel(
       name: getTranslations().fromKey(LocaleKey.joinPatreon),

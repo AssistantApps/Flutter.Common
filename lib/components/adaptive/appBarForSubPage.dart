@@ -30,7 +30,7 @@ class AppBarForSubPage extends StatelessWidget
 
   Widget _appBarForAndroid(context, Widget title, List<ActionItem> actions,
       List<ActionItem> shortcutActions) {
-    List<Widget> actionWidgets = List<Widget>();
+    List<Widget> actionWidgets = List.empty(growable: true);
     return adaptiveAppBar(context, title, actionWidgets,
         leading: this.showBackAction
             ? IconButton(
@@ -54,7 +54,7 @@ Widget adaptiveAppBarForSubPageHelper(
   bool showBackAction = true,
 }) {
   if (actions == null || actions.length == 0) {
-    actions = List<ActionItem>();
+    actions = List.empty(growable: true);
   }
   if (showHomeAction) {
     actions.add(ActionItem(

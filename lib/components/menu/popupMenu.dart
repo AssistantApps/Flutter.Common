@@ -18,7 +18,7 @@ Widget popupMenu(
   IconData customIcon = Icons.more_vert,
   List<PopupMenuActionItem> additionalItems,
 }) {
-  List<PopupMenuActionItem> items = List<PopupMenuActionItem>();
+  List<PopupMenuActionItem> items = List.empty(growable: true);
   if (onEdit != null) {
     items.add(PopupMenuActionItem(
       icon: Icons.edit,

@@ -7,6 +7,6 @@ class IDataJsonService {
   Future<ResultWithValue<List<AssistantAppLinks>>> getAssistantApps(
       BuildContext context) async {
     return ResultWithValue<List<AssistantAppLinks>>(
-        false, List<AssistantAppLinks>(), '');
+        false, List.empty(growable: true), '');
   }
 }

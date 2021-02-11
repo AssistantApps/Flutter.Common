@@ -24,7 +24,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> columnWidgets = List<Widget>();
+    List<Widget> columnWidgets = List.empty(growable: true);
     columnWidgets.add(emptySpace(1));
 
     bool isCurrentVersion =
@@ -37,7 +37,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
 
     columnWidgets.add(emptySpace(1));
 
-    List<Widget> wrapChildren = List<Widget>();
+    List<Widget> wrapChildren = List.empty(growable: true);
     for (var plat in this.version.platforms) {
       if (plat == PlatformType.Apple) {
         wrapChildren.add(Chip(

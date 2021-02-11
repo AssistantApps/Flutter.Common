@@ -17,6 +17,7 @@ class AppImage {
 
   static const String error = base + 'error.png';
   static const String snowflake = base + 'special/snowflake.png';
+  static const String heart = base + 'special/heart.png';
   static const String specialPatreonLogo = base + 'special/patreonTile.png';
 
   static const String onlinePatreonIcon =

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Widget positiveButton(
     {String title, String eventString, EdgeInsets padding, Function onPress}) {
   var textWidget = Text(title, textAlign: TextAlign.center);
-  return RaisedButton(
+  return ElevatedButton(
     child: padding == null
         ? textWidget
         : Padding(
@@ -29,7 +29,7 @@ Widget negativeButton(
   );
 }
 
-Widget disabledButton({String title}) => RaisedButton(
+Widget disabledButton({String title}) => ElevatedButton(
       child: Text(title),
       onPressed: null,
     );

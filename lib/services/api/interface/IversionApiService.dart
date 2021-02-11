@@ -13,6 +13,6 @@ class IVersionApiService {
       String langCode, List<PlatformType> platforms,
       {int page = 1}) async {
     return PaginationResultWithValue<List<VersionViewModel>>(
-        false, List<VersionViewModel>(), 1, 0, '');
+        false, List.empty(growable: true), 1, 0, '');
   }
 }

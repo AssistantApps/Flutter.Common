@@ -21,7 +21,7 @@ class BackupJsonService extends BaseJsonService implements IBackupJsonService {
     } catch (exception) {
       getLog().e("BackupJsonService getPatrons() Ex: ${exception.toString()}");
       return ResultWithValue<List<PatreonViewModel>>(
-          false, List<PatreonViewModel>(), exception.toString());
+          false, List.empty(growable: true), exception.toString());
     }
   }
 
@@ -48,7 +48,7 @@ class BackupJsonService extends BaseJsonService implements IBackupJsonService {
       getLog()
           .e("BackupJsonService getDonations() Ex: ${exception.toString()}");
       return PaginationResultWithValue<List<DonationViewModel>>(
-          false, List<DonationViewModel>(), 1, 0, exception.toString());
+          false, List.empty(growable: true), 1, 0, exception.toString());
     }
   }
 }

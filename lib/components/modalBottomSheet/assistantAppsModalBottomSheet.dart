@@ -32,7 +32,7 @@ class _AssistantAppsModalBottomSheetWidget
   List<AssistantAppLinks> assistantAppLinks;
   bool isLoading = true;
   _AssistantAppsModalBottomSheetWidget() {
-    assistantAppLinks = List<AssistantAppLinks>();
+    assistantAppLinks = List.empty(growable: true);
   }
 
   @override
@@ -53,7 +53,7 @@ class _AssistantAppsModalBottomSheetWidget
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> widgets = List<Widget>();
+    List<Widget> widgets = List.empty(growable: true);
     widgets.add(emptySpace(1));
     widgets.add(
       localImage(

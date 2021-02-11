@@ -4,5 +4,5 @@ import '../../../contracts/enum/localeKey.dart';
 
 class ISnackbarService {
   void showSnackbar(context, LocaleKey lang,
-      {Duration duration, FlatButton action}) {}
+      {Duration duration, TextButton action}) {}
 }

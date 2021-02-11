@@ -60,6 +60,10 @@ Behaviour getFromType(BackgroundType backgroundType) {
           particleCount: 10,
         ),
       );
+    case BackgroundType.Valentines:
+      return RandomParticleBehaviour(
+        options: getParticleOptions(AppImage.heart),
+      );
     case BackgroundType.Christmas:
     default:
       return RandomParticleBehaviour(

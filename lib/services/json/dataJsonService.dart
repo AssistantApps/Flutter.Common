@@ -27,7 +27,7 @@ class DataJsonService extends BaseJsonService implements IDataJsonService {
       getLog().e(
           "DataJsonRepository getAssistantApps Exception: ${exception.toString()}");
       return ResultWithValue<List<AssistantAppLinks>>(
-          false, List<AssistantAppLinks>(), exception.toString());
+          false, List.empty(growable: true), exception.toString());
     }
   }
 }

@@ -27,6 +27,6 @@ DateTime readDateSafe(Map<dynamic, dynamic> json, String prop) {
 
 List<T> readListSafe<T>(
     Map<dynamic, dynamic> json, String prop, T Function(dynamic) mapper) {
-  if (json[prop] == null) return List<T>();
+  if (json[prop] == null) return List.empty(growable: true);
   return (json[prop] as List).map((item) => mapper(item)).toList();
 }
