@@ -37,12 +37,12 @@ Widget genericItemDescription(String description, {TextStyle textStyle}) =>
       margin: const EdgeInsets.all(4.0),
     );
 
-Widget genericItemGroup(String group) => Container(
+Widget genericItemGroup(String group, {maxLines = 2}) => Container(
       child: Text(
         group,
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 18),
       ),
       margin: const EdgeInsets.all(4.0),
     );
