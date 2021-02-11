@@ -1,3 +1,5 @@
+import 'package:assistantapps_flutter_common/services/api/interface/IsteamApiService.dart';
+import 'package:assistantapps_flutter_common/services/api/steamApiService.dart';
 import 'package:get_it/get_it.dart';
 
 import '../env/assistantAppsEnvironmentSettings.dart';
@@ -76,6 +78,7 @@ void initBaseDependencyInjection(
   // API
   getIt.registerSingleton<IDonatorApiService>(DonatorApiService());
   getIt.registerSingleton<IPatreonApiService>(PatreonApiService());
+  getIt.registerSingleton<ISteamApiService>(SteamApiService());
   getIt.registerSingleton<ITranslationApiService>(TranslationApiService());
   getIt.registerSingleton<IVersionApiService>(VersionApiService());
 
@@ -102,6 +105,7 @@ INotificationService getNotifications() => getIt<INotificationService>();
 // AssistantApps API
 IDonatorApiService getAssistantAppsDonators() => getIt<IDonatorApiService>();
 IPatreonApiService getAssistantAppsPatreons() => getIt<IPatreonApiService>();
+ISteamApiService getAssistantAppsSteam() => getIt<ISteamApiService>();
 ITranslationApiService getAssistantAppsTranslation() =>
     getIt<ITranslationApiService>();
 IVersionApiService getAssistantAppsVersions() => getIt<IVersionApiService>();

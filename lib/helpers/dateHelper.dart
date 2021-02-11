@@ -3,7 +3,7 @@ String simpleDate(DateTime dateTime) =>
 
 bool isValentinesPeriod() {
   var currentDate = DateTime.now();
-  if (currentDate.month == 2 && currentDate.day >= 11 && currentDate.day < 15) {
+  if (currentDate.month == 2 && currentDate.day >= 13 && currentDate.day < 15) {
     return true;
   }
   return false;

@@ -1,0 +1,4 @@
+enum AssistantAppType {
+  NMS,
+  SMS,
+}
