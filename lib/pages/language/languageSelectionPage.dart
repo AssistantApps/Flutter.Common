@@ -19,7 +19,7 @@ class LanguageSelectionPageContent extends StatelessWidget {
     options.sort((a, b) => a.title.compareTo(b.title));
 
     return OptionsListPageDialog(
-      getTranslations().fromKey(LocaleKey.language),
+      getTranslations().fromKey(LocaleKey.appLanguage),
       options,
       minListForSearch: 25,
       customPresenter: (BuildContext innerC, DropdownOption opt, int) {

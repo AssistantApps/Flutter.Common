@@ -37,6 +37,26 @@ int patreonCustomColumnCount(Breakpoint breakpoint) {
   return 4;
 }
 
+int contributorsCustomColumnCount(Breakpoint breakpoint) {
+  if (breakpoint.window == WindowSize.xsmall) return 1;
+  if (breakpoint.window == WindowSize.small) return 2;
+  if (breakpoint.window == WindowSize.medium) return 3;
+  if (breakpoint.window == WindowSize.large) return 4;
+  if (breakpoint.window == WindowSize.xlarge) return 5;
+
+  return 4;
+}
+
+int steamNewsCustomColumnCount(Breakpoint breakpoint) {
+  if (breakpoint.window == WindowSize.xsmall) return 1;
+  if (breakpoint.window == WindowSize.small) return 2;
+  if (breakpoint.window == WindowSize.medium) return 3;
+  if (breakpoint.window == WindowSize.large) return 4;
+  if (breakpoint.window == WindowSize.xlarge) return 5;
+
+  return 4;
+}
+
 bool isMobileScreenWidth(Breakpoint breakpoint) {
   if (breakpoint.window == WindowSize.xsmall) return true;
   if (breakpoint.window == WindowSize.small) return true;

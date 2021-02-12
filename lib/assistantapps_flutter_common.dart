@@ -85,6 +85,8 @@ export 'pages/language/languagePageContent.dart';
 export 'pages/language/languageSelectionPage.dart';
 export 'pages/patrons/patronListPage.dart';
 export 'pages/patrons/patronListPageComponent.dart';
+export 'pages/steam/steamNewsListPage.dart';
+export 'pages/steam/steamNewsListPageComponent.dart';
 export 'pages/whatIsNew/whatIsNewDetailPage.dart';
 export 'pages/whatIsNew/whatIsNewDetailPageComponent.dart';
 export 'pages/whatIsNew/whatIsNewPage.dart';

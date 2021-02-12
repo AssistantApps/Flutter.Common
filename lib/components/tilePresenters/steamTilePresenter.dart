@@ -6,13 +6,16 @@ import '../../assistantapps_flutter_common.dart';
 import '../common/icon.dart';
 
 Widget steamNewsItemTilePresenter(
-    BuildContext context, SteamNewsItemViewModel newsItem) {
+    BuildContext context, SteamNewsItemViewModel newsItem, int index) {
   Widget image = networkImage(
     newsItem.image,
-    loading: localImage('${getPath().imageAssetPathPrefix()}/defaultNews.jpg'),
+    boxfit: BoxFit.fitWidth,
+    loading: getPath().steamNewsDefaultImage(),
   );
   return GestureDetector(
     child: Card(
+      semanticContainer: true,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Column(
         children: <Widget>[
           image,

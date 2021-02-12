@@ -13,7 +13,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
 
   Future<ResultWithValue<VersionViewModel>> getLatest(
       List<PlatformType> platforms) async {
-    var url = "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}";
+    String url = "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}";
     try {
       final response = await this.apiGet(url);
       if (response.hasFailed) {
@@ -45,8 +45,9 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
         return PaginationResultWithValue<List<VersionViewModel>>(
             false, List.empty(growable: true), 0, 0, response.errorMessage);
       }
-      var paginationResult = PaginationResultWithValueMapper()
-          .fromRawJson<List<VersionViewModel>>(response.value, (List valueDyn) {
+      PaginationResultWithValue<List<VersionViewModel>> paginationResult =
+          PaginationResultWithValueMapper().fromRawJson<List<VersionViewModel>>(
+              response.value, (List valueDyn) {
         return valueDyn.map((r) => VersionViewModel.fromJson(r)).toList();
       });
       return paginationResult;

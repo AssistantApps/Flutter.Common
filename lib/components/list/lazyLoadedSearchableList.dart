@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:pagination_view/pagination_view.dart';
 
@@ -84,8 +85,9 @@ class _LazyLoadSearchableListWidget<T>
     if (pageToGet < 1 || pageToGet > totalPages) return [];
     if (fetchedPages.contains(pageToGet)) return [];
 
-    final temp = await listGetter(pageToGet);
+    PaginationResultWithValue<List<T>> temp = await listGetter(pageToGet);
     if (temp.isSuccess) {
+      print('getMoreData' + temp.isSuccess.toString());
       this.setState(() {
         fetchedPages.add(temp.currentPage);
         totalPages = temp.totalPages;
@@ -94,7 +96,8 @@ class _LazyLoadSearchableListWidget<T>
     }
 
     if (this.backupListGetter != null) {
-      final tempBackup = await this.backupListGetter(pageToGet);
+      PaginationResultWithValue<List<T>> tempBackup =
+          await this.backupListGetter(pageToGet);
       if (tempBackup.isSuccess) {
         this.setState(() {
           fetchedPages.add(tempBackup.currentPage);
@@ -105,7 +108,9 @@ class _LazyLoadSearchableListWidget<T>
       }
     }
 
-    return [];
+    print('getMoreData List.empty');
+    List<Null> result = List.empty();
+    return result;
   }
 
   Widget useItemDisplayer(BuildContext context, T data, int index) {
