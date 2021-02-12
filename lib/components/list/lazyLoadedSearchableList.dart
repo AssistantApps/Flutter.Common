@@ -86,7 +86,7 @@ class _LazyLoadSearchableListWidget<T>
     if (fetchedPages.contains(pageToGet)) return [];
 
     PaginationResultWithValue<List<T>> temp = await listGetter(pageToGet);
-    if (temp.isSuccess) {
+    if (temp.isSuccess && mounted) {
       print('getMoreData' + temp.isSuccess.toString());
       this.setState(() {
         fetchedPages.add(temp.currentPage);
@@ -95,7 +95,8 @@ class _LazyLoadSearchableListWidget<T>
       return temp.value;
     }
 
-    if (this.backupListGetter != null) {
+    if (this.backupListGetter != null && mounted) {
+      print('backup getMoreData' + temp.isSuccess.toString());
       PaginationResultWithValue<List<T>> tempBackup =
           await this.backupListGetter(pageToGet);
       if (tempBackup.isSuccess) {

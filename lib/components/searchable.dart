@@ -138,6 +138,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       tempResults.add(item);
     }
 
+    if (mounted == false) return;
     setState(() {
       hasLoaded = true;
       this.usingBackupGetter = usingBackupGetter;
@@ -146,6 +147,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
   }
 
   listErrorFunc() {
+    if (mounted == false) return;
     setState(() {
       hasLoaded = true;
       _listResults = [];
@@ -265,6 +267,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
   onSearchTextChanged(String searchText) async {
     _searchResult.clear();
     if (searchText.isEmpty) {
+      if (mounted == false) return;
       setState(() {});
       return;
     }
@@ -276,6 +279,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       }
     });
 
+    if (mounted == false) return;
     setState(() {});
   }
 }
