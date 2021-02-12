@@ -53,7 +53,7 @@ class _ResponsiveListDetailWidget<T>
             getCustomListWithDetailsFlexWidth(breakpoint);
 
         Future<ResultWithValue<List<T>>> interceptedListGetter() async {
-          var actualResult = await widget.listGetter();
+          ResultWithValue<List<T>> actualResult = await widget.listGetter();
           if (actualResult.isSuccess &&
               actualResult.value.length > 0 &&
               flexData.isMobile == false) {
@@ -121,7 +121,7 @@ class _ResponsiveListDetailWidget<T>
   }
 
   void alterDetailView(BuildContext currentContext, T itemToView) {
-    var newDetailWidget = widget.listItemDesktopOnTap(
+    Widget newDetailWidget = widget.listItemDesktopOnTap(
       currentContext,
       itemToView,
       updateDetailView,

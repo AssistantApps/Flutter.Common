@@ -3,7 +3,7 @@ String joinStringList(List<String> array, String separator) {
 
   String result = '';
   int maxIndex = array.length - 1;
-  for (var index = 0; index < maxIndex; index++) {
+  for (int index = 0; index < maxIndex; index++) {
     result += array[index] + separator;
   }
   return result + array[maxIndex];
@@ -11,7 +11,7 @@ String joinStringList(List<String> array, String separator) {
 
 String padString(String input, int numChars) {
   String padding = '';
-  for (var paddingIndex = 0;
+  for (int paddingIndex = 0;
       paddingIndex < numChars - input.length;
       paddingIndex++) {
     padding += '0';

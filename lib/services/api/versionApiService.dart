@@ -52,8 +52,9 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       return paginationResult;
     } catch (exception) {
       getLog().e("getHistory Api Exception: ${exception.toString()}");
+      List<VersionViewModel> result = List.empty(growable: true);
       return PaginationResultWithValue<List<VersionViewModel>>(
-          false, List.empty(growable: true), 0, 0, exception.toString());
+          false, result, 0, 0, exception.toString());
     }
   }
 }

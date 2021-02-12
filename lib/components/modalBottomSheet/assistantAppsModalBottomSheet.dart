@@ -71,7 +71,7 @@ class _AssistantAppsModalBottomSheetWidget
       widgets.add(Center(child: getLoading().smallLoadingIndicator()));
     } else {
       widgets.add(Divider());
-      for (var appLink in assistantAppLinks) {
+      for (AssistantAppLinks appLink in assistantAppLinks) {
         List<PopupMenuActionItem> popups = [
           if (appLink.ios != null) ...[
             PopupMenuActionItem(

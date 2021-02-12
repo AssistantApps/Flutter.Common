@@ -18,7 +18,7 @@ class WhatIsNewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var currentWhatIsNewGuid = getEnv().currentWhatIsNewGuid;
+    String currentWhatIsNewGuid = getEnv().currentWhatIsNewGuid;
     return getBaseWidget().appScaffold(
       context,
       appBar: getBaseWidget().appBarForSubPage(

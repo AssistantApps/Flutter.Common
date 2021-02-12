@@ -51,7 +51,7 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
 
 class _LazyLoadSearchableListWidget<T>
     extends State<LazyLoadSearchableList<T>> {
-  var _scrollController = ScrollController();
+  ScrollController _scrollController = ScrollController();
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
       listGetter;
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
@@ -80,7 +80,7 @@ class _LazyLoadSearchableListWidget<T>
   );
 
   Future<List<T>> getMoreData(int page) async {
-    var pageToGet = (page ~/ this.pageSize) + 1;
+    int pageToGet = (page ~/ this.pageSize) + 1;
     if (pageToGet < 1 || pageToGet > totalPages) return [];
     if (fetchedPages.contains(pageToGet)) return [];
 

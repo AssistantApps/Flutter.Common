@@ -51,14 +51,14 @@ class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
     if (addOption != null) {
       floatingActionButtonWidget = FloatingActionButton(
         onPressed: () async {
-          var temp = await getDialog().asyncInputDialog(
+          String temp = await getDialog().asyncInputDialog(
               context, getTranslations().fromKey(LocaleKey.addTag));
           if (temp == '' ||
               temp == ' ' ||
               this.options.any((opt) => opt.value == temp)) {
             return;
           }
-          var option = DropdownOption(temp);
+          DropdownOption option = DropdownOption(temp);
           addOption(option);
           setState(() {
             this.options.add(option);
@@ -71,17 +71,18 @@ class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
       );
     }
 
-    var presenter = customPresenter ??
-        (BuildContext innerC, DropdownOption option, int index) =>
-            optionTilePresenter(innerC, option,
-                onDelete: (this.onDelete != null)
-                    ? () {
-                        this.onDelete(option);
-                        this.setState(() {
-                          this.options.remove(option);
-                        });
-                      }
-                    : null);
+    Widget Function(BuildContext p1, DropdownOption p2, int p3) presenter =
+        customPresenter ??
+            (BuildContext innerC, DropdownOption option, int index) =>
+                optionTilePresenter(innerC, option,
+                    onDelete: (this.onDelete != null)
+                        ? () {
+                            this.onDelete(option);
+                            this.setState(() {
+                              this.options.remove(option);
+                            });
+                          }
+                        : null);
 
     return getBaseWidget().appScaffold(
       context,

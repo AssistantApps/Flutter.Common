@@ -10,8 +10,8 @@ Widget adaptiveAppScaffold(
   Widget floatingActionButton,
   FloatingActionButtonLocation floatingActionButtonLocation,
 }) {
-  var deviceAppBar = appBar != null ? appBar : null;
-  var customBody =
+  Widget deviceAppBar = appBar != null ? appBar : null;
+  Widget customBody =
       builder != null ? Builder(builder: (inner) => builder(inner)) : body;
 
   return Scaffold(

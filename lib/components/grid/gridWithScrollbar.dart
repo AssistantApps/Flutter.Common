@@ -15,8 +15,9 @@ Widget gridWithScrollbar({
 }) =>
     BreakpointBuilder(
         builder: (BuildContext innerContext, Breakpoint breakpoint) {
-      var columnCalc = gridViewColumnCalculator ?? getCustomColumnCount;
-      var crossAxisCount = columnCalc(breakpoint);
+      int Function(Breakpoint p1) columnCalc =
+          gridViewColumnCalculator ?? getCustomColumnCount;
+      int crossAxisCount = columnCalc(breakpoint);
       // var listView = GridView.builder(
       //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
       //     crossAxisCount: crossAxisCount,
@@ -28,7 +29,7 @@ Widget gridWithScrollbar({
       //   itemBuilder: itemBuilder,
       //   key: Key('grid-cross-axis$crossAxisCount'),
       // );
-      var listView = StaggeredGridView.countBuilder(
+      StaggeredGridView listView = StaggeredGridView.countBuilder(
         primary: false,
         shrinkWrap: true,
         padding: const EdgeInsets.all(8),

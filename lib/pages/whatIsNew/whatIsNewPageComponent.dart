@@ -25,11 +25,14 @@ class WhatIsNewPageComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LazyLoadSearchableList<VersionViewModel>(
-      (int page) => getAssistantAppsVersions().getHistory(
-        selectedLanguage,
-        platforms,
-        page: page,
-      ),
+      // (int page) => getAssistantAppsVersions().getHistory(
+      //   selectedLanguage,
+      //   platforms,
+      //   page: page,
+      // ),
+      (int page) => Future.value(
+          PaginationResultWithValue<List<VersionViewModel>>(
+              true, List<VersionViewModel>(), 0, 0, '')),
       20,
       listItemWithIndexDisplayer:
           versionTilePresenter(context, currentWhatIsNewGuid, onTap),

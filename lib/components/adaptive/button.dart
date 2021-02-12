@@ -6,7 +6,7 @@ Widget positiveButton(
     EdgeInsets padding,
     Color colour,
     Function onPress}) {
-  var textWidget = Text(title, textAlign: TextAlign.center);
+  Text textWidget = Text(title, textAlign: TextAlign.center);
   return ElevatedButton(
     child: padding == null
         ? textWidget
@@ -23,7 +23,7 @@ Widget positiveButton(
 
 Widget negativeButton(
     {String title, String eventString, EdgeInsets padding, Function onPress}) {
-  var textWidget = Text(title, textAlign: TextAlign.center);
+  Text textWidget = Text(title, textAlign: TextAlign.center);
   return MaterialButton(
     child: padding == null
         ? textWidget

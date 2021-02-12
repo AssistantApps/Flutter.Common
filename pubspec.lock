@@ -187,7 +187,7 @@ packages:
       name: flutter_layout_grid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.3"
+    version: "0.11.3"
   flutter_markdown:
     dependency: "direct main"
     description:
@@ -201,7 +201,7 @@ packages:
       name: flutter_staggered_grid_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.3"
+    version: "0.4.0-nullsafety.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -218,7 +218,7 @@ packages:
       name: get_it
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.4"
+    version: "5.0.6"
   http:
     dependency: "direct main"
     description:
@@ -274,7 +274,7 @@ packages:
       name: material_segmented_control
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0+1"
+    version: "2.1.1+1"
   meta:
     dependency: transitive
     description:
@@ -309,14 +309,14 @@ packages:
       name: package_info
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1"
+    version: "0.4.3+4"
   pagination_view:
     dependency: "direct main"
     description:
       name: pagination_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3+2"
+    version: "1.0.4"
   path:
     dependency: transitive
     description:
@@ -386,7 +386,7 @@ packages:
       name: percent_indicator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.9"
+    version: "2.1.9+1"
   petitparser:
     dependency: transitive
     description:
@@ -510,7 +510,7 @@ packages:
       name: timeline_tile
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.2"
+    version: "1.0.0"
   typed_data:
     dependency: transitive
     description:
@@ -603,5 +603,5 @@ packages:
     source: hosted
     version: "4.5.1"
 sdks:
-  dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=1.22.2"
+  dart: ">=2.12.0-29.10.beta <3.0.0"
+  flutter: ">=1.24.0-6.0.pre"

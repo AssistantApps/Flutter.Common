@@ -7,7 +7,7 @@ import 'genericTilePresenter.dart';
 
 Widget patronTilePresenter(BuildContext context, PatreonViewModel patron) {
   if (patron.url == ExternalUrls.patreon) {
-    var onTap = () => launchExternalURL(patron.url);
+    Function() onTap = () => launchExternalURL(patron.url);
     return Card(
       child: genericListTileWithNetworkImage(
         context,

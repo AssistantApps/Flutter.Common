@@ -24,9 +24,9 @@ Widget Function(BuildContext context, VersionViewModel version, int index)
       version.activeDate,
     );
 
-    var child = TimelineTile(
-      alignment: TimelineAlign.left,
-      rightChild: genericListTileWithSubtitle(
+    TimelineTile child = TimelineTile(
+      alignment: TimelineAlign.start,
+      endChild: genericListTileWithSubtitle(
         context,
         leadingImage: null,
         name: getTranslations()
@@ -40,7 +40,7 @@ Widget Function(BuildContext context, VersionViewModel version, int index)
         width: 25,
         color: getTheme().getSecondaryColour(context),
       ),
-      topLineStyle: LineStyle(color: getTheme().getSecondaryColour(context)),
+      beforeLineStyle: LineStyle(color: getTheme().getSecondaryColour(context)),
       isFirst: index == 0,
     );
     if (version.guid.toLowerCase() == versionGuid.toLowerCase()) {

@@ -77,7 +77,7 @@ class TranslationsPerLanguageFLChart extends StatelessWidget {
                     getTitles: (double value) {
                       int index = value.round();
                       try {
-                        var name = list[index].name;
+                        String name = list[index].name;
                         if (name.length > numMaxChars) {
                           return name.substring(0, numMaxChars) + ellipsesText;
                         }

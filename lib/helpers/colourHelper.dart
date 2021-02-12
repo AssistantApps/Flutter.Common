@@ -32,11 +32,11 @@ class HexColor extends Color {
     }
 
     // invert color components
-    var r = (255 - int.parse(hexColor.substring(0, 2), radix: 16))
+    String r = (255 - int.parse(hexColor.substring(0, 2), radix: 16))
         .toRadixString(16);
-    var g = (255 - int.parse(hexColor.substring(2, 4), radix: 16))
+    String g = (255 - int.parse(hexColor.substring(2, 4), radix: 16))
         .toRadixString(16);
-    var b = (255 - int.parse(hexColor.substring(4, 6), radix: 16))
+    String b = (255 - int.parse(hexColor.substring(4, 6), radix: 16))
         .toRadixString(16);
     // pad each with zeros and return
     return '#' + padString(r, 0) + padString(g, 2) + padString(b, 2);

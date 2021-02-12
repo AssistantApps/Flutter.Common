@@ -34,8 +34,10 @@ class PatronListPageComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var apiFunc = () => getAssistantAppsPatreons().getPatrons();
-    var backupFunc = () => BackupJsonService().getPatrons(context);
+    Future<ResultWithValue<List<PatreonViewModel>>> Function() apiFunc =
+        () => getAssistantAppsPatreons().getPatrons();
+    Future<ResultWithValue<List<PatreonViewModel>>> Function() backupFunc =
+        () => BackupJsonService().getPatrons(context);
     return BackgroundWrapper(
       backgroundType: BackgroundType.Patreon,
       body: SearchableGrid<PatreonViewModel>(

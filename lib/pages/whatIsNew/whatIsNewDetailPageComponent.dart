@@ -38,7 +38,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
     columnWidgets.add(emptySpace(1));
 
     List<Widget> wrapChildren = List.empty(growable: true);
-    for (var plat in this.version.platforms) {
+    for (PlatformType plat in this.version.platforms) {
       if (plat == PlatformType.Apple) {
         wrapChildren.add(Chip(
           label: Text('iOS', style: TextStyle(color: Colors.white)),

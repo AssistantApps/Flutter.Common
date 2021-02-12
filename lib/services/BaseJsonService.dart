@@ -10,13 +10,13 @@ class BaseJsonService {
   }
 
   Future<dynamic> getJsonFromAssets(context, String jsonFileName) async {
-    var jsonString = await DefaultAssetBundle.of(context)
+    String jsonString = await DefaultAssetBundle.of(context)
         .loadString('assets/$jsonFileName.json');
     return jsonString;
   }
 
   Future<dynamic> getJsonFromCommonPackage(context, String jsonFileName) async {
-    var jsonString = await DefaultAssetBundle.of(context).loadString(
+    String jsonString = await DefaultAssetBundle.of(context).loadString(
         'packages/${UIConstants.CommonPackage}/assets/$jsonFileName.json');
     return jsonString;
   }

@@ -16,10 +16,12 @@ class PaginationResultWithValue<T> extends ResultWithValue<T> {
 }
 
 class PaginationResultWithValueMapper {
-  fromRawJson<T>(String str, T Function(List<dynamic>) mapper) =>
+  PaginationResultWithValue<T> fromRawJson<T>(
+          String str, T Function(List<dynamic>) mapper) =>
       fromJson(json.decode(str), mapper);
 
-  fromJson<T>(Map<String, dynamic> json, T Function(List<dynamic>) mapper) {
+  PaginationResultWithValue<T> fromJson<T>(
+      Map<String, dynamic> json, T Function(List<dynamic>) mapper) {
     return PaginationResultWithValue<T>(
       readBoolSafe(json, 'isSuccess'),
       mapper(json['value'] as List),

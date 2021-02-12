@@ -41,7 +41,7 @@ Widget localImage(
   double width,
   EdgeInsetsGeometry padding = EdgeInsets.zero,
 }) {
-  var image = Image.asset(
+  Image image = Image.asset(
     getImagePath(imagePath, imagePackage: imagePackage),
     package: imagePackage,
     fit: boxfit,
@@ -80,7 +80,7 @@ Widget getListTileImage(
   EdgeInsets padding,
   String package,
 }) {
-  var child = ConstrainedBox(
+  ConstrainedBox child = ConstrainedBox(
     constraints: BoxConstraints(
       maxWidth: size,
       maxHeight: size,

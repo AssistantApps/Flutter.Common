@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 class LanguageSelectionPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var options = supportedLanguageMaps
+    List<DropdownOption> options = supportedLanguageMaps
         .map((l) => DropdownOption(
               getTranslations().fromKey(l.name),
               value: l.code,

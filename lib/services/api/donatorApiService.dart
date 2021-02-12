@@ -17,9 +17,10 @@ class DonatorApiService extends BaseApiService implements IDonatorApiService {
         return PaginationResultWithValue<List<DonationViewModel>>(
             false, List.empty(growable: true), 1, 0, response.errorMessage);
       }
-      var paginationResult = PaginationResultWithValueMapper()
-          .fromRawJson<List<DonationViewModel>>(response.value,
-              (List valueDyn) {
+      PaginationResultWithValue<List<DonationViewModel>> paginationResult =
+          PaginationResultWithValueMapper()
+              .fromRawJson<List<DonationViewModel>>(response.value,
+                  (List valueDyn) {
         return valueDyn.map((r) => DonationViewModel.fromJson(r)).toList();
       });
       return paginationResult;

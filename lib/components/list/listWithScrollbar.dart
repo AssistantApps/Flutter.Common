@@ -10,7 +10,7 @@ Widget listWithScrollbar(
     EdgeInsetsGeometry padding,
     bool shrinkWrap = false,
     ScrollController scrollController}) {
-  var listView = ListView.builder(
+  ListView listView = ListView.builder(
     physics: isApple ? BouncingScrollPhysics() : ClampingScrollPhysics(),
     key: key,
     padding: padding,

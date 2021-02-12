@@ -9,7 +9,7 @@ class LanguagePageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var widgets = [
+    List<Widget> widgets = [
       genericItemDescription(
         getTranslations().fromKey(LocaleKey.languageContent),
       ),

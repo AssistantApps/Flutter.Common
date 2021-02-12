@@ -18,7 +18,8 @@ class PatreonApiService extends BaseApiService implements IPatreonApiService {
             false, List.empty(growable: true), response.errorMessage);
       }
       final List newsList = json.decode(response.value);
-      var releases = newsList.map((r) => PatreonViewModel.fromJson(r)).toList();
+      List<PatreonViewModel> releases =
+          newsList.map((r) => PatreonViewModel.fromJson(r)).toList();
       return ResultWithValue(true, releases, '');
     } catch (exception) {
       getLog().e("getPatrons Api Exception: ${exception.toString()}");
