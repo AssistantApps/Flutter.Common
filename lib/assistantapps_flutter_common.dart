@@ -26,6 +26,7 @@ export 'components/modalBottomSheet/assistantAppsModalBottomSheet.dart';
 export 'components/tilePresenters/genericTilePresenter.dart';
 export 'components/tilePresenters/languageTilePresenter.dart';
 export 'components/tilePresenters/optionTilePresenter.dart';
+export 'components/tilePresenters/steamTilePresenter.dart';
 //
 // Constants
 export 'constants/ExternalUrls.dart';
@@ -34,6 +35,7 @@ export 'constants/UIConstants.dart';
 //
 // Contracts
 export 'contracts/data/assistantAppLinks.dart';
+export 'contracts/enum/assistantAppType.dart';
 export 'contracts/enum/backgroundType.dart';
 export 'contracts/enum/donationType.dart';
 export 'contracts/enum/enumBase.dart';
@@ -41,6 +43,8 @@ export 'contracts/enum/localeKey.dart';
 export 'contracts/enum/platformType.dart';
 export 'contracts/generated/donationViewModel.dart';
 export 'contracts/generated/patreonViewModel.dart';
+export 'contracts/generated/steamNewsItemViewModel.dart';
+export 'contracts/generated/steamBranchesViewModel.dart';
 export 'contracts/generated/versionSearchViewModel.dart';
 export 'contracts/generated/versionViewModel.dart';
 export 'contracts/localizationMap.dart';
