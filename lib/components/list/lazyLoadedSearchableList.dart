@@ -5,7 +5,7 @@ import 'package:pagination_view/pagination_view.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 
-class LazyLoadSearchableList<T> extends StatefulWidget {
+class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
       listGetter;
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
@@ -50,7 +50,7 @@ class LazyLoadSearchableList<T> extends StatefulWidget {
       );
 }
 
-class _LazyLoadSearchableListWidget<T>
+class _LazyLoadSearchableListWidget<T extends dynamic>
     extends State<LazyLoadSearchableList<T>> {
   ScrollController _scrollController = ScrollController();
   final Future<PaginationResultWithValue<List<T>>> Function(int page)
@@ -124,7 +124,9 @@ class _LazyLoadSearchableListWidget<T>
 
   @override
   Widget build(BuildContext context) {
+    List<T> prefetch = List.empty(growable: true);
     return PaginationView<T>(
+      preloadedItems: prefetch,
       itemBuilder: (BuildContext innerCtxt, T user, int index) =>
           useItemDisplayer(innerCtxt, user, index),
       paginationViewType: PaginationViewType.listView,
