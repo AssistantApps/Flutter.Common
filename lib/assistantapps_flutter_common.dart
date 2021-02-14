@@ -23,6 +23,7 @@ export 'components/list/responsiveSearchableList.dart';
 export 'components/list/searchableList.dart';
 export 'components/menu/popupMenu.dart';
 export 'components/modalBottomSheet/assistantAppsModalBottomSheet.dart';
+export 'components/tilePresenters/externalLinkTilePresenter.dart';
 export 'components/tilePresenters/genericTilePresenter.dart';
 export 'components/tilePresenters/languageTilePresenter.dart';
 export 'components/tilePresenters/optionTilePresenter.dart';
