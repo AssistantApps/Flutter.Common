@@ -17,7 +17,10 @@ Widget networkImage(
     height: height,
     width: width,
     child: OctoImage(
-      image: CachedNetworkImageProvider(imageUrl),
+      image: CachedNetworkImageProvider(
+        imageUrl,
+        imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
+      ),
       placeholderBuilder: (BuildContext context) {
         return Center(
             child: Padding(
