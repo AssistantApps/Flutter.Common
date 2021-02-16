@@ -23,6 +23,8 @@ class ThemeService implements IThemeService {
   @override
   Color getScaffoldBackgroundColour(BuildContext context) => Color(0);
   @override
+  void setFontFamily(BuildContext context, String fontFamily) => null;
+  @override
   Color getH1Colour(BuildContext context) => Color(0);
   @override
   Color getTextColour(BuildContext context) => Color(0);

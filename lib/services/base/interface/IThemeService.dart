@@ -11,6 +11,7 @@ class IThemeService {
   bool getIsDark(BuildContext context) => false;
   Color getBackgroundColour(BuildContext context) => Color(0);
   Color getScaffoldBackgroundColour(BuildContext context) => Color(0);
+  void setFontFamily(BuildContext context, String fontFamily) => null;
   Color getH1Colour(BuildContext context) => Color(0);
   Color getTextColour(BuildContext context) => Color(0);
   void setBrightness(BuildContext context, bool isDark) => null;
