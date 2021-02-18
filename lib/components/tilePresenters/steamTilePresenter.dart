@@ -32,7 +32,7 @@ Widget steamNewsItemTilePresenter(
             child: Text(
               DateFormat(UIConstants.DateFormat).format(newsItem.date) ?? '...',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(fontSize: 14),
             ),
           ),
           Padding(
