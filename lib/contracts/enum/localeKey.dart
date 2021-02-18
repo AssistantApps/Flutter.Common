@@ -457,4 +457,9 @@ enum LocaleKey {
   tapToExpand,
   oneBlueprint,
   oneResource,
+  gek,
+  vykeen,
+  korvax,
+  manufacturingFacilityFactory,
+  manufacturingFacilityHarvestor,
 }
