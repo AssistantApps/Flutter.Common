@@ -454,4 +454,7 @@ enum LocaleKey {
   steamBranches,
   nmsNews,
   nmsNewsExplanation,
+  tapToExpand,
+  oneBlueprint,
+  oneResource,
 }
