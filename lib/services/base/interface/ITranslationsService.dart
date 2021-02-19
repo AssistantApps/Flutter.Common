@@ -15,7 +15,11 @@ class ITranslationService {
   get currentLanguage => 'en';
 
   String fromKey(LocaleKey key) {
-    return "${key.toString()}";
+    return key.toString();
+  }
+
+  String fromString(String key) {
+    return key;
   }
 
   LocalizationMap getCurrentLocalizationMap(

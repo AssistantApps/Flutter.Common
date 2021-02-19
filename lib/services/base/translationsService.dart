@@ -33,6 +33,11 @@ class TranslationService implements ITranslationService {
   @override
   String fromKey(LocaleKey key) {
     String keyString = EnumToString.convertToString(key);
+    return fromString(keyString);
+  }
+
+  @override
+  String fromString(String keyString) {
     return _localisedValues[keyString] ?? "$keyString";
   }
 

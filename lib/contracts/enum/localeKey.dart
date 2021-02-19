@@ -462,4 +462,5 @@ enum LocaleKey {
   korvax,
   manufacturingFacilityFactory,
   manufacturingFacilityHarvestor,
+  eggModification
 }
