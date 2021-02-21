@@ -82,6 +82,7 @@ export 'integration/translationDelegate.dart';
 // Pages
 export 'pages/dialog/optionsListPageDialog.dart';
 export 'pages/donators/donatorsPageComponent.dart';
+export 'pages/language/languageHelpPage.dart';
 export 'pages/language/languagePageContent.dart';
 export 'pages/language/languageSelectionPage.dart';
 export 'pages/patrons/patronListPage.dart';

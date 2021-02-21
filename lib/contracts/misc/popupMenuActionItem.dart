@@ -6,6 +6,7 @@ class PopupMenuActionItem {
   final String text;
   final TextStyle style;
   final Function onPressed;
+  final int sortOrder;
 
   PopupMenuActionItem({
     @required this.icon,
@@ -13,5 +14,6 @@ class PopupMenuActionItem {
     @required this.text,
     this.image,
     this.style,
+    this.sortOrder,
   });
 }

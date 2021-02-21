@@ -21,6 +21,15 @@ Widget positiveButton(
   );
 }
 
+Widget positiveIconButton(Color colour, {IconData icon, Function onPress}) =>
+    ElevatedButton(
+      child: Icon(icon),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(colour),
+      ),
+      onPressed: (onPress != null) ? onPress : null,
+    );
+
 Widget negativeButton(
     {String title, String eventString, EdgeInsets padding, Function onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);

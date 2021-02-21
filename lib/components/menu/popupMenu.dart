@@ -15,6 +15,7 @@ Widget popupMenu(
   context, {
   Function onEdit,
   Function onDelete,
+  Color iconColour,
   IconData customIcon = Icons.more_vert,
   List<PopupMenuActionItem> additionalItems,
 }) {
@@ -39,11 +40,14 @@ Widget popupMenu(
   if (additionalItems != null && additionalItems.length > 0) {
     items.addAll(additionalItems);
   }
-  return popupMenuFromArray(items, customIcon);
+  return popupMenuFromArray(items, iconColour, customIcon);
 }
 
 Widget popupMenuFromArray(
-    List<PopupMenuActionItem> items, IconData customIcon) {
+  List<PopupMenuActionItem> items,
+  Color iconColour,
+  IconData customIcon,
+) {
   if (items == null || items.length == 0) return null;
   if (items.length == 1) {
     if (items[0].image != null) {
@@ -66,7 +70,10 @@ Widget popupMenuFromArray(
         getLog().e(ex);
       }
     },
-    icon: Icon(customIcon != null ? customIcon : Icons.more_vert),
+    icon: Icon(
+      customIcon != null ? customIcon : Icons.more_vert,
+      color: iconColour,
+    ),
     itemBuilder: (BuildContext context) {
       return items
           .map((pi) => PopupMenuItem<PopupMenuActionItem>(

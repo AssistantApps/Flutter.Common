@@ -50,11 +50,18 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
                         List<TranslationsPerLanguageGraphViewModel>>>
                 snapshot,
           ) {
-            Widget errorWidget = asyncSnapshotHandler(
-              context,
-              snapshot,
-              loader: () => getLoading().loadingIndicator(),
-            );
+            Widget errorWidget = asyncSnapshotHandler(context, snapshot,
+                loader: () => getLoading().loadingIndicator(),
+                isValidFunction: (ResultWithValue<
+                        List<TranslationsPerLanguageGraphViewModel>>
+                    data) {
+                  if (snapshot.data.value == null ||
+                      snapshot.data.value == null ||
+                      snapshot.data.value.length < 1) {
+                    return false;
+                  }
+                  return true;
+                });
             if (errorWidget != null) return errorWidget;
 
             List<TranslationsPerLanguageGraphViewModel> list =

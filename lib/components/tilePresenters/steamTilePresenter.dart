@@ -10,7 +10,7 @@ Widget steamNewsItemTilePresenter(
   Widget image = networkImage(
     newsItem.image,
     boxfit: BoxFit.fitWidth,
-    loading: getPath().steamNewsDefaultImage(),
+    loading: getPath().steamNewsDefaultImage,
   );
   return GestureDetector(
     child: Card(

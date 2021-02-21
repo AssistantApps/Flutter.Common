@@ -37,6 +37,8 @@ class ThemeService implements IThemeService {
   @override
   Color getCardTextColour(BuildContext context) => Color(0);
   @override
+  Color getCardBackgroundColour(BuildContext context) => Color(0);
+  @override
   bool useWhiteForeground(Color backgroundColor) => false;
   @override
   Color getForegroundTextColour(Color backgroundColor) => Color(0);

@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'interface/IPathService.dart';
 
 class PathService implements IPathService {
-  String imageAssetPathPrefix() => 'assets/images';
-  Widget steamNewsDefaultImage() => localImage(
-        '${imageAssetPathPrefix()}defaultSteamNews.jpg',
+  String get imageAssetPathPrefix => 'assets/images';
+  Widget get steamNewsDefaultImage => localImage(
+        '${imageAssetPathPrefix}defaultSteamNews.jpg',
         imagePackage: UIConstants.CommonPackage,
       );
+  String get defaultProfilePic => '';
 }

@@ -18,6 +18,7 @@ class IThemeService {
   Color getAndroidColour() => Color(0);
   Color getIosColour() => Color(0);
   Color getCardTextColour(BuildContext context) => Color(0);
+  Color getCardBackgroundColour(BuildContext context) => Color(0);
   bool useWhiteForeground(Color backgroundColor) => false;
   Color getForegroundTextColour(Color backgroundColor) => Color(0);
   Color fabForegroundColourSelector(BuildContext context) => Color(0);
