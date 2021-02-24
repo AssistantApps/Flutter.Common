@@ -24,7 +24,7 @@ Widget networkImage(
       placeholderBuilder: (BuildContext context) {
         return Center(
             child: Padding(
-          child: loading ?? CircularProgressIndicator(),
+          child: loading ?? getLoading().smallLoadingIndicator(),
           padding: EdgeInsets.all(12),
         ));
       },
