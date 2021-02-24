@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../helpers/colourHelper.dart';
 import '../../integration/dependencyInjection.dart';
@@ -84,12 +85,18 @@ ListTile genericListTileWithNetworkImage(context,
       ? name + ' - ' + description
       : name;
   return ListTile(
-    leading: networkImage(
-      imageUrl,
-      boxfit: BoxFit.contain,
-      height: 50.0,
-      width: 50.0,
-    ),
+    leading: isWeb
+        ? Image.network(
+            imageUrl,
+            height: 50.0,
+            width: 50.0,
+          )
+        : networkImage(
+            imageUrl,
+            boxfit: BoxFit.contain,
+            height: 50.0,
+            width: 50.0,
+          ),
     title: Text(
       title,
       maxLines: maxLines,

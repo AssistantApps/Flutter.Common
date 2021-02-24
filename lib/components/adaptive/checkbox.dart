@@ -2,7 +2,7 @@ import 'package:assistantapps_flutter_common/helpers/deviceHelper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget adaptiveCheckbox(BuildContext context,
+Widget adaptiveCheckbox(
     {@required bool value,
     Color activeColor,
     @required void Function(bool newValue) onChanged}) {

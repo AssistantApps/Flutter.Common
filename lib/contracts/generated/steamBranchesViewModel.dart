@@ -20,10 +20,11 @@ class SteamBranchesViewModel {
   factory SteamBranchesViewModel.fromRawJson(String str) =>
       SteamBranchesViewModel.fromJson(json.decode(str));
 
-  factory SteamBranchesViewModel.fromJson(Map<String, dynamic> json) =>
-      SteamBranchesViewModel(
-        name: readStringSafe(json, 'name'),
-        buildId: readStringSafe(json, 'buildId'),
-        lastUpdate: readDateSafe(json, 'lastUpdate'),
-      );
+  factory SteamBranchesViewModel.fromJson(Map<String, dynamic> json) {
+    return SteamBranchesViewModel(
+      name: readStringSafe(json, 'name'),
+      buildId: readStringSafe(json, 'buildId'),
+      lastUpdate: readDateSafe(json, 'lastUpdate'),
+    );
+  }
 }

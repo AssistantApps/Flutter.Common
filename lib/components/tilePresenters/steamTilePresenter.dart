@@ -30,7 +30,9 @@ Widget steamNewsItemTilePresenter(
           Padding(
             padding: EdgeInsets.only(top: 4, right: 4, left: 4),
             child: Text(
-              DateFormat(UIConstants.DateFormat).format(newsItem.date) ?? '...',
+              DateFormat(UIConstants.DateFormat)
+                      .format(newsItem.date.toLocal()) ??
+                  '...',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14),
             ),
@@ -70,9 +72,12 @@ Widget steamNewsItemTilePresenter(
 
 Widget steamBranchItemTilePresenter(
     BuildContext context, SteamBranchesViewModel branch) {
+  print(branch.lastUpdate.toLocal().toIso8601String());
   String date = branch.lastUpdate == null
       ? '...'
-      : DateFormat(UIConstants.DateTimeFormat).format(branch.lastUpdate);
+      : DateFormat(UIConstants.DateTimeFormat).format(
+          branch.lastUpdate.toLocal(),
+        );
   return flatCard(
     child: ListTile(
       title: Text(
@@ -86,7 +91,7 @@ Widget steamBranchItemTilePresenter(
         overflow: TextOverflow.ellipsis,
       ),
       trailing: Text(
-        formatTime(branch.lastUpdate.millisecondsSinceEpoch),
+        formatTime(branch.lastUpdate.toLocal().millisecondsSinceEpoch),
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
