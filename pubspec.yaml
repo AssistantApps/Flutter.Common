@@ -34,6 +34,7 @@ dependencies:
   time_formatter: ^1.0.0+5
 
   # Misc
+  intl: ^0.16.1
   enum_to_string: 1.0.14
   url_launcher: ^5.7.10
   package_info: 0.4.3+4

@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 String readStringSafe(Map<String, dynamic> json, String prop) =>
     (json[prop] == null) ? null : json[prop];
 
@@ -20,9 +22,8 @@ double readDoubleSafe(Map<dynamic, dynamic> json, String prop) {
 
 DateTime readDateSafe(Map<dynamic, dynamic> json, String prop) {
   if (json == null) return null;
-  dynamic value = json[prop];
-  if (value is DateTime) return value;
-  return (value == null) ? null : DateTime.tryParse(json[prop]);
+  var value = new DateFormat('yyyy-MM-ddTHH:mm:ss').parse(json[prop], true);
+  return (value == null) ? null : value;
 }
 
 List<T> readListSafe<T>(
