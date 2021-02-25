@@ -37,8 +37,8 @@ Widget androidSegmentedControl(
   int currentSelection,
   void Function(int) onSegmentChosen,
   double verticalOffset, {
-  double borderRadius = 4.0,
-  EdgeInsets padding = defaultPadding,
+  double borderRadius,
+  EdgeInsets padding,
 }) {
   Map<int, Widget> map = Map<int, Widget>();
   for (int childIndex = 0; childIndex < controlItems.length; childIndex++) {
@@ -53,9 +53,9 @@ Widget androidSegmentedControl(
     unselectedColor: getTheme().getIsDark(context)
         ? Color.fromRGBO(47, 47, 47, 1)
         : Colors.white,
-    borderRadius: borderRadius,
+    borderRadius: borderRadius ?? 4.0,
     verticalOffset: verticalOffset,
-    horizontalPadding: padding,
+    horizontalPadding: padding ?? defaultPadding,
     onSegmentChosen: onSegmentChosen,
   );
 }
