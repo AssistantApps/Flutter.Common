@@ -72,7 +72,6 @@ Widget steamNewsItemTilePresenter(
 
 Widget steamBranchItemTilePresenter(
     BuildContext context, SteamBranchesViewModel branch) {
-  print(branch.lastUpdate.toLocal().toIso8601String());
   String date = branch.lastUpdate == null
       ? '...'
       : DateFormat(UIConstants.DateTimeFormat).format(
