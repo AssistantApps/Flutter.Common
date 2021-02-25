@@ -5,12 +5,16 @@ import 'package:material_segmented_control/material_segmented_control.dart';
 
 import '../../integration/dependencyInjection.dart';
 
+const defaultPadding = EdgeInsets.only(top: 12, bottom: 6);
+
 Widget adaptiveSegmentedControl(
   BuildContext context, {
   @required List<Widget> controlItems,
   @required int currentSelection,
   @required void Function(int) onSegmentChosen,
   double verticalOffset = 12.0,
+  double borderRadius,
+  EdgeInsets padding,
 }) =>
     androidSegmentedControl(
       context,
@@ -18,6 +22,8 @@ Widget adaptiveSegmentedControl(
       currentSelection,
       onSegmentChosen,
       verticalOffset,
+      borderRadius: borderRadius,
+      padding: padding,
     ); //TODO fix iOS crap
 // isiOS
 //     ? androidSegmentedControl(
@@ -26,11 +32,14 @@ Widget adaptiveSegmentedControl(
 //         context, controlItems, currentSelection, onSegmentChosen);
 
 Widget androidSegmentedControl(
-    BuildContext context,
-    List<Widget> controlItems,
-    int currentSelection,
-    void Function(int) onSegmentChosen,
-    double verticalOffset) {
+  BuildContext context,
+  List<Widget> controlItems,
+  int currentSelection,
+  void Function(int) onSegmentChosen,
+  double verticalOffset, {
+  double borderRadius = 4.0,
+  EdgeInsets padding = defaultPadding,
+}) {
   Map<int, Widget> map = Map<int, Widget>();
   for (int childIndex = 0; childIndex < controlItems.length; childIndex++) {
     map.putIfAbsent(childIndex, () => controlItems[childIndex]);
@@ -44,9 +53,9 @@ Widget androidSegmentedControl(
     unselectedColor: getTheme().getIsDark(context)
         ? Color.fromRGBO(47, 47, 47, 1)
         : Colors.white,
-    borderRadius: 4.0,
+    borderRadius: borderRadius,
     verticalOffset: verticalOffset,
-    horizontalPadding: EdgeInsets.only(top: 12, bottom: 6),
+    horizontalPadding: padding,
     onSegmentChosen: onSegmentChosen,
   );
 }
@@ -62,7 +71,7 @@ Widget getSegmentedControlOption(String text) {
 }
 
 Widget getImageSegmentedControlOption(String path) {
-  return localImage(path, width: 25, height: 25);
+  return localImage(path, width: 30, height: 30);
 }
 
 Widget getSegmentedControlWithIconOption(IconData icon, String text) {

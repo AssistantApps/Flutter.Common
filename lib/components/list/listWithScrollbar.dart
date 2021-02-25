@@ -11,7 +11,8 @@ Widget listWithScrollbar(
     bool shrinkWrap = false,
     ScrollController scrollController}) {
   ListView listView = ListView.builder(
-    physics: isApple ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+    // physics: isApple ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+    physics: const AlwaysScrollableScrollPhysics(),
     key: key,
     padding: padding,
     shrinkWrap: shrinkWrap,
