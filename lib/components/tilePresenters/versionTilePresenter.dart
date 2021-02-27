@@ -67,7 +67,7 @@ Widget packageVersionTile(String gameVersion, {Function() onTap}) {
       ResultWithValue<PackageInfo> packageInfoResult = snapshot.data;
       String appVersionString = getTranslations() //
           .fromKey(LocaleKey.appVersion)
-          .replaceAll('{0}', packageInfoResult.value.version);
+          .replaceAll('{0}', packageInfoResult?.value?.version ?? '1.0');
       Widget gameVersionWidget = Text(
         getTranslations()
             .fromKey(LocaleKey.gameVersion)
