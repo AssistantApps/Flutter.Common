@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../assistantapps_flutter_common.dart';
 
-Widget asyncSnapshotHandler<T>(BuildContext context, AsyncSnapshot<T> snapshot,
-    {bool Function(T) isValidFunction,
-    Widget Function() invalidBuilder,
-    Widget Function() loader}) {
+Widget asyncSnapshotHandler<T>(
+  BuildContext context,
+  AsyncSnapshot<T> snapshot, {
+  bool Function(T) isValidFunction,
+  Widget Function() invalidBuilder,
+  Widget Function() loader,
+}) {
   Widget errorWidget = getLoading().customErrorWidget(context);
   switch (snapshot.connectionState) {
     case ConnectionState.none:

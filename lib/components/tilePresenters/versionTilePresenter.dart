@@ -1,4 +1,8 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+import 'package:assistantapps_flutter_common/contracts/results/resultWithValue.dart';
+import 'package:assistantapps_flutter_common/services/base/versionService.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 import '../../contracts/enum/localeKey.dart';
@@ -49,4 +53,42 @@ Widget Function(BuildContext context, VersionViewModel version, int index)
     return child;
   };
   return presenter;
+}
+
+Widget packageVersionTile(String gameVersion, {Function() onTap}) {
+  return FutureBuilder<ResultWithValue<PackageInfo>>(
+    future: VersionService().currentAppVersion(),
+    builder: (BuildContext context,
+        AsyncSnapshot<ResultWithValue<PackageInfo>> snapshot) {
+      Widget errorWidget = asyncSnapshotHandler(context, snapshot,
+          loader: () => getLoading().loadingIndicator());
+      if (errorWidget != null) return Container();
+
+      ResultWithValue<PackageInfo> packageInfoResult = snapshot.data;
+      String appVersionString = getTranslations() //
+          .fromKey(LocaleKey.appVersion)
+          .replaceAll('{0}', packageInfoResult.value.version);
+      Widget gameVersionWidget = Text(
+        getTranslations()
+            .fromKey(LocaleKey.gameVersion)
+            .replaceAll('{0}', gameVersion),
+      );
+
+      Widget titleWidget = gameVersionWidget;
+      Widget subtitleWidget;
+      if (packageInfoResult.isSuccess && packageInfoResult.value != null) {
+        titleWidget = Text(appVersionString);
+        subtitleWidget = gameVersionWidget;
+      }
+
+      return ListTile(
+        key: Key('versionNumber'),
+        leading: getCorrectlySizedImageFromIcon(context, Icons.code),
+        title: titleWidget,
+        subtitle: subtitleWidget,
+        onTap: onTap,
+        dense: true,
+      );
+    },
+  );
 }

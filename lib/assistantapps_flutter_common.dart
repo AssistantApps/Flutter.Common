@@ -26,6 +26,8 @@ export 'components/modalBottomSheet/assistantAppsModalBottomSheet.dart';
 export 'components/tilePresenters/externalLinkTilePresenter.dart';
 export 'components/tilePresenters/genericTilePresenter.dart';
 export 'components/tilePresenters/languageTilePresenter.dart';
+export 'components/tilePresenters/legalTilePresenter.dart';
+export 'components/tilePresenters/linkTilePresenter.dart';
 export 'components/tilePresenters/optionTilePresenter.dart';
 export 'components/tilePresenters/steamTilePresenter.dart';
 //
