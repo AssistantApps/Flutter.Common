@@ -8,7 +8,7 @@ import '../../integration/dependencyInjection.dart';
 import '../../services/base/versionService.dart';
 import 'linkTilePresenter.dart';
 
-Widget legalTilePresenter() {
+Widget legalTilePresenter({LocaleKey description}) {
   return FutureBuilder<ResultWithValue<PackageInfo>>(
     future: VersionService().currentAppVersion(),
     builder: (BuildContext context,
@@ -23,7 +23,7 @@ Widget legalTilePresenter() {
         onTap: () => showAboutDialog(
           context: context,
           applicationLegalese:
-              getTranslations().fromKey(LocaleKey.fairUseDisclaimer),
+              getTranslations().fromKey(description ?? LocaleKey.legalNotice),
           applicationVersion: snapshot?.data?.value?.version ?? 'v1.0',
         ),
       );
