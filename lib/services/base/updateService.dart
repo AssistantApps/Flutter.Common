@@ -1,7 +1,8 @@
 import 'dart:async';
 
+import 'package:assistantapps_flutter_common/services/base/versionService.dart';
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/enum/platformType.dart';
@@ -23,7 +24,8 @@ class UpdateService implements IUpdateService {
   }
 
   Future<ResultWithValue<bool>> isOutdatedVersionCheck() async {
-    ResultWithValue<PackageInfo> versionResult = await this.currentAppVersion();
+    ResultWithValue<PackageInfo> versionResult =
+        await VersionService().currentAppVersion();
     if (versionResult.hasFailed) {
       return ResultWithValue<bool>(false, false, versionResult.errorMessage);
     }
@@ -52,22 +54,6 @@ class UpdateService implements IUpdateService {
     } catch (exception) {
       getLog().e("versionCheck Exception: ${exception.toString()}");
       return ResultWithValue<bool>(false, false, exception.toString());
-    }
-  }
-
-  Future<ResultWithValue<PackageInfo>> currentAppVersion() async {
-    getLog().i('currentAppVersion');
-    bool hasPackageInfo = isAndroid || isiOS;
-    if (!hasPackageInfo) {
-      return ResultWithValue<PackageInfo>(
-          false, PackageInfo(), 'platform not supported');
-    }
-    try {
-      var packInfo = await PackageInfo.fromPlatform();
-      return ResultWithValue<PackageInfo>(true, packInfo, '');
-    } catch (exception) {
-      return ResultWithValue<PackageInfo>(
-          false, PackageInfo(), exception.toString());
     }
   }
 

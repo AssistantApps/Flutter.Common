@@ -1,14 +1,14 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common/contracts/results/resultWithValue.dart';
-import 'package:assistantapps_flutter_common/services/base/versionService.dart';
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/versionViewModel.dart';
+import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/updateHelper.dart';
 import '../../integration/dependencyInjection.dart';
+import '../../services/base/versionService.dart';
 import '../common/newBanner.dart';
 import '../common/text.dart';
 import 'genericTilePresenter.dart';

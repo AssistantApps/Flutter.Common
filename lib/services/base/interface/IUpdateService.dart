@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../contracts/results/resultWithValue.dart';
 
@@ -10,10 +10,5 @@ class IUpdateService {
 
   Future<ResultWithValue<bool>> isOutdatedVersionCheck() async {
     return ResultWithValue<bool>(false, false, 'Not Implemented');
-  }
-
-  Future<ResultWithValue<PackageInfo>> currentAppVersion() async {
-    return ResultWithValue<PackageInfo>(
-        false, PackageInfo(), 'Not Implemented');
   }
 }
