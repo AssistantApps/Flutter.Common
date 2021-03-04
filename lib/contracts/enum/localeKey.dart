@@ -514,4 +514,9 @@ enum LocaleKey {
   inputTooHigh,
   moveUp,
   moveDown,
+  secondsAbbrev,
+  minutesAbbrev,
+  minutesSecondsAbbrev,
+  viewTrackList,
+  nmsfmCreator,
 }
