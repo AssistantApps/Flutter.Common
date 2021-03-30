@@ -72,6 +72,7 @@ export 'helpers/dateHelper.dart';
 export 'helpers/deviceHelper.dart';
 export 'helpers/externalHelper.dart';
 export 'helpers/jsonHelper.dart';
+export 'helpers/listHelper.dart';
 export 'helpers/pathHelper.dart';
 export 'helpers/searchListHelper.dart';
 export 'helpers/snapshotHelper.dart';

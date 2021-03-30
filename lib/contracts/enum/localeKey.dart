@@ -56,6 +56,7 @@ enum LocaleKey {
   cookBotRecipeJson,
   constructionJson,
   consumableJson,
+  consumSharedJson,
   containersJson,
   componentsJson,
   ammoJson,
