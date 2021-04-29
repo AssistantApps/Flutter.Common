@@ -22,6 +22,7 @@ enum LocaleKey {
   weekendMissionSeason1Json,
   weekendMissionSeason2Json,
   weekendMissionSeason3Json,
+  seasonalExpeditionJson,
   workbenchRecipeJson,
   vehicleJson,
   warehouseJson,
@@ -522,4 +523,5 @@ enum LocaleKey {
   minutesSecondsAbbrev,
   viewTrackList,
   nmsfmCreator,
+  seasonalExpedition,
 }
