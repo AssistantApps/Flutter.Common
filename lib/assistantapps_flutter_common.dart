@@ -10,7 +10,9 @@ export 'components/adaptive/segmentedControl.dart';
 export 'components/common/card.dart';
 export 'components/common/donationImage.dart';
 export 'components/common/image.dart';
+export 'components/common/loadingAnim.dart';
 export 'components/common/newBanner.dart';
+export 'components/common/percent.dart';
 export 'components/common/space.dart';
 export 'components/common/text.dart';
 export 'components/fun/backgroundWrapper.dart';
@@ -100,6 +102,10 @@ export 'pages/whatIsNew/whatIsNewPageComponent.dart';
 //
 //Api implementations
 export 'services/api/donatorApiService.dart';
+//
+//Base Services
+export 'services/BaseApiService.dart';
+export 'services/BaseJsonService.dart';
 //
 //Api Interfaces
 export 'services/api/interface/IDonatorApiService.dart';

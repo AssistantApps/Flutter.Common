@@ -9,6 +9,14 @@ class BaseJsonService {
     return json.decode(jsonString);
   }
 
+  // AssistantNMS specific, remove once new Guide system works
+  Future<dynamic> getJsonGuide(
+      context, String guideFolder, String jsonFileName) async {
+    dynamic jsonString =
+        await getJsonFromAssets(context, 'guide/$guideFolder/$jsonFileName');
+    return json.decode(jsonString);
+  }
+
   Future<dynamic> getJsonFromAssets(context, String jsonFileName) async {
     String jsonString = await DefaultAssetBundle.of(context)
         .loadString('assets/$jsonFileName.json');

@@ -5,6 +5,7 @@ import '../contracts/enum/localeKey.dart';
 import '../contracts/results/resultWithValue.dart';
 import '../integration/dependencyInjection.dart';
 import 'adaptive/searchBar.dart';
+import 'common/loadingAnim.dart';
 import 'common/space.dart';
 
 class Searchable<T> extends StatefulWidget {
@@ -250,7 +251,10 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       ));
     }
 
-    return Column(key: key, children: columnWidgets);
+    return animateWidgetIn(
+      key: key,
+      child: Column(key: key, children: columnWidgets),
+    );
   }
 
   Widget deleteAllButton(context) {

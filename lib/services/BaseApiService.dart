@@ -12,8 +12,8 @@ class BaseApiService {
   Future<ResultWithValue<String>> apiPost(String url, dynamic body) async {
     try {
       getLog().d('post request to: $_baseUrl/$url');
-      // getLog().d('post request body: $body');
-      final response = await http.post('$_baseUrl/$url',
+      getLog().d('post request body: $body');
+      final response = await http.post(Uri.parse('$_baseUrl/$url'),
           body: body, headers: {"Content-Type": "application/json"});
       if (response.statusCode != 200) {
         getLog().e('Status Code: ${response.statusCode}.');
@@ -37,7 +37,7 @@ class BaseApiService {
       {Map<String, String> headers}) async {
     try {
       getLog().d('web get request to: $url');
-      final response = await http.get(url, headers: headers);
+      final response = await http.get(Uri.parse(url), headers: headers);
       if (response.statusCode != 200) {
         return ResultWithValue<String>(false, '', 'Not a 200 OK response');
       }
