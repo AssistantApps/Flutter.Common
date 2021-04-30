@@ -8,14 +8,13 @@ class VersionService {
     bool hasPackageInfo = isAndroid || isiOS;
     if (!hasPackageInfo) {
       return ResultWithValue<PackageInfo>(
-          false, PackageInfo(), 'platform not supported');
+          false, null, 'platform not supported');
     }
     try {
       var packInfo = await PackageInfo.fromPlatform();
       return ResultWithValue<PackageInfo>(true, packInfo, '');
     } catch (exception) {
-      return ResultWithValue<PackageInfo>(
-          false, PackageInfo(), exception.toString());
+      return ResultWithValue<PackageInfo>(false, null, exception.toString());
     }
   }
 }
