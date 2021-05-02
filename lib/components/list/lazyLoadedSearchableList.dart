@@ -125,22 +125,25 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
   @override
   Widget build(BuildContext context) {
     List<T> prefetch = List.empty(growable: true);
-    return PaginationView<T>(
-      preloadedItems: prefetch,
-      itemBuilder: (BuildContext innerCtxt, T user, int index) =>
-          useItemDisplayer(innerCtxt, user, index),
-      paginationViewType: PaginationViewType.listView,
-      pageFetch: getMoreData,
-      onError: (dynamic error) => Center(
-        child: Text(widget.errorMessage ?? 'Some error occured'),
+    return animateWidgetIn(
+      key: Key('lazyLoaded-anim'),
+      child: PaginationView<T>(
+        preloadedItems: prefetch,
+        itemBuilder: (BuildContext innerCtxt, T user, int index) =>
+            useItemDisplayer(innerCtxt, user, index),
+        paginationViewType: PaginationViewType.listView,
+        pageFetch: getMoreData,
+        onError: (dynamic error) => Center(
+          child: Text(widget.errorMessage ?? 'Some error occured'),
+        ),
+        onEmpty: Center(
+          child: Text(widget.emptyMessage ?? 'Sorry! This is empty'),
+        ),
+        bottomLoader: Center(child: getLoading().smallLoadingTile(context)),
+        initialLoader: getLoading().fullPageLoading(context),
+        scrollController: _scrollController,
+        key: Key('lazyLoaded'),
       ),
-      onEmpty: Center(
-        child: Text(widget.emptyMessage ?? 'Sorry! This is empty'),
-      ),
-      bottomLoader: Center(child: getLoading().smallLoadingTile(context)),
-      initialLoader: getLoading().fullPageLoading(context),
-      scrollController: _scrollController,
-      key: Key('lazyLoaded'),
     );
   }
 }
