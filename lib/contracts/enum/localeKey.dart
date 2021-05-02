@@ -65,6 +65,7 @@ enum LocaleKey {
   blocksJson,
   buildingJson,
   bucketsJson,
+  characterObjectJson,
   title,
   loading,
   about,
