@@ -1,12 +1,15 @@
 import 'package:entry/entry.dart';
 import 'package:flutter/material.dart';
 
-Widget animateWidgetIn({Key key, Widget child}) {
-  return Entry.scale(
+Widget animateWidgetIn({
+  Key key,
+  Widget child,
+  Duration duration,
+}) {
+  return Entry.opacity(
     key: key,
     child: child,
-    scale: 20,
-    duration: Duration(milliseconds: 500),
+    duration: duration ?? Duration(milliseconds: 500),
     curve: Curves.easeInOut,
   );
 }

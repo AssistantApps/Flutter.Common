@@ -67,17 +67,19 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
             List<TranslationsPerLanguageGraphViewModel> list =
                 snapshot.data.value.take(10).toList();
 
-            return Card(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4)),
-              color: const Color(0xff2c4260),
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: Column(
-                  children: list
-                      .map((item) => graphItemDisplayer(context, item))
-                      .toList(),
+            return animateWidgetIn(
+              child: Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4)),
+                color: const Color(0xff2c4260),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 5),
+                  child: Column(
+                    children: list
+                        .map((item) => graphItemDisplayer(context, item))
+                        .toList(),
+                  ),
                 ),
               ),
             );
