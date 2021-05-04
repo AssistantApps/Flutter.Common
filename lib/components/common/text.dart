@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:extended_masked_text/extended_masked_text.dart';
 
 Widget genericEllipsesText(String text) => Text(
       text,
@@ -46,3 +47,11 @@ Widget genericItemGroup(String group, {maxLines = 2}) => Container(
       ),
       margin: const EdgeInsets.all(4.0),
     );
+
+TextEditingController maskedTextController({
+  String mask,
+  String defaultText = '',
+  void Function(String prev, String next) afterChange,
+}) {
+  return MaskedTextController(mask: mask, text: defaultText);
+}
