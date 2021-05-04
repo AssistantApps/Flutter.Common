@@ -18,6 +18,12 @@ class ImageViewerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String localImage = this.imageUrl;
+    if (!localImage.contains('http') &&
+        !localImage.contains(getPath().imageAssetPathPrefix)) {
+      localImage = '${getPath().imageAssetPathPrefix}/${this.imageUrl}';
+    }
+
     return getBaseWidget().appScaffold(context,
         appBar: getBaseWidget().appBarForSubPage(
           context,
@@ -41,7 +47,7 @@ class ImageViewerPage extends StatelessWidget {
               getLoading().fullPageLoading(innerContext),
           imageProvider: this.imageUrl.contains('http')
               ? NetworkImage(this.imageUrl)
-              : AssetImage(this.imageUrl),
+              : AssetImage(localImage),
           maxScale: PhotoViewComputedScale.covered * 2,
           minScale: PhotoViewComputedScale.contained * 0.75,
           initialScale: PhotoViewComputedScale.contained,
