@@ -37,11 +37,12 @@ Widget wrapInCommonCard(Widget bodyWidget, {Function() onTap}) {
   );
 }
 
-Widget flatCard({Widget child}) {
+Widget flatCard({Widget child, Color shadowColor}) {
   return Card(
     child: child,
     margin: const EdgeInsets.all(0.0),
     shape: UIConstants.noBorderRadius,
+    shadowColor: shadowColor,
   );
 }
 
