@@ -9,6 +9,7 @@ export 'components/adaptive/paginationControl.dart';
 export 'components/adaptive/searchBar.dart';
 export 'components/adaptive/segmentedControl.dart';
 export 'components/common/authButtons.dart';
+export 'components/common/badge.dart';
 export 'components/common/card.dart';
 export 'components/common/donationImage.dart';
 export 'components/common/image.dart';
