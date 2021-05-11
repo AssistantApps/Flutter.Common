@@ -20,7 +20,11 @@ class BaseApiService {
         getLog().e('Not a 200 OK response ${response.body}');
         return ResultWithValue<String>(false, '', 'Not a 200 OK response');
       }
-      getLog().d('post response body: ${response.body.substring(0, 100)}...');
+      int responseLength = response.body.length;
+      String displayTest = responseLength > 100
+          ? response.body.substring(0, 100)
+          : response.body;
+      getLog().d('post response body: $displayTest...');
       return ResultWithValue<String>(true, response.body, '');
     } catch (exception) {
       getLog().e("BaseApiService POST Exception: ${exception.toString()}");
