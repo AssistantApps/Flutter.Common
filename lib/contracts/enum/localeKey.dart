@@ -525,4 +525,5 @@ enum LocaleKey {
   viewTrackList,
   nmsfmCreator,
   seasonalExpedition,
+  rewards,
 }

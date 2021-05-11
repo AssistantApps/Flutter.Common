@@ -22,8 +22,12 @@ double readDoubleSafe(Map<dynamic, dynamic> json, String prop) {
 
 DateTime readDateSafe(Map<dynamic, dynamic> json, String prop) {
   if (json == null) return null;
-  var value = new DateFormat('yyyy-MM-ddTHH:mm:ss').parse(json[prop], true);
-  return (value == null) ? null : value;
+  try {
+    var value = new DateFormat('yyyy-MM-ddTHH:mm:ss').parse(json[prop], true);
+    return (value == null) ? null : value;
+  } catch (Exception) {
+    return null;
+  }
 }
 
 List<T> readListSafe<T>(
