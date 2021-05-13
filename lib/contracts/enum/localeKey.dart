@@ -526,4 +526,9 @@ enum LocaleKey {
   nmsfmCreator,
   seasonalExpedition,
   rewards,
+  WalkthroughPlaylistExpeditionsSeasonNum,
+  viewUnusedMilestonePatches,
+  unusedMilestonePatches,
+  markAsClaimed,
+  markAsNotClaimed,
 }
