@@ -48,7 +48,7 @@ Widget popupMenuFromArray(
   Color iconColour,
   IconData customIcon,
 ) {
-  if (items == null || items.length == 0) return Container();
+  if (items == null || items.length == 0) return null;
   if (items.length == 1) {
     if (items[0].image != null) {
       return GestureDetector(
