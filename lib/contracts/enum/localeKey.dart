@@ -526,9 +526,11 @@ enum LocaleKey {
   nmsfmCreator,
   seasonalExpedition,
   rewards,
-  WalkthroughPlaylistExpeditionsSeasonNum,
+  walkthroughPlaylistExpeditionsSeasonNum,
   viewUnusedMilestonePatches,
   unusedMilestonePatches,
   markAsClaimed,
   markAsNotClaimed,
+  communityMissionMismatchTitle,
+  communityMissionMismatchMessage
 }
