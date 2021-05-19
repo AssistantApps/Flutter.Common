@@ -126,7 +126,7 @@ packages:
       name: entry
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.2+2"
+    version: "0.0.4"
   enum_to_string:
     dependency: "direct main"
     description:

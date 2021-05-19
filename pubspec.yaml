@@ -24,7 +24,7 @@ dependencies:
   badges: 2.0.0-nullsafety.1
   breakpoint: 1.2.0
   cached_network_image: 3.0.0
-  entry: 0.0.2+2
+  entry: 0.0.4
   enum_to_string: 2.0.1
   extended_masked_text: 2.1.0
   fl_chart: 0.35.0
