@@ -9,6 +9,8 @@ Widget animateWidgetIn({
   return FadeIn(
     key: key,
     child: child,
+    animate: true,
+    manualTrigger: false,
     duration: duration ?? Duration(milliseconds: 500),
   );
 }
