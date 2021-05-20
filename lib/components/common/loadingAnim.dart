@@ -1,4 +1,4 @@
-import 'package:entry/entry.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 Widget animateWidgetIn({
@@ -6,10 +6,9 @@ Widget animateWidgetIn({
   Widget child,
   Duration duration,
 }) {
-  return Entry.opacity(
+  return FadeIn(
     key: key,
     child: child,
     duration: duration ?? Duration(milliseconds: 500),
-    curve: Curves.easeInOut,
   );
 }
