@@ -49,14 +49,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.29"
+    version: "0.0.30"
   async:
     dependency: transitive
     description:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.6.0"
+    version: "2.6.1"
   auth_buttons:
     dependency: transitive
     description:
