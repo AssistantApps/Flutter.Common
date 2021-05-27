@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 Widget horizontalProgressBar(BuildContext context, double percent,
-    {Widget text}) {
+    {bool animation = true, Widget text}) {
   double localPercent = percent;
   String displayPercent = percent.toStringAsFixed(0);
   if (percent > 1) {
@@ -13,7 +13,7 @@ Widget horizontalProgressBar(BuildContext context, double percent,
   }
 
   return LinearPercentIndicator(
-    animation: true,
+    animation: animation,
     lineHeight: 20.0,
     animationDuration: 2500,
     percent: localPercent,
