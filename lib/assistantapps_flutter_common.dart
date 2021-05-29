@@ -82,6 +82,7 @@ export 'helpers/pathHelper.dart';
 export 'helpers/searchListHelper.dart';
 export 'helpers/snapshotHelper.dart';
 export 'helpers/stringHelper.dart';
+export 'helpers/timeHelper.dart';
 export 'helpers/updateHelper.dart';
 //
 // Integration
