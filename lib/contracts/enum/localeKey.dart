@@ -536,4 +536,5 @@ enum LocaleKey {
   seasonalExpeditionSeasons,
   hunger,
   thirst,
+  packingStation,
 }
