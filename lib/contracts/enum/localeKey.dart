@@ -533,5 +533,7 @@ enum LocaleKey {
   markAsNotClaimed,
   communityMissionMismatchTitle,
   communityMissionMismatchMessage,
-  seasonalExpeditionSeasons
+  seasonalExpeditionSeasons,
+  hunger,
+  thirst,
 }
