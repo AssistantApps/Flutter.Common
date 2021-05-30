@@ -537,4 +537,5 @@ enum LocaleKey {
   hunger,
   thirst,
   packingStation,
+  home,
 }
