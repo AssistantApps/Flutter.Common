@@ -18,6 +18,7 @@ Widget popupMenu(
   Color iconColour,
   IconData customIcon = Icons.more_vert,
   List<PopupMenuActionItem> additionalItems,
+  Widget nothingToDisplay,
 }) {
   List<PopupMenuActionItem> items = List.empty(growable: true);
   if (onEdit != null) {
@@ -40,15 +41,12 @@ Widget popupMenu(
   if (additionalItems != null && additionalItems.length > 0) {
     items.addAll(additionalItems);
   }
-  return popupMenuFromArray(items, iconColour, customIcon);
+  return popupMenuFromArray(items, iconColour, customIcon, nothingToDisplay);
 }
 
-Widget popupMenuFromArray(
-  List<PopupMenuActionItem> items,
-  Color iconColour,
-  IconData customIcon,
-) {
-  if (items == null || items.length == 0) return null;
+Widget popupMenuFromArray(List<PopupMenuActionItem> items, Color iconColour,
+    IconData customIcon, Widget nothingToDisplay) {
+  if (items == null || items.length == 0) return nothingToDisplay;
   if (items.length == 1) {
     if (items[0].image != null) {
       return GestureDetector(
