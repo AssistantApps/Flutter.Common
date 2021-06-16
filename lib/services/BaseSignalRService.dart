@@ -73,7 +73,7 @@ class BaseSignalRService {
     getLog().d('Closing connecting to: $_baseUrl');
     if (!isConnected) return Result(false, 'Already closed');
     try {
-      this._hubConnection.stop();
+      await this._hubConnection.stop();
       return Result(true, '');
     } catch (exception) {
       getLog().e('closingConnection Exception: ${exception.toString()}');

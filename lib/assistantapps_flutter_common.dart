@@ -97,6 +97,7 @@ export 'pages/language/languageHelpPage.dart';
 export 'pages/language/languagePageContent.dart';
 export 'pages/language/languageSelectionPage.dart';
 export 'pages/misc/imageViewerPage.dart';
+export 'pages/oAuth/patreonLoginPage.dart';
 export 'pages/patrons/patronListPage.dart';
 export 'pages/patrons/patronListPageComponent.dart';
 export 'pages/steam/steamNewsListPage.dart';
