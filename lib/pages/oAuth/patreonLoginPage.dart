@@ -1,15 +1,15 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common/contracts/enum/networkState.dart';
-import 'package:assistantapps_flutter_common/services/signalr/OAuthSignalRService.dart';
 import 'package:flutter/material.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../components/common/image.dart';
 import '../../components/list/listWithScrollbar.dart';
 import '../../constants/AppImage.dart';
 import '../../constants/UIConstants.dart';
 import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/networkState.dart';
 import '../../contracts/results/result.dart';
 import '../../integration/dependencyInjection.dart';
+import '../../services/signalr/OAuthSignalRService.dart';
 
 class PatreonLoginPage extends StatefulWidget {
   final String analyticsKey;
