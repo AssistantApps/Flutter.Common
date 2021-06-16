@@ -1,5 +1,3 @@
-import 'package:assistantapps_flutter_common/services/api/interface/IsteamApiService.dart';
-import 'package:assistantapps_flutter_common/services/api/steamApiService.dart';
 import 'package:get_it/get_it.dart';
 
 import '../env/assistantAppsEnvironmentSettings.dart';
@@ -8,7 +6,9 @@ import '../services/api/interface/IDonatorApiService.dart';
 import '../services/api/interface/IPatreonApiService.dart';
 import '../services/api/interface/ITranslationApiService.dart';
 import '../services/api/interface/IVersionApiService.dart';
+import '../services/api/interface/IsteamApiService.dart';
 import '../services/api/patreonApiService.dart';
+import '../services/api/steamApiService.dart';
 import '../services/api/translationApiService.dart';
 import '../services/api/versionApiService.dart';
 import '../services/base/analyticsService.dart';
@@ -39,6 +39,7 @@ import '../services/json/backupJsonService.dart';
 import '../services/json/dataJsonService.dart';
 import '../services/json/interface/IbackupJsonService.dart';
 import '../services/json/interface/IdataJsonService.dart';
+import '../services/signalr/OAuthSignalRService.dart';
 
 final getIt = GetIt.instance;
 
@@ -82,6 +83,9 @@ void initBaseDependencyInjection(
   getIt.registerSingleton<ITranslationApiService>(TranslationApiService());
   getIt.registerSingleton<IVersionApiService>(VersionApiService());
 
+  // SignalR
+  getIt.registerSingleton<OAuthSignalRService>(OAuthSignalRService());
+
   getIt.registerSingleton<IBackupJsonService>(BackupJsonService());
   getIt.registerSingleton<IDataJsonService>(DataJsonService());
 }
@@ -109,6 +113,10 @@ ISteamApiService getAssistantAppsSteam() => getIt<ISteamApiService>();
 ITranslationApiService getAssistantAppsTranslation() =>
     getIt<ITranslationApiService>();
 IVersionApiService getAssistantAppsVersions() => getIt<IVersionApiService>();
+
+// AssistantApps SignalR
+OAuthSignalRService getAssistantAppsOAuthSignalR() =>
+    getIt<OAuthSignalRService>();
 
 // JSON data
 IBackupJsonService getAssistantAppsBackup() => getIt<IBackupJsonService>();

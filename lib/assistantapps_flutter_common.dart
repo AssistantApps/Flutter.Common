@@ -76,6 +76,7 @@ export 'helpers/columnHelper.dart';
 export 'helpers/dateHelper.dart';
 export 'helpers/deviceHelper.dart';
 export 'helpers/externalHelper.dart';
+export 'helpers/guidHelper.dart';
 export 'helpers/jsonHelper.dart';
 export 'helpers/listHelper.dart';
 export 'helpers/pathHelper.dart';
@@ -111,6 +112,7 @@ export 'services/api/donatorApiService.dart';
 //Base Services
 export 'services/BaseApiService.dart';
 export 'services/BaseJsonService.dart';
+export 'services/BaseSignalRService.dart';
 //
 //Api Interfaces
 export 'services/api/interface/IDonatorApiService.dart';
@@ -120,6 +122,7 @@ export 'services/api/interface/IVersionApiService.dart';
 export 'services/api/patreonApiService.dart';
 export 'services/api/translationApiService.dart';
 export 'services/api/versionApiService.dart';
+export 'services/signalr/OAuthSignalRService.dart';
 //
 //Base Interfaces
 export 'services/base/interface/IAnalyticsService.dart';

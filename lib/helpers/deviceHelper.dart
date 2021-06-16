@@ -1,4 +1,6 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
+import 'package:platform_device_id/platform_device_id.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 import '../contracts/enum/platformType.dart';
@@ -13,6 +15,11 @@ bool isApple =
 bool isiOS = UniversalPlatform.isIOS;
 bool isAndroid = UniversalPlatform.isAndroid;
 bool isWeb = UniversalPlatform.isWeb;
+
+Future<String> getDeviceId() async {
+  String deviceId = await PlatformDeviceId.getDeviceId;
+  return (deviceId == null || deviceId.length < 5) ? getNewGuid() : deviceId;
+}
 
 List<PlatformType> getPlatforms() {
   List<PlatformType> plats = List.empty(growable: true);

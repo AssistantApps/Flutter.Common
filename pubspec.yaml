@@ -15,6 +15,7 @@ dependencies:
   # Base
   get_it: 6.1.1
   http: 0.13.2
+  signalr_netcore: 1.0.1
 
   # UI
   after_layout: 1.1.0
@@ -40,8 +41,10 @@ dependencies:
   pagination_view: 2.0.0-nullsafety.0
   percent_indicator: 3.0.1
   photo_view: 0.11.1
+  platform_device_id: 1.0.1
   time_formatter: 1.0.0+5
   timeline_tile: 2.0.0
+  uuid: ^3.0.4
   universal_platform: 1.0.0-nullsafety
   url_launcher: 6.0.4
 
