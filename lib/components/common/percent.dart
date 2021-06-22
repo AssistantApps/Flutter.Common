@@ -4,13 +4,8 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 
 Widget horizontalProgressBar(BuildContext context, double percent,
     {bool animation = true, Widget text}) {
-  double localPercent = percent;
+  double localPercent = percent / 100;
   String displayPercent = percent.toStringAsFixed(0);
-  if (percent > 1) {
-    localPercent = percent / 100;
-  } else {
-    displayPercent = (percent * 100).toStringAsFixed(0);
-  }
 
   return LinearPercentIndicator(
     animation: animation,
