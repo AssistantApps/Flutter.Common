@@ -6,7 +6,7 @@ import '../BaseSignalRService.dart';
 class OAuthSignalRService extends BaseSignalRService {
   OAuthSignalRService() : super(getEnv().assistantAppsApiUrl + '/hubs/oauth');
 
-  Future<Result> createConnection(void Function({Exception error}) onClose) =>
+  Future<Result> connectToAuth(void Function({Exception error}) onClose) =>
       this.createConnection(onClose);
 
   void listenToOAuth(void Function(List<Object>) onFunc) =>

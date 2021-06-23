@@ -8,6 +8,7 @@ class BaseSignalRService {
   HubConnection _hubConnection;
   BaseSignalRService(String baseUrl) {
     this._baseUrl = baseUrl;
+    getLog().d('BaseSignalRService ctor: $baseUrl');
     this._hubConnection = HubConnectionBuilder().withUrl(_baseUrl).build();
   }
 
