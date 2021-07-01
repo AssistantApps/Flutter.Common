@@ -11,6 +11,7 @@ Widget gridWithScrollbar({
   Key key,
   Widget Function(BuildContext, int) itemBuilder,
   int Function(Breakpoint) gridViewColumnCalculator,
+  EdgeInsetsGeometry padding,
   bool shrinkWrap = true,
 }) =>
     BreakpointBuilder(
@@ -32,7 +33,7 @@ Widget gridWithScrollbar({
       StaggeredGridView listView = StaggeredGridView.countBuilder(
         primary: false,
         shrinkWrap: true,
-        padding: const EdgeInsets.all(8),
+        padding: padding ?? const EdgeInsets.all(8),
         physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
         staggeredTileBuilder: (_) => StaggeredTile.fit(1),
         crossAxisCount: crossAxisCount,

@@ -41,7 +41,7 @@ Widget getProgressbarFromDates(
 
   return horizontalProgressBar(
     context,
-    percentage.toDouble(),
+    (percentage * 100).toDouble(),
     animation: animation,
     text: Text(
       '${(percentage * 100).toStringAsFixed(0)}% - $timeLeft',
