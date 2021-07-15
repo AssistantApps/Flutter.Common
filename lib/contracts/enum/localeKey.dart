@@ -550,4 +550,6 @@ enum LocaleKey {
   playerHealthRestored,
   rewardMinMax,
   playerShieldRestored,
+  playerScanReward,
+  playerDamagedTechReward,
 }
