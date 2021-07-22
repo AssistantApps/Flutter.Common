@@ -49,13 +49,13 @@ class _PatreonLoginModalBottomSheetWidget
     String deviceId = await getDeviceId();
     getLog().d(deviceId);
     _oAuthSignal.joinGroup(deviceId);
-    // _oAuthSignal.listenToOAuth((List<Object> payload) {
-    //   getLog().d('listenToOAuth');
-    //   for (Object data in payload) {
-    //     getLog().d(data);
-    //   }
-    //   getNavigation().pop(context);
-    // });
+    _oAuthSignal.listenToOAuth((List<Object> payload) {
+      getLog().d('listenToOAuth');
+      for (Object data in payload) {
+        getLog().d(data);
+      }
+      getNavigation().pop(context);
+    });
     this.setState(() {
       _deviceId = deviceId;
       _signalRNetworkState = NetworkState.Success;
@@ -64,7 +64,6 @@ class _PatreonLoginModalBottomSheetWidget
 
   @override
   Widget build(BuildContext context) {
-    print('build');
     if (_signalRNetworkState == NetworkState.Loading) {
       return displayContentInModal(
         centerContentInModal(

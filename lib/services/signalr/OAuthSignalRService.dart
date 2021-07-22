@@ -4,7 +4,7 @@ import '../../integration/dependencyInjection.dart';
 import '../BaseSignalRService.dart';
 
 class OAuthSignalRService extends BaseSignalRService {
-  OAuthSignalRService() : super('http://localhost:55555/hubs/oauth');
+  OAuthSignalRService() : super(getEnv().assistantAppsApiUrl + '/hubs/oauth');
 
   Future<Result> connectToAuth(void Function({Exception error}) onClose) =>
       this.createConnection(onClose);
