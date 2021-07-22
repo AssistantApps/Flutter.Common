@@ -87,7 +87,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
 
     PaginationResultWithValue<List<T>> temp = await listGetter(pageToGet);
     if (temp.isSuccess && mounted) {
-      print('getMoreData' + temp.isSuccess.toString());
+      getLog().d('getMoreData' + temp.isSuccess.toString());
       this.setState(() {
         fetchedPages.add(temp.currentPage);
         totalPages = temp.totalPages;
@@ -96,7 +96,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
     }
 
     if (this.backupListGetter != null && mounted) {
-      print('backup getMoreData' + temp.isSuccess.toString());
+      getLog().d('backup getMoreData' + temp.isSuccess.toString());
       PaginationResultWithValue<List<T>> tempBackup =
           await this.backupListGetter(pageToGet);
       if (tempBackup.isSuccess) {
@@ -109,7 +109,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
       }
     }
 
-    print('getMoreData List.empty');
+    getLog().d('getMoreData List.empty');
     List<Null> result = List.empty();
     return result;
   }

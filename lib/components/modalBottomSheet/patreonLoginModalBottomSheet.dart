@@ -47,14 +47,15 @@ class _PatreonLoginModalBottomSheetWidget
 
   Future<void> setupListeners() async {
     String deviceId = await getDeviceId();
+    getLog().d(deviceId);
     _oAuthSignal.joinGroup(deviceId);
-    _oAuthSignal.listenToOAuth((List<Object> payload) {
-      print('listenToOAuth');
-      for (Object data in payload) {
-        print(data);
-      }
-      getNavigation().pop(context);
-    });
+    // _oAuthSignal.listenToOAuth((List<Object> payload) {
+    //   getLog().d('listenToOAuth');
+    //   for (Object data in payload) {
+    //     getLog().d(data);
+    //   }
+    //   getNavigation().pop(context);
+    // });
     this.setState(() {
       _deviceId = deviceId;
       _signalRNetworkState = NetworkState.Success;
@@ -63,6 +64,7 @@ class _PatreonLoginModalBottomSheetWidget
 
   @override
   Widget build(BuildContext context) {
+    print('build');
     if (_signalRNetworkState == NetworkState.Loading) {
       return displayContentInModal(
         centerContentInModal(
@@ -84,15 +86,15 @@ class _PatreonLoginModalBottomSheetWidget
 
     List<Widget> widgets = List.empty(growable: true);
     widgets.add(emptySpace1x());
-    widgets.add(positiveButton(
-      title: 'Login with Patreon',
-      onPress: () {
-        var patreonRequestUrl = getPatreonUrl(
-          PatreonOAuthViewModel(uniqueIdentifier: _deviceId),
-        );
-        print(patreonRequestUrl);
-        // launchExternalURL(patreonRequestUrl);
-      },
+    widgets.add(Padding(
+      padding: EdgeInsets.only(left: 12, top: 18, right: 12),
+      child: AuthButton.patreon(
+        onPressed: () {
+          launchExternalURL(getPatreonUrl(
+            PatreonOAuthViewModel(uniqueIdentifier: _deviceId),
+          ));
+        },
+      ),
     ));
 
     return displayContentInModal(
@@ -112,7 +114,7 @@ class _PatreonLoginModalBottomSheetWidget
           duration: const Duration(milliseconds: 150),
           child: Container(
             constraints: BoxConstraints(
-              minHeight: (MediaQuery.of(context).size.height) / 3,
+              minHeight: (MediaQuery.of(context).size.height) / 4,
             ),
             child: content,
           ),

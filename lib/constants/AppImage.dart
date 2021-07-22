@@ -9,6 +9,8 @@ class AppImage {
   static const String donKofi = base + donationsFolder + 'kofi.png';
   static const String donOpenCollective = base + donationsFolder + 'openCo.png';
   static const String donPatreon = base + donationsFolder + 'patreon.png';
+  static const String donPatreonAlt =
+      base + donationsFolder + 'patreonWhite.png';
   static const String donPayPal = base + donationsFolder + 'payPal.png';
   static const String donUnknown =
       base + donationsFolder + 'unknownDonation.png';

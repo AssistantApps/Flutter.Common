@@ -1,3 +1,5 @@
+import 'package:assistantapps_flutter_common/constants/SignalREvents.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:signalr_netcore/signalr_client.dart';
 
 import '../contracts/results/result.dart';
@@ -9,7 +11,6 @@ class BaseSignalRService {
   BaseSignalRService(String baseUrl) {
     this._baseUrl = baseUrl;
     getLog().d('BaseSignalRService ctor: $baseUrl');
-    this._hubConnection = HubConnectionBuilder().withUrl(_baseUrl).build();
   }
 
   Future<Result> createConnection(
@@ -17,6 +18,7 @@ class BaseSignalRService {
   ) async {
     getLog().d('Connecting to: $_baseUrl');
     try {
+      this._hubConnection = HubConnectionBuilder().withUrl(_baseUrl).build();
       this._hubConnection.onclose(onClose);
       await this._hubConnection.start();
     } catch (exception) {
@@ -28,44 +30,47 @@ class BaseSignalRService {
   }
 
   bool get isConnected =>
-      this._hubConnection == null &&
-      this._hubConnection.state != HubConnectionState.Connected;
+      this._hubConnection != null &&
+      this._hubConnection.state == HubConnectionState.Connected;
 
-  void addListener(String event, void Function(List<Object>) onFunc) async {
-    getLog().d('Listening for: $event');
+  void addListener(
+      SignalRReceiveEvent event, void Function(List<Object>) onFunc) async {
+    getLog().d('Listening for: ${EnumToString.convertToString(event)}');
     if (!isConnected) return;
 
     try {
-      this._hubConnection.on(event, onFunc);
+      this._hubConnection.on(EnumToString.convertToString(event), onFunc);
     } catch (exception) {
       getLog().e(
-        'Failed to add listener for: $event. Ex: ${exception.toString()}',
+        'Failed to add listener for: ${EnumToString.convertToString(event)}. Ex: ${exception.toString()}',
       );
     }
   }
 
-  void removeListener(String event) async {
-    getLog().d('Un-Listening to: $event');
+  void removeListener(SignalRReceiveEvent event) async {
+    getLog().d('Un-Listening to: ${EnumToString.convertToString(event)}');
     if (!isConnected) return;
 
     try {
-      this._hubConnection.off(event);
+      this._hubConnection.off(EnumToString.convertToString(event));
     } catch (exception) {
       getLog().e(
-        'Failed to remove listener for: $event. Ex: ${exception.toString()}',
+        'Failed to remove listener for: ${EnumToString.convertToString(event)}. Ex: ${exception.toString()}',
       );
     }
   }
 
-  void sendPayload(String event, List<Object> payload) async {
-    getLog().d('Sending event $event');
+  void sendPayload(SignalRSendEvent event, List<Object> payload) async {
+    getLog().d('Sending event ${EnumToString.convertToString(event)}');
     if (!isConnected) return;
 
     try {
-      await this._hubConnection.invoke(event, args: payload);
+      await this
+          ._hubConnection
+          .invoke(EnumToString.convertToString(event), args: payload);
     } catch (exception) {
       getLog().e(
-        'Failed to send for: $event. Ex: ${exception.toString()}',
+        'Failed to send for: ${EnumToString.convertToString(event)}. Ex: ${exception.toString()}',
       );
     }
   }

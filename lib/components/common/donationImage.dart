@@ -52,9 +52,10 @@ class DonationImage {
         package: UIConstants.CommonPackage,
       );
 
-  static Widget patreon({double size = 35, EdgeInsets padding}) =>
+  static Widget patreon(
+          {double size = 35, EdgeInsets padding, bool useAlt = false}) =>
       getListTileImage(
-        AppImage.donPatreon,
+        useAlt ? AppImage.donPatreonAlt : AppImage.donPatreon,
         size: size,
         padding: padding,
         package: UIConstants.CommonPackage,
