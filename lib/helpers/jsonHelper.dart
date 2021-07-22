@@ -25,7 +25,7 @@ DateTime readDateSafe(Map<dynamic, dynamic> json, String prop) {
   try {
     var value = new DateFormat('yyyy-MM-ddTHH:mm:ss').parse(json[prop], true);
     return (value == null) ? null : value;
-  } catch (Exception) {
+  } catch (ex) {
     return null;
   }
 }

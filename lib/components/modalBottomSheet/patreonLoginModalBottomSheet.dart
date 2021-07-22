@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:assistantapps_flutter_common/contracts/generated/auth/patreonOAuthResponseViewModel.dart';
 import 'package:assistantapps_flutter_common/contracts/generated/auth/patreonOAuthViewModel.dart';
 import 'package:assistantapps_flutter_common/integration/patreonApi.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +20,7 @@ class PatreonLoginModalBottomSheet extends StatefulWidget {
 }
 
 class _PatreonLoginModalBottomSheetWidget
-    extends State<PatreonLoginModalBottomSheet> with TickerProviderStateMixin {
+    extends State<PatreonLoginModalBottomSheet> {
   final String analyticsKey;
   final void Function(Result) onLogin;
 
@@ -51,9 +54,27 @@ class _PatreonLoginModalBottomSheetWidget
     _oAuthSignal.joinGroup(deviceId);
     _oAuthSignal.listenToOAuth((List<Object> payload) {
       getLog().d('listenToOAuth');
-      for (Object data in payload) {
-        getLog().d(data);
+
+      if (payload.length < 2) {
+        this.onLogin(new Result(false, 'invalid payload'));
+        return;
       }
+
+      PatreonOAuthResponseViewModel objFromServer =
+          PatreonOAuthResponseViewModel(
+        loginFailed: (payload[0] ?? false) as bool,
+        belongsToAssistantAppsCampaign: (payload[1] ?? false) as bool,
+        errorMessage: (payload[2] ?? '') as String,
+      );
+
+      if (objFromServer == null ||
+          objFromServer.loginFailed != false ||
+          objFromServer.belongsToAssistantAppsCampaign != true) {
+        this.onLogin(new Result(false, 'invalid payload'));
+        return;
+      }
+
+      this.onLogin(new Result(true, ''));
       getNavigation().pop(context);
     });
     this.setState(() {
@@ -86,12 +107,14 @@ class _PatreonLoginModalBottomSheetWidget
     List<Widget> widgets = List.empty(growable: true);
     widgets.add(emptySpace1x());
     widgets.add(Padding(
-      padding: EdgeInsets.only(left: 12, top: 18, right: 12),
+      padding: EdgeInsets.only(left: 12, top: 6, right: 12),
       child: AuthButton.patreon(
         onPressed: () {
-          launchExternalURL(getPatreonUrl(
+          String oAuthUrl = getPatreonUrl(
             PatreonOAuthViewModel(uniqueIdentifier: _deviceId),
-          ));
+          );
+          getLog().d(oAuthUrl);
+          launchExternalURL(oAuthUrl);
         },
       ),
     ));
@@ -109,7 +132,6 @@ class _PatreonLoginModalBottomSheetWidget
     return Stack(
       children: [
         AnimatedSize(
-          vsync: this,
           duration: const Duration(milliseconds: 150),
           child: Container(
             constraints: BoxConstraints(

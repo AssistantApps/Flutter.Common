@@ -26,9 +26,7 @@ class AssistantAppsModalBottomSheet extends StatefulWidget {
 
 class _AssistantAppsModalBottomSheetWidget
     extends State<AssistantAppsModalBottomSheet>
-    with
-        TickerProviderStateMixin,
-        AfterLayoutMixin<AssistantAppsModalBottomSheet> {
+    with AfterLayoutMixin<AssistantAppsModalBottomSheet> {
   List<AssistantAppLinks> assistantAppLinks;
   bool isLoading = true;
   _AssistantAppsModalBottomSheetWidget() {
@@ -122,7 +120,6 @@ class _AssistantAppsModalBottomSheetWidget
     return Stack(
       children: [
         AnimatedSize(
-          vsync: this,
           duration: const Duration(milliseconds: 150),
           child: Container(
             constraints: BoxConstraints(

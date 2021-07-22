@@ -28,7 +28,7 @@ packages:
       name: another_flushbar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.22"
+    version: "1.10.24"
   archive:
     dependency: transitive
     description:
@@ -49,21 +49,21 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.41"
+    version: "0.0.42"
   async:
     dependency: transitive
     description:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.6.1"
+    version: "2.7.0"
   auth_buttons:
     dependency: transitive
     description:
       name: auth_buttons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1+3"
+    version: "1.0.1+4"
   badges:
     dependency: transitive
     description:
@@ -98,7 +98,21 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "3.1.0"
+  cached_network_image_platform_interface:
+    dependency: transitive
+    description:
+      name: cached_network_image_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  cached_network_image_web:
+    dependency: transitive
+    description:
+      name: cached_network_image_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   characters:
     dependency: transitive
     description:
@@ -168,7 +182,7 @@ packages:
       name: extended_masked_text
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.1"
   fake_async:
     dependency: transitive
     description:
@@ -196,7 +210,7 @@ packages:
       name: fl_chart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.36.1"
+    version: "0.36.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -208,7 +222,7 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.0.0"
+    version: "7.0.1"
   flutter_blurhash:
     dependency: transitive
     description:
@@ -229,7 +243,7 @@ packages:
       name: flutter_layout_grid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.3"
   flutter_markdown:
     dependency: transitive
     description:
@@ -260,7 +274,7 @@ packages:
       name: get_it
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.1"
+    version: "7.2.0"
   grouped_checkbox:
     dependency: transitive
     description:
@@ -274,7 +288,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.2"
+    version: "0.13.3"
   http_parser:
     dependency: transitive
     description:
@@ -337,7 +351,7 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0"
+    version: "1.4.0"
   modal_bottom_sheet:
     dependency: transitive
     description:
@@ -365,14 +379,14 @@ packages:
       name: package_info_plus
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.4"
   package_info_plus_linux:
     dependency: transitive
     description:
       name: package_info_plus_linux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.3"
   package_info_plus_macos:
     dependency: transitive
     description:
@@ -386,28 +400,28 @@ packages:
       name: package_info_plus_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   package_info_plus_web:
     dependency: transitive
     description:
       name: package_info_plus_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.3"
   package_info_plus_windows:
     dependency: transitive
     description:
       name: package_info_plus_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.3"
   pagination_view:
     dependency: transitive
     description:
       name: pagination_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-nullsafety.0"
+    version: "2.0.0"
   path:
     dependency: transitive
     description:
@@ -568,7 +582,7 @@ packages:
       name: signalr_netcore
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.1.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -595,6 +609,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0+2"
+  sse_client:
+    dependency: transitive
+    description:
+      name: sse_client
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   stack_trace:
     dependency: transitive
     description:
@@ -636,7 +657,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0"
+    version: "0.4.0"
   time_formatter:
     dependency: transitive
     description:
@@ -671,14 +692,14 @@ packages:
       name: universal_platform
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-nullsafety"
+    version: "1.0.0+1"
   url_launcher:
     dependency: transitive
     description:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.4"
+    version: "6.0.9"
   url_launcher_linux:
     dependency: transitive
     description:
@@ -699,7 +720,7 @@ packages:
       name: url_launcher_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.4"
   url_launcher_web:
     dependency: transitive
     description:
@@ -728,13 +749,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  w3c_event_source:
+  web_socket_channel:
     dependency: transitive
     description:
-      name: w3c_event_source
+      name: web_socket_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.2"
+    version: "2.1.0"
   win32:
     dependency: transitive
     description:
@@ -758,4 +779,4 @@ packages:
     version: "5.1.0"
 sdks:
   dart: ">=2.12.0 <3.0.0"
-  flutter: ">=1.25.0"
+  flutter: ">=2.0.0"
