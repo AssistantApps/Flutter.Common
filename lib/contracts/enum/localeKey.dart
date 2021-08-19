@@ -23,6 +23,8 @@ enum LocaleKey {
   weekendMissionSeason2Json,
   weekendMissionSeason3Json,
   seasonalExpeditionJson,
+  journeyMilestoneJson,
+  // sms
   workbenchRecipeJson,
   vehicleJson,
   warehouseJson,
@@ -552,4 +554,5 @@ enum LocaleKey {
   playerShieldRestored,
   playerScanReward,
   playerDamagedTechReward,
+  journeyMilestone,
 }
