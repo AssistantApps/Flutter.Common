@@ -162,17 +162,19 @@ Widget genericTileImage(
   String imagePackage,
   String imageBackgroundColour,
 }) {
-  if (leadingImage == null) return null;
-
-  String prefix = '';
-  if (imagePackage == null) {
-    String imageAssetsPathPrefix = getPath().imageAssetPathPrefix;
-    if (!leadingImage.contains(imageAssetsPathPrefix)) {
-      prefix = '$imageAssetsPathPrefix/';
+  String fullPath = getPath().unknownImagePath;
+  if (leadingImage != null) {
+    String prefix = '';
+    if (imagePackage == null) {
+      String imageAssetsPathPrefix = getPath().imageAssetPathPrefix;
+      if (!leadingImage.contains(imageAssetsPathPrefix)) {
+        prefix = '$imageAssetsPathPrefix/';
+      }
     }
+
+    fullPath = '$prefix$leadingImage';
   }
 
-  String fullPath = '$prefix$leadingImage';
   Widget child = localImage(fullPath, imagePackage: imagePackage);
   if (imageBackgroundColour == null) return child;
 
