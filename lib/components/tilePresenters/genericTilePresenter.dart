@@ -24,7 +24,7 @@ ListTile genericListTileWithSubtitle(context,
 
   return ListTile(
     leading: genericTileImage(
-      (leadingImage != null) ? leadingImage : getPath().unknownImagePath,
+      leadingImage,
       imagePackage: imagePackage,
       imageBackgroundColour: imageBackgroundColour,
     ),
@@ -101,11 +101,9 @@ ListTile genericListTile(context,
       ? Text(
           "${getTranslations().fromKey(LocaleKey.quantity)}: ${quantity.toString()}")
       : null;
-  String localLeadingImage =
-      (leadingImage != null) ? leadingImage : getPath().unknownImagePath;
   return genericListTileWithSubtitle(
     context,
-    leadingImage: localLeadingImage,
+    leadingImage: leadingImage,
     imageBackgroundColour: imageBackgroundColour,
     name: name,
     description: description,
@@ -162,18 +160,16 @@ Widget genericTileImage(
   String imagePackage,
   String imageBackgroundColour,
 }) {
-  String fullPath = getPath().unknownImagePath;
-  if (leadingImage != null) {
-    String prefix = '';
-    if (imagePackage == null) {
-      String imageAssetsPathPrefix = getPath().imageAssetPathPrefix;
-      if (!leadingImage.contains(imageAssetsPathPrefix)) {
-        prefix = '$imageAssetsPathPrefix/';
-      }
+  if (leadingImage == null) return null;
+  String prefix = '';
+  if (imagePackage == null) {
+    String imageAssetsPathPrefix = getPath().imageAssetPathPrefix;
+    if (!leadingImage.contains(imageAssetsPathPrefix)) {
+      prefix = '$imageAssetsPathPrefix/';
     }
-
-    fullPath = '$prefix$leadingImage';
   }
+
+  String fullPath = '$prefix$leadingImage';
 
   Widget child = localImage(fullPath, imagePackage: imagePackage);
   if (imageBackgroundColour == null) return child;

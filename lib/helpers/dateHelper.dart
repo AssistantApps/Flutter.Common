@@ -25,18 +25,13 @@ Widget getProgressbarFromDates(
   int endDateInMilli = endDate.millisecondsSinceEpoch;
   DateTime now = DateTime.now();
 
-  double percentage = 1.0;
+  double percentage = getPercentageFromDates(startDate, endDate);
   String timeLeft = getTranslations().fromKey(LocaleKey.completed);
   if (startDateInMilli > now.millisecondsSinceEpoch) {
     timeLeft = getTranslations().fromKey(LocaleKey.notStarted);
-    percentage = 0.0;
   } else if (startDateInMilli < endDateInMilli) {
-    int milliPassed = now.millisecondsSinceEpoch - startDateInMilli;
     int milliLeft = endDateInMilli - now.millisecondsSinceEpoch;
-    double temp = milliPassed / (milliPassed + milliLeft);
     timeLeft = getFriendlyTimeLeft(context, milliLeft);
-
-    if (temp >= 0.0 && temp <= 1.0) percentage = temp;
   }
 
   return horizontalProgressBar(
@@ -48,4 +43,26 @@ Widget getProgressbarFromDates(
       style: TextStyle(color: Colors.black),
     ),
   );
+}
+
+double getPercentageFromDates(
+  DateTime startDate,
+  DateTime endDate,
+) {
+  int startDateInMilli = startDate.millisecondsSinceEpoch;
+  int endDateInMilli = endDate.millisecondsSinceEpoch;
+  DateTime now = DateTime.now();
+
+  double percentage = 1.0;
+  if (startDateInMilli > now.millisecondsSinceEpoch) {
+    percentage = 0.0;
+  } else if (startDateInMilli < endDateInMilli) {
+    int milliPassed = now.millisecondsSinceEpoch - startDateInMilli;
+    int milliLeft = endDateInMilli - now.millisecondsSinceEpoch;
+    double temp = milliPassed / (milliPassed + milliLeft);
+
+    if (temp >= 0.0 && temp <= 1.0) percentage = temp;
+  }
+
+  return (percentage * 100);
 }
