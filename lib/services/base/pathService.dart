@@ -10,4 +10,5 @@ class PathService implements IPathService {
         imagePackage: UIConstants.CommonPackage,
       );
   String get defaultProfilePic => '';
+  String get unknownImagePath => '';
 }

@@ -24,7 +24,7 @@ ListTile genericListTileWithSubtitle(context,
 
   return ListTile(
     leading: genericTileImage(
-      leadingImage,
+      (leadingImage != null) ? leadingImage : getPath().unknownImagePath,
       imagePackage: imagePackage,
       imageBackgroundColour: imageBackgroundColour,
     ),
@@ -101,9 +101,11 @@ ListTile genericListTile(context,
       ? Text(
           "${getTranslations().fromKey(LocaleKey.quantity)}: ${quantity.toString()}")
       : null;
+  String localLeadingImage =
+      (leadingImage != null) ? leadingImage : getPath().unknownImagePath;
   return genericListTileWithSubtitle(
     context,
-    leadingImage: leadingImage,
+    leadingImage: localLeadingImage,
     imageBackgroundColour: imageBackgroundColour,
     name: name,
     description: description,
