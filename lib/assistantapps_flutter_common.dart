@@ -44,13 +44,13 @@ export 'constants/SupportedLanguages.dart';
 export 'constants/UIConstants.dart';
 //
 // Contracts
-export 'contracts/data/assistantAppLinks.dart';
 export 'contracts/enum/assistantAppType.dart';
 export 'contracts/enum/backgroundType.dart';
 export 'contracts/enum/donationType.dart';
 export 'contracts/enum/enumBase.dart';
 export 'contracts/enum/localeKey.dart';
 export 'contracts/enum/platformType.dart';
+export 'contracts/generated/appsLinkViewModel.dart';
 export 'contracts/generated/donationViewModel.dart';
 export 'contracts/generated/patreonViewModel.dart';
 export 'contracts/generated/steamNewsItemViewModel.dart';
@@ -92,6 +92,7 @@ export 'integration/dependencyInjection.dart' hide getEnv;
 export 'integration/translationDelegate.dart';
 //
 // Pages
+export 'pages/about/aboutPage.dart';
 export 'pages/dialog/optionsListPageDialog.dart';
 export 'pages/donators/donatorsPageComponent.dart';
 export 'pages/language/languageHelpPage.dart';

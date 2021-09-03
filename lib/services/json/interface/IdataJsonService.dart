@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../contracts/data/assistantAppLinks.dart';
+import '../../../contracts/generated/appsLinkViewModel.dart';
 import '../../../contracts/results/resultWithValue.dart';
 
 class IDataJsonService {
-  Future<ResultWithValue<List<AssistantAppLinks>>> getAssistantApps(
+  Future<ResultWithValue<List<AssistantAppsLinkViewModel>>> getAssistantApps(
       BuildContext context) async {
-    return ResultWithValue<List<AssistantAppLinks>>(
+    return ResultWithValue<List<AssistantAppsLinkViewModel>>(
         false, List.empty(growable: true), '');
   }
 }

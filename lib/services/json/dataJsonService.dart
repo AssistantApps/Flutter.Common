@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-import '../../contracts/data/assistantAppLinks.dart';
+import '../../contracts/generated/appsLinkViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseJsonService.dart';
@@ -12,7 +12,7 @@ class DataJsonService extends BaseJsonService implements IDataJsonService {
   //
 
   @override
-  Future<ResultWithValue<List<AssistantAppLinks>>> getAssistantApps(
+  Future<ResultWithValue<List<AssistantAppsLinkViewModel>>> getAssistantApps(
       BuildContext context) async {
     try {
       dynamic responseJson = await this.getJsonFromCommonPackage(
@@ -20,13 +20,14 @@ class DataJsonService extends BaseJsonService implements IDataJsonService {
         'data/assistantAppLinks',
       );
       List list = json.decode(responseJson);
-      List<AssistantAppLinks> assistAppItems =
-          list.map((m) => AssistantAppLinks.fromJson(m)).toList();
-      return ResultWithValue<List<AssistantAppLinks>>(true, assistAppItems, '');
+      List<AssistantAppsLinkViewModel> assistAppItems =
+          list.map((m) => AssistantAppsLinkViewModel.fromJson(m)).toList();
+      return ResultWithValue<List<AssistantAppsLinkViewModel>>(
+          true, assistAppItems, '');
     } catch (exception) {
       getLog().e(
           "DataJsonRepository getAssistantApps Exception: ${exception.toString()}");
-      return ResultWithValue<List<AssistantAppLinks>>(
+      return ResultWithValue<List<AssistantAppsLinkViewModel>>(
           false, List.empty(growable: true), exception.toString());
     }
   }
