@@ -22,6 +22,17 @@ class AppImage {
   static const String heart = base + 'special/heart.png';
   static const String specialPatreonLogo = base + 'special/patreonTile.png';
 
+  // Team
+  static const String baseTeamPictureUrl =
+      'https://cdn.assistantapps.com/team/';
+  static const String teamPictureUrlKhaozTopsy =
+      baseTeamPictureUrl + 'KhaozTopsy.png';
+  static const String teamPictureUrlRobo = baseTeamPictureUrl + 'Robo.png';
+  static const String teamPictureUrlLilo =
+      baseTeamPictureUrl + 'LionessLilo.jpg';
+  static const String teamPictureUrlSphynxcolt =
+      baseTeamPictureUrl + 'Sphynxcolt.png';
+
   static const String onlinePatreonIcon =
       'https://scrapassistant.com/assets/assets/img/drawer/patreon.png';
 }

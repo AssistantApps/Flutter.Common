@@ -9,6 +9,7 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 class AssistantAppsLinkViewModel {
   AssistantAppsLinkViewModel({
     this.guid,
+    this.type,
     this.name,
     this.gameName,
     this.iconUrl,
@@ -19,6 +20,7 @@ class AssistantAppsLinkViewModel {
   });
 
   String guid;
+  AssistantAppType type;
   String name;
   String gameName;
   String iconUrl;
@@ -33,6 +35,7 @@ class AssistantAppsLinkViewModel {
   factory AssistantAppsLinkViewModel.fromJson(Map<String, dynamic> json) =>
       AssistantAppsLinkViewModel(
         guid: readStringSafe(json, 'guid'),
+        type: assistantAppTypeValues.map[readIntSafe(json, 'type').toString()],
         name: readStringSafe(json, 'name'),
         gameName: readStringSafe(json, 'gameName'),
         iconUrl: readStringSafe(json, 'iconUrl'),

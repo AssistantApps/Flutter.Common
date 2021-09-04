@@ -1,6 +1,7 @@
 [
     {
         "guid": "589405b4-e40f-4cd9-b793-6bf37944ee09",
+        "type": "NMS",
         "name": "Assistant for No Man's Sky",
         "gameName": "No Man's Sky",
         "iconUrl": "https://cdn.assistantapps.com/icon/assistantNMS.png",
@@ -24,6 +25,7 @@
     },
     {
         "guid": "dfe0dbc7-8df4-47fb-a5a5-49af1937c4e2",
+        "type": "SMS",
         "name": "Assistant for Scrap Mechanic",
         "gameName": "Scrap Mechanic",
         "iconUrl": "https://cdn.assistantapps.com/icon/assistantSMS.png",

@@ -45,7 +45,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
     if (isLoading) return Center(child: getLoading().smallLoadingIndicator());
     List<Widget> widgets = List.empty(growable: true);
 
-    widgets.add(emptySpace(1));
+    widgets.add(emptySpace1x());
     widgets.add(
       localImage(
         '${AppImage.base}${AppImage.assistantApps}',
@@ -95,7 +95,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
       widgets.add(
         assistantAppLinkPresenter(context, appLinkVm, platforms, popups),
       );
-      widgets.add(emptySpace(1));
+      widgets.add(emptySpace1x());
     }
 
     widgets.add(
@@ -110,7 +110,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
     widgets.add(emptySpace(1));
 
     return ListView.builder(
-      padding: EdgeInsets.all(8.0),
+      padding: EdgeInsets.symmetric(horizontal: 8.0),
       itemCount: widgets.length,
       itemBuilder: (_, int index) => widgets[index],
       shrinkWrap: true,
