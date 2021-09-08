@@ -22,9 +22,14 @@ class TranslationService implements ITranslationService {
   @override
   Future<ITranslationService> load(Locale locale) async {
     this.locale = locale;
-    String languageCode = locale?.languageCode ?? 'en';
+    String languageCode = locale?.languageCode ?? '';
+    if (supportedLanguagesCodes.contains(languageCode) == false) {
+      languageCode = 'en';
+      this.locale = Locale(languageCode);
+    }
+
     String jsonContent =
-        await rootBundle.loadString("assets/lang/language.$languageCode.json");
+        await rootBundle.loadString('assets/lang/language.$languageCode.json');
     _localisedValues = json.decode(jsonContent);
     return this;
   }
