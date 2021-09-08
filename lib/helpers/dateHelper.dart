@@ -36,10 +36,10 @@ Widget getProgressbarFromDates(
 
   return horizontalProgressBar(
     context,
-    (percentage * 100).toDouble(),
+    percentage.toDouble(),
     animation: animation,
     text: Text(
-      '${(percentage * 100).toStringAsFixed(0)}% - $timeLeft',
+      '${percentage.toStringAsFixed(0)}% - $timeLeft',
       style: TextStyle(color: Colors.black),
     ),
   );
@@ -57,9 +57,9 @@ double getPercentageFromDates(
   if (startDateInMilli > now.millisecondsSinceEpoch) {
     percentage = 0.0;
   } else if (startDateInMilli < endDateInMilli) {
+    int totalMilli = endDateInMilli - startDateInMilli;
     int milliPassed = now.millisecondsSinceEpoch - startDateInMilli;
-    int milliLeft = endDateInMilli - now.millisecondsSinceEpoch;
-    double temp = milliPassed / (milliPassed + milliLeft);
+    double temp = milliPassed / totalMilli;
 
     if (temp >= 0.0 && temp <= 1.0) percentage = temp;
   }
