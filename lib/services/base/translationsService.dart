@@ -22,8 +22,9 @@ class TranslationService implements ITranslationService {
   @override
   Future<ITranslationService> load(Locale locale) async {
     this.locale = locale;
-    String jsonContent = await rootBundle
-        .loadString("assets/lang/language.${locale.languageCode}.json");
+    String languageCode = locale?.languageCode ?? 'en';
+    String jsonContent =
+        await rootBundle.loadString("assets/lang/language.$languageCode.json");
     _localisedValues = json.decode(jsonContent);
     return this;
   }
