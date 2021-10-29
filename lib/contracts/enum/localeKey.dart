@@ -555,4 +555,7 @@ enum LocaleKey {
   playerScanReward,
   playerDamagedTechReward,
   journeyMilestone,
+  settingsFont,
+  nmsThemed,
+  defaultFont,
 }
