@@ -90,6 +90,7 @@ export 'helpers/updateHelper.dart';
 // Integration
 export 'integration/dependencyInjection.dart' hide getEnv;
 export 'integration/translationDelegate.dart';
+export 'integration/share.dart';
 //
 // Pages
 export 'pages/about/aboutPage.dart';
