@@ -1,9 +1,8 @@
-import 'package:assistantapps_flutter_common/helpers/pathHelper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:octo_image/octo_image.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../helpers/pathHelper.dart';
 import '../../integration/dependencyInjection.dart';
 
 Widget networkImage(

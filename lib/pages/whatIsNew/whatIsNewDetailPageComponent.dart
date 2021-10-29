@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import '../../assistantapps_flutter_common.dart';
 import '../../components/common/space.dart';
 import '../../components/common/text.dart';
 import '../../components/list/listWithScrollbar.dart';
@@ -10,6 +9,7 @@ import '../../contracts/generated/versionViewModel.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../helpers/updateHelper.dart';
+import '../../integration/dependencyInjection.dart';
 
 class WhatIsNewDetailPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;

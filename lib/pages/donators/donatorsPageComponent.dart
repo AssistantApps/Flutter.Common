@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../assistantapps_flutter_common.dart';
 import '../../components/list/lazyLoadedSearchableList.dart';
 import '../../components/tilePresenters/donationTilePresenter.dart';
 import '../../constants/UIConstants.dart';
 import '../../contracts/generated/donationViewModel.dart';
+import '../../integration/dependencyInjection.dart';
 
 class DonatorsPageComponent extends StatelessWidget {
   final Widget loadMoreItemWidget;

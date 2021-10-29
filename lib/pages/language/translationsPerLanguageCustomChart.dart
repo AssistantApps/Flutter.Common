@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../components/common/loadingAnim.dart';
+import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/translationsPerLanguageGraphViewModel.dart';
+import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';
+import '../../integration/dependencyInjection.dart';
+import '../../services/api/translationApiService.dart';
 
 class TranslationsPerLanguageCustomChart extends StatelessWidget {
   Widget graphItemDisplayer(

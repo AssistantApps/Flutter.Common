@@ -1,10 +1,10 @@
+import 'package:assistantapps_flutter_common/components/common/badge.dart';
+import 'package:assistantapps_flutter_common/components/common/image.dart';
+import 'package:assistantapps_flutter_common/contracts/enum/localeKey.dart';
+import 'package:assistantapps_flutter_common/helpers/colourHelper.dart';
+import 'package:assistantapps_flutter_common/helpers/deviceHelper.dart';
+import 'package:assistantapps_flutter_common/integration/dependencyInjection.dart';
 import 'package:flutter/material.dart';
-
-import '../../assistantapps_flutter_common.dart';
-import '../../contracts/enum/localeKey.dart';
-import '../../helpers/colourHelper.dart';
-import '../../integration/dependencyInjection.dart';
-import '../common/image.dart';
 
 ListTile genericListTileWithSubtitle(context,
     {@required String leadingImage,

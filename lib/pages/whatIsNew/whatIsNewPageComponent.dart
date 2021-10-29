@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../assistantapps_flutter_common.dart';
 import '../../components/list/lazyLoadedSearchableList.dart';
 import '../../components/tilePresenters/versionTilePresenter.dart';
 import '../../contracts/enum/platformType.dart';
 import '../../contracts/generated/versionViewModel.dart';
+import '../../integration/dependencyInjection.dart';
 
 class WhatIsNewPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;

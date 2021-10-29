@@ -2,7 +2,6 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
 
-import '../../contracts/enum/backgroundType.dart';
 import '../../constants/AppImage.dart';
 
 class BackgroundWrapper extends StatelessWidget {

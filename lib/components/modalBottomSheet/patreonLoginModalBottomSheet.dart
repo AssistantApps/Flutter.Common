@@ -1,14 +1,10 @@
-import 'dart:convert';
-
-import 'package:assistantapps_flutter_common/contracts/generated/auth/patreonOAuthResponseViewModel.dart';
-import 'package:assistantapps_flutter_common/contracts/generated/auth/patreonOAuthViewModel.dart';
-import 'package:assistantapps_flutter_common/integration/patreonApi.dart';
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
 import '../../contracts/enum/networkState.dart';
-import '../../integration/dependencyInjection.dart';
-import '../common/space.dart';
+import '../../contracts/generated/auth/patreonOAuthResponseViewModel.dart';
+import '../../contracts/generated/auth/patreonOAuthViewModel.dart';
+import '../../integration/patreonApi.dart';
 
 class PatreonLoginModalBottomSheet extends StatefulWidget {
   final String analyticsKey;

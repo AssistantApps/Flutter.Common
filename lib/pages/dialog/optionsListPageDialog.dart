@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
-import '../../contracts/search/dropdownOption.dart';
 
 class OptionsListPageDialog extends StatefulWidget {
   final String title;

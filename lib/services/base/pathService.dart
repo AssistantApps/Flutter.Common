@@ -1,4 +1,5 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+import 'package:assistantapps_flutter_common/components/common/image.dart';
+import 'package:assistantapps_flutter_common/constants/UIConstants.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'interface/IPathService.dart';

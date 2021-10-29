@@ -1,11 +1,12 @@
-import '../../components/tilePresenters/languageTilePresenter.dart';
-
-import '../dialog/optionsListPageDialog.dart';
-
-import '../../assistantapps_flutter_common.dart';
-import '../../constants/SupportedLanguages.dart';
-import '../../contracts/search/dropdownOption.dart';
 import 'package:flutter/material.dart';
+
+import '../../components/tilePresenters/languageTilePresenter.dart';
+import '../../constants/SupportedLanguages.dart';
+import '../../contracts/enum/localeKey.dart';
+import '../../contracts/localizationMap.dart';
+import '../../contracts/search/dropdownOption.dart';
+import '../../integration/dependencyInjection.dart';
+import '../dialog/optionsListPageDialog.dart';
 
 class LanguageSelectionPageContent extends StatelessWidget {
   @override

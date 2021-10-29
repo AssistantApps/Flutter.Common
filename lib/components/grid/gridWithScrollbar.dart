@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../assistantapps_flutter_common.dart';
 import '../../helpers/columnHelper.dart';
+import '../../helpers/deviceHelper.dart';
 
 Widget gridWithScrollbar({
   int itemCount,

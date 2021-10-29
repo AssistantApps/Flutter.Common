@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_checkbox/grouped_checkbox.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../integration/dependencyInjection.dart';
 
 Widget adaptiveCheckboxGroup(
   BuildContext context, {

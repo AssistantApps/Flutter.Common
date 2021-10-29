@@ -1,8 +1,9 @@
-import 'package:assistantapps_flutter_common/helpers/timeHelper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../assistantapps_flutter_common.dart';
+import '../components/common/percent.dart';
+import '../contracts/enum/localeKey.dart';
+import '../integration/dependencyInjection.dart';
+import 'timeHelper.dart';
 
 String simpleDate(DateTime dateTime) =>
     "${dateTime.year.toString().padLeft(4, '0')}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}";

@@ -1,9 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../../assistantapps_flutter_common.dart';
 import '../../contracts/generated/translationsPerLanguageGraphViewModel.dart';
+import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';
+import '../../integration/dependencyInjection.dart';
+import '../../services/api/translationApiService.dart';
 
 const ellipsesText = '...';
 const numMaxChars = 7;
@@ -68,7 +70,7 @@ class TranslationsPerLanguageFLChart extends StatelessWidget {
                     margin: 10,
                     rotateAngle: 90,
                     showTitles: true,
-                    getTextStyles: (value) => const TextStyle(
+                    getTextStyles: (innerCtx, value) => const TextStyle(
                       color: Color(0xff7589a2),
                       fontWeight: FontWeight.bold,
                       fontSize: 14,

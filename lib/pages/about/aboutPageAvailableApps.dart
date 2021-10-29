@@ -1,10 +1,21 @@
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../components/common/image.dart';
+import '../../components/common/space.dart';
+import '../../components/common/text.dart';
 import '../../components/tilePresenters/assistantAppLinkPresenter.dart';
+import '../../components/tilePresenters/genericTilePresenter.dart';
 import '../../constants/AppImage.dart';
 import '../../constants/UIConstants.dart';
+import '../../contracts/enum/assistantAppType.dart';
+import '../../contracts/enum/localeKey.dart';
+import '../../contracts/generated/appsLinkViewModel.dart';
+import '../../contracts/misc/popupMenuActionItem.dart';
+import '../../contracts/results/resultWithValue.dart';
+import '../../helpers/externalHelper.dart';
+import '../../helpers/stringHelper.dart';
+import '../../integration/dependencyInjection.dart';
 
 class AboutPageAvailableApps extends StatefulWidget {
   final AssistantAppType appType;
