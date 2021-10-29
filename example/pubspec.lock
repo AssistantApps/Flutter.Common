@@ -49,14 +49,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.52"
+    version: "0.0.53"
   async:
     dependency: transitive
     description:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.1"
+    version: "2.8.2"
   auth_buttons:
     dependency: transitive
     description:
@@ -119,7 +119,7 @@ packages:
       name: characters
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   charcode:
     dependency: transitive
     description:
@@ -182,7 +182,7 @@ packages:
       name: extended_masked_text
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.1"
+    version: "2.3.1"
   fake_async:
     dependency: transitive
     description:
@@ -288,7 +288,7 @@ packages:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.3"
+    version: "0.13.4"
   http_parser:
     dependency: transitive
     description:
@@ -337,7 +337,7 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.10"
+    version: "0.12.11"
   material_segmented_control:
     dependency: transitive
     description:
@@ -582,7 +582,7 @@ packages:
       name: signalr_netcore
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.2.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -657,7 +657,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.2"
+    version: "0.4.3"
   time_formatter:
     dependency: transitive
     description:
@@ -748,7 +748,7 @@ packages:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   web_socket_channel:
     dependency: transitive
     description:
@@ -778,5 +778,5 @@ packages:
     source: hosted
     version: "5.1.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.14.0 <3.0.0"
   flutter: ">=2.0.0"
