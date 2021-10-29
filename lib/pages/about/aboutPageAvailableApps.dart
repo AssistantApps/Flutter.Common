@@ -34,9 +34,20 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
         await getAssistantAppsData().getAssistantApps(context);
     if (assistantAppsResult.hasFailed) return;
 
+    List<AssistantAppsLinkViewModel> localAssistantAppLinks =
+        assistantAppsResult.value.toList();
+    localAssistantAppLinks.sort(
+      (a, b) => //
+          ( //
+              a.type == this.appType //
+                  ? 1 //
+                  : (a.sortOrder.compareTo(b.sortOrder)) //
+          ),
+    );
+
     this.setState(() {
       isLoading = false;
-      assistantAppLinks = assistantAppsResult.value;
+      assistantAppLinks = localAssistantAppLinks;
     });
   }
 

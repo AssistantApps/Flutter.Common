@@ -46,5 +46,25 @@
         ],
         "isVisible": true,
         "sortOrder": 2
+    },
+    {
+        "guid": "0bb0db37-be1e-4480-8f6d-16655bf4a804",
+        "type": "KGZ",
+        "name": "Kronos: Guides for Zombies",
+        "gameName": "Guides for Zombies",
+        "iconUrl": "https://cdn.assistantapps.com/icon/kronos.jpg",
+        "logoUrl": "https://cdn.assistantapps.com/kronos.jpg",
+        "links": [
+            {
+                "type": "ios",
+                "url": "https://apps.apple.com/us/app/id1438078478"
+            },
+            {
+                "type": "android",
+                "url": "https://play.google.com/store/apps/details?id=companion.kronosflutter"
+            }
+        ],
+        "isVisible": true,
+        "sortOrder": 4
     }
 ]
