@@ -38,6 +38,7 @@ Widget networkImage(
 
 Widget localImage(
   String imagePath, {
+  String imageHero,
   String imagePackage,
   BoxFit boxfit,
   double height,
@@ -51,8 +52,13 @@ Widget localImage(
     height: height,
     width: width,
   );
+
+  Widget imgWidget = (imageHero != null)
+      ? Hero(tag: imageHero, child: image) //
+      : image;
+
   return Padding(
-    child: image,
+    child: imgWidget,
     padding: padding,
   );
 }

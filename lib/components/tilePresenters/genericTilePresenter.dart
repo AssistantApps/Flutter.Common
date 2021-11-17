@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 ListTile genericListTileWithSubtitle(context,
     {@required String leadingImage,
+    String leadingImageHero,
     String imageBackgroundColour,
     String imagePackage,
     @required String name,
@@ -25,6 +26,7 @@ ListTile genericListTileWithSubtitle(context,
   return ListTile(
     leading: genericTileImage(
       leadingImage,
+      imageHero: leadingImageHero,
       imagePackage: imagePackage,
       imageBackgroundColour: imageBackgroundColour,
     ),
@@ -88,6 +90,7 @@ ListTile genericListTileWithSubtitleAndImageCount(BuildContext context,
 
 ListTile genericListTile(context,
     {@required String leadingImage,
+    String leadingImageHero,
     String imageBackgroundColour,
     @required String name,
     String description,
@@ -104,6 +107,7 @@ ListTile genericListTile(context,
   return genericListTileWithSubtitle(
     context,
     leadingImage: leadingImage,
+    leadingImageHero: leadingImageHero,
     imageBackgroundColour: imageBackgroundColour,
     name: name,
     description: description,
@@ -157,6 +161,7 @@ ListTile genericListTileWithNetworkImage(context,
 
 Widget genericTileImage(
   String leadingImage, {
+  String imageHero,
   String imagePackage,
   String imageBackgroundColour,
 }) {
@@ -170,8 +175,11 @@ Widget genericTileImage(
   }
 
   String fullPath = '$prefix$leadingImage';
-
-  Widget child = localImage(fullPath, imagePackage: imagePackage);
+  Widget child = localImage(
+    fullPath,
+    imageHero: imageHero,
+    imagePackage: imagePackage,
+  );
   if (imageBackgroundColour == null) return child;
 
   return Container(
