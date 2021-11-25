@@ -58,18 +58,16 @@ class UpdateService implements IUpdateService {
   }
 
   void showUpdateSnackbar(BuildContext context, String externalUrl) {
-    var storeLocale = isApple ? LocaleKey.appStore : LocaleKey.googlePlay;
+    LocaleKey storeLocale = isApple //
+        ? LocaleKey.appStore
+        : LocaleKey.googlePlay;
+
     getSnackbar().showSnackbar(
       context,
       LocaleKey.updateAvailable,
       duration: Duration(minutes: 5),
-      action: TextButton(
-        child: Text(getTranslations().fromKey(storeLocale)),
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-        ),
-        onPressed: () => launchExternalURL(externalUrl),
-      ),
+      onPositive: () => launchExternalURL(externalUrl),
+      onPositiveText: getTranslations().fromKey(storeLocale),
     );
   }
 }

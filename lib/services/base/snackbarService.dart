@@ -1,26 +1,42 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:sweetsheet/sweetsheet.dart';
 
 import '../../contracts/enum/localeKey.dart';
 import '../../integration/dependencyInjection.dart';
 import 'interface/ISnackbarService.dart';
 
 class SnackbarService implements ISnackbarService {
-  static const defaultDismissDirection = FlushbarDismissDirection.VERTICAL;
+  SweetSheet _sweetSheet;
+  SnackbarService() {
+    _sweetSheet = SweetSheet();
+  }
 
-  void showSnackbar(context, LocaleKey lang,
-      {Duration duration, TextButton action}) {
-    var textString = Text(
+  void showSnackbar(
+    context,
+    LocaleKey lang, {
+    Duration duration,
+    void Function() onPositive,
+    String onPositiveText,
+  }) {
+    Text textString = Text(
       getTranslations().fromKey(lang),
       style: TextStyle(color: Colors.black),
     );
-    Flushbar(
-      messageText: textString,
-      duration: duration ?? Duration(seconds: 5),
-      backgroundColor: getTheme().getSecondaryColour(context),
+
+    _sweetSheet.show(
+      context: context,
+      description: textString,
+      color: SweetSheetColor.SUCCESS,
       isDismissible: true,
-      dismissDirection: defaultDismissDirection,
-      mainButton: action,
-    )..show(context);
+      icon: Icons.cloud_download,
+      positive: SweetSheetAction(
+        onPressed: onPositive,
+        title: onPositiveText,
+      ),
+      negative: SweetSheetAction(
+        onPressed: () => getNavigation().pop(context),
+        title: getTranslations().fromKey(LocaleKey.cancel),
+      ),
+    );
   }
 }

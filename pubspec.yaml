@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.0.56
+version: 0.0.57
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 
@@ -15,17 +15,16 @@ dependencies:
   # Base
   get_it: 7.2.0
   http: 0.13.4
-  signalr_netcore: 1.2.2
+  signalr_netcore: 1.2.3+1
 
   # UI
   after_layout: 1.1.0
   animate_do: 2.0.0
   animated_background: 2.0.0
-  another_flushbar: 1.10.24
-  auth_buttons: 1.0.1+4
+  auth_buttons: 2.0.2
   badges: 2.0.1
   breakpoint: 1.2.0
-  cached_network_image: 3.1.0
+  cached_network_image: 3.1.0+1
   enum_to_string: 2.0.1
   extended_masked_text: 2.3.1
   fl_chart: 0.40.2
@@ -43,11 +42,12 @@ dependencies:
   photo_view: 0.13.0
   platform_device_id: 1.0.1
   share: 2.0.4
+  sweetsheet: ^0.4.0
   time_formatter: 1.0.0+5
   timeline_tile: 2.0.0
   uuid: 3.0.5
   universal_platform: 1.0.0+1
-  url_launcher: 6.0.12
+  url_launcher: 6.0.15
 
 dev_dependencies:
   flutter_test:

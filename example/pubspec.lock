@@ -22,13 +22,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  another_flushbar:
-    dependency: transitive
-    description:
-      name: another_flushbar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.10.24"
   archive:
     dependency: transitive
     description:
@@ -49,7 +42,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.56"
+    version: "0.0.57"
   async:
     dependency: transitive
     description:
@@ -63,7 +56,7 @@ packages:
       name: auth_buttons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1+4"
+    version: "2.0.2"
   badges:
     dependency: transitive
     description:
@@ -98,7 +91,7 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.0"
+    version: "3.1.0+1"
   cached_network_image_platform_interface:
     dependency: transitive
     description:
@@ -258,6 +251,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.1"
+  flutter_svg:
+    dependency: transitive
+    description:
+      name: flutter_svg
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.23.0+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -275,6 +275,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.2.0"
+  google_fonts:
+    dependency: transitive
+    description:
+      name: google_fonts
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   grouped_checkbox:
     dependency: transitive
     description:
@@ -436,6 +443,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+  path_drawing:
+    dependency: transitive
+    description:
+      name: path_drawing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.1+1"
+  path_parsing:
+    dependency: transitive
+    description:
+      name: path_parsing
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.1"
   path_provider:
     dependency: transitive
     description:
@@ -596,7 +617,7 @@ packages:
       name: signalr_netcore
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.2"
+    version: "1.2.3+1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -651,6 +672,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  sweetsheet:
+    dependency: transitive
+    description:
+      name: sweetsheet
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0"
   synchronized:
     dependency: transitive
     description:
@@ -713,7 +741,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.12"
+    version: "6.0.15"
   url_launcher_linux:
     dependency: transitive
     description:

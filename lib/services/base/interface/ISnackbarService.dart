@@ -1,8 +1,11 @@
-import 'package:flutter/material.dart';
-
 import '../../../contracts/enum/localeKey.dart';
 
 class ISnackbarService {
-  void showSnackbar(context, LocaleKey lang,
-      {Duration duration, TextButton action}) {}
+  void showSnackbar(
+    context,
+    LocaleKey lang, {
+    Duration duration,
+    void Function() onPositive,
+    String onPositiveText,
+  }) {}
 }
