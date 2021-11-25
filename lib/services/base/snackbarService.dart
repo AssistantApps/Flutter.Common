@@ -18,14 +18,9 @@ class SnackbarService implements ISnackbarService {
     void Function() onPositive,
     String onPositiveText,
   }) {
-    Text textString = Text(
-      getTranslations().fromKey(lang),
-      style: TextStyle(color: Colors.black),
-    );
-
     _sweetSheet.show(
       context: context,
-      description: textString,
+      description: Text(getTranslations().fromKey(lang)),
       color: SweetSheetColor.SUCCESS,
       isDismissible: true,
       icon: Icons.cloud_download,
@@ -35,7 +30,7 @@ class SnackbarService implements ISnackbarService {
       ),
       negative: SweetSheetAction(
         onPressed: () => getNavigation().pop(context),
-        title: getTranslations().fromKey(LocaleKey.cancel),
+        title: getTranslations().fromKey(LocaleKey.close),
       ),
     );
   }

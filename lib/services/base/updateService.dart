@@ -16,7 +16,9 @@ import 'interface/IUpdateService.dart';
 class UpdateService implements IUpdateService {
   Future<void> checkForUpdate(BuildContext context, String externalUrl) async {
     if (getEnv().isProduction == false) return;
-    var isOutdatedResult = await this.isOutdatedVersionCheck();
+    ResultWithValue<bool> isOutdatedResult =
+        await this.isOutdatedVersionCheck();
+
     bool isUpToDate = !isOutdatedResult.value;
     if (isOutdatedResult.hasFailed || isUpToDate) return;
     getLog().i('Update available');
