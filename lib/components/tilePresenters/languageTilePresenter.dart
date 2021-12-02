@@ -25,14 +25,14 @@ Widget languageTilePresenter(
 
 Widget getTrailingWidget(LocaleKey trailingDisplay, int percentageComplete) {
   String textToDisp = '';
-  if (trailingDisplay == null) {
+  if (trailingDisplay != null) {
+    textToDisp = getTranslations().fromKey(trailingDisplay);
+  } else if (percentageComplete != null) {
     String percentTemplate = getTranslations().fromKey(LocaleKey.percentage);
     textToDisp = percentTemplate.replaceAll(
       '{0}',
       percentageComplete.toString(),
     );
-  } else if (percentageComplete != null) {
-    textToDisp = getTranslations().fromKey(trailingDisplay);
   }
 
   if (textToDisp.length < 1) return null;

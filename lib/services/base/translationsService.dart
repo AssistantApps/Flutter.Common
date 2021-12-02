@@ -96,7 +96,7 @@ class TranslationService implements ITranslationService {
     return await getNavigation().navigateAsync<String>(
       context,
       navigateTo: (context) => OptionsListPageDialog(
-        getTranslations().fromKey(LocaleKey.language),
+        getTranslations().fromKey(LocaleKey.appLanguage),
         orderedLangs,
         minListForSearch: 15,
         customPresenter: (BuildContext innerC, DropdownOption opt, int index) {
