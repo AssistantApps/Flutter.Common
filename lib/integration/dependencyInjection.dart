@@ -11,7 +11,7 @@ import '../services/api/patreonApiService.dart';
 import '../services/api/steamApiService.dart';
 import '../services/api/translationApiService.dart';
 import '../services/api/versionApiService.dart';
-import '../services/base/LanguageService.dart';
+import '../services/base/languageService.dart';
 import '../services/base/analyticsService.dart';
 import '../services/base/baseWidgetService.dart';
 import '../services/base/dialogService.dart';
