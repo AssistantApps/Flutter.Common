@@ -5,9 +5,12 @@ import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../../components/tilePresenters/languageTilePresenter.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/localizationMap.dart';
+import '../../contracts/search/dropdownOption.dart';
 import '../../integration/dependencyInjection.dart';
+import '../../pages/dialog/optionsListPageDialog.dart';
 import 'interface/ITranslationsService.dart';
 
 class TranslationService implements ITranslationService {
@@ -78,4 +81,35 @@ class TranslationService implements ITranslationService {
   @override
   Locale getLocaleFromLocalMap(LocalizationMap localeMap) =>
       Locale(localeMap.code);
+
+  @override
+  Future<String> langaugeSelectionPage(BuildContext context) async {
+    List<LocalizationMap> supportedLanguageMaps =
+        getLanguage().getLocalizationMaps();
+    List<DropdownOption> orderedLangs = supportedLanguageMaps
+        .map((l) => DropdownOption(
+              getTranslations().fromKey(l.name),
+              value: l.code,
+            ))
+        .toList();
+    orderedLangs.sort((a, b) => a.title.compareTo(b.title));
+    return await getNavigation().navigateAsync<String>(
+      context,
+      navigateTo: (context) => OptionsListPageDialog(
+        getTranslations().fromKey(LocaleKey.language),
+        orderedLangs,
+        minListForSearch: 15,
+        customPresenter: (BuildContext innerC, DropdownOption opt, int index) {
+          LocalizationMap supportedLang =
+              supportedLanguageMaps.firstWhere((sl) => sl.code == opt.value);
+          return languageTilePresenter(
+            innerC,
+            opt.title,
+            supportedLang.countryCode,
+            onTap: () => Navigator.of(context).pop(opt.value),
+          );
+        },
+      ),
+    );
+  }
 }
