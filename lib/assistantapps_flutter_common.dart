@@ -40,7 +40,6 @@ export 'components/tilePresenters/versionTilePresenter.dart';
 //
 // Constants
 export 'constants/ExternalUrls.dart';
-export 'constants/SupportedLanguages.dart';
 export 'constants/UIConstants.dart';
 //
 // Contracts

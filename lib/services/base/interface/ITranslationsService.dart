@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../constants/SupportedLanguages.dart';
 import '../../../contracts/enum/localeKey.dart';
 import '../../../contracts/localizationMap.dart';
 
@@ -22,19 +21,22 @@ class ITranslationService {
   }
 
   LocalizationMap getCurrentLocalizationMap(
-      BuildContext context, String currentLanguageCodeSetting) {
-    return englishLanguageMap;
-  }
+          BuildContext context, String currentLanguageCodeSetting) =>
+      defaultLanguageMap();
 
-  Locale getLocaleFromKey(String supportedLanguageKey) {
-    return Locale(supportedLanguageKey);
-  }
+  Locale getLocaleFromKey(String supportedLanguageKey) =>
+      Locale(supportedLanguageKey);
 
   Locale getLocaleFromLocalMap(LocalizationMap localeMap) =>
       Locale(localeMap.code);
 
-  Iterable<Locale> supportedLocales() =>
-      supportedLanguagesCodes.map<Locale>((language) => Locale(language, ""));
+  LocalizationMap defaultLanguageMap() =>
+      LocalizationMap(LocaleKey.english, 'en', 'gb');
+
+  List<LocalizationMap> getLocalizationMaps() => List.empty();
+  List<Locale> supportedLocales() => List.empty();
+  List<LocaleKey> supportedLanguages() => List.empty();
+  List<String> supportedLanguagesCodes() => List.empty();
 
   Future<String> langaugeSelectionPage(BuildContext context) async => '';
 }

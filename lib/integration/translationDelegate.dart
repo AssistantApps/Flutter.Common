@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../constants/SupportedLanguages.dart';
 import '../services/base/interface/ITranslationsService.dart';
 import 'dependencyInjection.dart';
 
@@ -13,7 +12,9 @@ class TranslationsDelegate extends LocalizationsDelegate<ITranslationService> {
 
   @override
   bool isSupported(Locale locale) {
-    return supportedLanguagesCodes.contains(locale.languageCode);
+    return getTranslations()
+        .supportedLanguagesCodes()
+        .contains(locale.languageCode);
   }
 
   @override

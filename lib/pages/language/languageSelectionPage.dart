@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../components/tilePresenters/languageTilePresenter.dart';
-import '../../constants/SupportedLanguages.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/localizationMap.dart';
 import '../../contracts/search/dropdownOption.dart';
@@ -11,6 +10,9 @@ import '../dialog/optionsListPageDialog.dart';
 class LanguageSelectionPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<LocalizationMap> supportedLanguageMaps =
+        getTranslations().getLocalizationMaps();
+
     List<DropdownOption> options = supportedLanguageMaps
         .map((l) => DropdownOption(
               getTranslations().fromKey(l.name),
