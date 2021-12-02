@@ -32,7 +32,7 @@ class LanguageService implements ILanguageService {
       LocalizationMap(LocaleKey.arabic, 'ar', 'ar'),
       LocalizationMap(LocaleKey.vietnamese, 'vi-vn', 'vn'),
       LocalizationMap(LocaleKey.urdu, 'ur', 'pk'),
-      LocalizationMap(LocaleKey.fillipino, 'ph', 'ph'),
+      LocalizationMap(LocaleKey.filipino, 'ph', 'ph'),
       LocalizationMap(LocaleKey.indonesian, 'id', 'id'),
       LocalizationMap(LocaleKey.malaysian, 'ms', 'my'),
       LocalizationMap(LocaleKey.tagalog, 'tl', 'ph'),

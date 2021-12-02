@@ -561,7 +561,7 @@ enum LocaleKey {
   arabic,
   vietnamese,
   urdu,
-  fillipino,
+  filipino,
   malaysian,
   tagalog,
 }
