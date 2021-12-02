@@ -27,4 +27,6 @@ class IBaseWidgetService {
     bool showBackAction = true,
   }) =>
       Container();
+
+  Future<String> langaugeSelectionPage(BuildContext context) async => 'en';
 }
