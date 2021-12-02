@@ -106,6 +106,7 @@ class TranslationService implements ITranslationService {
             innerC,
             opt.title,
             supportedLang.countryCode,
+            percentageComplete: supportedLang.percentageComplete,
             onTap: () => Navigator.of(context).pop(opt.value),
           );
         },

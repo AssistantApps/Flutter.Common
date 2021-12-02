@@ -31,9 +31,11 @@ Widget getTrailingWidget(LocaleKey trailingDisplay, int percentageComplete) {
       '{0}',
       percentageComplete.toString(),
     );
-  } else {
+  } else if (percentageComplete != null) {
     textToDisp = getTranslations().fromKey(trailingDisplay);
   }
+
+  if (textToDisp.length < 1) return null;
 
   return Text(
     textToDisp,
