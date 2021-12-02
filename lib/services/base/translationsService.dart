@@ -21,8 +21,8 @@ class TranslationService implements ITranslationService {
   Future<ITranslationService> load(Locale locale) async {
     this.locale = locale;
     String languageCode = locale?.languageCode ?? '';
-    if (getLocalizationMaps().contains(languageCode) == false) {
-      languageCode = defaultLanguageMap().code;
+    if (getLanguage().getLocalizationMaps().contains(languageCode) == false) {
+      languageCode = getLanguage().defaultLanguageMap().code;
       this.locale = Locale(languageCode);
     }
 
@@ -48,7 +48,8 @@ class TranslationService implements ITranslationService {
   @override
   LocalizationMap getCurrentLocalizationMap(
       BuildContext context, String currentLanguageCodeSetting) {
-    List<LocalizationMap> supportedLanguageMaps = getLocalizationMaps();
+    List<LocalizationMap> supportedLanguageMaps =
+        getLanguage().getLocalizationMaps();
     LocalizationMap currentLocal = supportedLanguageMaps.firstWhere(
       (LocalizationMap localizationMap) =>
           localizationMap.code == currentLanguageCodeSetting,
@@ -59,7 +60,7 @@ class TranslationService implements ITranslationService {
       currentLocal = supportedLanguageMaps.firstWhere(
         (LocalizationMap localizationMap) =>
             localizationMap.code == deviceLocale.languageCode,
-        orElse: () => defaultLanguageMap(),
+        orElse: () => getLanguage().defaultLanguageMap(),
       );
     }
     return currentLocal;
@@ -67,7 +68,8 @@ class TranslationService implements ITranslationService {
 
   @override
   Locale getLocaleFromKey(String supportedLanguageKey) {
-    int langIndex = supportedLanguagesCodes().indexOf(supportedLanguageKey);
+    int langIndex =
+        getLanguage().supportedLanguagesCodes().indexOf(supportedLanguageKey);
     if (langIndex < 0) {
       getLog()
           .e('language not found ($supportedLanguageKey), revert to english');
@@ -81,46 +83,9 @@ class TranslationService implements ITranslationService {
       Locale(localeMap.code);
 
   @override
-  LocalizationMap defaultLanguageMap() =>
-      LocalizationMap(LocaleKey.english, 'en', 'gb');
-
-  @override
-  List<LocalizationMap> getLocalizationMaps() {
-    List<LocalizationMap> supportedLanguageMaps = [
-      defaultLanguageMap(),
-      LocalizationMap(LocaleKey.dutch, 'nl', 'nl'),
-      LocalizationMap(LocaleKey.french, 'fr', 'fr'),
-      LocalizationMap(LocaleKey.german, 'de', 'de'),
-      LocalizationMap(LocaleKey.italian, 'it', 'it'),
-      LocalizationMap(LocaleKey.indonesian, 'id', 'id'),
-      LocalizationMap(LocaleKey.brazilianPortuguese, 'pt-br', 'br'),
-      LocalizationMap(LocaleKey.polish, 'pl', 'pl'),
-      LocalizationMap(LocaleKey.portuguese, 'pt', 'pt'),
-      LocalizationMap(LocaleKey.romanian, 'ro', 'ro'),
-      LocalizationMap(LocaleKey.russian, 'ru', 'ru'),
-      LocalizationMap(LocaleKey.spanish, 'es', 'es'),
-      LocalizationMap(LocaleKey.czech, 'cs', 'cz'),
-      LocalizationMap(LocaleKey.turkish, 'tr', 'tr'),
-      LocalizationMap(LocaleKey.hungarian, 'hu', 'hu'),
-      LocalizationMap(LocaleKey.simplifiedChinese, 'zh-hans', 'cn'),
-      LocalizationMap(LocaleKey.traditionalChinese, 'zh-hant', 'cn'),
-      LocalizationMap(LocaleKey.norwegian, 'no', 'no'),
-      LocalizationMap(LocaleKey.afrikaans, 'af', 'za'),
-      // LocalizationMap(LocaleKey.arabic, 'ar', 'ar'),
-    ];
-    return supportedLanguageMaps;
-  }
-
-  List<Locale> supportedLocales() =>
-      getLocalizationMaps().map((l) => Locale(l.code, "")).toList();
-  List<LocaleKey> supportedLanguages() =>
-      getLocalizationMaps().map((l) => l.name).toList();
-  List<String> supportedLanguagesCodes() =>
-      getLocalizationMaps().map((l) => l.code).toList();
-
-  @override
   Future<String> langaugeSelectionPage(BuildContext context) async {
-    List<LocalizationMap> supportedLanguageMaps = getLocalizationMaps();
+    List<LocalizationMap> supportedLanguageMaps =
+        getLanguage().getLocalizationMaps();
     List<DropdownOption> orderedLangs = supportedLanguageMaps
         .map((l) => DropdownOption(
               getTranslations().fromKey(l.name),

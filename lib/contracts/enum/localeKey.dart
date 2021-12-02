@@ -558,4 +558,10 @@ enum LocaleKey {
   settingsFont,
   nmsThemed,
   defaultFont,
+  arabic,
+  vietnamese,
+  urdu,
+  fillipino,
+  malaysian,
+  tagalog,
 }

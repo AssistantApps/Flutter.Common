@@ -11,7 +11,7 @@ class LanguageSelectionPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<LocalizationMap> supportedLanguageMaps =
-        getTranslations().getLocalizationMaps();
+        getLanguage().getLocalizationMaps();
 
     List<DropdownOption> options = supportedLanguageMaps
         .map((l) => DropdownOption(

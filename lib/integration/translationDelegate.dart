@@ -12,7 +12,7 @@ class TranslationsDelegate extends LocalizationsDelegate<ITranslationService> {
 
   @override
   bool isSupported(Locale locale) {
-    return getTranslations()
+    return getLanguage()
         .supportedLanguagesCodes()
         .contains(locale.languageCode);
   }

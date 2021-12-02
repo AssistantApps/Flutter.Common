@@ -11,12 +11,14 @@ import '../services/api/patreonApiService.dart';
 import '../services/api/steamApiService.dart';
 import '../services/api/translationApiService.dart';
 import '../services/api/versionApiService.dart';
+import '../services/base/LanguageService.dart';
 import '../services/base/analyticsService.dart';
 import '../services/base/baseWidgetService.dart';
 import '../services/base/dialogService.dart';
 import '../services/base/interface/IAnalyticsService.dart';
 import '../services/base/interface/IBaseWidgetService.dart';
 import '../services/base/interface/IDialogService.dart';
+import '../services/base/interface/ILanguageService.dart';
 import '../services/base/interface/ILoadingWidgetService.dart';
 import '../services/base/interface/ILoggingService.dart';
 import '../services/base/interface/INavigationService.dart';
@@ -75,6 +77,7 @@ void initBaseDependencyInjection(
       notification, NotificationService());
 
   getIt.registerSingleton<ITranslationService>(TranslationService());
+  getIt.registerSingleton<ILanguageService>(LanguageService());
 
   // API
   getIt.registerSingleton<IDonatorApiService>(DonatorApiService());
@@ -104,6 +107,7 @@ IDialogService getDialog() => getIt<IDialogService>();
 ISnackbarService getSnackbar() => getIt<ISnackbarService>();
 IUpdateService getUpdate() => getIt<IUpdateService>();
 ITranslationService getTranslations() => getIt<ITranslationService>();
+ILanguageService getLanguage() => getIt<ILanguageService>();
 INotificationService getNotifications() => getIt<INotificationService>();
 
 // AssistantApps API
