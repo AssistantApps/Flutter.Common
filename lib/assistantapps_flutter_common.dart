@@ -138,6 +138,7 @@ export 'services/base/interface/IThemeService.dart';
 export 'services/base/interface/IBaseWidgetService.dart';
 export 'services/base/interface/IDialogService.dart';
 export 'services/base/interface/ITranslationsService.dart';
+export 'services/base/interface/ILanguageService.dart';
 export 'services/base/interface/IUpdateService.dart';
 //
 //Json Interfaces
