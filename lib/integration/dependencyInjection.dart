@@ -58,6 +58,7 @@ void initBaseDependencyInjection(
   ISnackbarService snackbar,
   IUpdateService update,
   INotificationService notification,
+  ILanguageService language,
 }) {
   getIt.registerSingleton<AssistantAppsEnvironmentSettings>(_env);
   registerSingletonWithBackup<ILoggerService>(logger, LoggerService());
@@ -77,7 +78,7 @@ void initBaseDependencyInjection(
       notification, NotificationService());
 
   getIt.registerSingleton<ITranslationService>(TranslationService());
-  getIt.registerSingleton<ILanguageService>(LanguageService());
+  registerSingletonWithBackup<ILanguageService>(language, LanguageService());
 
   // API
   getIt.registerSingleton<IDonatorApiService>(DonatorApiService());
