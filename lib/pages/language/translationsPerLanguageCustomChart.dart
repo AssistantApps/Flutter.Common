@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../components/common/loadingAnim.dart';
+import '../../components/common/percent.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/translationsPerLanguageGraphViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
@@ -23,18 +24,16 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
       title: Text(item.name),
       subtitle: Padding(
         padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
-        child: LinearPercentIndicator(
+        child: horizontalProgressBar(
+          context,
+          (item.percentage / 100),
           animation: false,
-          lineHeight: 20.0,
-          percent: (item.percentage / 100),
-          center: Text(
+          text: Text(
             getTranslations()
                 .fromKey(LocaleKey.percentage)
                 .replaceAll('{0}', item.percentage.toString()),
             style: TextStyle(color: Colors.black),
           ),
-          linearStrokeCap: LinearStrokeCap.roundAll,
-          progressColor: getTheme().getSecondaryColour(context),
         ),
       ),
     );
