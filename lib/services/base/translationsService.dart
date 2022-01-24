@@ -23,10 +23,12 @@ class TranslationService implements ITranslationService {
     String languageCode = locale?.languageCode ?? '';
     List<String> supportedLanguagesCodes =
         getLanguage().supportedLanguagesCodes();
+    getLog().d(languageCode);
     if (supportedLanguagesCodes.contains(languageCode) == false) {
       languageCode = getLanguage().defaultLanguageMap().code;
       this.locale = Locale(languageCode);
     }
+        getLog().d(languageCode);
 
     String jsonContent =
         await rootBundle.loadString('assets/lang/language.$languageCode.json');
