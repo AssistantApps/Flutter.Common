@@ -1,4 +1,4 @@
-import 'package:share/share.dart';
+import 'package:share_plus/share.dart';
 
 import '../contracts/enum/localeKey.dart';
 import 'dependencyInjection.dart';
