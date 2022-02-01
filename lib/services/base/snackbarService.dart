@@ -14,20 +14,23 @@ class SnackbarService implements ISnackbarService {
   void showSnackbar(
     context,
     LocaleKey lang, {
+    String description,
     Duration duration,
     void Function() onPositive,
     String onPositiveText,
   }) {
     _sweetSheet.show(
       context: context,
-      description: Text(getTranslations().fromKey(lang)),
+      title: Text(getTranslations().fromKey(lang)),
+      description: (description == null) ? null : Text(description),
       color: SweetSheetColor.SUCCESS,
       isDismissible: true,
-      icon: Icons.cloud_download,
-      positive: SweetSheetAction(
-        onPressed: onPositive,
-        title: onPositiveText,
-      ),
+      positive: (onPositiveText != null)
+          ? SweetSheetAction(
+              onPressed: onPositive,
+              title: onPositiveText,
+            )
+          : null,
       negative: SweetSheetAction(
         onPressed: () => getNavigation().pop(context),
         title: getTranslations().fromKey(LocaleKey.close),
