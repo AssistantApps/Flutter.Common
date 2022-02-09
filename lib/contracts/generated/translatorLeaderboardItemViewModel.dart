@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import '../../assistantapps_flutter_common.dart';
+
 class TranslatorLeaderboardItemViewModel {
   TranslatorLeaderboardItemViewModel({
     this.username,
@@ -25,10 +27,10 @@ class TranslatorLeaderboardItemViewModel {
   factory TranslatorLeaderboardItemViewModel.fromMap(
           Map<String, dynamic> json) =>
       TranslatorLeaderboardItemViewModel(
-        username: json["username"],
-        profileImageUrl: json["profileImageUrl"],
-        numTranslations: json["numTranslations"],
-        numVotes: json["numVotes"],
-        total: json["total"],
+        username: readStringSafe(json, "username"),
+        profileImageUrl: readStringSafe(json, "profileImageUrl"),
+        numTranslations: readIntSafe(json, "numTranslations"),
+        numVotes: readIntSafe(json, "numVotes"),
+        total: readIntSafe(json, "total"),
       );
 }
