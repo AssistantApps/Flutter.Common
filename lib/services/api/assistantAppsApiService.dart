@@ -13,11 +13,11 @@ class AssistantAppsApiService extends BaseApiService
       getTranslators() async {
     String url = '${ApiUrls.translatorLeaderboard}';
     try {
-      final response = await this.apiPost(url, {});
+      final response = await this.apiPost(url, "{}");
       if (response.hasFailed) {
         return PaginationResultWithValue<
                 List<TranslatorLeaderboardItemViewModel>>(
-            false, List.empty(growable: true), 1, 0, response.errorMessage);
+            false, List.empty(), 1, 0, response.errorMessage);
       }
       PaginationResultWithValue<List<TranslatorLeaderboardItemViewModel>>
           paginationResult = PaginationResultWithValueMapper()
