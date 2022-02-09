@@ -7,4 +7,6 @@ class ApiUrls {
       "translation/graph/TranslationsPerLanguage";
   static const String steamNews = "steam/news/";
   static const String steamBranches = "steam/branches/";
+  static const String translatorLeaderboard =
+      "translationStats/TranslatorLeaderboard";
 }

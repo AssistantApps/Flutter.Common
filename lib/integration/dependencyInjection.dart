@@ -1,7 +1,9 @@
 import 'package:get_it/get_it.dart';
 
 import '../env/assistantAppsEnvironmentSettings.dart';
+import '../services/api/assistantAppsApiService.dart';
 import '../services/api/donatorApiService.dart';
+import '../services/api/interface/IAssistantAppsApiService.dart';
 import '../services/api/interface/IDonatorApiService.dart';
 import '../services/api/interface/IPatreonApiService.dart';
 import '../services/api/interface/ITranslationApiService.dart';
@@ -11,7 +13,6 @@ import '../services/api/patreonApiService.dart';
 import '../services/api/steamApiService.dart';
 import '../services/api/translationApiService.dart';
 import '../services/api/versionApiService.dart';
-import '../services/base/languageService.dart';
 import '../services/base/analyticsService.dart';
 import '../services/base/baseWidgetService.dart';
 import '../services/base/dialogService.dart';
@@ -28,6 +29,7 @@ import '../services/base/interface/ISnackbarService.dart';
 import '../services/base/interface/IThemeService.dart';
 import '../services/base/interface/ITranslationsService.dart';
 import '../services/base/interface/IUpdateService.dart';
+import '../services/base/languageService.dart';
 import '../services/base/loadingWidgetService.dart';
 import '../services/base/loggingService.dart';
 import '../services/base/navigationService.dart';
@@ -81,6 +83,7 @@ void initBaseDependencyInjection(
   registerSingletonWithBackup<ILanguageService>(language, LanguageService());
 
   // API
+  getIt.registerSingleton<IAssistantAppsApiService>(AssistantAppsApiService());
   getIt.registerSingleton<IDonatorApiService>(DonatorApiService());
   getIt.registerSingleton<IPatreonApiService>(PatreonApiService());
   getIt.registerSingleton<ISteamApiService>(SteamApiService());
@@ -112,6 +115,8 @@ ILanguageService getLanguage() => getIt<ILanguageService>();
 INotificationService getNotifications() => getIt<INotificationService>();
 
 // AssistantApps API
+IAssistantAppsApiService getAssistantAppsApi() =>
+    getIt<IAssistantAppsApiService>();
 IDonatorApiService getAssistantAppsDonators() => getIt<IDonatorApiService>();
 IPatreonApiService getAssistantAppsPatreons() => getIt<IPatreonApiService>();
 ISteamApiService getAssistantAppsSteam() => getIt<ISteamApiService>();

@@ -117,6 +117,7 @@ export 'services/BaseJsonService.dart';
 export 'services/BaseSignalRService.dart';
 //
 //Api Interfaces
+export 'services/api/interface/IAssistantAppsApiService.dart';
 export 'services/api/interface/IDonatorApiService.dart';
 export 'services/api/interface/IPatreonApiService.dart';
 export 'services/api/interface/ITranslationApiService.dart';
