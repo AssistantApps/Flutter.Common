@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import '../../constants/ApiUrls.dart';
 import '../../contracts/generated/translatorLeaderboardItemViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
@@ -13,7 +15,7 @@ class AssistantAppsApiService extends BaseApiService
       getTranslators() async {
     String url = '${ApiUrls.translatorLeaderboard}';
     try {
-      final response = await this.apiPost(url, "{}");
+      final response = await this.apiPost(url, json.encode({}));
       if (response.hasFailed) {
         return PaginationResultWithValue<
                 List<TranslatorLeaderboardItemViewModel>>(
@@ -24,9 +26,10 @@ class AssistantAppsApiService extends BaseApiService
               .fromRawJson<List<TranslatorLeaderboardItemViewModel>>(
                   response.value, (List valueDyn) {
         return valueDyn
-            .map((r) => TranslatorLeaderboardItemViewModel.fromJson(r))
+            .map((r) => TranslatorLeaderboardItemViewModel.fromMap(r))
             .toList();
       });
+      paginationResult.isSuccess = true;
       return paginationResult;
     } catch (exception) {
       getLog().e("Translators Api Exception: ${exception.toString()}");

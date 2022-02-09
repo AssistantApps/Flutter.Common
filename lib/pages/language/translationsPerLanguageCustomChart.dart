@@ -25,7 +25,7 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
         padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
         child: horizontalProgressBar(
           context,
-          (item.percentage / 100),
+          (item.percentage / 1),
           animation: false,
           text: Text(
             getTranslations()
