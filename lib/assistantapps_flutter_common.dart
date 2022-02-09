@@ -54,6 +54,7 @@ export 'contracts/generated/donationViewModel.dart';
 export 'contracts/generated/patreonViewModel.dart';
 export 'contracts/generated/steamNewsItemViewModel.dart';
 export 'contracts/generated/steamBranchesViewModel.dart';
+export 'contracts/generated/translatorLeaderboardItemViewModel.dart';
 export 'contracts/generated/versionSearchViewModel.dart';
 export 'contracts/generated/versionViewModel.dart';
 export 'contracts/localizationMap.dart';

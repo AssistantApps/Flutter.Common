@@ -1,11 +1,11 @@
-import '../../../contracts/generated/translationVoteViewModel.dart';
+import '../../../contracts/generated/translatorLeaderboardItemViewModel.dart';
 import '../../../contracts/results/paginationResultWithValue.dart';
 
 class IAssistantAppsApiService {
   //
-  Future<PaginationResultWithValue<List<TranslationVoteViewModel>>>
+  Future<PaginationResultWithValue<List<TranslatorLeaderboardItemViewModel>>>
       getTranslators() async {
-    return PaginationResultWithValue<List<TranslationVoteViewModel>>(
+    return PaginationResultWithValue<List<TranslatorLeaderboardItemViewModel>>(
         false, List.empty(growable: true), 1, 0, '');
   }
 }

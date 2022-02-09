@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-class TranslationVoteViewModel {
-  TranslationVoteViewModel({
+class TranslatorLeaderboardItemViewModel {
+  TranslatorLeaderboardItemViewModel({
     this.username,
     this.profileImageUrl,
     this.numTranslations,
@@ -19,11 +19,12 @@ class TranslationVoteViewModel {
   int numVotes;
   int total;
 
-  factory TranslationVoteViewModel.fromJson(String str) =>
-      TranslationVoteViewModel.fromMap(json.decode(str));
+  factory TranslatorLeaderboardItemViewModel.fromJson(String str) =>
+      TranslatorLeaderboardItemViewModel.fromMap(json.decode(str));
 
-  factory TranslationVoteViewModel.fromMap(Map<String, dynamic> json) =>
-      TranslationVoteViewModel(
+  factory TranslatorLeaderboardItemViewModel.fromMap(
+          Map<String, dynamic> json) =>
+      TranslatorLeaderboardItemViewModel(
         username: json["username"],
         profileImageUrl: json["profileImageUrl"],
         numTranslations: json["numTranslations"],
