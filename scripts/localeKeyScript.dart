@@ -13,7 +13,7 @@ Future<List<String>> getTranslationKeys() async {
   dynamic headers = {
     "Content-Type": "application/json",
     "authorization":
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikt1cnQgTG91cmVucyIsIlVzZXJJZCI6IjZhOGI0YTViLWY2MzktNGIyYS1kZTRkLTA4ZDg0OTM4OGU5ZiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjEwMDAwIiwiYXV0aG1ldGhvZCI6IkpXVCIsIm5iZiI6MTY0NDI0MDc0NiwiZXhwIjoxNjQ0MjUwNzQ2LCJpYXQiOjE2NDQyNDA3NDYsImlzcyI6Ikt1cnRMb3VyZW5zIiwiYXVkIjoiRGVtb0F1ZGllbmNlIn0.0R2x_qGLBYxB_QjH_S4w1JefLz4p8FPFVCZMmpyadwg"
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikt1cnQgTG91cmVucyIsIlVzZXJJZCI6IjZhOGI0YTViLWY2MzktNGIyYS1kZTRkLTA4ZDg0OTM4OGU5ZiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjEwMDAwIiwiYXV0aG1ldGhvZCI6IkpXVCIsIm5iZiI6MTY0NDQ4ODE4OSwiZXhwIjoxNjQ0NDk4MTg5LCJpYXQiOjE2NDQ0ODgxODksImlzcyI6Ikt1cnRMb3VyZW5zIiwiYXVkIjoiRGVtb0F1ZGllbmNlIn0.o9pOBAUOitdVkiZfeBWHPiffhkBiklFA2uMnxM_Xt3g"
   };
   try {
     final response = await http.get(
@@ -34,6 +34,7 @@ Future<List<String>> getTranslationKeys() async {
 }
 
 Future writeServerData(List<String> keys) async {
+  if (keys.length < 1) return;
   print('Writing to LocaleKey.dart');
   final file = File('./lib/contracts/enum/localeKey.dart');
   await file.writeAsString('enum LocaleKey {\n');

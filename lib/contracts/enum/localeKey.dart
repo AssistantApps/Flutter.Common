@@ -524,5 +524,6 @@ enum LocaleKey {
   inProgressCommunityMission,
   completedCommunityMission,
   viewMoreOnNmsWiki,
-  platform
+  platform,
+  translators
 }

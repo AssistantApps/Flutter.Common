@@ -8,7 +8,7 @@ import 'timeHelper.dart';
 String simpleDate(DateTime dateTime) =>
     "${dateTime.year.toString().padLeft(4, '0')}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}";
 
-bool isValentinesPeriod() => isWithinPeriod(month: 2, minDay: 13, maxDay: 15);
+bool isValentinesPeriod() => isWithinPeriod(month: 2, minDay: 9, maxDay: 15);
 bool isChristmasPeriod() => isWithinPeriod(month: 12, minDay: 20, maxDay: 31);
 
 bool isWithinPeriod({int month, int minDay, int maxDay}) {
