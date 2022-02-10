@@ -5,9 +5,11 @@ import 'package:animated_background/animated_background.dart';
 import '../../constants/AppImage.dart';
 
 class BackgroundWrapper extends StatelessWidget {
+  final Key key;
   final Widget body;
   final BackgroundType backgroundType;
   BackgroundWrapper({
+    this.key,
     @required this.body,
     @required this.backgroundType,
   });
@@ -17,6 +19,7 @@ class BackgroundWrapper extends StatelessWidget {
     if (this.backgroundType == BackgroundType.NotSet) return this.body;
 
     return Stack(
+      key: this.key,
       alignment: AlignmentDirectional.topStart,
       children: [
         AnimatedBackgroundWrapper(this.backgroundType),
