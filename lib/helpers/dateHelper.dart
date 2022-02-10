@@ -8,9 +8,14 @@ import 'timeHelper.dart';
 String simpleDate(DateTime dateTime) =>
     "${dateTime.year.toString().padLeft(4, '0')}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}";
 
-bool isValentinesPeriod() {
+bool isValentinesPeriod() => isWithinPeriod(month: 2, minDay: 10, maxDay: 15);
+bool isChristmasPeriod() => isWithinPeriod(month: 12, minDay: 20, maxDay: 31);
+
+bool isWithinPeriod({int month, int minDay, int maxDay}) {
   var currentDate = DateTime.now();
-  if (currentDate.month == 2 && currentDate.day >= 13 && currentDate.day < 15) {
+  if (currentDate.month == month && //
+      currentDate.day > minDay && //
+      currentDate.day < maxDay) {
     return true;
   }
   return false;

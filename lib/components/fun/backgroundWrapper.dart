@@ -14,7 +14,10 @@ class BackgroundWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (this.backgroundType == BackgroundType.NotSet) return this.body;
+
     return Stack(
+      alignment: AlignmentDirectional.topStart,
       children: [
         AnimatedBackgroundWrapper(this.backgroundType),
         this.body,
