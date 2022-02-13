@@ -38,7 +38,9 @@ Widget genericItemDescription(String description, {TextStyle textStyle}) =>
       margin: const EdgeInsets.all(4.0),
     );
 
-Widget genericItemGroup(String group, {maxLines = 2}) => Container(
+Widget genericItemGroup(String group, {Key key, int maxLines = 2}) => //
+    Container(
+      key: key,
       child: Text(
         group,
         textAlign: TextAlign.center,

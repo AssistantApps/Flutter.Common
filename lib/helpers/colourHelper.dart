@@ -45,3 +45,10 @@ class HexColor extends Color {
   static Color invertColor(String hexColor) =>
       HexColor(invertColorToHex(hexColor));
 }
+
+Color getOverlayColour(Color bgColour) {
+  Color iconColour = bgColour.computeLuminance() > 0.5 //
+      ? Colors.black87
+      : Colors.white;
+  return iconColour;
+}
