@@ -40,6 +40,24 @@ class AboutPageTeam extends StatelessWidget {
         subtitle: Text('Discord Admin'),
       ),
     );
+    widgets.add(
+      genericListTileWithNetworkImage(
+        context,
+        imageUrl:
+            'https://cdn.nmsassistant.com/ApiUploads/CommunityLinks/lenni.png',
+        name: 'Lenni',
+        subtitle: Text('German Translator | Bug finder | NMS Expert'),
+      ),
+    );
+    widgets.add(
+      genericListTileWithNetworkImage(
+        context,
+        imageUrl:
+            'https://nmsassistant.com/assets/img/collaborators/cyberpunk2350.png',
+        name: 'Moderator | NMS Dataminer | Keeper of Obscure Knowledge',
+        subtitle: Text('Discord Admin'),
+      ),
+    );
     widgets.add(emptySpace(1));
 
     return ListView.builder(
