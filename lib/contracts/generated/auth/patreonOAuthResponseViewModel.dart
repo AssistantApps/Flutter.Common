@@ -8,9 +8,9 @@ import 'package:assistantapps_flutter_common/helpers/jsonHelper.dart';
 
 class PatreonOAuthResponseViewModel {
   PatreonOAuthResponseViewModel({
-    this.loginFailed,
-    this.belongsToAssistantAppsCampaign,
-    this.errorMessage,
+    required this.loginFailed,
+    required this.belongsToAssistantAppsCampaign,
+    required this.errorMessage,
   });
 
   bool loginFailed;

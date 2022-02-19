@@ -7,21 +7,21 @@ import 'package:assistantapps_flutter_common/integration/dependencyInjection.dar
 import 'package:flutter/material.dart';
 
 ListTile genericListTileWithSubtitle(context,
-    {@required String leadingImage,
-    String leadingImageHero,
-    String imageBackgroundColour,
-    String imagePackage,
-    @required String name,
-    String description,
-    Widget subtitle,
+    {required String? leadingImage,
+    String? leadingImageHero,
+    String? imageBackgroundColour,
+    String? imagePackage,
+    required String name,
+    String? description,
+    Widget? subtitle,
     int maxLines = 1,
-    Widget trailing,
-    Function onTap,
-    Function onLongPress}) {
+    Widget? trailing,
+    Function()? onTap,
+    Function()? onLongPress}) {
   String title = description != null //
       ? name + ' - ' + description
       : name;
-  if (title == null || title.length == 0) title = ' ';
+  if (title.length == 0) title = ' ';
 
   return ListTile(
     leading: genericTileImage(
@@ -44,17 +44,17 @@ ListTile genericListTileWithSubtitle(context,
 }
 
 ListTile genericListTileWithSubtitleAndImageCount(BuildContext context,
-    {@required Widget leadingImage,
-    int leadingImageCount,
-    bool imageGreyScale = false,
-    @required String title,
-    Widget subtitle,
+    {required Widget leadingImage,
+    int? leadingImageCount,
+    bool? imageGreyScale = false,
+    required String title,
+    Widget? subtitle,
     int maxLines = 1,
-    String onTapAnalyticsEvent,
-    String onLongPressAnalyticsEvent,
-    Widget trailing,
-    Function onTap,
-    Function onLongPress}) {
+    String? onTapAnalyticsEvent,
+    String? onLongPressAnalyticsEvent,
+    Widget? trailing,
+    Function()? onTap,
+    Function()? onLongPress}) {
   var leadingImageWidget = (leadingImageCount != null && leadingImageCount > 0)
       // ? leadingImage
       ? basicBadge(context, leadingImageCount.toString(), leadingImage)
@@ -89,18 +89,18 @@ ListTile genericListTileWithSubtitleAndImageCount(BuildContext context,
 }
 
 ListTile genericListTile(context,
-    {@required String leadingImage,
-    String leadingImageHero,
-    String imageBackgroundColour,
-    @required String name,
-    String description,
-    int quantity,
+    {required String? leadingImage,
+    String? leadingImageHero,
+    String? imageBackgroundColour,
+    required String name,
+    String? description,
+    int? quantity,
     int maxLines = 1,
-    String onLongPressAnalyticsEvent,
-    Widget trailing,
-    Function onTap,
-    Function onLongPress}) {
-  Widget subtitle = (quantity != null && quantity > 0)
+    String? onLongPressAnalyticsEvent,
+    Widget? trailing,
+    Function()? onTap,
+    Function()? onLongPress}) {
+  Widget? subtitle = (quantity != null && quantity > 0)
       ? Text(
           "${getTranslations().fromKey(LocaleKey.quantity)}: ${quantity.toString()}")
       : null;
@@ -120,16 +120,16 @@ ListTile genericListTile(context,
 }
 
 ListTile genericListTileWithNetworkImage(context,
-    {@required String imageUrl,
-    @required String name,
-    String description,
-    Widget subtitle,
+    {required String imageUrl,
+    required String name,
+    String? description,
+    Widget? subtitle,
     int maxLines = 1,
-    String onTapAnalyticsEvent,
-    String onLongPressAnalyticsEvent,
-    Widget trailing,
-    Function onTap,
-    Function onLongPress}) {
+    String? onTapAnalyticsEvent,
+    String? onLongPressAnalyticsEvent,
+    Widget? trailing,
+    Function()? onTap,
+    Function()? onLongPress}) {
   String title = description != null //
       ? name + ' - ' + description
       : name;
@@ -160,12 +160,12 @@ ListTile genericListTileWithNetworkImage(context,
 }
 
 Widget genericTileImage(
-  String leadingImage, {
-  String imageHero,
-  String imagePackage,
-  String imageBackgroundColour,
+  String? leadingImage, {
+  String? imageHero,
+  String? imagePackage,
+  String? imageBackgroundColour,
 }) {
-  if (leadingImage == null) return null;
+  if (leadingImage == null) return Container();
   String prefix = '';
   if (imagePackage == null) {
     String imageAssetsPathPrefix = getPath().imageAssetPathPrefix;

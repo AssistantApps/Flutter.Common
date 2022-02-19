@@ -52,14 +52,14 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
                         List<TranslationsPerLanguageGraphViewModel>>>
                 snapshot,
           ) {
-            Widget errorWidget = asyncSnapshotHandler(context, snapshot,
+            Widget? errorWidget = asyncSnapshotHandler(context, snapshot,
                 loader: () => getLoading().loadingIndicator(),
                 isValidFunction: (ResultWithValue<
-                        List<TranslationsPerLanguageGraphViewModel>>
+                        List<TranslationsPerLanguageGraphViewModel>>?
                     data) {
-                  if (snapshot.data.value == null ||
-                      snapshot.data.value == null ||
-                      snapshot.data.value.length < 1) {
+                  if (snapshot.data?.value == null ||
+                      snapshot.data?.value == null ||
+                      (snapshot.data?.value.isEmpty ?? true)) {
                     return false;
                   }
                   return true;
@@ -67,7 +67,7 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
             if (errorWidget != null) return errorWidget;
 
             List<TranslationsPerLanguageGraphViewModel> list =
-                snapshot.data.value.take(10).toList();
+                snapshot.data?.value.take(10).toList() ?? List.empty();
 
             return animateWidgetIn(
               child: Card(

@@ -7,10 +7,10 @@ import '../../integration/dependencyInjection.dart';
 
 Widget networkImage(
   String imageUrl, {
-  BoxFit boxfit,
-  double height,
-  double width,
-  Widget loading,
+  BoxFit? boxfit,
+  double? height,
+  double? width,
+  Widget? loading,
 }) {
   return SizedBox(
     height: height,
@@ -38,11 +38,11 @@ Widget networkImage(
 
 Widget localImage(
   String imagePath, {
-  String imageHero,
-  String imagePackage,
-  BoxFit boxfit,
-  double height,
-  double width,
+  String? imageHero,
+  String? imagePackage,
+  BoxFit? boxfit,
+  double? height,
+  double? width,
   EdgeInsetsGeometry padding = EdgeInsets.zero,
 }) {
   Image image = Image.asset(
@@ -66,7 +66,7 @@ Widget localImage(
 Widget getCorrectlySizedImageFromIcon(
   context,
   IconData icon, {
-  Color colour,
+  Color? colour,
   double maxSize = 35,
 }) =>
     ConstrainedBox(
@@ -86,8 +86,8 @@ Widget getCorrectlySizedImageFromIcon(
 Widget getListTileImage(
   String partialPath, {
   double size = 35,
-  EdgeInsets padding,
-  String package,
+  EdgeInsets? padding,
+  String? package,
 }) {
   ConstrainedBox child = ConstrainedBox(
     constraints: BoxConstraints(

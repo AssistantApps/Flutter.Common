@@ -47,19 +47,19 @@ Widget Function(BuildContext context, VersionViewModel version, int index)
   return presenter;
 }
 
-Widget packageVersionTile(String gameVersion, {Function() onTap}) {
+Widget packageVersionTile(String gameVersion, {Function()? onTap}) {
   return FutureBuilder<ResultWithValue<PackageInfo>>(
     future: VersionService().currentAppVersion(),
     builder: (BuildContext context,
         AsyncSnapshot<ResultWithValue<PackageInfo>> snapshot) {
-      Widget errorWidget = asyncSnapshotHandler(context, snapshot,
+      Widget? errorWidget = asyncSnapshotHandler(context, snapshot,
           loader: () => getLoading().loadingIndicator());
       if (errorWidget != null) return Container();
 
-      ResultWithValue<PackageInfo> packageInfoResult = snapshot.data;
+      ResultWithValue<PackageInfo> packageInfoResult = snapshot.data!;
       String appVersionString = getTranslations() //
           .fromKey(LocaleKey.appVersion)
-          .replaceAll('{0}', packageInfoResult?.value?.version ?? '1.0');
+          .replaceAll('{0}', packageInfoResult.value.version ?? '1.0');
       Widget gameVersionWidget = Text(
         getTranslations()
             .fromKey(LocaleKey.gameVersion)
@@ -67,7 +67,7 @@ Widget packageVersionTile(String gameVersion, {Function() onTap}) {
       );
 
       Widget titleWidget = gameVersionWidget;
-      Widget subtitleWidget;
+      Widget? subtitleWidget;
       if (packageInfoResult.isSuccess && packageInfoResult.value != null) {
         titleWidget = Text(appVersionString);
         subtitleWidget = gameVersionWidget;

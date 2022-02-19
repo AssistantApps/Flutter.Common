@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 
 class ResponsiveListDetailView<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
-  final Widget firstListItemWidget;
+  final Widget? firstListItemWidget;
   final Widget Function(BuildContext context, T, int index) listItemDisplayer;
-  final void Function(BuildContext context, T) listItemMobileOnTap;
+  final void Function(BuildContext context, T)? listItemMobileOnTap;
   final Widget Function(
-          BuildContext context, T, void Function(Widget) updateDetailView)
+          BuildContext context, T, void Function(Widget) updateDetailView)?
       listItemDesktopOnTap;
   final bool Function(T, String) listItemSearch;
-  final void Function() deleteAll;
+  final void Function()? deleteAll;
   final int minListForSearch;
-  final Key key;
-  final String hintText;
-  final String loadingText;
+  final Key? key;
+  final String? hintText;
+  final String? loadingText;
   final bool addFabPadding;
 
   const ResponsiveListDetailView(
@@ -59,7 +59,7 @@ class _ResponsiveListDetailWidget<T>
             this.setState(() {
               detailViewKey =
                   Key(DateTime.now().millisecondsSinceEpoch.toString());
-              detailView = widget.listItemDesktopOnTap(
+              detailView = widget.listItemDesktopOnTap!(
                 innerContext,
                 actualResult.value[0],
                 updateDetailView,
@@ -116,11 +116,13 @@ class _ResponsiveListDetailWidget<T>
   }
 
   void Function(BuildContext, T) getItemClickFunc(ResponsiveFlexData flexData) {
-    return flexData.isMobile ? widget.listItemMobileOnTap : alterDetailView;
+    return (flexData.isMobile && widget.listItemMobileOnTap != null)
+        ? widget.listItemMobileOnTap!
+        : alterDetailView;
   }
 
   void alterDetailView(BuildContext currentContext, T itemToView) {
-    Widget newDetailWidget = widget.listItemDesktopOnTap(
+    Widget newDetailWidget = widget.listItemDesktopOnTap!(
       currentContext,
       itemToView,
       updateDetailView,

@@ -4,7 +4,7 @@ class LocalizationMap {
   LocaleKey name;
   String code;
   String countryCode;
-  int percentageComplete;
+  int? percentageComplete;
 
   LocalizationMap(
     this.name,

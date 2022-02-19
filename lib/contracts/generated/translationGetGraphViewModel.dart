@@ -8,7 +8,7 @@ import 'package:assistantapps_flutter_common/helpers/jsonHelper.dart';
 
 class TranslationGetGraphViewModel {
   TranslationGetGraphViewModel({
-    this.appGuidList,
+    required this.appGuidList,
   });
 
   final List<String> appGuidList;

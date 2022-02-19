@@ -6,27 +6,23 @@ import 'aboutPageTeam.dart';
 
 class AboutPage extends StatefulWidget {
   final AssistantAppType appType;
-  final List<Widget> Function(BuildContext context) aboutPageWidgetsFunc;
+  final List<Widget> Function(BuildContext context)? aboutPageWidgetsFunc;
   AboutPage({
     this.appType = AssistantAppType.Unknown,
     this.aboutPageWidgetsFunc,
   });
 
   @override
-  _AboutPageWidget createState() => _AboutPageWidget(
-        this.appType,
-        this.aboutPageWidgetsFunc,
-      );
+  _AboutPageWidget createState() => _AboutPageWidget();
 }
 
 class _AboutPageWidget extends State<AboutPage> {
-  final AssistantAppType appType;
-  List<Widget> Function(BuildContext context) aboutPageWidgetsFunc;
+  late List<Widget> Function(BuildContext context) aboutPageWidgetsFunc;
   int tabSelection = 0;
-  _AboutPageWidget(this.appType,
-      List<Widget> Function(BuildContext context) aboutPageWidgetsFuncParam) {
+
+  _AboutPageWidget() {
     this.aboutPageWidgetsFunc =
-        aboutPageWidgetsFuncParam ?? (_) => List.empty();
+        widget.aboutPageWidgetsFunc ?? (_) => List.empty();
   }
 
   @override
@@ -36,12 +32,10 @@ class _AboutPageWidget extends State<AboutPage> {
         Icons.apps_rounded,
         'AssistantApps',
       ),
-      if (this.aboutPageWidgetsFunc != null) ...[
-        getSegmentedControlWithIconOption(
-          Icons.help_outline,
-          'This app',
-        ),
-      ],
+      getSegmentedControlWithIconOption(
+        Icons.help_outline,
+        'This app',
+      ),
       getSegmentedControlWithIconOption(
         Icons.people_alt,
         'Team',
@@ -83,7 +77,7 @@ class _AboutPageWidget extends State<AboutPage> {
   List<Widget> buildPage(BuildContext pageContext, int tabIndex) {
     switch (tabIndex) {
       case 0:
-        return [AboutPageAvailableApps(this.appType)];
+        return [AboutPageAvailableApps(widget.appType)];
       case 1:
         return this.aboutPageWidgetsFunc(pageContext);
       case 2:

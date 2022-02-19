@@ -11,7 +11,8 @@ String simpleDate(DateTime dateTime) =>
 bool isValentinesPeriod() => isWithinPeriod(month: 2, minDay: 13, maxDay: 15);
 bool isChristmasPeriod() => isWithinPeriod(month: 12, minDay: 20, maxDay: 31);
 
-bool isWithinPeriod({int month, int minDay, int maxDay}) {
+bool isWithinPeriod(
+    {required int month, required int minDay, required int maxDay}) {
   var currentDate = DateTime.now();
   if (currentDate.month == month && //
       currentDate.day > minDay && //

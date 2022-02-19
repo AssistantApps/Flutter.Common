@@ -8,7 +8,7 @@ import '../../integration/dependencyInjection.dart';
 
 class DonatorsPageComponent extends StatelessWidget {
   final Widget loadMoreItemWidget;
-  const DonatorsPageComponent(this.loadMoreItemWidget, {Key key})
+  const DonatorsPageComponent(this.loadMoreItemWidget, {Key? key})
       : super(key: key);
 
   @override

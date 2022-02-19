@@ -16,7 +16,7 @@ Widget responsiveStaggeredGrid(List<StaggeredGridItem> items) {
           crossAxisCount: numCols,
           itemCount: items.length,
           itemBuilder: (BuildContext itemContext, int index) =>
-              items[index].childBuilder(itemContext),
+              items[index].childBuilder!(itemContext),
           staggeredTileBuilder: (int index) => items[index].gridItemType,
           mainAxisSpacing: 4.0,
           crossAxisSpacing: 4.0,

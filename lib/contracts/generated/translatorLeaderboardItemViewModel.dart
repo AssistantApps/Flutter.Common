@@ -8,11 +8,11 @@ import '../../assistantapps_flutter_common.dart';
 
 class TranslatorLeaderboardItemViewModel {
   TranslatorLeaderboardItemViewModel({
-    this.username,
-    this.profileImageUrl,
-    this.numTranslations,
-    this.numVotes,
-    this.total,
+    required this.username,
+    required this.profileImageUrl,
+    required this.numTranslations,
+    required this.numVotes,
+    required this.total,
   });
 
   String username;

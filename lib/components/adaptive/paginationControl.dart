@@ -6,7 +6,7 @@ import '../common/image.dart';
 import 'button.dart';
 
 Widget paginationControl(
-        int currentPage, int totalPages, Function next, Function prev) =>
+        int currentPage, int totalPages, Function() next, Function() prev) =>
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [

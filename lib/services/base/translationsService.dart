@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -14,8 +15,8 @@ import '../../pages/dialog/optionsListPageDialog.dart';
 import 'interface/ITranslationsService.dart';
 
 class TranslationService implements ITranslationService {
-  Locale locale;
-  static Map<dynamic, dynamic> _localisedValues;
+  late Locale locale;
+  late Map<dynamic, dynamic> _localisedValues;
 
   @override
   Future<ITranslationService> load(Locale locale) async {
@@ -28,7 +29,7 @@ class TranslationService implements ITranslationService {
       languageCode = getLanguage().defaultLanguageMap().code;
       this.locale = Locale(languageCode);
     }
-        getLog().d(languageCode);
+    getLog().d(languageCode);
 
     String jsonContent =
         await rootBundle.loadString('assets/lang/language.$languageCode.json');
@@ -54,11 +55,9 @@ class TranslationService implements ITranslationService {
       BuildContext context, String currentLanguageCodeSetting) {
     List<LocalizationMap> supportedLanguageMaps =
         getLanguage().getLocalizationMaps();
-    LocalizationMap currentLocal = supportedLanguageMaps.firstWhere(
-      (LocalizationMap localizationMap) =>
-          localizationMap.code == currentLanguageCodeSetting,
-      orElse: () => null,
-    );
+    LocalizationMap? currentLocal = supportedLanguageMaps.firstWhereOrNull(
+        (LocalizationMap localizationMap) =>
+            localizationMap.code == currentLanguageCodeSetting);
     if (currentLocal == null) {
       Locale deviceLocale = Localizations.localeOf(context);
       currentLocal = supportedLanguageMaps.firstWhere(
@@ -97,7 +96,7 @@ class TranslationService implements ITranslationService {
             ))
         .toList();
     orderedLangs.sort((a, b) => a.title.compareTo(b.title));
-    return await getNavigation().navigateAsync<String>(
+    var dialogResult = await getNavigation().navigateAsync<String>(
       context,
       navigateTo: (context) => OptionsListPageDialog(
         getTranslations().fromKey(LocaleKey.appLanguage),
@@ -116,5 +115,6 @@ class TranslationService implements ITranslationService {
         },
       ),
     );
+    return dialogResult ?? getLanguage().defaultLanguageMap().code;
   }
 }

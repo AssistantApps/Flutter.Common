@@ -7,20 +7,20 @@ import '../searchable.dart';
 
 class SearchableGrid<T> extends StatelessWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
-  final Future<ResultWithValue<List<T>>> Function() backupListGetter;
-  final Widget Function(BuildContext, T) gridItemDisplayer;
-  final Widget Function(BuildContext, T, int) gridItemWithIndexDisplayer;
-  final int Function(Breakpoint) gridViewColumnCalculator;
+  final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
+  final Widget Function(BuildContext, T)? gridItemDisplayer;
+  final Widget Function(BuildContext, T, int)? gridItemWithIndexDisplayer;
+  final int Function(Breakpoint)? gridViewColumnCalculator;
   //
-  final bool Function(T, String) gridItemSearch;
-  final void Function() deleteAll;
-  final LocaleKey backupListWarningMessage;
+  final bool Function(T, String)? gridItemSearch;
+  final void Function()? deleteAll;
+  final LocaleKey? backupListWarningMessage;
   final int minListForSearch;
-  final Key key;
-  final Widget firstListItemWidget;
-  final Widget lastListItemWidget;
-  final String hintText;
-  final String loadingText;
+  final Key? key;
+  final Widget? firstListItemWidget;
+  final Widget? lastListItemWidget;
+  final String? hintText;
+  final String? loadingText;
   final bool addFabPadding;
 
   SearchableGrid(
@@ -41,12 +41,15 @@ class SearchableGrid<T> extends StatelessWidget {
     this.backupListWarningMessage,
   });
 
-  Widget localGridWithScrollbar({
-    int itemCount,
-    Key key,
-    Widget Function(BuildContext, int) itemBuilder,
-    bool shrinkWrap,
-  }) {
+  Widget localGridWithScrollbar(
+      { //
+      required int itemCount,
+      Key? key,
+      required Widget Function(BuildContext, int) itemBuilder,
+      bool? shrinkWrap,
+      EdgeInsetsGeometry? padding,
+      ScrollController? scrollController //
+      }) {
     return gridWithScrollbar(
       key: key,
       itemCount: itemCount,

@@ -23,15 +23,14 @@ class AboutPageAvailableApps extends StatefulWidget {
 
   @override
   _AboutPageAvailableAppsWidget createState() =>
-      _AboutPageAvailableAppsWidget(this.appType);
+      _AboutPageAvailableAppsWidget();
 }
 
 class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
     with AfterLayoutMixin<AboutPageAvailableApps> {
-  List<AssistantAppsLinkViewModel> assistantAppLinks;
+  late List<AssistantAppsLinkViewModel> assistantAppLinks;
   bool isLoading = true;
-  final AssistantAppType appType;
-  _AboutPageAvailableAppsWidget(this.appType) {
+  _AboutPageAvailableAppsWidget() {
     assistantAppLinks = List.empty(growable: true);
   }
 
@@ -50,7 +49,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
     localAssistantAppLinks.sort(
       (a, b) => //
           ( //
-              a.type == this.appType //
+              a.type == widget.appType //
                   ? 1 //
                   : (a.sortOrder.compareTo(b.sortOrder)) //
           ),

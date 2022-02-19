@@ -15,9 +15,9 @@ class DonationViewModel {
   DateTime date;
 
   DonationViewModel({
-    this.username,
-    this.type,
-    this.date,
+    required this.username,
+    required this.type,
+    required this.date,
   });
 
   factory DonationViewModel.fromRawJson(String str) =>
@@ -29,7 +29,7 @@ class DonationViewModel {
       DonationViewModel(
         username: readStringSafe(json, 'username'),
         type: EnumToString.fromString(
-            DonationType.values, readStringSafe(json, 'type')),
+            DonationType.values, readStringSafe(json, 'type'))!,
         date: readDateSafe(json, 'date'),
       );
 

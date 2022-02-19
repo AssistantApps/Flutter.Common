@@ -6,12 +6,12 @@ const defaultPadding = EdgeInsets.only(top: 12, bottom: 6);
 
 Widget adaptiveSegmentedControl(
   BuildContext context, {
-  @required List<Widget> controlItems,
-  @required int currentSelection,
-  @required void Function(int) onSegmentChosen,
+  required List<Widget> controlItems,
+  required int currentSelection,
+  required void Function(int) onSegmentChosen,
   double verticalOffset = 12.0,
-  double borderRadius,
-  EdgeInsets padding,
+  double? borderRadius,
+  EdgeInsets? padding,
 }) =>
     androidSegmentedControl(
       context,
@@ -34,8 +34,8 @@ Widget androidSegmentedControl(
   int currentSelection,
   void Function(int) onSegmentChosen,
   double verticalOffset, {
-  double borderRadius,
-  EdgeInsets padding,
+  double? borderRadius,
+  EdgeInsets? padding,
 }) {
   Map<int, Widget> map = Map<int, Widget>();
   for (int childIndex = 0; childIndex < controlItems.length; childIndex++) {

@@ -7,11 +7,11 @@ import '../../helpers/columnHelper.dart';
 import '../../helpers/deviceHelper.dart';
 
 Widget gridWithScrollbar({
-  int itemCount,
-  Key key,
-  Widget Function(BuildContext, int) itemBuilder,
-  int Function(Breakpoint) gridViewColumnCalculator,
-  EdgeInsetsGeometry padding,
+  required int itemCount,
+  Key? key,
+  required Widget Function(BuildContext, int) itemBuilder,
+  int Function(Breakpoint)? gridViewColumnCalculator,
+  EdgeInsetsGeometry? padding,
   bool shrinkWrap = true,
 }) =>
     BreakpointBuilder(
@@ -48,11 +48,12 @@ Widget gridWithScrollbar({
           : androidGridWithScrollbar(itemCount: itemCount, listView: listView);
     });
 
-Widget androidGridWithScrollbar({int itemCount, Widget listView}) => Scrollbar(
+Widget androidGridWithScrollbar({int? itemCount, required Widget listView}) =>
+    Scrollbar(
       child: listView,
     );
 
-Widget appleGridWithScrollbar({int itemCount, Widget listView}) =>
+Widget appleGridWithScrollbar({int? itemCount, required Widget listView}) =>
     CupertinoScrollbar(
       child: listView,
     );

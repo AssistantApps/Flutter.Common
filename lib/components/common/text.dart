@@ -27,10 +27,10 @@ Widget genericItemName(String name, {maxLines = 3}) => Container(
       margin: const EdgeInsets.all(4.0),
     );
 
-Widget genericItemDescription(String description, {TextStyle textStyle}) =>
+Widget genericItemDescription(String description, {TextStyle? textStyle}) =>
     Container(
       child: Text(
-        description ?? '',
+        description,
         textAlign: TextAlign.center,
         maxLines: 10,
         style: textStyle,
@@ -38,7 +38,7 @@ Widget genericItemDescription(String description, {TextStyle textStyle}) =>
       margin: const EdgeInsets.all(4.0),
     );
 
-Widget genericItemGroup(String group, {Key key, int maxLines = 2}) => //
+Widget genericItemGroup(String group, {Key? key, int maxLines = 2}) => //
     Container(
       key: key,
       child: Text(
@@ -51,9 +51,9 @@ Widget genericItemGroup(String group, {Key key, int maxLines = 2}) => //
     );
 
 TextEditingController maskedTextController({
-  String mask,
+  required String mask,
   String defaultText = '',
-  void Function(String prev, String next) afterChange,
+  void Function(String prev, String next)? afterChange,
 }) {
   return MaskedTextController(mask: mask, text: defaultText);
 }

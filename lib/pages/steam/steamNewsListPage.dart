@@ -9,12 +9,12 @@ import 'SteamNewsListPageComponent.dart';
 
 class SteamNewsPage extends StatelessWidget {
   final String analyticsKey;
-  final Widget bottomNavigationBar;
+  final Widget? bottomNavigationBar;
   final AssistantAppType appType;
   final Future<ResultWithValue<List<SteamNewsItemViewModel>>> Function(
       BuildContext) backupFunc;
   SteamNewsPage(this.analyticsKey, this.appType,
-      {this.bottomNavigationBar, this.backupFunc}) {
+      {this.bottomNavigationBar, required this.backupFunc}) {
     getAnalytics().trackEvent(this.analyticsKey);
   }
 

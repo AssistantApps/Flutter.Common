@@ -4,7 +4,8 @@ import '../../contracts/enum/localeKey.dart';
 import '../../contracts/misc/popupMenuActionItem.dart';
 import '../../integration/dependencyInjection.dart';
 
-Widget positionedPopupMenu(context, {Function onEdit, Function onDelete}) =>
+Widget positionedPopupMenu(context,
+        {Function()? onEdit, Function()? onDelete}) =>
     Positioned(
       top: 4,
       right: 4,
@@ -13,12 +14,12 @@ Widget positionedPopupMenu(context, {Function onEdit, Function onDelete}) =>
 
 Widget popupMenu(
   context, {
-  Function onEdit,
-  Function onDelete,
-  Color iconColour,
+  Function()? onEdit,
+  Function()? onDelete,
+  Color? iconColour,
   IconData customIcon = Icons.more_vert,
-  List<PopupMenuActionItem> additionalItems,
-  Widget nothingToDisplay,
+  List<PopupMenuActionItem>? additionalItems,
+  Widget? nothingToDisplay,
 }) {
   List<PopupMenuActionItem> items = List.empty(growable: true);
   if (onEdit != null) {
@@ -44,9 +45,11 @@ Widget popupMenu(
   return popupMenuFromArray(items, iconColour, customIcon, nothingToDisplay);
 }
 
-Widget popupMenuFromArray(List<PopupMenuActionItem> items, Color iconColour,
-    IconData customIcon, Widget nothingToDisplay) {
-  if (items == null || items.length == 0) return nothingToDisplay;
+Widget popupMenuFromArray(List<PopupMenuActionItem>? items, Color? iconColour,
+    IconData? customIcon, Widget? nothingToDisplay) {
+  if (items == null || items.length == 0) {
+    return nothingToDisplay ?? Container();
+  }
   if (items.length == 1) {
     if (items[0].image != null) {
       return GestureDetector(
@@ -65,7 +68,7 @@ Widget popupMenuFromArray(List<PopupMenuActionItem> items, Color iconColour,
       try {
         selectedItem.onPressed();
       } catch (ex) {
-        getLog().e(ex);
+        getLog().e(ex.toString());
       }
     },
     icon: Icon(
@@ -78,12 +81,10 @@ Widget popupMenuFromArray(List<PopupMenuActionItem> items, Color iconColour,
                 value: pi,
                 child: Row(
                   children: [
-                    if (pi.icon != null) ...[
-                      Padding(
-                        padding: EdgeInsets.only(right: 8),
-                        child: Icon(pi.icon),
-                      )
-                    ],
+                    Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(pi.icon),
+                    ),
                     Text(pi.text, style: pi.style),
                   ],
                 ),

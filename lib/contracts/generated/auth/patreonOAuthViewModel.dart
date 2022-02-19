@@ -9,7 +9,7 @@ class PatreonOAuthViewModel {
   String uniqueIdentifier;
 
   PatreonOAuthViewModel({
-    this.uniqueIdentifier,
+    required this.uniqueIdentifier,
   });
 
   String toRawJson() => json.encode(toJson());

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constants/PaddingConstant.dart';
 import '../../constants/UIConstants.dart';
 
-Widget commonCard(Widget imageWidget, Widget bodyWidget, {Function() onTap}) {
+Widget commonCard(Widget imageWidget, Widget bodyWidget, {Function()? onTap}) {
   return wrapInCommonCard(
     Column(
       children: [
@@ -18,7 +18,7 @@ Widget commonCard(Widget imageWidget, Widget bodyWidget, {Function() onTap}) {
   );
 }
 
-Widget wrapInCommonCard(Widget bodyWidget, {Function() onTap}) {
+Widget wrapInCommonCard(Widget bodyWidget, {Function()? onTap}) {
   return Card(
     semanticContainer: true,
     clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -37,7 +37,7 @@ Widget wrapInCommonCard(Widget bodyWidget, {Function() onTap}) {
   );
 }
 
-Widget flatCard({Widget child, Color shadowColor}) {
+Widget flatCard({Widget? child, Color? shadowColor}) {
   return Card(
     child: child,
     margin: const EdgeInsets.all(0.0),

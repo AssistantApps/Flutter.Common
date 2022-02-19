@@ -8,9 +8,9 @@ import 'package:assistantapps_flutter_common/helpers/jsonHelper.dart';
 
 class SteamBranchesViewModel {
   SteamBranchesViewModel({
-    this.name,
-    this.buildId,
-    this.lastUpdate,
+    required this.name,
+    required this.buildId,
+    required this.lastUpdate,
   });
 
   String name;

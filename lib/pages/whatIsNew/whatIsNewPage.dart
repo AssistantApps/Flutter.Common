@@ -6,11 +6,11 @@ import '../../integration/dependencyInjection.dart';
 class WhatIsNewPage extends StatelessWidget {
   final String analyticsKey;
   final String selectedLanguage;
-  final List<Widget> Function(VersionViewModel) additionalBuilder;
+  final List<Widget> Function(VersionViewModel)? additionalBuilder;
 
   WhatIsNewPage(
     this.analyticsKey, {
-    @required this.selectedLanguage,
+    required this.selectedLanguage,
     this.additionalBuilder,
   }) {
     getAnalytics().trackEvent(analyticsKey);

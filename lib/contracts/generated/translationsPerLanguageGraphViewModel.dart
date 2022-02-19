@@ -8,12 +8,12 @@ import 'package:assistantapps_flutter_common/helpers/jsonHelper.dart';
 
 class TranslationsPerLanguageGraphViewModel {
   TranslationsPerLanguageGraphViewModel({
-    this.guid,
-    this.name,
-    this.languageCode,
-    this.countryCode,
-    this.numTranslations,
-    this.percentage,
+    required this.guid,
+    required this.name,
+    required this.languageCode,
+    required this.countryCode,
+    required this.numTranslations,
+    required this.percentage,
   });
 
   final String guid;

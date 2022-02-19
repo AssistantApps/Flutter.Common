@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget adaptiveAppBar(context, Widget title, List<Widget> actions,
-    {Widget leading, PreferredSizeWidget bottom}) {
+Widget adaptiveAppBar(context, Widget? title, List<Widget> actions,
+    {Widget? leading, PreferredSizeWidget? bottom}) {
   return AppBar(
     leading: leading,
     title: title,

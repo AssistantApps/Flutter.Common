@@ -13,7 +13,7 @@ class SteamNewsListPageComponent extends StatelessWidget {
   final AssistantAppType appType;
   final Future<ResultWithValue<List<SteamNewsItemViewModel>>> Function(
       BuildContext) backupFunc;
-  SteamNewsListPageComponent(this.appType, {this.backupFunc});
+  SteamNewsListPageComponent(this.appType, {required this.backupFunc});
 
   @override
   Widget build(BuildContext context) {

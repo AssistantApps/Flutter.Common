@@ -9,27 +9,30 @@ import 'common/space.dart';
 
 class Searchable<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
-  final Future<ResultWithValue<List<T>>> Function() backupListGetter;
+  final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
   //
-  final Widget Function(BuildContext, T) itemDisplayer;
-  final Widget Function(BuildContext, T, int) itemWithIndexDisplayer;
-  final Widget Function({
-    Key key,
-    int itemCount,
-    bool shrinkWrap,
-    Widget Function(BuildContext, int) itemBuilder,
-  }) listOrGridDisplay;
+  final Widget Function(BuildContext, T)? itemDisplayer;
+  final Widget Function(BuildContext, T, int)? itemWithIndexDisplayer;
+  final Widget Function(
+      { //
+      required int itemCount,
+      Key? key,
+      required Widget Function(BuildContext, int) itemBuilder,
+      bool? shrinkWrap,
+      EdgeInsetsGeometry? padding,
+      ScrollController? scrollController //
+      }) listOrGridDisplay;
   //
-  final bool Function(T, String) listItemSearch;
-  final void Function() deleteAll;
+  final bool Function(T, String)? listItemSearch;
+  final void Function()? deleteAll;
   final int minListForSearch;
-  final Key key;
-  final LocaleKey backupListWarningMessage;
-  final Widget firstListItemWidget;
-  final Widget lastListItemWidget;
-  final String hintText;
-  final String loadingText;
-  final bool addFabPadding;
+  final Key? key;
+  final LocaleKey? backupListWarningMessage;
+  final Widget? firstListItemWidget;
+  final Widget? lastListItemWidget;
+  final String? hintText;
+  final String? loadingText;
+  final bool? addFabPadding;
 
   Searchable(
     this.listGetter,
@@ -49,58 +52,17 @@ class Searchable<T> extends StatefulWidget {
     this.backupListWarningMessage,
   });
   @override
-  SearchableWidget<T> createState() => SearchableWidget<T>(
-        listGetter(),
-        itemDisplayer,
-        itemWithIndexDisplayer,
-        listOrGridDisplay,
-        listItemSearch,
-        key,
-        hintText,
-        loadingText,
-        deleteAll,
-        minListForSearch,
-        addFabPadding,
-      );
+  SearchableWidget<T> createState() => SearchableWidget<T>();
 }
 
 class SearchableWidget<T> extends State<Searchable<T>> {
   TextEditingController controller = TextEditingController();
-  Future<ResultWithValue<List<T>>> listGetter;
-  //
-  final Widget Function(BuildContext context, T) itemDisplayer;
-  final Widget Function(BuildContext, T, int) itemWithIndexDisplayer;
-  final Widget Function({
-    int itemCount,
-    Key key,
-    Widget Function(BuildContext, int) itemBuilder,
-  }) listOrGridDisplay;
-  //
-  final bool Function(T, String) listItemSearch;
-  final void Function() deleteAll;
   List<T> _searchResult = [];
   List<T> _listResults = [];
-  int minListForSearch;
-  Key key;
   bool hasLoaded = false;
   bool usingBackupGetter = false;
-  String hintText;
-  String loadingText;
-  final bool addFabPadding;
 
-  SearchableWidget(
-    this.listGetter,
-    this.itemDisplayer,
-    this.itemWithIndexDisplayer,
-    this.listOrGridDisplay,
-    this.listItemSearch,
-    this.key,
-    this.hintText,
-    this.loadingText,
-    this.deleteAll,
-    this.minListForSearch,
-    this.addFabPadding,
-  ) {
+  SearchableWidget() {
     getLog().d("SearchableListWidget ctor");
   }
 
@@ -112,7 +74,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
   }
 
   Future<Null> getList() async {
-    final temp = await listGetter;
+    final temp = await widget.listGetter();
     if (temp.isSuccess) {
       listSuccessFunc(temp);
       return;
@@ -123,7 +85,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       return;
     }
 
-    final backupTemp = await widget.backupListGetter();
+    final backupTemp = await widget.backupListGetter!();
     if (!backupTemp.isSuccess) {
       listErrorFunc();
       return;
@@ -155,10 +117,10 @@ class SearchableWidget<T> extends State<Searchable<T>> {
   }
 
   Widget useItemDisplayer(BuildContext context, T data, int index) {
-    if (itemDisplayer != null) {
-      return itemDisplayer(context, data);
+    if (widget.itemDisplayer != null) {
+      return widget.itemDisplayer!(context, data);
     } else {
-      return itemWithIndexDisplayer(context, data, index);
+      return widget.itemWithIndexDisplayer!(context, data, index);
     }
   }
 
@@ -166,13 +128,13 @@ class SearchableWidget<T> extends State<Searchable<T>> {
   Widget build(BuildContext context) {
     if (!hasLoaded)
       return getLoading().fullPageLoading(context,
-          loadingText:
-              loadingText ?? getTranslations().fromKey(LocaleKey.loading));
+          loadingText: widget.loadingText ??
+              getTranslations().fromKey(LocaleKey.loading));
 
     List<Widget> columnWidgets = List.empty(growable: true);
-    if (_listResults.length > minListForSearch) {
+    if (_listResults.length > widget.minListForSearch) {
       columnWidgets.add(
-        searchBar(context, controller, hintText, onSearchTextChanged),
+        searchBar(context, controller, widget.hintText, onSearchTextChanged),
       );
     }
 
@@ -184,7 +146,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
           child: Padding(
             padding: EdgeInsets.only(top: 4, bottom: 4),
             child: Text(
-              getTranslations().fromKey(widget.backupListWarningMessage),
+              getTranslations().fromKey(widget.backupListWarningMessage!),
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -198,7 +160,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
         _listResults.length == 0 && controller.text.isEmpty) {
       List<Widget> noItemsList = List.empty(growable: true);
       if (widget.firstListItemWidget != null) {
-        noItemsList.add(widget.firstListItemWidget);
+        noItemsList.add(widget.firstListItemWidget!);
       }
       noItemsList.add(
         Container(
@@ -219,25 +181,25 @@ class SearchableWidget<T> extends State<Searchable<T>> {
           : _listResults;
 
       List<Widget> additionalWidgets = List.empty(growable: true);
-      if (deleteAll != null) {
+      if (widget.deleteAll != null) {
         additionalWidgets.add(deleteAllButton(context));
       }
-      if (addFabPadding) {
+      if (widget.addFabPadding ?? false) {
         additionalWidgets.add(emptySpace10x());
       }
       if (widget.lastListItemWidget != null) {
-        additionalWidgets.add(widget.lastListItemWidget);
+        additionalWidgets.add(widget.lastListItemWidget!);
       }
 
       int listLength = list.length + additionalWidgets.length;
       if (widget.firstListItemWidget != null) listLength++;
 
       columnWidgets.add(Expanded(
-        child: listOrGridDisplay(
+        child: widget.listOrGridDisplay(
           itemCount: listLength,
           itemBuilder: (context, index) {
             if (widget.firstListItemWidget != null) {
-              if (index == 0) return widget.firstListItemWidget;
+              if (index == 0) return widget.firstListItemWidget!;
               index = index - 1;
             }
             if (index >= list.length) {
@@ -251,8 +213,8 @@ class SearchableWidget<T> extends State<Searchable<T>> {
     }
 
     return animateWidgetIn(
-      key: key,
-      child: Column(key: key, children: columnWidgets),
+      key: widget.key,
+      child: Column(key: widget.key, children: columnWidgets),
     );
   }
 
@@ -261,7 +223,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       child: MaterialButton(
         child: Text(getTranslations().fromKey(LocaleKey.deleteAll)),
         color: Colors.red,
-        onPressed: () => deleteAll(),
+        onPressed: () => widget.deleteAll!(),
       ),
       margin: EdgeInsets.all(4),
     );
@@ -276,8 +238,8 @@ class SearchableWidget<T> extends State<Searchable<T>> {
     }
 
     _listResults.forEach((item) {
-      if (listItemSearch == null ||
-          listItemSearch(item, searchText.toLowerCase())) {
+      if (widget.listItemSearch == null ||
+          widget.listItemSearch!(item, searchText.toLowerCase())) {
         _searchResult.add(item);
       }
     });

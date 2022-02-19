@@ -5,13 +5,13 @@ import 'package:animated_background/animated_background.dart';
 import '../../constants/AppImage.dart';
 
 class BackgroundWrapper extends StatelessWidget {
-  final Key key;
+  final Key? key;
   final Widget body;
   final BackgroundType backgroundType;
   BackgroundWrapper({
     this.key,
-    @required this.body,
-    @required this.backgroundType,
+    required this.body,
+    required this.backgroundType,
   });
 
   @override

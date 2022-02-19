@@ -8,15 +8,15 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
 class AssistantAppsLinkViewModel {
   AssistantAppsLinkViewModel({
-    this.guid,
-    this.type,
-    this.name,
-    this.gameName,
-    this.iconUrl,
-    this.logoUrl,
-    this.links,
-    this.isVisible,
-    this.sortOrder,
+    required this.guid,
+    required this.type,
+    required this.name,
+    required this.gameName,
+    required this.iconUrl,
+    required this.logoUrl,
+    required this.links,
+    required this.isVisible,
+    required this.sortOrder,
   });
 
   String guid;
@@ -35,7 +35,7 @@ class AssistantAppsLinkViewModel {
   factory AssistantAppsLinkViewModel.fromJson(Map<String, dynamic> json) =>
       AssistantAppsLinkViewModel(
         guid: readStringSafe(json, 'guid'),
-        type: assistantAppTypeValues.map[readIntSafe(json, 'type').toString()],
+        type: assistantAppTypeValues.map[readIntSafe(json, 'type').toString()]!,
         name: readStringSafe(json, 'name'),
         gameName: readStringSafe(json, 'gameName'),
         iconUrl: readStringSafe(json, 'iconUrl'),
@@ -48,8 +48,8 @@ class AssistantAppsLinkViewModel {
 
 class Link {
   Link({
-    this.type,
-    this.url,
+    required this.type,
+    required this.url,
   });
 
   String type;

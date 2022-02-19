@@ -17,9 +17,9 @@ class NavigationService implements INavigationService {
 
   @override
   Future<bool> navigateHomeAsync(context,
-      {Function navigateTo,
-      String navigateToNamed,
-      bool pushReplacement}) async {
+      {Widget Function(BuildContext)? navigateTo,
+      String? navigateToNamed,
+      bool? pushReplacement}) async {
     Navigator.popUntil(context, (r) => !Navigator.canPop(context));
 
     if (navigateTo != null) {
@@ -48,9 +48,9 @@ class NavigationService implements INavigationService {
   @override
   Future navigateAwayFromHomeAsync(
     context, {
-    Function navigateTo,
-    String navigateToNamed,
-    Map<String, String> navigateToNamedParameters,
+    Widget Function(BuildContext)? navigateTo,
+    String? navigateToNamed,
+    Map<String, String>? navigateToNamedParameters,
   }) async {
     if (navigateTo != null) {
       if (Navigator.canPop(context)) {
@@ -65,7 +65,7 @@ class NavigationService implements INavigationService {
           MaterialPageRoute(builder: navigateTo),
         );
       }
-    } else {
+    } else if (navigateToNamed != null) {
       // Navigator.pushReplacementNamed(
       Navigator.pushNamed(
         context,
@@ -75,14 +75,15 @@ class NavigationService implements INavigationService {
   }
 
   @override
-  Future<T> navigateAsync<T extends Object>(context,
-      {Function navigateTo, String navigateToNamed}) async {
+  Future<T?> navigateAsync<T extends Object>(context,
+      {Widget Function(BuildContext)? navigateTo,
+      String? navigateToNamed}) async {
     if (navigateTo != null) {
       return await Navigator.push(
         context,
         MaterialPageRoute(builder: navigateTo),
       );
-    } else {
+    } else if (navigateToNamed != null) {
       return await Navigator.pushNamed(
         context,
         navigateToNamed,
@@ -91,7 +92,7 @@ class NavigationService implements INavigationService {
   }
 
   @override
-  Future pop<T extends Object>(BuildContext context, [T result]) async {
+  Future pop<T extends Object>(BuildContext context, [T? result]) async {
     Navigator.of(context).pop(result);
   }
 }

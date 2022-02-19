@@ -8,12 +8,12 @@ import '../../integration/dependencyInjection.dart';
 import '../../services/base/versionService.dart';
 import 'linkTilePresenter.dart';
 
-Widget legalTilePresenter({LocaleKey description}) {
+Widget legalTilePresenter({LocaleKey? description}) {
   return FutureBuilder<ResultWithValue<PackageInfo>>(
     future: VersionService().currentAppVersion(),
     builder: (BuildContext context,
         AsyncSnapshot<ResultWithValue<PackageInfo>> snapshot) {
-      Widget errorWidget = asyncSnapshotHandler(context, snapshot);
+      Widget? errorWidget = asyncSnapshotHandler(context, snapshot);
       if (errorWidget != null) return errorWidget;
 
       return linkSettingTilePresenter(
@@ -24,7 +24,7 @@ Widget legalTilePresenter({LocaleKey description}) {
           context: context,
           applicationLegalese:
               getTranslations().fromKey(description ?? LocaleKey.legalNotice),
-          applicationVersion: snapshot?.data?.value?.version ?? 'v1.0',
+          applicationVersion: snapshot.data?.value.version ?? 'v1.0',
         ),
       );
     },

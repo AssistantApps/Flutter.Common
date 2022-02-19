@@ -4,7 +4,7 @@ import '../contracts/results/resultWithValue.dart';
 import '../integration/dependencyInjection.dart';
 
 class BaseApiService {
-  String _baseUrl;
+  late String _baseUrl;
   BaseApiService(String baseUrl) {
     _baseUrl = baseUrl;
   }
@@ -33,12 +33,12 @@ class BaseApiService {
   }
 
   Future<ResultWithValue<String>> apiGet(String url,
-      {Map<String, String> headers}) async {
+      {Map<String, String>? headers}) async {
     return await this.webGet('$_baseUrl/$url', headers: headers);
   }
 
   Future<ResultWithValue<String>> webGet(String url,
-      {Map<String, String> headers}) async {
+      {Map<String, String>? headers}) async {
     try {
       getLog().d('web get request to: $url');
       final response = await http.get(Uri.parse(url), headers: headers);

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 Widget languageTilePresenter(
     BuildContext context, String name, String countryCode,
-    {LocaleKey trailingDisplay, int percentageComplete, Function() onTap}) {
+    {LocaleKey? trailingDisplay, int? percentageComplete, Function()? onTap}) {
   return ListTile(
     leading: SizedBox(
       child: Image.asset('icons/flags/png/$countryCode.png',
@@ -23,7 +23,7 @@ Widget languageTilePresenter(
   );
 }
 
-Widget getTrailingWidget(LocaleKey trailingDisplay, int percentageComplete) {
+Widget getTrailingWidget(LocaleKey? trailingDisplay, int? percentageComplete) {
   String textToDisp = '';
   if (trailingDisplay != null) {
     textToDisp = getTranslations().fromKey(trailingDisplay);
@@ -35,7 +35,7 @@ Widget getTrailingWidget(LocaleKey trailingDisplay, int percentageComplete) {
     );
   }
 
-  if (textToDisp.length < 1) return null;
+  if (textToDisp.length < 1) return Container();
 
   return Text(
     textToDisp,

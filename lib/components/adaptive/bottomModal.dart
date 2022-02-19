@@ -5,7 +5,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 void adaptiveBottomModalSheet(
   BuildContext context, {
-  @required Widget Function(BuildContext) builder,
+  required Widget Function(BuildContext) builder,
   bool hasRoundedCorners = false,
 }) {
   _androidBottomModalSheet(context, builder, hasRoundedCorners);

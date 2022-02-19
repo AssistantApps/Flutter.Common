@@ -6,7 +6,7 @@ import 'patronListPageComponent.dart';
 
 class PatronListPage extends StatelessWidget {
   final String analyticsKey;
-  final Widget bottomNavigationBar;
+  final Widget? bottomNavigationBar;
   PatronListPage(this.analyticsKey, {this.bottomNavigationBar}) {
     getAnalytics().trackEvent(this.analyticsKey);
   }

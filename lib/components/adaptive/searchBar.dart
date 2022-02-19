@@ -1,12 +1,12 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
-Widget searchBar(context, TextEditingController controller, String hintText,
+Widget searchBar(context, TextEditingController controller, String? hintText,
         void Function(String) onSearchTextChanged) =>
     _androidSearchBar(context, controller, hintText, onSearchTextChanged);
 
 Widget _androidSearchBar(context, TextEditingController controller,
-    String hintText, void Function(String) onSearchTextChanged) {
+    String? hintText, void Function(String) onSearchTextChanged) {
   return Container(
     color: getTheme().getPrimaryColour(context),
     child: Padding(

@@ -18,14 +18,14 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       final response = await this.apiGet(url);
       if (response.hasFailed) {
         return ResultWithValue<VersionViewModel>(
-            false, VersionViewModel(), response.errorMessage);
+            false, VersionViewModel.empty(), response.errorMessage);
       }
       return ResultWithValue(
           true, VersionViewModel.fromRawJson(response.value), '');
     } catch (exception) {
       getLog().e("getLatest Api Exception: ${exception.toString()}");
       return ResultWithValue<VersionViewModel>(
-          false, VersionViewModel(), exception.toString());
+          false, VersionViewModel.empty(), exception.toString());
     }
   }
 

@@ -5,16 +5,16 @@ import '../../integration/dependencyInjection.dart';
 
 Widget adaptiveCheckboxGroup(
   BuildContext context, {
-  @required List<String> allItemList,
-  List<String> selectedItems,
-  Color checkColor,
-  Color activeColor,
-  void Function(List<String>) onChanged,
+  required List<String> allItemList,
+  List<String>? selectedItems,
+  Color? checkColor,
+  Color? activeColor,
+  void Function(List<String>)? onChanged,
 }) {
   // if (isiOS) return iosCheckboxGroup(value, activeColor, onChanged);
   return androidCheckboxGroup(
     context,
-    allItemList ?? [],
+    allItemList,
     selectedItems ?? [],
     checkColor ?? Colors.white,
     activeColor ?? getTheme().getSecondaryColour(context),

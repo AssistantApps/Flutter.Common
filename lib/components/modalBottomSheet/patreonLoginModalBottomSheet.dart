@@ -12,18 +12,14 @@ class PatreonLoginModalBottomSheet extends StatefulWidget {
   PatreonLoginModalBottomSheet(this.analyticsKey, this.onLogin);
   @override
   _PatreonLoginModalBottomSheetWidget createState() =>
-      _PatreonLoginModalBottomSheetWidget(analyticsKey, onLogin);
+      _PatreonLoginModalBottomSheetWidget();
 }
 
 class _PatreonLoginModalBottomSheetWidget
     extends State<PatreonLoginModalBottomSheet> {
-  final String analyticsKey;
-  final void Function(Result) onLogin;
-
-  String _deviceId;
+  late String _deviceId;
   NetworkState _signalRNetworkState = NetworkState.Loading;
   OAuthSignalRService _oAuthSignal = getAssistantAppsOAuthSignalR();
-  _PatreonLoginModalBottomSheetWidget(this.analyticsKey, this.onLogin);
 
   @override
   void initState() {
@@ -38,7 +34,7 @@ class _PatreonLoginModalBottomSheetWidget
     super.initState();
   }
 
-  void connectionFailed({Exception error}) {
+  void connectionFailed({Exception? error}) {
     this.setState(() {
       _signalRNetworkState = NetworkState.Error;
     });
@@ -48,29 +44,28 @@ class _PatreonLoginModalBottomSheetWidget
     String deviceId = await getDeviceId();
     getLog().d(deviceId);
     _oAuthSignal.joinGroup(deviceId);
-    _oAuthSignal.listenToOAuth((List<Object> payload) {
+    _oAuthSignal.listenToOAuth((List<Object>? payload) {
       getLog().d('listenToOAuth');
 
-      if (payload.length < 2) {
-        this.onLogin(new Result(false, 'invalid payload'));
+      if (payload == null || payload.length < 2) {
+        widget.onLogin(new Result(false, 'invalid payload'));
         return;
       }
 
       PatreonOAuthResponseViewModel objFromServer =
           PatreonOAuthResponseViewModel(
-        loginFailed: (payload[0] ?? false) as bool,
-        belongsToAssistantAppsCampaign: (payload[1] ?? false) as bool,
-        errorMessage: (payload[2] ?? '') as String,
+        loginFailed: (payload[0]) as bool,
+        belongsToAssistantAppsCampaign: (payload[1]) as bool,
+        errorMessage: (payload[2]) as String,
       );
 
-      if (objFromServer == null ||
-          objFromServer.loginFailed != false ||
+      if (objFromServer.loginFailed != false ||
           objFromServer.belongsToAssistantAppsCampaign != true) {
-        this.onLogin(new Result(false, 'invalid payload'));
+        widget.onLogin(new Result(false, 'invalid payload'));
         return;
       }
 
-      this.onLogin(new Result(true, ''));
+      widget.onLogin(new Result(true, ''));
       getNavigation().pop(context);
     });
     this.setState(() {
@@ -160,8 +155,6 @@ class _PatreonLoginModalBottomSheetWidget
     super.dispose();
     _oAuthSignal.leaveGroup(_deviceId);
     _oAuthSignal.removeListenToOAuth();
-    _oAuthSignal.closeConnection().then((_) {
-      _oAuthSignal = null;
-    });
+    _oAuthSignal.closeConnection();
   }
 }

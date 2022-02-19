@@ -6,23 +6,24 @@ class INavigationService {
   }
 
   Future<bool> navigateHomeAsync(BuildContext context,
-      {Function navigateTo,
-      String navigateToNamed,
-      bool pushReplacement}) async {
+      {Widget Function(BuildContext)? navigateTo,
+      String? navigateToNamed,
+      bool? pushReplacement}) async {
     return Future.value(false);
   }
 
   Future navigateAwayFromHomeAsync(
     BuildContext context, {
-    Function navigateTo,
-    String navigateToNamed,
-    Map<String, String> navigateToNamedParameters,
+    Widget Function(BuildContext)? navigateTo,
+    String? navigateToNamed,
+    Map<String, String>? navigateToNamedParameters,
   }) async {}
 
-  Future<T> navigateAsync<T extends Object>(context,
-      {Function navigateTo, String navigateToNamed}) async {
+  Future<T?> navigateAsync<T extends Object>(context,
+      {Widget Function(BuildContext)? navigateTo,
+      String? navigateToNamed}) async {
     return Future.value(null);
   }
 
-  Future pop<T extends Object>(BuildContext context, [T result]) async {}
+  Future pop<T extends Object>(BuildContext context, [T? result]) async {}
 }

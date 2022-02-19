@@ -5,12 +5,12 @@ import 'package:photo_view/photo_view.dart';
 class ImageViewerPage extends StatelessWidget {
   final String name;
   final String imageUrl;
-  final String helpContent;
+  final String? helpContent;
   final String analyticsKey;
   ImageViewerPage(
     this.name,
     this.imageUrl, {
-    this.analyticsKey,
+    required this.analyticsKey,
     this.helpContent,
   }) {
     getAnalytics().trackEvent(this.analyticsKey);
@@ -24,6 +24,10 @@ class ImageViewerPage extends StatelessWidget {
       localImage = '${getPath().imageAssetPathPrefix}/${this.imageUrl}';
     }
 
+    dynamic imageProvider = this.imageUrl.contains('http')
+        ? NetworkImage(this.imageUrl)
+        : AssetImage(localImage);
+
     return getBaseWidget().appScaffold(context,
         appBar: getBaseWidget().appBarForSubPage(
           context,
@@ -36,7 +40,7 @@ class ImageViewerPage extends StatelessWidget {
                     onPressed: () => getDialog().showSimpleHelpDialog(
                       context,
                       getTranslations().fromKey(LocaleKey.help),
-                      helpContent,
+                      helpContent!,
                     ),
                   )
                 ]
@@ -46,9 +50,7 @@ class ImageViewerPage extends StatelessWidget {
             child: PhotoView(
           loadingBuilder: (BuildContext innerContext, __) =>
               getLoading().fullPageLoading(innerContext),
-          imageProvider: this.imageUrl.contains('http')
-              ? NetworkImage(this.imageUrl)
-              : AssetImage(localImage),
+          imageProvider: imageProvider,
           maxScale: PhotoViewComputedScale.covered * 2,
           minScale: PhotoViewComputedScale.contained * 0.75,
           initialScale: PhotoViewComputedScale.contained,

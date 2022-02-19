@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class DropdownOption {
   String title;
-  String value;
+  late String value;
 
-  DropdownOption(this.title, {String value}) {
+  DropdownOption(this.title, {String? value}) {
     this.value = value ?? this.title;
   }
 

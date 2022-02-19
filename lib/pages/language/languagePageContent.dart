@@ -4,7 +4,7 @@ import '../../assistantapps_flutter_common.dart';
 import 'translationsPerLanguageCustomChart.dart';
 
 class LanguagePageContent extends StatelessWidget {
-  final List<Widget> additionalButtons;
+  final List<Widget>? additionalButtons;
   LanguagePageContent({this.additionalButtons});
 
   @override
@@ -19,7 +19,7 @@ class LanguagePageContent extends StatelessWidget {
       getTranslations().fromKey(LocaleKey.translationPercentageComplete),
     ));
     widgets.add(TranslationsPerLanguageCustomChart());
-    if (additionalButtons != null) widgets.addAll(additionalButtons);
+    if (additionalButtons != null) widgets.addAll(additionalButtons!);
 
     return ListView(
       shrinkWrap: true,

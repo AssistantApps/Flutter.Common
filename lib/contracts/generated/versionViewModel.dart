@@ -13,14 +13,17 @@ class VersionViewModel {
   DateTime activeDate;
 
   VersionViewModel({
-    this.guid,
-    this.appGuid,
-    this.markdown,
-    this.buildName,
-    this.buildNumber,
-    this.platforms,
-    this.activeDate,
+    required this.guid,
+    required this.appGuid,
+    required this.markdown,
+    required this.buildName,
+    required this.buildNumber,
+    required this.platforms,
+    required this.activeDate,
   });
+
+  factory VersionViewModel.empty() =>
+      VersionViewModel.fromJson(json.decode("{}"));
 
   factory VersionViewModel.fromRawJson(String str) =>
       VersionViewModel.fromJson(json.decode(str));
@@ -33,7 +36,7 @@ class VersionViewModel {
         buildName: readStringSafe(json, 'buildName'),
         buildNumber: readIntSafe(json, 'buildNumber'),
         platforms: readListSafe(json, 'platforms',
-            (dynamic innerJson) => platformTypeValues.map[innerJson]),
+            (dynamic innerJson) => platformTypeValues.map[innerJson]!),
         activeDate: readDateSafe(json, 'activeDate'),
       );
 }

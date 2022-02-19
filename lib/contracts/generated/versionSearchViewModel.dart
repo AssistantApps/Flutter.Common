@@ -9,10 +9,10 @@ class VersionSearchViewModel {
   int page;
 
   VersionSearchViewModel({
-    this.appGuid,
-    this.platforms,
-    this.languageCode,
-    this.page,
+    required this.appGuid,
+    required this.platforms,
+    required this.languageCode,
+    required this.page,
   });
 
   String toRawJson() => json.encode(toJson());

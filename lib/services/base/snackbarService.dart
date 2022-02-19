@@ -6,7 +6,7 @@ import '../../integration/dependencyInjection.dart';
 import 'interface/ISnackbarService.dart';
 
 class SnackbarService implements ISnackbarService {
-  SweetSheet _sweetSheet;
+  late SweetSheet _sweetSheet;
   SnackbarService() {
     _sweetSheet = SweetSheet();
   }
@@ -14,23 +14,26 @@ class SnackbarService implements ISnackbarService {
   void showSnackbar(
     context,
     LocaleKey lang, {
-    String description,
-    Duration duration,
-    void Function() onPositive,
-    String onPositiveText,
+    String? description,
+    Duration? duration,
+    void Function()? onPositive,
+    String? onPositiveText,
   }) {
     _sweetSheet.show(
       context: context,
       title: Text(getTranslations().fromKey(lang)),
-      description: (description == null) ? null : Text(description),
+      description: (description == null) ? Text('') : Text(description),
       color: SweetSheetColor.SUCCESS,
       isDismissible: true,
       positive: (onPositiveText != null)
           ? SweetSheetAction(
-              onPressed: onPositive,
+              onPressed: onPositive ?? () {},
               title: onPositiveText,
             )
-          : null,
+          : SweetSheetAction(
+              onPressed: () {},
+              title: '',
+            ),
       negative: SweetSheetAction(
         onPressed: () => getNavigation().pop(context),
         title: getTranslations().fromKey(LocaleKey.close),

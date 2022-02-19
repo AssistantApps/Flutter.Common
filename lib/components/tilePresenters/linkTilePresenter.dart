@@ -5,8 +5,8 @@ import '../common/image.dart';
 Widget linkSettingTilePresenter(
   BuildContext context,
   String name, {
-  IconData icon,
-  Function() onTap,
+  IconData? icon,
+  Function()? onTap,
 }) {
   //
   void Function() tempOnTap = () {

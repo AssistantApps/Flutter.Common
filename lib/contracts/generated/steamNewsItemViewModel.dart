@@ -8,15 +8,15 @@ import 'package:assistantapps_flutter_common/helpers/jsonHelper.dart';
 
 class SteamNewsItemViewModel {
   SteamNewsItemViewModel({
-    this.name,
-    this.date,
-    this.link,
-    this.image,
-    this.shortDescription,
-    this.videoLink,
-    this.upVotes,
-    this.downVotes,
-    this.commentCount,
+    required this.name,
+    required this.date,
+    required this.link,
+    required this.image,
+    required this.shortDescription,
+    required this.videoLink,
+    required this.upVotes,
+    required this.downVotes,
+    required this.commentCount,
   });
 
   String name;

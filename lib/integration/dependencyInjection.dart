@@ -49,38 +49,35 @@ final getIt = GetIt.instance;
 
 void initBaseDependencyInjection(
   AssistantAppsEnvironmentSettings _env, {
-  ILoggerService logger,
-  IAnalyticsService analytics,
-  INavigationService navigation,
-  IPathService path,
-  IThemeService theme,
-  ILoadingWidgetService loading,
-  IBaseWidgetService baseWidget,
-  IDialogService dialog,
-  ISnackbarService snackbar,
-  IUpdateService update,
-  INotificationService notification,
-  ILanguageService language,
+  ILoggerService? logger,
+  IAnalyticsService? analytics,
+  INavigationService? navigation,
+  IPathService? path,
+  IThemeService? theme,
+  ILoadingWidgetService? loading,
+  IBaseWidgetService? baseWidget,
+  IDialogService? dialog,
+  ISnackbarService? snackbar,
+  IUpdateService? update,
+  INotificationService? notification,
+  ILanguageService? language,
 }) {
   getIt.registerSingleton<AssistantAppsEnvironmentSettings>(_env);
-  registerSingletonWithBackup<ILoggerService>(logger, LoggerService());
-  registerSingletonWithBackup<IAnalyticsService>(analytics, AnalyticsService());
-  registerSingletonWithBackup<INavigationService>(
-      navigation, NavigationService());
-  registerSingletonWithBackup<IPathService>(path, PathService());
-  registerSingletonWithBackup<IThemeService>(theme, ThemeService());
-  registerSingletonWithBackup<ILoadingWidgetService>(
-      loading, LoadingWidgetService());
-  registerSingletonWithBackup<IBaseWidgetService>(
-      baseWidget, BaseWidgetService());
-  registerSingletonWithBackup<IDialogService>(dialog, DialogService());
-  registerSingletonWithBackup<ISnackbarService>(snackbar, SnackbarService());
-  registerSingletonWithBackup<IUpdateService>(update, UpdateService());
-  registerSingletonWithBackup<INotificationService>(
+  regSingleWithBackup<ILoggerService>(logger, LoggerService());
+  regSingleWithBackup<IAnalyticsService>(analytics, AnalyticsService());
+  regSingleWithBackup<INavigationService>(navigation, NavigationService());
+  regSingleWithBackup<IPathService>(path, PathService());
+  regSingleWithBackup<IThemeService>(theme, ThemeService());
+  regSingleWithBackup<ILoadingWidgetService>(loading, LoadingWidgetService());
+  regSingleWithBackup<IBaseWidgetService>(baseWidget, BaseWidgetService());
+  regSingleWithBackup<IDialogService>(dialog, DialogService());
+  regSingleWithBackup<ISnackbarService>(snackbar, SnackbarService());
+  regSingleWithBackup<IUpdateService>(update, UpdateService());
+  regSingleWithBackup<INotificationService>(
       notification, NotificationService());
 
   getIt.registerSingleton<ITranslationService>(TranslationService());
-  registerSingletonWithBackup<ILanguageService>(language, LanguageService());
+  regSingleWithBackup<ILanguageService>(language, LanguageService());
 
   // API
   getIt.registerSingleton<IAssistantAppsApiService>(AssistantAppsApiService());
@@ -136,7 +133,7 @@ IDataJsonService getAssistantAppsData() => getIt<IDataJsonService>();
 // Methods 🔽
 //
 
-void registerSingletonWithBackup<T>(T service, T backupService) {
+void regSingleWithBackup<T extends Object>(T? service, T? backupService) {
   if (service != null) {
     getIt.registerSingleton<T>(service);
   } else if (backupService != null) {

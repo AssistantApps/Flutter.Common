@@ -14,7 +14,7 @@ import '../../integration/dependencyInjection.dart';
 class WhatIsNewDetailPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;
   final VersionViewModel version;
-  final List<Widget> Function(VersionViewModel) additionalBuilder;
+  final List<Widget> Function(VersionViewModel)? additionalBuilder;
 
   WhatIsNewDetailPageComponent(
     this.currentWhatIsNewGuid,
@@ -63,13 +63,13 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
     ));
 
     if (additionalBuilder != null) {
-      columnWidgets.addAll(additionalBuilder(this.version));
+      columnWidgets.addAll(additionalBuilder!(this.version));
     }
 
     columnWidgets.add(MarkdownBody(
       data: this.version.markdown,
-      onTapLink: (String text, String link, String title) =>
-          launchExternalURL(link),
+      onTapLink: (String text, String? link, String? title) =>
+          launchExternalURL(link ?? 'https://assistantapps.com'),
     ));
 
     return listWithScrollbar(

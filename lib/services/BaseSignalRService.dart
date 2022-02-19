@@ -6,15 +6,15 @@ import '../contracts/results/result.dart';
 import '../integration/dependencyInjection.dart';
 
 class BaseSignalRService {
-  String _baseUrl;
-  HubConnection _hubConnection;
+  late String _baseUrl;
+  late HubConnection _hubConnection;
   BaseSignalRService(String baseUrl) {
     this._baseUrl = baseUrl;
     getLog().d('BaseSignalRService ctor: $baseUrl');
   }
 
   Future<Result> createConnection(
-    void Function({Exception error}) onClose,
+    void Function({Exception? error}) onClose,
   ) async {
     getLog().d('Connecting to: $_baseUrl');
     try {
@@ -34,7 +34,7 @@ class BaseSignalRService {
       this._hubConnection.state == HubConnectionState.Connected;
 
   void addListener(
-      SignalRReceiveEvent event, void Function(List<Object>) onFunc) async {
+      SignalRReceiveEvent event, void Function(List<Object>?) onFunc) async {
     getLog().d('Listening for: ${EnumToString.convertToString(event)}');
     if (!isConnected) return;
 

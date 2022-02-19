@@ -6,18 +6,18 @@ import '../searchable.dart';
 
 class SearchableList<T> extends StatelessWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
-  final Future<ResultWithValue<List<T>>> Function() backupListGetter;
-  final Widget Function(BuildContext, T) listItemDisplayer;
-  final Widget Function(BuildContext, T, int) listItemWithIndexDisplayer;
-  final bool Function(T, String) listItemSearch;
-  final void Function() deleteAll;
-  final LocaleKey backupListWarningMessage;
+  final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
+  final Widget Function(BuildContext, T)? listItemDisplayer;
+  final Widget Function(BuildContext, T, int)? listItemWithIndexDisplayer;
+  final bool Function(T, String)? listItemSearch;
+  final void Function()? deleteAll;
+  final LocaleKey? backupListWarningMessage;
   final int minListForSearch;
-  final Key key;
-  final Widget firstListItemWidget;
-  final Widget lastListItemWidget;
-  final String hintText;
-  final String loadingText;
+  final Key? key;
+  final Widget? firstListItemWidget;
+  final Widget? lastListItemWidget;
+  final String? hintText;
+  final String? loadingText;
   final bool addFabPadding;
 
   SearchableList(

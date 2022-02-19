@@ -4,27 +4,27 @@ import 'package:flutter/material.dart';
 class IBaseWidgetService {
   Widget appScaffold(
     BuildContext context, {
-    @required Widget appBar,
-    Widget body,
-    Widget Function(BuildContext scaffoldContext) builder,
-    Widget drawer,
-    Widget bottomNavigationBar,
-    Widget floatingActionButton,
-    FloatingActionButtonLocation floatingActionButtonLocation,
+    required PreferredSizeWidget appBar,
+    Widget? body,
+    Widget Function(BuildContext scaffoldContext)? builder,
+    Widget? drawer,
+    Widget? bottomNavigationBar,
+    Widget? floatingActionButton,
+    FloatingActionButtonLocation? floatingActionButtonLocation,
   }) =>
       Container();
 
   Widget appBar(BuildContext context, Widget title, List<Widget> actions,
-          {Widget leading, PreferredSizeWidget bottom}) =>
+          {Widget? leading, PreferredSizeWidget? bottom}) =>
       Container();
 
-  Widget appBarForSubPage(
+  PreferredSizeWidget appBarForSubPage(
     BuildContext context, {
-    Widget title,
-    List<ActionItem> actions,
-    List<ActionItem> shortcutActions,
+    Widget? title,
+    List<ActionItem>? actions,
+    List<ActionItem>? shortcutActions,
     bool showHomeAction = false,
     bool showBackAction = true,
   }) =>
-      Container();
+      AppBar();
 }

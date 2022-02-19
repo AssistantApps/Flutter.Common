@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class PatreonAuthButton extends StatelessWidget {
   final VoidCallback onPressed;
-  PatreonAuthButton({@required this.onPressed});
+  PatreonAuthButton({required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

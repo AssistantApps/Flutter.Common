@@ -22,7 +22,7 @@ class TranslationsPerLanguageFLChart extends StatelessWidget {
                 ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>>
             snapshot,
       ) {
-        Widget errorWidget = asyncSnapshotHandler(
+        Widget? errorWidget = asyncSnapshotHandler(
           context,
           snapshot,
           loader: () => getLoading().loadingIndicator(),
@@ -30,7 +30,7 @@ class TranslationsPerLanguageFLChart extends StatelessWidget {
         if (errorWidget != null) return Container();
 
         List<TranslationsPerLanguageGraphViewModel> list =
-            snapshot.data.value.take(7).toList();
+            snapshot.data?.value.take(7).toList() ?? List.empty();
 
         return Card(
           elevation: 0,

@@ -1,11 +1,12 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
 Widget positiveButton(
-    {String title,
-    String eventString,
-    EdgeInsets padding,
-    Color colour,
-    Function onPress}) {
+    {required String title,
+    String? eventString,
+    EdgeInsets? padding,
+    Color? colour,
+    Function()? onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return ElevatedButton(
     child: padding == null
@@ -15,13 +16,14 @@ Widget positiveButton(
             child: textWidget,
           ),
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(colour),
+      backgroundColor: MaterialStateProperty.all<Color>(colour ?? Colors.blue),
     ),
     onPressed: (onPress != null) ? onPress : null,
   );
 }
 
-Widget positiveIconButton(Color colour, {IconData icon, Function onPress}) =>
+Widget positiveIconButton(Color colour,
+        {IconData? icon, Function()? onPress}) =>
     ElevatedButton(
       child: Icon(icon),
       style: ButtonStyle(
@@ -31,7 +33,11 @@ Widget positiveIconButton(Color colour, {IconData icon, Function onPress}) =>
     );
 
 Widget negativeButton(
-    {String title, String eventString, EdgeInsets padding, Function onPress}) {
+    {required String title,
+    String? eventString,
+    EdgeInsets? padding,
+    Color? colour,
+    Function()? onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return MaterialButton(
     child: padding == null
@@ -45,7 +51,7 @@ Widget negativeButton(
   );
 }
 
-Widget disabledButton({String title}) => ElevatedButton(
+Widget disabledButton({required String title}) => ElevatedButton(
       child: Text(title),
       onPressed: null,
     );

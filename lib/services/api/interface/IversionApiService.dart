@@ -6,7 +6,8 @@ import '../../../contracts/results/resultWithValue.dart';
 class IVersionApiService {
   Future<ResultWithValue<VersionViewModel>> getLatest(
       List<PlatformType> platforms) async {
-    return ResultWithValue<VersionViewModel>(false, VersionViewModel(), '');
+    return ResultWithValue<VersionViewModel>(
+        false, VersionViewModel.empty(), '');
   }
 
   Future<PaginationResultWithValue<List<VersionViewModel>>> getHistory(

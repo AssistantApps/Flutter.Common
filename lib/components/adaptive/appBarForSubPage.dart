@@ -6,9 +6,9 @@ import 'appBar.dart';
 
 class AppBarForSubPage extends StatelessWidget
     implements PreferredSizeWidget, ObstructingPreferredSizeWidget {
-  final Widget title;
+  final Widget? title;
   final List<ActionItem> actions;
-  final List<ActionItem> shortcutActions;
+  final List<ActionItem>? shortcutActions;
   final bool showHomeAction;
   final bool showBackAction;
   final preferredSize;
@@ -27,8 +27,8 @@ class AppBarForSubPage extends StatelessWidget
   Widget build(BuildContext context) =>
       _appBarForAndroid(context, title, actions, shortcutActions);
 
-  Widget _appBarForAndroid(context, Widget title, List<ActionItem> actions,
-      List<ActionItem> shortcutActions) {
+  Widget _appBarForAndroid(context, Widget? title, List<ActionItem> actions,
+      List<ActionItem>? shortcutActions) {
     List<Widget> actionWidgets = List.empty(growable: true);
     return adaptiveAppBar(context, title, actionWidgets,
         leading: this.showBackAction
@@ -44,11 +44,11 @@ class AppBarForSubPage extends StatelessWidget
   bool shouldFullyObstruct(BuildContext context) => true;
 }
 
-Widget adaptiveAppBarForSubPageHelper(
+PreferredSizeWidget adaptiveAppBarForSubPageHelper(
   context, {
-  Widget title,
-  List<ActionItem> actions,
-  List<ActionItem> shortcutActions,
+  Widget? title,
+  List<ActionItem>? actions,
+  List<ActionItem>? shortcutActions,
   bool showHomeAction = false,
   bool showBackAction = true,
 }) {

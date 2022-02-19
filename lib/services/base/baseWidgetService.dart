@@ -9,13 +9,13 @@ import 'interface/IBaseWidgetService.dart';
 class BaseWidgetService implements IBaseWidgetService {
   Widget appScaffold(
     BuildContext context, {
-    @required Widget appBar,
-    Widget body,
-    Widget Function(BuildContext scaffoldContext) builder,
-    Widget drawer,
-    Widget bottomNavigationBar,
-    Widget floatingActionButton,
-    FloatingActionButtonLocation floatingActionButtonLocation,
+    required PreferredSizeWidget appBar,
+    Widget? body,
+    Widget Function(BuildContext scaffoldContext)? builder,
+    Widget? drawer,
+    Widget? bottomNavigationBar,
+    Widget? floatingActionButton,
+    FloatingActionButtonLocation? floatingActionButtonLocation,
   }) =>
       adaptiveAppScaffold(
         context,
@@ -29,14 +29,14 @@ class BaseWidgetService implements IBaseWidgetService {
       );
 
   Widget appBar(BuildContext context, Widget title, List<Widget> actions,
-          {Widget leading, PreferredSizeWidget bottom}) =>
+          {Widget? leading, PreferredSizeWidget? bottom}) =>
       adaptiveAppBar(context, title, actions, leading: leading, bottom: bottom);
 
-  Widget appBarForSubPage(
+  PreferredSizeWidget appBarForSubPage(
     BuildContext context, {
-    Widget title,
-    List<ActionItem> actions,
-    List<ActionItem> shortcutActions,
+    Widget? title,
+    List<ActionItem>? actions,
+    List<ActionItem>? shortcutActions,
     bool showHomeAction = false,
     bool showBackAction = true,
   }) =>

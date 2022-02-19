@@ -16,7 +16,7 @@ class LoadingWidgetService implements ILoadingWidgetService {
   }
 
   @override
-  Widget smallLoadingTile(BuildContext context, {String loadingText}) =>
+  Widget smallLoadingTile(BuildContext context, {String? loadingText}) =>
       ListTile(
         leading: smallLoadingIndicator(),
         title:
@@ -31,7 +31,7 @@ class LoadingWidgetService implements ILoadingWidgetService {
       );
 
   @override
-  Widget fullPageLoading(BuildContext context, {String loadingText}) =>
+  Widget fullPageLoading(BuildContext context, {String? loadingText}) =>
       Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +53,7 @@ class LoadingWidgetService implements ILoadingWidgetService {
       );
 
   @override
-  Widget customErrorWidget(BuildContext context, {String text}) {
+  Widget customErrorWidget(BuildContext context, {String? text}) {
     return Center(
       child: Column(
         children: [

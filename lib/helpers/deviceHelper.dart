@@ -17,7 +17,7 @@ bool isAndroid = UniversalPlatform.isAndroid;
 bool isWeb = UniversalPlatform.isWeb;
 
 Future<String> getDeviceId() async {
-  String deviceId = await PlatformDeviceId.getDeviceId;
+  String? deviceId = await PlatformDeviceId.getDeviceId;
   if (deviceId == null || deviceId.length < 5) {
     deviceId = getNewGuid();
   }

@@ -6,15 +6,15 @@ import 'dart:convert';
 
 class PatreonViewModel {
   PatreonViewModel({
-    this.name,
-    this.imageUrl,
+    required this.name,
+    required this.imageUrl,
     this.thumbnailUrl,
-    this.url,
+    required this.url,
   });
 
   String name;
   String imageUrl;
-  String thumbnailUrl;
+  String? thumbnailUrl;
   String url;
 
   factory PatreonViewModel.fromRawJson(String str) =>

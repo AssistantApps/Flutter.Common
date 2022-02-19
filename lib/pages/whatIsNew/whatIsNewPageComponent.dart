@@ -19,7 +19,7 @@ class WhatIsNewPageComponent extends StatelessWidget {
     this.platforms,
     this.loadMoreItemWidget,
     this.onTap, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
