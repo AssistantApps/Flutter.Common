@@ -55,6 +55,7 @@ class SearchableGrid<T> extends StatelessWidget {
       itemCount: itemCount,
       itemBuilder: itemBuilder,
       gridViewColumnCalculator: gridViewColumnCalculator,
+      scrollController: scrollController,
     );
   }
 

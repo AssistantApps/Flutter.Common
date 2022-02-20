@@ -159,13 +159,13 @@ ListTile genericListTileWithNetworkImage(context,
   );
 }
 
-Widget genericTileImage(
+Widget? genericTileImage(
   String? leadingImage, {
   String? imageHero,
   String? imagePackage,
   String? imageBackgroundColour,
 }) {
-  if (leadingImage == null) return Container();
+  if (leadingImage == null) return null;
   String prefix = '';
   if (imagePackage == null) {
     String imageAssetsPathPrefix = getPath().imageAssetPathPrefix;

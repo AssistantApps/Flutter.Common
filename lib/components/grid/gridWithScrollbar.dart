@@ -13,6 +13,7 @@ Widget gridWithScrollbar({
   int Function(Breakpoint)? gridViewColumnCalculator,
   EdgeInsetsGeometry? padding,
   bool shrinkWrap = true,
+  ScrollController? scrollController,
 }) =>
     BreakpointBuilder(
         builder: (BuildContext innerContext, Breakpoint breakpoint) {
@@ -41,6 +42,7 @@ Widget gridWithScrollbar({
         mainAxisSpacing: 4,
         itemCount: itemCount,
         itemBuilder: itemBuilder,
+        controller: scrollController,
         key: Key('grid-cross-axis$crossAxisCount'),
       );
       return isiOS

@@ -9,12 +9,16 @@ class BaseApiService {
     _baseUrl = baseUrl;
   }
 
-  Future<ResultWithValue<String>> apiPost(String url, dynamic body) async {
+  Future<ResultWithValue<String>> apiPost(String url, dynamic body,
+      {Map<String, String>? headers}) async {
     try {
       getLog().d('post request to: $_baseUrl/$url');
       getLog().d('post request body: $body');
-      final response = await http.post(Uri.parse('$_baseUrl/$url'),
-          body: body, headers: {"Content-Type": "application/json"});
+      final response = await http.post(
+        Uri.parse('$_baseUrl/$url'),
+        body: body,
+        headers: headers ?? {"Content-Type": "application/json"},
+      );
       if (response.statusCode != 200) {
         getLog().e('Status Code: ${response.statusCode}.');
         getLog().e('Not a 200 OK response ${response.body}');
