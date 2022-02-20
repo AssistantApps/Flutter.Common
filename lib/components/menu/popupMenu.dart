@@ -4,15 +4,18 @@ import '../../contracts/enum/localeKey.dart';
 import '../../contracts/misc/popupMenuActionItem.dart';
 import '../../integration/dependencyInjection.dart';
 
-Widget positionedPopupMenu(context,
-        {Function()? onEdit, Function()? onDelete}) =>
-    Positioned(
-      top: 4,
-      right: 4,
-      child: popupMenu(context, onEdit: onEdit, onDelete: onDelete),
-    );
+Widget? positionedPopupMenu(context,
+    {Function()? onEdit, Function()? onDelete}) {
+  Widget? childWidget = popupMenu(context, onEdit: onEdit, onDelete: onDelete);
+  if (childWidget == null) return null;
+  return Positioned(
+    top: 4,
+    right: 4,
+    child: childWidget,
+  );
+}
 
-Widget popupMenu(
+Widget? popupMenu(
   context, {
   Function()? onEdit,
   Function()? onDelete,
@@ -45,10 +48,10 @@ Widget popupMenu(
   return popupMenuFromArray(items, iconColour, customIcon, nothingToDisplay);
 }
 
-Widget popupMenuFromArray(List<PopupMenuActionItem>? items, Color? iconColour,
+Widget? popupMenuFromArray(List<PopupMenuActionItem>? items, Color? iconColour,
     IconData? customIcon, Widget? nothingToDisplay) {
   if (items == null || items.length == 0) {
-    return nothingToDisplay ?? Container();
+    return nothingToDisplay;
   }
   if (items.length == 1) {
     if (items[0].image != null) {

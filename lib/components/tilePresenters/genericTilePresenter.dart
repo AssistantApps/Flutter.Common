@@ -1,10 +1,11 @@
-import 'package:assistantapps_flutter_common/components/common/badge.dart';
-import 'package:assistantapps_flutter_common/components/common/image.dart';
-import 'package:assistantapps_flutter_common/contracts/enum/localeKey.dart';
-import 'package:assistantapps_flutter_common/helpers/colourHelper.dart';
-import 'package:assistantapps_flutter_common/helpers/deviceHelper.dart';
-import 'package:assistantapps_flutter_common/integration/dependencyInjection.dart';
 import 'package:flutter/material.dart';
+
+import '../../contracts/enum/localeKey.dart';
+import '../../helpers/colourHelper.dart';
+import '../../helpers/deviceHelper.dart';
+import '../../integration/dependencyInjection.dart';
+import '../common/badge.dart';
+import '../common/image.dart';
 
 ListTile genericListTileWithSubtitle(context,
     {required String? leadingImage,
@@ -16,6 +17,7 @@ ListTile genericListTileWithSubtitle(context,
     Widget? subtitle,
     int maxLines = 1,
     Widget? trailing,
+    bool? dense,
     Function()? onTap,
     Function()? onLongPress}) {
   String title = description != null //
@@ -37,7 +39,7 @@ ListTile genericListTileWithSubtitle(context,
     ),
     subtitle: subtitle,
     trailing: trailing,
-    // dense: true,
+    dense: dense,
     onTap: (onTap != null) ? onTap : null,
     onLongPress: (onLongPress != null) ? onLongPress : null,
   );
@@ -53,6 +55,7 @@ ListTile genericListTileWithSubtitleAndImageCount(BuildContext context,
     String? onTapAnalyticsEvent,
     String? onLongPressAnalyticsEvent,
     Widget? trailing,
+    bool? dense,
     Function()? onTap,
     Function()? onLongPress}) {
   var leadingImageWidget = (leadingImageCount != null && leadingImageCount > 0)
@@ -68,7 +71,7 @@ ListTile genericListTileWithSubtitleAndImageCount(BuildContext context,
     ),
     subtitle: subtitle,
     trailing: trailing,
-    // dense: true,
+    dense: dense,
     onTap: () {
       if (onTapAnalyticsEvent != null) {
         getAnalytics().trackEvent(onTapAnalyticsEvent);
@@ -98,6 +101,7 @@ ListTile genericListTile(context,
     int maxLines = 1,
     String? onLongPressAnalyticsEvent,
     Widget? trailing,
+    bool? dense,
     Function()? onTap,
     Function()? onLongPress}) {
   Widget? subtitle = (quantity != null && quantity > 0)
@@ -114,6 +118,7 @@ ListTile genericListTile(context,
     subtitle: subtitle,
     maxLines: maxLines,
     trailing: trailing,
+    dense: dense,
     onTap: onTap,
     onLongPress: onLongPress,
   );
@@ -128,6 +133,7 @@ ListTile genericListTileWithNetworkImage(context,
     String? onTapAnalyticsEvent,
     String? onLongPressAnalyticsEvent,
     Widget? trailing,
+    bool? dense,
     Function()? onTap,
     Function()? onLongPress}) {
   String title = description != null //
@@ -153,7 +159,7 @@ ListTile genericListTileWithNetworkImage(context,
     ),
     subtitle: subtitle,
     trailing: trailing,
-    //dense: true,
+    dense: dense,
     onTap: (onTap != null) ? onTap : null,
     onLongPress: (onLongPress != null) ? onLongPress : null,
   );
