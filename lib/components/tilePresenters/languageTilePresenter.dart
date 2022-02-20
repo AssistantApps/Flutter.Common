@@ -23,7 +23,7 @@ Widget languageTilePresenter(
   );
 }
 
-Widget getTrailingWidget(LocaleKey? trailingDisplay, int? percentageComplete) {
+Widget? getTrailingWidget(LocaleKey? trailingDisplay, int? percentageComplete) {
   String textToDisp = '';
   if (trailingDisplay != null) {
     textToDisp = getTranslations().fromKey(trailingDisplay);
@@ -35,7 +35,7 @@ Widget getTrailingWidget(LocaleKey? trailingDisplay, int? percentageComplete) {
     );
   }
 
-  if (textToDisp.length < 1) return Container();
+  if (textToDisp.length < 1) return null;
 
   return Text(
     textToDisp,
