@@ -9,6 +9,26 @@ class BaseApiService {
     _baseUrl = baseUrl;
   }
 
+  Future<ResultWithValue<String>> apiGet(String url,
+      {Map<String, String>? headers}) async {
+    return await this.webGet('$_baseUrl/$url', headers: headers);
+  }
+
+  Future<ResultWithValue<String>> webGet(String url,
+      {Map<String, String>? headers}) async {
+    try {
+      getLog().d('web get request to: $url');
+      final response = await http.get(Uri.parse(url), headers: headers);
+      if (response.statusCode != 200) {
+        return ResultWithValue<String>(false, '', 'Not a 200 OK response');
+      }
+      return ResultWithValue<String>(true, response.body, '');
+    } catch (exception) {
+      getLog().e("BaseApiService GET Exception: ${exception.toString()}");
+      return ResultWithValue<String>(false, '', exception.toString());
+    }
+  }
+
   Future<ResultWithValue<String>> apiPost(String url, dynamic body,
       {Map<String, String>? headers}) async {
     try {
@@ -36,22 +56,30 @@ class BaseApiService {
     }
   }
 
-  Future<ResultWithValue<String>> apiGet(String url,
-      {Map<String, String>? headers}) async {
-    return await this.webGet('$_baseUrl/$url', headers: headers);
-  }
-
-  Future<ResultWithValue<String>> webGet(String url,
+  Future<ResultWithValue<String>> apiPut(String url, dynamic body,
       {Map<String, String>? headers}) async {
     try {
-      getLog().d('web get request to: $url');
-      final response = await http.get(Uri.parse(url), headers: headers);
+      getLog().d('put request to: $_baseUrl/$url');
+      getLog().d('put request body: $body');
+      final response = await http.put(
+        Uri.parse('$_baseUrl/$url'),
+        body: body,
+        headers: headers ?? {"Content-Type": "application/json"},
+      );
       if (response.statusCode != 200) {
+        getLog().e('Status Code: ${response.statusCode}.');
+        getLog().e('Not a 200 OK response ${response.body}');
+        getLog().e('Message: ${response.reasonPhrase}');
         return ResultWithValue<String>(false, '', 'Not a 200 OK response');
       }
+      int responseLength = response.body.length;
+      String displayTest = responseLength > 100
+          ? response.body.substring(0, 100)
+          : response.body;
+      getLog().d('put response body: $displayTest...');
       return ResultWithValue<String>(true, response.body, '');
     } catch (exception) {
-      getLog().e("BaseApiService GET Exception: ${exception.toString()}");
+      getLog().e("BaseApiService PUT Exception: ${exception.toString()}");
       return ResultWithValue<String>(false, '', exception.toString());
     }
   }
