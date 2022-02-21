@@ -50,8 +50,7 @@ DateTime readDateSafe(Map<dynamic, dynamic>? json, String prop,
     {DateTime? defaultValue}) {
   if (json == null) return defaultValue ?? DateTime.now();
   try {
-    var value = new DateFormat('yyyy-MM-ddTHH:mm:ss').parse(json[prop], true);
-    return (value == null) ? (defaultValue ?? DateTime.now()) : value;
+    return new DateFormat('yyyy-MM-ddTHH:mm:ss').parse(json[prop], true);
   } catch (ex) {
     return defaultValue ?? DateTime.now();
   }

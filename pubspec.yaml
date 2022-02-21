@@ -1,11 +1,11 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.1.4
+version: 0.1.5
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 
 environment:
-  sdk: ">=2.15.1 <3.0.0"
+  sdk: '>=2.15.1 <3.0.0'
   flutter: '>=1.17.0'
 
 dependencies:

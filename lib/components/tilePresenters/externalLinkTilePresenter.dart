@@ -16,6 +16,6 @@ Widget externalLinkPresenter(BuildContext context, String name, String url) {
       overflow: TextOverflow.ellipsis,
     ),
     trailing: getCorrectlySizedImageFromIcon(context, Icons.open_in_new),
-    onTap: (url != null) ? () => launchExternalURL(url) : () {},
+    onTap: () => launchExternalURL(url),
   );
 }

@@ -7,7 +7,7 @@ import '../integration/dependencyInjection.dart';
 
 class BaseSignalRService {
   late String _baseUrl;
-  late HubConnection _hubConnection;
+  late HubConnection? _hubConnection;
   BaseSignalRService(String baseUrl) {
     this._baseUrl = baseUrl;
     getLog().d('BaseSignalRService ctor: $baseUrl');
@@ -19,8 +19,8 @@ class BaseSignalRService {
     getLog().d('Connecting to: $_baseUrl');
     try {
       this._hubConnection = HubConnectionBuilder().withUrl(_baseUrl).build();
-      this._hubConnection.onclose(onClose);
-      await this._hubConnection.start();
+      this._hubConnection?.onclose(onClose);
+      await this._hubConnection?.start();
     } catch (exception) {
       getLog().e('CreateConnection Exception: ${exception.toString()}');
       return Result(false, exception.toString());
@@ -31,7 +31,7 @@ class BaseSignalRService {
 
   bool get isConnected =>
       this._hubConnection != null &&
-      this._hubConnection.state == HubConnectionState.Connected;
+      this._hubConnection?.state == HubConnectionState.Connected;
 
   void addListener(
       SignalRReceiveEvent event, void Function(List<Object>?) onFunc) async {
@@ -39,7 +39,7 @@ class BaseSignalRService {
     if (!isConnected) return;
 
     try {
-      this._hubConnection.on(EnumToString.convertToString(event), onFunc);
+      this._hubConnection?.on(EnumToString.convertToString(event), onFunc);
     } catch (exception) {
       getLog().e(
         'Failed to add listener for: ${EnumToString.convertToString(event)}. Ex: ${exception.toString()}',
@@ -52,7 +52,7 @@ class BaseSignalRService {
     if (!isConnected) return;
 
     try {
-      this._hubConnection.off(EnumToString.convertToString(event));
+      this._hubConnection?.off(EnumToString.convertToString(event));
     } catch (exception) {
       getLog().e(
         'Failed to remove listener for: ${EnumToString.convertToString(event)}. Ex: ${exception.toString()}',
@@ -67,7 +67,7 @@ class BaseSignalRService {
     try {
       await this
           ._hubConnection
-          .invoke(EnumToString.convertToString(event), args: payload);
+          ?.invoke(EnumToString.convertToString(event), args: payload);
     } catch (exception) {
       getLog().e(
         'Failed to send for: ${EnumToString.convertToString(event)}. Ex: ${exception.toString()}',
@@ -79,7 +79,7 @@ class BaseSignalRService {
     getLog().d('Closing connecting to: $_baseUrl');
     if (!isConnected) return Result(false, 'Already closed');
     try {
-      await this._hubConnection.stop();
+      await this._hubConnection?.stop();
       return Result(true, '');
     } catch (exception) {
       getLog().e('closingConnection Exception: ${exception.toString()}');

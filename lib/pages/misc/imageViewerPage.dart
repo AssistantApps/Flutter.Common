@@ -31,7 +31,7 @@ class ImageViewerPage extends StatelessWidget {
     return getBaseWidget().appScaffold(context,
         appBar: getBaseWidget().appBarForSubPage(
           context,
-          title: Text(this.name ?? 'Zoom'),
+          title: Text(this.name),
           showHomeAction: true,
           actions: helpContent != null
               ? [

@@ -89,6 +89,7 @@ class NavigationService implements INavigationService {
         navigateToNamed,
       );
     }
+    return null;
   }
 
   @override

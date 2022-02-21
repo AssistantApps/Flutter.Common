@@ -32,6 +32,7 @@ Widget steamNewsItemTilePresenter(
             child: Text(
               DateFormat(UIConstants.DateFormat)
                       .format(newsItem.date.toLocal()) ??
+                  // ignore: dead_null_aware_expression
                   '...',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14),
@@ -50,15 +51,9 @@ Widget steamNewsItemTilePresenter(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                if (newsItem.upVotes != null) ...[
-                  iconWithValueRow(Icons.thumb_up, newsItem.upVotes)
-                ],
-                if (newsItem.downVotes != null) ...[
-                  iconWithValueRow(Icons.thumb_down, newsItem.downVotes)
-                ],
-                if (newsItem.commentCount != null) ...[
-                  iconWithValueRow(Icons.comment, newsItem.commentCount)
-                ],
+                iconWithValueRow(Icons.thumb_up, newsItem.upVotes),
+                iconWithValueRow(Icons.thumb_down, newsItem.downVotes),
+                iconWithValueRow(Icons.comment, newsItem.commentCount),
               ],
             ),
           ),
@@ -72,6 +67,7 @@ Widget steamNewsItemTilePresenter(
 
 Widget steamBranchItemTilePresenter(
     BuildContext context, SteamBranchesViewModel branch) {
+  // ignore: unnecessary_null_comparison
   String date = branch.lastUpdate == null
       ? '...'
       : DateFormat(UIConstants.DateTimeFormat).format(

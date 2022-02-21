@@ -4,7 +4,6 @@ import 'stringHelper.dart';
 
 class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
-    if (hexColor == null) return 0;
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
       hexColor = "FF" + hexColor;

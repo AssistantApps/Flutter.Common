@@ -56,10 +56,10 @@ Widget packageVersionTile(String gameVersion, {Function()? onTap}) {
           loader: () => getLoading().loadingIndicator());
       if (errorWidget != null) return Container();
 
-      ResultWithValue<PackageInfo> packageInfoResult = snapshot.data!;
+      ResultWithValue<PackageInfo>? packageInfoResult = snapshot.data;
       String appVersionString = getTranslations() //
           .fromKey(LocaleKey.appVersion)
-          .replaceAll('{0}', packageInfoResult.value.version ?? '1.0');
+          .replaceAll('{0}', packageInfoResult?.value.version ?? '1.0');
       Widget gameVersionWidget = Text(
         getTranslations()
             .fromKey(LocaleKey.gameVersion)
@@ -68,7 +68,8 @@ Widget packageVersionTile(String gameVersion, {Function()? onTap}) {
 
       Widget titleWidget = gameVersionWidget;
       Widget? subtitleWidget;
-      if (packageInfoResult.isSuccess && packageInfoResult.value != null) {
+      if ((packageInfoResult?.isSuccess == true) &&
+          packageInfoResult?.value != null) {
         titleWidget = Text(appVersionString);
         subtitleWidget = gameVersionWidget;
       }

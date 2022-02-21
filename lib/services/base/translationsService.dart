@@ -21,10 +21,9 @@ class TranslationService implements ITranslationService {
   @override
   Future<ITranslationService> load(Locale locale) async {
     this.locale = locale;
-    String languageCode = locale?.languageCode ?? '';
+    String languageCode = locale.languageCode;
     List<String> supportedLanguagesCodes =
         getLanguage().supportedLanguagesCodes();
-    getLog().d(languageCode);
     if (supportedLanguagesCodes.contains(languageCode) == false) {
       languageCode = getLanguage().defaultLanguageMap().code;
       this.locale = Locale(languageCode);
