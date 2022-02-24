@@ -31,9 +31,7 @@ Widget steamNewsItemTilePresenter(
             padding: EdgeInsets.only(top: 4, right: 4, left: 4),
             child: Text(
               DateFormat(UIConstants.DateFormat)
-                      .format(newsItem.date.toLocal()) ??
-                  // ignore: dead_null_aware_expression
-                  '...',
+                  .format(newsItem.date.toLocal()),
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 14),
             ),

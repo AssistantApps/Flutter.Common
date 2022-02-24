@@ -29,6 +29,7 @@ class Searchable<T> extends StatefulWidget {
   final Key? key;
   final LocaleKey? backupListWarningMessage;
   final Widget? firstListItemWidget;
+  final bool? keepFirstListItemWidgetVisible;
   final Widget? lastListItemWidget;
   final String? hintText;
   final String? loadingText;
@@ -42,6 +43,7 @@ class Searchable<T> extends StatefulWidget {
     this.itemWithIndexDisplayer,
     this.key,
     this.firstListItemWidget,
+    this.keepFirstListItemWidgetVisible,
     this.lastListItemWidget,
     this.hintText,
     this.loadingText,
@@ -126,10 +128,24 @@ class SearchableWidget<T> extends State<Searchable<T>> {
 
   @override
   Widget build(BuildContext context) {
-    if (!hasLoaded)
+    if (!hasLoaded) {
+      if (widget.keepFirstListItemWidgetVisible == true &&
+          widget.firstListItemWidget != null) {
+        return Column(
+          children: [
+            searchBar(
+                context, controller, widget.hintText, onSearchTextChanged),
+            widget.firstListItemWidget!,
+            Expanded(
+              child: Center(child: getLoading().smallLoadingIndicator()),
+            ),
+          ],
+        );
+      }
       return getLoading().fullPageLoading(context,
           loadingText: widget.loadingText ??
               getTranslations().fromKey(LocaleKey.loading));
+    }
 
     List<Widget> columnWidgets = List.empty(growable: true);
     if (_listResults.length > widget.minListForSearch) {

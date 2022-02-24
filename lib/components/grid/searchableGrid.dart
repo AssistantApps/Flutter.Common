@@ -18,6 +18,7 @@ class SearchableGrid<T> extends StatelessWidget {
   final int minListForSearch;
   final Key? key;
   final Widget? firstListItemWidget;
+  final bool? keepFirstListItemWidgetVisible;
   final Widget? lastListItemWidget;
   final String? hintText;
   final String? loadingText;
@@ -31,6 +32,7 @@ class SearchableGrid<T> extends StatelessWidget {
     this.gridViewColumnCalculator,
     this.key,
     this.firstListItemWidget,
+    this.keepFirstListItemWidgetVisible,
     this.lastListItemWidget,
     this.hintText,
     this.loadingText,
@@ -74,6 +76,7 @@ class SearchableGrid<T> extends StatelessWidget {
       backupListWarningMessage: backupListWarningMessage,
       //
       firstListItemWidget: firstListItemWidget,
+      keepFirstListItemWidgetVisible: keepFirstListItemWidgetVisible,
       lastListItemWidget: lastListItemWidget,
       //
       loadingText: loadingText,

@@ -275,13 +275,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  grouped_checkbox:
+  group_button:
     dependency: "direct main"
     description:
-      name: grouped_checkbox
+      name: group_button
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "4.5.0"
   http:
     dependency: "direct main"
     description:
