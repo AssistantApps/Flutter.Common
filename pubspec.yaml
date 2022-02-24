@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.1.6
+version: 0.1.7
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 
@@ -45,7 +45,7 @@ dependencies:
   share_plus: 3.0.4
   sweetsheet: 0.4.0
   time_formatter: 1.0.0+5
-  timeline_tile: 2.0.0
+  timelines: 0.1.0
   uuid: 3.0.5
   universal_platform: 1.0.0+1
   url_launcher: 6.0.18

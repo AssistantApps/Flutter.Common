@@ -36,6 +36,7 @@ export 'components/tilePresenters/legalTilePresenter.dart';
 export 'components/tilePresenters/linkTilePresenter.dart';
 export 'components/tilePresenters/optionTilePresenter.dart';
 export 'components/tilePresenters/steamTilePresenter.dart';
+export 'components/tilePresenters/timelineTileItemPresenter.dart';
 export 'components/tilePresenters/versionTilePresenter.dart';
 //
 // Constants

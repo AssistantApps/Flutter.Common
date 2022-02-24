@@ -35,7 +35,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.5"
+    version: "0.1.7"
   async:
     dependency: transitive
     description:
@@ -735,13 +735,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0+5"
-  timeline_tile:
+  timelines:
     dependency: transitive
     description:
-      name: timeline_tile
+      name: timelines
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "0.1.0"
   tuple:
     dependency: transitive
     description:

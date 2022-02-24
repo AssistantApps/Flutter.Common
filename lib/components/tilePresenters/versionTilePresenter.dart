@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 
 import '../../assistantapps_flutter_common.dart';
 import '../../services/base/versionService.dart';
+import 'timelineTileItemPresenter.dart';
 
 Widget Function(BuildContext context, VersionViewModel version, int index)
     versionTilePresenter(
@@ -19,10 +19,14 @@ Widget Function(BuildContext context, VersionViewModel version, int index)
       isCurrentVersion,
       version.activeDate,
     );
+    IconData? iconToDisplay = getVersionIcon(
+      isCurrentVersion,
+      version.activeDate,
+    );
 
-    TimelineTile child = TimelineTile(
-      alignment: TimelineAlign.start,
-      endChild: genericListTileWithSubtitle(
+    Widget child = timelineTilePresenter(
+      context,
+      genericListTileWithSubtitle(
         context,
         leadingImage: null,
         name: getTranslations()
@@ -32,17 +36,18 @@ Widget Function(BuildContext context, VersionViewModel version, int index)
         trailing: Icon(Icons.chevron_right),
         onTap: () => onTap(version),
       ),
-      indicatorStyle: IndicatorStyle(
-        width: 25,
-        color: getTheme().getSecondaryColour(context),
-      ),
-      beforeLineStyle: LineStyle(color: getTheme().getSecondaryColour(context)),
-      isFirst: index == 0,
+      hideTopConnector: index == 0,
+      customIndicatorIcon: iconToDisplay,
+    );
+
+    Widget paddedChild = Padding(
+      padding: EdgeInsets.only(left: 12, right: 12),
+      child: child,
     );
     if (version.guid.toLowerCase() == versionGuid.toLowerCase()) {
-      return wrapInNewBanner(context, LocaleKey.current, child);
+      return wrapInNewBanner(context, LocaleKey.current, paddedChild);
     }
-    return child;
+    return paddedChild;
   };
   return presenter;
 }
