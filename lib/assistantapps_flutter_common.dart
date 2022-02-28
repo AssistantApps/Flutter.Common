@@ -14,6 +14,7 @@ export 'components/common/badge.dart';
 export 'components/common/card.dart';
 export 'components/common/donationImage.dart';
 export 'components/common/image.dart';
+export 'components/common/loading.dart';
 export 'components/common/newBanner.dart';
 export 'components/common/percent.dart';
 export 'components/common/space.dart';
