@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/common/loadingAnim.dart';
+import '../../components/common/animation.dart';
 import '../../components/common/percent.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/translationsPerLanguageGraphViewModel.dart';

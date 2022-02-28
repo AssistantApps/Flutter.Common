@@ -35,7 +35,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.7"
+    version: "0.1.8"
   async:
     dependency: transitive
     description:
@@ -230,6 +230,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  flutter_lints:
+    dependency: transitive
+    description:
+      name: flutter_lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   flutter_markdown:
     dependency: transitive
     description:
@@ -310,6 +317,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
+  lints:
+    dependency: transitive
+    description:
+      name: lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   logging:
     dependency: transitive
     description:
@@ -639,6 +653,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
+  shimmer:
+    dependency: transitive
+    description:
+      name: shimmer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   signalr_netcore:
     dependency: transitive
     description:
@@ -646,6 +667,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.3+1"
+  simple_animations:
+    dependency: transitive
+    description:
+      name: simple_animations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -658,6 +686,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  spring:
+    dependency: transitive
+    description:
+      name: spring
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   sqflite:
     dependency: transitive
     description:
@@ -700,6 +735,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  supercharged:
+    dependency: transitive
+    description:
+      name: supercharged
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
+  supercharged_dart:
+    dependency: transitive
+    description:
+      name: supercharged_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
   sweetsheet:
     dependency: transitive
     description:
