@@ -27,3 +27,17 @@ Widget animateScaleUp({
     child: child,
   );
 }
+
+Widget animateSlideInFromLeft({
+  Key? key,
+  required Widget child,
+  Duration? duration,
+}) {
+  return ElasticInLeft(
+    key: key,
+    child: child,
+    animate: true,
+    manualTrigger: false,
+    duration: duration ?? Duration(milliseconds: 500),
+  );
+}
