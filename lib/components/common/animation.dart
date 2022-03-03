@@ -41,11 +41,16 @@ Widget animateSlideInFromLeft({
   required Widget child,
   Duration? duration,
 }) {
-  return ElasticInLeft(
-    key: key,
+  // return ElasticInRight(
+  //   key: key,
+  //   child: child,
+  //   animate: true,
+  //   manualTrigger: false,
+  //   duration: duration ?? Duration(milliseconds: 500),
+  // );
+  return Spring.slide(
     child: child,
-    animate: true,
-    manualTrigger: false,
-    duration: duration ?? Duration(milliseconds: 500),
+    slideType: SlideType.slide_in_left,
+    animDuration: duration ?? Duration(milliseconds: 500),
   );
 }
