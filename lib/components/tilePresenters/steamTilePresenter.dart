@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:time_formatter/time_formatter.dart';
 
 import '../../assistantapps_flutter_common.dart';

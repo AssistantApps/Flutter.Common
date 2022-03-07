@@ -3,7 +3,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../assistantapps_flutter_common.dart';
 import '../../services/base/versionService.dart';
-import 'timelineTileItemPresenter.dart';
 
 Widget Function(BuildContext context, VersionViewModel version, int index)
     versionTilePresenter(
