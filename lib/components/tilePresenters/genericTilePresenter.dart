@@ -17,6 +17,7 @@ ListTile genericListTileWithSubtitle(context,
     Widget? subtitle,
     int maxLines = 1,
     Widget? trailing,
+    BorderRadius? borderRadius,
     bool? dense,
     Function()? onTap,
     Function()? onLongPress}) {
@@ -31,6 +32,7 @@ ListTile genericListTileWithSubtitle(context,
       imageHero: leadingImageHero,
       imagePackage: imagePackage,
       imageBackgroundColour: imageBackgroundColour,
+      borderRadius: borderRadius,
     ),
     title: Text(
       title,
@@ -101,6 +103,7 @@ ListTile genericListTile(context,
     int maxLines = 1,
     String? onLongPressAnalyticsEvent,
     Widget? trailing,
+    BorderRadius? borderRadius,
     bool? dense,
     Function()? onTap,
     Function()? onLongPress}) {
@@ -118,6 +121,7 @@ ListTile genericListTile(context,
     subtitle: subtitle,
     maxLines: maxLines,
     trailing: trailing,
+    borderRadius: borderRadius,
     dense: dense,
     onTap: onTap,
     onLongPress: onLongPress,
@@ -170,6 +174,7 @@ Widget? genericTileImage(
   String? imageHero,
   String? imagePackage,
   String? imageBackgroundColour,
+  BorderRadius? borderRadius,
 }) {
   if (leadingImage == null) return null;
   String prefix = '';
@@ -185,11 +190,20 @@ Widget? genericTileImage(
     fullPath,
     imageHero: imageHero,
     imagePackage: imagePackage,
+    borderRadius: borderRadius,
   );
   if (imageBackgroundColour == null) return child;
 
-  return Container(
+  Widget container = Container(
     child: child,
     color: HexColor(imageBackgroundColour),
   );
+  if (borderRadius != null) {
+    return ClipRRect(
+      borderRadius: borderRadius,
+      child: container,
+    );
+  }
+
+  return container;
 }

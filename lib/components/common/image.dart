@@ -43,6 +43,7 @@ Widget localImage(
   BoxFit? boxfit,
   double? height,
   double? width,
+  BorderRadius? borderRadius,
   EdgeInsetsGeometry padding = EdgeInsets.zero,
 }) {
   Image image = Image.asset(
@@ -56,6 +57,16 @@ Widget localImage(
   Widget imgWidget = (imageHero != null)
       ? Hero(tag: imageHero, child: image) //
       : image;
+
+  if (borderRadius != null) {
+    return Padding(
+      child: ClipRRect(
+        borderRadius: borderRadius,
+        child: imgWidget,
+      ),
+      padding: padding,
+    );
+  }
 
   return Padding(
     child: imgWidget,
