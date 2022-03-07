@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../common/card.dart';
 import '../common/image.dart';
 
 Widget linkSettingTilePresenter(
@@ -13,7 +14,7 @@ Widget linkSettingTilePresenter(
     if (onTap != null) onTap();
   };
 
-  return Card(
+  return flatCard(
     child: ListTile(
       leading: icon != null //
           ? getCorrectlySizedImageFromIcon(context, icon)
@@ -25,6 +26,5 @@ Widget linkSettingTilePresenter(
       ),
       onTap: tempOnTap,
     ),
-    margin: const EdgeInsets.all(0.0),
   );
 }

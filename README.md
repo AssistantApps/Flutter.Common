@@ -1,6 +1,6 @@
 # Common Widgets Library
 
-_Designed to be used by apps that belong to the [AssistantApps](https://assistantapps.com) range.
+_Designed to be used by apps that belong to the [AssistantApps](https://assistantapps.com) range._
 
 ## Features
 
