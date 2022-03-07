@@ -525,5 +525,7 @@ enum LocaleKey {
   completedCommunityMission,
   viewMoreOnNmsWiki,
   platform,
-  translators
+  translators,
+  rewardFrom,
+  twitchCampaignNum
 }
