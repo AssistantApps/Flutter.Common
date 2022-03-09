@@ -18,6 +18,7 @@ class SnackbarService implements ISnackbarService {
     Duration? duration,
     void Function()? onPositive,
     String? onPositiveText,
+    IconData? onPositiveIcon,
   }) {
     _sweetSheet.show(
       context: context,
@@ -29,6 +30,7 @@ class SnackbarService implements ISnackbarService {
           ? SweetSheetAction(
               onPressed: onPositive ?? () {},
               title: onPositiveText,
+              icon: onPositiveIcon,
             )
           : SweetSheetAction(
               onPressed: () {},

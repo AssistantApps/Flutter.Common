@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:assistantapps_flutter_common/services/base/versionService.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -12,6 +11,7 @@ import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import 'interface/IUpdateService.dart';
+import 'versionService.dart';
 
 class UpdateService implements IUpdateService {
   Future<void> checkForUpdate(BuildContext context, String externalUrl) async {
@@ -31,6 +31,16 @@ class UpdateService implements IUpdateService {
     if (versionResult.hasFailed) {
       return ResultWithValue<bool>(false, false, versionResult.errorMessage);
     }
+
+    // ResultWithValue<PackageInfo> versionResult = ResultWithValue(
+    //     true,
+    //     PackageInfo(
+    //       appName: 'test',
+    //       buildNumber: '200',
+    //       packageName: 'test',
+    //       version: '1.250.1',
+    //     ),
+    //     '');
 
     List<PlatformType> platforms = List.empty(growable: true);
     if (isApple) platforms.add(PlatformType.Apple);

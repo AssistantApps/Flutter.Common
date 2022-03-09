@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../../../contracts/enum/localeKey.dart';
 
 class ISnackbarService {
@@ -8,5 +10,6 @@ class ISnackbarService {
     Duration? duration,
     void Function()? onPositive,
     String? onPositiveText,
+    IconData? onPositiveIcon,
   }) {}
 }
