@@ -6,6 +6,7 @@ enum LocaleKey {
   cookingJson,
   curiosityJson,
   exploitJson,
+  factionJson,
   guidesJson,
   journeyMilestoneJson,
   nutrientProcessorJson,
@@ -527,5 +528,6 @@ enum LocaleKey {
   platform,
   translators,
   rewardFrom,
-  twitchCampaignNum
+  twitchCampaignNum,
+  factionPage
 }
