@@ -13,7 +13,18 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
 
   Future<ResultWithValue<VersionViewModel>> getLatest(
       List<PlatformType> platforms) async {
-    String url = "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}";
+    List<String?> queryParams =
+        platforms.map((p) => platformTypeToIntValues.map[p]).toList();
+    String queryPath = '';
+    for (var queryParam in queryParams) {
+      if (queryParam == null || queryParam.isEmpty) continue;
+      if (queryPath.isNotEmpty) {
+        queryPath = queryPath + '&';
+      }
+      queryPath = queryPath + '=' + queryParam;
+    }
+    String url =
+        "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}?$queryPath";
     try {
       final response = await this.apiGet(url);
       if (response.hasFailed) {
