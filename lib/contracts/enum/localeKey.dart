@@ -529,5 +529,5 @@ enum LocaleKey {
   translators,
   rewardFrom,
   twitchCampaignNum,
-  factionPage
+  milestones
 }

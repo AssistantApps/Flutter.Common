@@ -18,7 +18,7 @@ Widget networkImage(
     child: OctoImage(
       image: CachedNetworkImageProvider(
         imageUrl,
-        // TODO uncomment this
+        // TODO uncomment this... No you
         // imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
       ),
       placeholderBuilder: (BuildContext context) {
