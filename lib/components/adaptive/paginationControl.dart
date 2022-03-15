@@ -5,16 +5,16 @@ import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
 import 'button.dart';
 
-Widget paginationControl(
-        int currentPage, int totalPages, Function() next, Function() prev) =>
+Widget paginationControl(BuildContext context, int currentPage, int totalPages,
+        Function() next, Function() prev) =>
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         if (currentPage > 1) ...[
-          Center(child: positiveButton(title: '<', onPress: prev))
+          Center(child: positiveButton(context, title: '<', onPress: prev))
         ],
         if (currentPage < totalPages) ...[
-          Center(child: positiveButton(title: '>', onPress: next))
+          Center(child: positiveButton(context, title: '>', onPress: next))
         ],
       ],
     );

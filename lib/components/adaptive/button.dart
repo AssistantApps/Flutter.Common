@@ -1,11 +1,12 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
-Widget positiveButton(
+Widget positiveButton(BuildContext context,
     {required String title,
     String? eventString,
     EdgeInsets? padding,
-    Color backgroundColour = Colors.blue,
-    Color foregroundColour = Colors.blue,
+    Color? backgroundColour,
+    Color? foregroundColour,
     Function()? onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return ElevatedButton(
@@ -16,8 +17,12 @@ Widget positiveButton(
             child: textWidget,
           ),
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(backgroundColour),
-      foregroundColor: MaterialStateProperty.all<Color>(foregroundColour),
+      backgroundColor: MaterialStateProperty.all<Color>(
+        backgroundColour ?? getTheme().buttonBackgroundColour(context),
+      ),
+      foregroundColor: MaterialStateProperty.all<Color>(
+        foregroundColour ?? getTheme().buttonForegroundColour(context),
+      ),
     ),
     onPressed: (onPress != null) ? onPress : null,
   );

@@ -23,4 +23,6 @@ class IThemeService {
   Color getForegroundTextColour(Color backgroundColor) => Color(0);
   Color fabForegroundColourSelector(BuildContext context) => Color(0);
   Color fabColourSelector(BuildContext context) => Color(0);
+  Color buttonBackgroundColour(BuildContext context) => Color(0);
+  Color buttonForegroundColour(BuildContext context) => Color(0);
 }

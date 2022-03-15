@@ -45,4 +45,8 @@ class ThemeService implements IThemeService {
   Color fabForegroundColourSelector(BuildContext context) => Color(0);
   @override
   Color fabColourSelector(BuildContext context) => Color(0);
+  @override
+  Color buttonBackgroundColour(BuildContext context) => Color(0);
+  @override
+  Color buttonForegroundColour(BuildContext context) => Color(0);
 }
