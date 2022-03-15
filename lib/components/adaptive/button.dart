@@ -4,7 +4,8 @@ Widget positiveButton(
     {required String title,
     String? eventString,
     EdgeInsets? padding,
-    Color? colour,
+    Color backgroundColour = Colors.blue,
+    Color foregroundColour = Colors.blue,
     Function()? onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return ElevatedButton(
@@ -15,7 +16,8 @@ Widget positiveButton(
             child: textWidget,
           ),
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(colour ?? Colors.blue),
+      backgroundColor: MaterialStateProperty.all<Color>(backgroundColour),
+      foregroundColor: MaterialStateProperty.all<Color>(foregroundColour),
     ),
     onPressed: (onPress != null) ? onPress : null,
   );
@@ -35,7 +37,7 @@ Widget negativeButton(
     {required String title,
     String? eventString,
     EdgeInsets? padding,
-    Color? colour,
+    Color backgroundColour = Colors.red,
     Function()? onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return MaterialButton(
@@ -45,7 +47,7 @@ Widget negativeButton(
             padding: padding,
             child: textWidget,
           ),
-    color: Colors.red,
+    color: backgroundColour,
     onPressed: (onPress != null) ? onPress : null,
   );
 }
