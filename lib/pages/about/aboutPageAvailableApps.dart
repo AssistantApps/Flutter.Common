@@ -13,6 +13,7 @@ import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/appsLinkViewModel.dart';
 import '../../contracts/misc/popupMenuActionItem.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../helpers/stringHelper.dart';
 import '../../integration/dependencyInjection.dart';
@@ -92,7 +93,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
             onPressed: () => launchExternalURL(appLink.url),
           ));
         }
-        if (appLink.type == 'android') {
+        if (isiOS == false && appLink.type == 'android') {
           popups.add(PopupMenuActionItem(
             icon: Icons.phone_android,
             text: 'Android',
