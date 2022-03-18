@@ -8,6 +8,7 @@ enum LocaleKey {
   exploitJson,
   factionJson,
   guidesJson,
+  guildMissionJson,
   journeyMilestoneJson,
   nutrientProcessorJson,
   otherItemsJson,
@@ -529,5 +530,6 @@ enum LocaleKey {
   translators,
   rewardFrom,
   twitchCampaignNum,
-  milestones
+  milestones,
+  viewGuildMissions
 }
