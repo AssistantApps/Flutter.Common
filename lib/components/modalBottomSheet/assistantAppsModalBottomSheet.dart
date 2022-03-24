@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../constants/Modal.dart';
 import '../../contracts/enum/assistantAppType.dart';
 import '../../pages/about/aboutPageAvailableApps.dart';
 
@@ -12,10 +13,7 @@ class AssistantAppsModalBottomSheet extends StatelessWidget {
     return AnimatedSize(
       duration: const Duration(milliseconds: 150),
       child: Container(
-        constraints: BoxConstraints(
-          minHeight: (MediaQuery.of(context).size.height) / 2,
-          maxHeight: (MediaQuery.of(context).size.height) * 0.75,
-        ),
+        constraints: modalMiniSize(context),
         child: AboutPageAvailableApps(this.appType),
       ),
     );

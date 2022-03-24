@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.1.25
+version: 0.1.26
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 
@@ -51,6 +51,14 @@ dependencies:
   uuid: 3.0.6
   universal_platform: 1.0.0+1
   url_launcher: 6.0.20
+
+  # logging
+  talker: 0.8.0
+  talker_flutter:
+    git:
+      url: https://github.com/AssistantApps/talker.git
+      ref: master
+      path: packages/talker_flutter/
 
 dev_dependencies:
   flutter_test:
