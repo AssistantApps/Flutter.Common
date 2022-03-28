@@ -13,6 +13,7 @@ import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/appsLinkViewModel.dart';
 import '../../contracts/misc/popupMenuActionItem.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../helpers/stringHelper.dart';
 import '../../integration/dependencyInjection.dart';
@@ -85,17 +86,17 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
     for (AssistantAppsLinkViewModel appLinkVm in assistantAppLinks) {
       List<PopupMenuActionItem> popups = List.empty(growable: true);
       for (Link appLink in appLinkVm.links) {
+        if (isiOS == false && appLink.type == 'android') {
+          popups.add(PopupMenuActionItem(
+            icon: Icons.phone_android,
+            text: 'Android',
+            onPressed: () => launchExternalURL(appLink.url),
+          ));
+        }
         if (appLink.type == 'ios') {
           popups.add(PopupMenuActionItem(
             icon: Icons.phone_iphone,
             text: 'iOS',
-            onPressed: () => launchExternalURL(appLink.url),
-          ));
-        }
-        if (appLink.type == 'android') {
-          popups.add(PopupMenuActionItem(
-            icon: Icons.phone_android,
-            text: 'Android',
             onPressed: () => launchExternalURL(appLink.url),
           ));
         }

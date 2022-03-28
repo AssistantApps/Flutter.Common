@@ -20,6 +20,7 @@ class ImageViewerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     String localImage = this.imageUrl;
     if (!localImage.contains('http') &&
+        !localImage.contains('assets/') &&
         !localImage.contains(getPath().imageAssetPathPrefix)) {
       localImage = '${getPath().imageAssetPathPrefix}/${this.imageUrl}';
     }
