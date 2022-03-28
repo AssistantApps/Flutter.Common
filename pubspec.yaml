@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.1.22
+version: 0.1.23
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 
@@ -53,8 +53,8 @@ dependencies:
   url_launcher: 6.0.20
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  # flutter_test:
+  #   sdk: flutter
   flutter_lints: ^1.0.0
 
 flutter:
