@@ -20,6 +20,7 @@ class BaseApiService {
       getLog().d('web get request to: $url');
       final response = await http.get(Uri.parse(url), headers: headers);
       if (response.statusCode != 200) {
+        getLog().d("GET request not a 200 response");
         return ResultWithValue<String>(false, '', 'Not a 200 OK response');
       }
       return ResultWithValue<String>(true, response.body, '');

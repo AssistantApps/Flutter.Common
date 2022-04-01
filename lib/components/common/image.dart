@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:octo_image/octo_image.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../helpers/pathHelper.dart';
 import '../../integration/dependencyInjection.dart';
@@ -12,10 +13,8 @@ Widget networkImage(
   double? width,
   Widget? loading,
 }) {
-  return SizedBox(
-    height: height,
-    width: width,
-    child: OctoImage(
+  Widget Function() getImgWidget = () {
+    return OctoImage(
       image: CachedNetworkImageProvider(
         imageUrl,
         // TODO uncomment this... No you
@@ -32,7 +31,17 @@ Widget networkImage(
       fit: boxfit,
       height: height,
       width: width,
-    ),
+    );
+  };
+
+  if (imageUrl.contains('.svg')) {
+    getImgWidget = () => SvgPicture.network(imageUrl);
+  }
+
+  return SizedBox(
+    height: height,
+    width: width,
+    child: getImgWidget(),
   );
 }
 
