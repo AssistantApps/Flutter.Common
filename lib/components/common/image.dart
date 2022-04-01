@@ -35,7 +35,16 @@ Widget networkImage(
   };
 
   if (imageUrl.contains('.svg')) {
-    getImgWidget = () => SvgPicture.network(imageUrl);
+    getImgWidget = () => Container(
+          height: height,
+          width: width,
+          child: SvgPicture.network(
+            imageUrl,
+            height: height,
+            width: width,
+            fit: boxfit ?? BoxFit.contain,
+          ),
+        );
   }
 
   return SizedBox(
