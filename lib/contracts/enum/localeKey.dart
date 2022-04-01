@@ -531,5 +531,6 @@ enum LocaleKey {
   rewardFrom,
   twitchCampaignNum,
   milestones,
-  viewGuildMissions
+  viewGuildMissions,
+  creative
 }
