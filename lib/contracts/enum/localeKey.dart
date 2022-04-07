@@ -532,5 +532,7 @@ enum LocaleKey {
   twitchCampaignNum,
   milestones,
   viewGuildMissions,
-  creative
+  creative,
+  twitchDrop,
+  quicksilverCompanion
 }
