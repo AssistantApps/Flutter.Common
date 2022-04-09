@@ -17,13 +17,7 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageWidget extends State<AboutPage> {
-  late List<Widget> Function(BuildContext context) aboutPageWidgetsFunc;
   int tabSelection = 0;
-
-  _AboutPageWidget() {
-    this.aboutPageWidgetsFunc =
-        widget.aboutPageWidgetsFunc ?? (_) => List.empty();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,11 +69,14 @@ class _AboutPageWidget extends State<AboutPage> {
   }
 
   List<Widget> buildPage(BuildContext pageContext, int tabIndex) {
+    List<Widget> Function(BuildContext context) aboutPageWidgetsFunc =
+        widget.aboutPageWidgetsFunc ?? (_) => List.empty();
+
     switch (tabIndex) {
       case 0:
         return [AboutPageAvailableApps(widget.appType)];
       case 1:
-        return this.aboutPageWidgetsFunc(pageContext);
+        return aboutPageWidgetsFunc(pageContext);
       case 2:
         return [AboutPageTeam()];
     }
