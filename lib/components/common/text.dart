@@ -27,12 +27,13 @@ Widget genericItemName(String name, {maxLines = 3}) => Container(
       margin: const EdgeInsets.all(4.0),
     );
 
-Widget genericItemDescription(String description, {TextStyle? textStyle}) =>
+Widget genericItemDescription(String description,
+        {TextStyle? textStyle, int maxLines = 10}) =>
     Container(
       child: Text(
         description,
         textAlign: TextAlign.center,
-        maxLines: 10,
+        maxLines: maxLines,
         style: textStyle,
       ),
       margin: const EdgeInsets.all(4.0),
