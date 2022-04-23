@@ -54,8 +54,9 @@ class AboutPageTeam extends StatelessWidget {
         context,
         imageUrl:
             'https://nmsassistant.com/assets/img/collaborators/cyberpunk2350.png',
-        name: 'Moderator | NMS Dataminer | Keeper of Obscure Knowledge',
-        subtitle: Text('Discord Admin'),
+        name: 'Cyberpunk2350',
+        subtitle:
+            Text('Moderator | NMS Dataminer | Keeper of Obscure Knowledge'),
       ),
     );
     widgets.add(emptySpace(1));
