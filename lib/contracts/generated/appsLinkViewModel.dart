@@ -35,7 +35,8 @@ class AssistantAppsLinkViewModel {
   factory AssistantAppsLinkViewModel.fromJson(Map<String, dynamic> json) =>
       AssistantAppsLinkViewModel(
         guid: readStringSafe(json, 'guid'),
-        type: assistantAppTypeValues.map[readIntSafe(json, 'type').toString()]!,
+        type: assistantAppTypeValues.map[readStringSafe(json, 'type')] ??
+            AssistantAppType.Unknown,
         name: readStringSafe(json, 'name'),
         gameName: readStringSafe(json, 'gameName'),
         iconUrl: readStringSafe(json, 'iconUrl'),
@@ -44,6 +45,30 @@ class AssistantAppsLinkViewModel {
         isVisible: readBoolSafe(json, 'isVisible'),
         sortOrder: readIntSafe(json, 'sortOrder'),
       );
+
+  AssistantAppsLinkViewModel copyWith({
+    String? guid,
+    AssistantAppType? type,
+    String? name,
+    String? gameName,
+    String? iconUrl,
+    String? logoUrl,
+    List<Link>? links,
+    bool? isVisible,
+    int? sortOrder,
+  }) {
+    return AssistantAppsLinkViewModel(
+      guid: guid ?? this.guid,
+      type: type ?? this.type,
+      name: name ?? this.name,
+      gameName: gameName ?? this.gameName,
+      iconUrl: iconUrl ?? this.iconUrl,
+      logoUrl: logoUrl ?? this.logoUrl,
+      links: links ?? this.links,
+      isVisible: isVisible ?? this.isVisible,
+      sortOrder: sortOrder ?? this.sortOrder,
+    );
+  }
 }
 
 class Link {

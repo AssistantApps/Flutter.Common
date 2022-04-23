@@ -43,8 +43,7 @@ class AboutPageTeam extends StatelessWidget {
     widgets.add(
       genericListTileWithNetworkImage(
         context,
-        imageUrl:
-            'https://cdn.nmsassistant.com/ApiUploads/CommunityLinks/lenni.png',
+        imageUrl: AppImage.teamPictureUrlLenni,
         name: 'Lenni',
         subtitle: Text('German Translator | Bug finder | NMS Expert'),
       ),
@@ -52,8 +51,7 @@ class AboutPageTeam extends StatelessWidget {
     widgets.add(
       genericListTileWithNetworkImage(
         context,
-        imageUrl:
-            'https://nmsassistant.com/assets/img/collaborators/cyberpunk2350.png',
+        imageUrl: AppImage.teamPictureUrlCyberpunk,
         name: 'Cyberpunk2350',
         subtitle:
             Text('Moderator | NMS Dataminer | Keeper of Obscure Knowledge'),

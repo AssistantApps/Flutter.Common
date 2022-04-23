@@ -120,17 +120,6 @@ export 'services/BaseApiService.dart';
 export 'services/BaseJsonService.dart';
 export 'services/BaseSignalRService.dart';
 //
-//Api Interfaces
-export 'services/api/interface/IAssistantAppsApiService.dart';
-export 'services/api/interface/IDonatorApiService.dart';
-export 'services/api/interface/IPatreonApiService.dart';
-export 'services/api/interface/ITranslationApiService.dart';
-export 'services/api/interface/IVersionApiService.dart';
-export 'services/api/patreonApiService.dart';
-export 'services/api/translationApiService.dart';
-export 'services/api/versionApiService.dart';
-export 'services/signalr/OAuthSignalRService.dart';
-//
 //Base Interfaces
 export 'services/base/interface/IAnalyticsService.dart';
 export 'services/base/interface/ILoggingService.dart';
@@ -145,6 +134,25 @@ export 'services/base/interface/IDialogService.dart';
 export 'services/base/interface/ITranslationsService.dart';
 export 'services/base/interface/ILanguageService.dart';
 export 'services/base/interface/IUpdateService.dart';
+//
+//Api Interfaces
+export 'services/api/interface/IAssistantAppsApiService.dart';
+export 'services/api/interface/IDonatorApiService.dart';
+export 'services/api/interface/IPatreonApiService.dart';
+export 'services/api/interface/ISteamApiService.dart';
+export 'services/api/interface/ITranslationApiService.dart';
+export 'services/api/interface/IVersionApiService.dart';
+export 'services/api/patreonApiService.dart';
+export 'services/api/steamApiService.dart';
+export 'services/api/translationApiService.dart';
+export 'services/api/versionApiService.dart';
+export 'services/signalr/OAuthSignalRService.dart';
+//
+//Data Interfaces
+export 'services/json/interface/IbackupJsonService.dart';
+export 'services/json/interface/IdataJsonService.dart';
+export 'services/json/backupJsonService.dart';
+export 'services/json/dataJsonService.dart';
 //
 //Json Interfaces
 export 'services/json/backupJsonService.dart';

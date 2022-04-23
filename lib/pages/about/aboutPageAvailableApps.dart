@@ -45,20 +45,21 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
         await getAssistantAppsData().getAssistantApps(context);
     if (assistantAppsResult.hasFailed) return;
 
-    List<AssistantAppsLinkViewModel> localAssistantAppLinks =
-        assistantAppsResult.value.toList();
-    localAssistantAppLinks.sort(
-      (a, b) => //
-          ( //
-              a.type == widget.appType //
-                  ? 1 //
-                  : (a.sortOrder.compareTo(b.sortOrder)) //
-          ),
+    List<AssistantAppsLinkViewModel> sortModifiedAssistantAppLinks =
+        List.empty(growable: true);
+
+    for (AssistantAppsLinkViewModel item
+        in assistantAppsResult.value.toList()) {
+      int newSortOrder = item.type == widget.appType ? -10 : item.sortOrder;
+      sortModifiedAssistantAppLinks.add(item.copyWith(sortOrder: newSortOrder));
+    }
+    sortModifiedAssistantAppLinks.sort(
+      (a, b) => (a.sortOrder.compareTo(b.sortOrder)),
     );
 
     this.setState(() {
       isLoading = false;
-      assistantAppLinks = localAssistantAppLinks;
+      assistantAppLinks = sortModifiedAssistantAppLinks;
     });
   }
 
@@ -124,7 +125,8 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
       Card(
         child: genericListTileWithSubtitle(
           context,
-          leadingImage: 'unknown.png',
+          leadingImage: '${AppImage.base}${AppImage.unknown}',
+          imagePackage: UIConstants.CommonPackage,
           name: 'Coming soon',
         ),
       ),

@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.1.34
+version: 0.1.35
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -66,8 +66,10 @@ dev_dependencies:
   # flutter_test:
   #   sdk: flutter
   flutter_lints: ^1.0.0
+  storybook_flutter: ^0.10.1
 
 flutter:
+  uses-material-design: true
   assets:
     - assets/data/
     #

@@ -16,6 +16,7 @@ class AppImage {
       base + donationsFolder + 'unknownDonation.png';
 
   static const String assistantApps = 'assistantApps.png';
+  static const String unknown = 'unknown.png';
 
   static const String error = base + 'error.png';
   static const String snowflake = base + 'special/snowflake.png';
@@ -32,6 +33,9 @@ class AppImage {
       baseTeamPictureUrl + 'LionessLilo.jpg';
   static const String teamPictureUrlSphynxcolt =
       baseTeamPictureUrl + 'Sphynxcolt.png';
+  static const String teamPictureUrlLenni = baseTeamPictureUrl + 'lenni.png';
+  static const String teamPictureUrlCyberpunk =
+      baseTeamPictureUrl + 'cyberpunk2350.png';
 
   static const String onlinePatreonIcon =
       'https://scrapassistant.com/assets/assets/img/drawer/patreon.png';

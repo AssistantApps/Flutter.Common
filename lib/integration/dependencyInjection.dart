@@ -49,6 +49,7 @@ final getIt = GetIt.instance;
 
 void initBaseDependencyInjection(
   AssistantAppsEnvironmentSettings _env, {
+  // Base
   ILoggerService? logger,
   IAnalyticsService? analytics,
   INavigationService? navigation,
@@ -60,7 +61,20 @@ void initBaseDependencyInjection(
   ISnackbarService? snackbar,
   IUpdateService? update,
   INotificationService? notification,
+  ITranslationService? translation,
   ILanguageService? language,
+
+  // API
+  IAssistantAppsApiService? assistantAppsApi,
+  IDonatorApiService? donatorApi,
+  IPatreonApiService? patreonApi,
+  ISteamApiService? steamApi,
+  ITranslationApiService? translationApi,
+  IVersionApiService? versionApi,
+
+  // Data
+  IBackupJsonService? backup,
+  IDataJsonService? data,
 }) {
   getIt.registerSingleton<AssistantAppsEnvironmentSettings>(_env);
   regSingleWithBackup<ILoggerService>(logger, LoggerService());
@@ -76,22 +90,25 @@ void initBaseDependencyInjection(
   regSingleWithBackup<INotificationService>(
       notification, NotificationService());
 
-  getIt.registerSingleton<ITranslationService>(TranslationService());
+  regSingleWithBackup<ITranslationService>(translation, TranslationService());
   regSingleWithBackup<ILanguageService>(language, LanguageService());
 
   // API
-  getIt.registerSingleton<IAssistantAppsApiService>(AssistantAppsApiService());
-  getIt.registerSingleton<IDonatorApiService>(DonatorApiService());
-  getIt.registerSingleton<IPatreonApiService>(PatreonApiService());
-  getIt.registerSingleton<ISteamApiService>(SteamApiService());
-  getIt.registerSingleton<ITranslationApiService>(TranslationApiService());
-  getIt.registerSingleton<IVersionApiService>(VersionApiService());
+  regSingleWithBackup<IAssistantAppsApiService>(
+      assistantAppsApi, AssistantAppsApiService());
+  regSingleWithBackup<IDonatorApiService>(donatorApi, DonatorApiService());
+  regSingleWithBackup<IPatreonApiService>(patreonApi, PatreonApiService());
+  regSingleWithBackup<ISteamApiService>(steamApi, SteamApiService());
+  regSingleWithBackup<ITranslationApiService>(
+      translationApi, TranslationApiService());
+  regSingleWithBackup<IVersionApiService>(versionApi, VersionApiService());
 
   // SignalR
   getIt.registerSingleton<OAuthSignalRService>(OAuthSignalRService());
 
-  getIt.registerSingleton<IBackupJsonService>(BackupJsonService());
-  getIt.registerSingleton<IDataJsonService>(DataJsonService());
+// Data
+  regSingleWithBackup<IBackupJsonService>(backup, BackupJsonService());
+  regSingleWithBackup<IDataJsonService>(data, DataJsonService());
 }
 
 AssistantAppsEnvironmentSettings getEnv() =>

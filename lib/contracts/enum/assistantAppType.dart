@@ -4,10 +4,12 @@ enum AssistantAppType {
   Unknown,
   NMS,
   SMS,
+  KGZ,
 }
 
 final assistantAppTypeValues = EnumValues({
-  "0": AssistantAppType.Unknown,
-  "1": AssistantAppType.NMS,
-  "2": AssistantAppType.SMS,
+  "Unknown": AssistantAppType.Unknown,
+  "NMS": AssistantAppType.NMS,
+  "SMS": AssistantAppType.SMS,
+  "KGZ": AssistantAppType.KGZ,
 });

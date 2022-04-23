@@ -5,12 +5,14 @@ import 'aboutPageAvailableApps.dart';
 import 'aboutPageTeam.dart';
 
 class AboutPage extends StatefulWidget {
+  final Key key;
   final AssistantAppType appType;
   final List<Widget> Function(BuildContext context)? aboutPageWidgetsFunc;
   AboutPage({
+    required this.key,
     this.appType = AssistantAppType.Unknown,
     this.aboutPageWidgetsFunc,
-  });
+  }) : super(key: key);
 
   @override
   _AboutPageWidget createState() => _AboutPageWidget();
@@ -26,10 +28,12 @@ class _AboutPageWidget extends State<AboutPage> {
         Icons.apps_rounded,
         'AssistantApps',
       ),
-      getSegmentedControlWithIconOption(
-        Icons.help_outline,
-        'This app',
-      ),
+      if (widget.aboutPageWidgetsFunc != null) ...[
+        getSegmentedControlWithIconOption(
+          Icons.help_outline,
+          'This app',
+        ),
+      ],
       getSegmentedControlWithIconOption(
         Icons.people_alt,
         'Team',
@@ -60,6 +64,7 @@ class _AboutPageWidget extends State<AboutPage> {
             customDivider(),
           ],
           Column(
+            key: Key(widget.appType.toString()),
             mainAxisSize: MainAxisSize.max,
             children: buildPage(context, this.tabSelection),
           ),
@@ -68,28 +73,33 @@ class _AboutPageWidget extends State<AboutPage> {
     );
   }
 
-  List<Widget> buildPage(BuildContext pageContext, int tabIndex) {
-    List<Widget> Function(BuildContext context) aboutPageWidgetsFunc =
-        widget.aboutPageWidgetsFunc ?? (_) => List.empty();
-
-    switch (tabIndex) {
-      case 0:
-        return [AboutPageAvailableApps(widget.appType)];
-      case 1:
-        return aboutPageWidgetsFunc(pageContext);
-      case 2:
-        return [AboutPageTeam()];
-    }
-
+  List<List<Widget> Function()> getPages(BuildContext pageContext) {
     return [
-      emptySpace1x(),
-      Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          genericItemName(getTranslations().fromKey(LocaleKey.noItems)),
-        ],
-      )
+      () => [AboutPageAvailableApps(widget.appType)],
+      if (widget.aboutPageWidgetsFunc != null) ...[
+        () => widget.aboutPageWidgetsFunc!(pageContext),
+      ],
+      () => [AboutPageTeam()],
     ];
+  }
+
+  List<Widget> buildPage(BuildContext pageContext, int tabIndex) {
+    List<List<Widget> Function()> pageFuncs = getPages(pageContext);
+    try {
+      List<Widget> Function() pageFunc = pageFuncs[tabIndex];
+      return pageFunc();
+    } //
+    catch (ex) {
+      return [
+        emptySpace1x(),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            genericItemName(getTranslations().fromKey(LocaleKey.noItems)),
+          ],
+        )
+      ];
+    }
   }
 }

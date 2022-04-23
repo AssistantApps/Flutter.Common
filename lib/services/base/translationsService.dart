@@ -16,7 +16,7 @@ import 'interface/ITranslationsService.dart';
 
 class TranslationService implements ITranslationService {
   late Locale locale;
-  late Map<dynamic, dynamic> _localisedValues;
+  late Map<dynamic, dynamic> _localisedValues = Map<dynamic, dynamic>();
 
   @override
   Future<ITranslationService> load(Locale locale) async {
