@@ -7,7 +7,6 @@ class NavigationService implements INavigationService {
   @override
   Future<bool> navigateBackOrHomeAsync(context) async {
     const baseLogMsg = 'navigationService - navigateBackOrHomeAsync';
-    getLog().i(baseLogMsg);
     if (Navigator.canPop(context)) {
       getLog().i('$baseLogMsg - canPop');
       Navigator.pop(context);
@@ -25,7 +24,6 @@ class NavigationService implements INavigationService {
       String? navigateToNamed,
       bool? pushReplacement}) async {
     const baseLogMsg = 'navigationService - navigateHomeAsync';
-    getLog().i(baseLogMsg);
     Navigator.popUntil(context, (r) => !Navigator.canPop(context));
 
     if (navigateTo != null) {
@@ -36,7 +34,6 @@ class NavigationService implements INavigationService {
         MaterialPageRoute(builder: navigateTo),
       );
     } else if (navigateToNamed != null) {
-      getLog().i('$baseLogMsg - navigateToName != null');
       if (pushReplacement != null && pushReplacement == true) {
         getLog().i('$baseLogMsg - pushReplacementNamed');
         await Navigator.pushReplacementNamed(
@@ -63,7 +60,6 @@ class NavigationService implements INavigationService {
     Map<String, String>? navigateToNamedParameters,
   }) async {
     const baseLogMsg = 'navigationService - navigateAwayFromHomeAsync';
-    getLog().i(baseLogMsg);
     if (navigateTo != null) {
       getLog().i('$baseLogMsg - navigateTo != null');
       Navigator.push(
@@ -85,7 +81,6 @@ class NavigationService implements INavigationService {
       {Widget Function(BuildContext)? navigateTo,
       String? navigateToNamed}) async {
     const baseLogMsg = 'navigationService - navigateAsync';
-    getLog().i(baseLogMsg);
     if (navigateTo != null) {
       getLog().i('$baseLogMsg - navigateTo != null');
       return await Navigator.push(
