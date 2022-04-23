@@ -7,6 +7,7 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 import 'constants/StorybookNames.dart';
 import 'stories/about/aboutStories.dart';
 import 'stories/home/homeStories.dart';
+import 'stories/searchList/searchListStories.dart';
 
 void main() => runApp(StorybookApp());
 
@@ -44,12 +45,16 @@ class _StorybookAppState<T> extends State<StorybookApp>
       theme: StorybookThemeService(),
     );
 
-    Future.delayed(
-      Duration(seconds: 1),
-      () => setState(() {
-        hasLoaded = true;
-      }),
-    );
+    setState(() {
+      hasLoaded = true;
+    });
+
+    // Future.delayed(
+    //   Duration(seconds: 0),
+    //   () => setState(() {
+    //     hasLoaded = true;
+    //   }),
+    // );
   }
 
   @override
@@ -57,12 +62,13 @@ class _StorybookAppState<T> extends State<StorybookApp>
     if (hasLoaded == false) return Center(child: CircularProgressIndicator());
 
     return Storybook(
-      initialStory: StorybookNames.Home,
+      initialStory: StorybookNames.Welcome,
       plugins: _plugins,
       showPanel: true,
       stories: [
         ...getHomeStories(),
         ...getAboutStories(),
+        ...getSearchListStories(),
       ],
     );
   }

@@ -7,7 +7,8 @@ import '../../constants/StorybookNames.dart';
 List<Story> getHomeStories() {
   return [
     Story(
-      name: StorybookNames.Home,
+      name: StorybookNames.Welcome,
+      description: 'Quick intro to this site',
       builder: (context) => getBaseWidget().appScaffold(
         context,
         appBar: getBaseWidget().appBarForSubPage(
