@@ -6,6 +6,7 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 
 import 'constants/StorybookNames.dart';
 import 'stories/about/aboutStories.dart';
+import 'stories/home/homeStories.dart';
 
 void main() => runApp(StorybookApp());
 
@@ -56,9 +57,11 @@ class _StorybookAppState<T> extends State<StorybookApp>
     if (hasLoaded == false) return Center(child: CircularProgressIndicator());
 
     return Storybook(
-      initialStory: StorybookNames.AboutPage,
+      initialStory: StorybookNames.Home,
       plugins: _plugins,
+      showPanel: true,
       stories: [
+        ...getHomeStories(),
         ...getAboutStories(),
       ],
     );

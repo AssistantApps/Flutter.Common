@@ -11,6 +11,7 @@ List<Story> getAboutStories() {
   return [
     Story(
       name: StorybookNames.AboutPage,
+      description: 'Full page with all default pages',
       builder: (context) => AboutPage(
         key: Key(context.knobs.toString()),
         appType: context.knobs.options(
@@ -22,15 +23,17 @@ List<Story> getAboutStories() {
     ),
     Story(
       name: StorybookNames.AboutPageContent,
+      description: 'First tab of the about page',
       builder: (context) => AboutPageAvailableApps(AssistantAppType.Unknown),
     ),
     Story(
       name: StorybookNames.AboutTeamPage,
+      description: 'Lists the Team members',
       builder: (context) => AboutPageTeam(),
     ),
     Story(
       name: StorybookNames.AboutPageCustom,
-      description: 'About page with custom content for the app running',
+      description: 'Example of custom content',
       builder: (context) => AboutPage(
         key: Key(context.knobs.toString()),
         appType: context.knobs.options(

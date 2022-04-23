@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-final Color themePrimary =
-    Color.fromARGB(255, 68, 138, 255); //Colors.blueAccent[300]
+final Color themePrimary = Color.fromRGBO(0, 200, 83, 1); // greenAccent[700]
 final Color themeSecondary =
     Color.fromRGBO(255, 171, 64, 1); //Colors.orangeAccent[200]
 final String themeFontFamily = 'Roboto';
