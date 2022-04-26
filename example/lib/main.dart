@@ -1,9 +1,11 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart'
+    hide GuideApiService;
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
 import 'services/themeService.dart';
+import 'services/guideApiService.dart';
 import 'constants/StorybookNames.dart';
 import 'stories/about/aboutStories.dart';
 import 'stories/guide/guideStories.dart';
@@ -44,6 +46,7 @@ class _StorybookAppState<T> extends State<StorybookApp>
     initBaseDependencyInjection(
       _env,
       theme: StorybookThemeService(),
+      guideApi: GuideApiService(),
     );
 
     setState(() {

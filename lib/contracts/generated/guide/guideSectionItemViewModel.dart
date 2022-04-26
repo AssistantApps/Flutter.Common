@@ -12,17 +12,17 @@ class GuideSectionItemViewModel {
   String guid;
   GuideSectionItemType type;
   String content;
-  String additionalContent;
-  List<String> tableColumnNames;
-  List<List<String>> tableData;
+  String? additionalContent;
+  List<String>? tableColumnNames;
+  List<List<String>>? tableData;
 
   GuideSectionItemViewModel({
     required this.guid,
     required this.type,
     required this.content,
-    required this.additionalContent,
-    required this.tableColumnNames,
-    required this.tableData,
+    this.additionalContent,
+    this.tableColumnNames,
+    this.tableData,
   });
 
   factory GuideSectionItemViewModel.fromRawJson(String str) =>

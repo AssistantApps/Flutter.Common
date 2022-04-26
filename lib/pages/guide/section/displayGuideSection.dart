@@ -114,11 +114,14 @@ Widget linkListItem(GuideSectionItemViewModel item) {
   var onTap = () => launchExternalURL(item.content);
   return flatCard(
     child: InkWell(
-      child: Chip(
-        label: Text(item.additionalContent),
-        backgroundColor: Colors.transparent,
-        deleteIcon: Icon(Icons.open_in_new),
-        onDeleted: onTap,
+      child: Padding(
+        padding: EdgeInsets.all(12),
+        child: Chip(
+          label: Text(item.additionalContent ?? ''),
+          backgroundColor: Colors.transparent,
+          deleteIcon: Icon(Icons.open_in_new),
+          onDeleted: onTap,
+        ),
       ),
       onTap: onTap,
     ),

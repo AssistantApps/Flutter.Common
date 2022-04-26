@@ -60,6 +60,12 @@ export 'contracts/generated/steamBranchesViewModel.dart';
 export 'contracts/generated/translatorLeaderboardItemViewModel.dart';
 export 'contracts/generated/versionSearchViewModel.dart';
 export 'contracts/generated/versionViewModel.dart';
+export 'contracts/generated/guide/addGuideViewModel.dart';
+export 'contracts/generated/guide/guideContentViewModel.dart';
+export 'contracts/generated/guide/guideSearchResultViewModel.dart';
+export 'contracts/generated/guide/guideSearchViewModel.dart';
+export 'contracts/generated/guide/guideSectionItemViewModel.dart';
+export 'contracts/generated/guide/guideSectionViewModel.dart';
 export 'contracts/guide/guideDraftModel.dart';
 export 'contracts/guide/guideSection.dart';
 export 'contracts/guide/guideSectionItem.dart';
@@ -123,9 +129,6 @@ export 'pages/whatIsNew/whatIsNewDetailPageComponent.dart';
 export 'pages/whatIsNew/whatIsNewPage.dart';
 export 'pages/whatIsNew/whatIsNewPageComponent.dart';
 //
-//Api implementations
-export 'services/api/donatorApiService.dart';
-//
 //Base Services
 export 'services/BaseApiService.dart';
 export 'services/BaseJsonService.dart';
@@ -149,10 +152,14 @@ export 'services/base/interface/IUpdateService.dart';
 //Api Interfaces
 export 'services/api/interface/IAssistantAppsApiService.dart';
 export 'services/api/interface/IDonatorApiService.dart';
+export 'services/api/interface/IGuideApiService.dart';
 export 'services/api/interface/IPatreonApiService.dart';
 export 'services/api/interface/ISteamApiService.dart';
 export 'services/api/interface/ITranslationApiService.dart';
 export 'services/api/interface/IVersionApiService.dart';
+export 'services/api/assistantAppsApiService.dart';
+export 'services/api/donatorApiService.dart';
+export 'services/api/guideApiService.dart';
 export 'services/api/patreonApiService.dart';
 export 'services/api/steamApiService.dart';
 export 'services/api/translationApiService.dart';

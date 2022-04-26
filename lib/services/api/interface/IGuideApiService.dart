@@ -1,9 +1,10 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-
 import '../../../contracts/generated/guide/guideSearchResultViewModel.dart';
 import '../../../contracts/generated/guide/addGuideViewModel.dart';
 import '../../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../../contracts/generated/guide/guideSearchViewModel.dart';
+import '../../../contracts/results/paginationResultWithValue.dart';
+import '../../../contracts/results/result.dart';
+import '../../../contracts/results/resultWithValue.dart';
 
 class IGuideApiService {
   Future<PaginationResultWithValue<List<GuideSearchResultViewModel>>>

@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/constants/UIConstants.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/localeKey.dart';
@@ -20,7 +21,10 @@ Widget guideTilePresenter(
   //     (guide.imageUrl == null || guide.imageUrl.length < 5)
   //         ? localImage(AppImage.error1, boxfit: BoxFit.fitWidth)
   //         : networkImage(post.coverImageUrl, boxfit: BoxFit.fitWidth);
-  Widget imageWidget = localImage(getPath().defaultGuideImage);
+  Widget imageWidget = localImage(
+    getPath().defaultGuideImage,
+    imagePackage: UIConstants.CommonPackage,
+  );
 
   List<Widget> firstRow = List.empty(growable: true);
   if (guide.showCreatedByUser && guide.userName.isNotEmpty) {
@@ -35,13 +39,15 @@ Widget guideTilePresenter(
     firstRow.add(Row(
       children: [
         Icon(Icons.timer),
-        Text(getTranslations()
-            .fromKey(LocaleKey.minutes)
-            .replaceAll('{0}', guide.minutes.toString())),
+        Text(
+          getTranslations()
+              .fromKey(LocaleKey.minutes)
+              .replaceAll('{0}', guide.minutes.toString()),
+        ),
       ],
     ));
   }
-  var bodyWidget = Column(
+  Column bodyWidget = Column(
     children: <Widget>[
       imageWidget,
       Padding(
@@ -52,11 +58,11 @@ Widget guideTilePresenter(
         ),
       ),
       Padding(
-        padding: EdgeInsets.only(top: 4, right: 4, left: 4),
+        padding: EdgeInsets.only(top: 8, bottom: 12, right: 4, left: 4),
         child: Text(
           guide.title,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16),
+          style: TextStyle(fontSize: 18),
         ),
       ),
       Wrap(

@@ -15,8 +15,8 @@ class GuideSearchResultViewModel {
   bool showCreatedByUser;
   String userGuid;
   String userName;
-  String translatorGuid;
-  String translatorName;
+  String? translatorGuid;
+  String? translatorName;
   int minutes;
   List<String> tags;
   AdminApprovalStatus status;
@@ -32,8 +32,8 @@ class GuideSearchResultViewModel {
     required this.showCreatedByUser,
     required this.userGuid,
     required this.userName,
-    required this.translatorGuid,
-    required this.translatorName,
+    this.translatorGuid,
+    this.translatorName,
     required this.minutes,
     required this.tags,
     required this.status,

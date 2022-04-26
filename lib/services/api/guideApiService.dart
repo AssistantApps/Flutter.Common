@@ -1,5 +1,7 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-
+import '../../contracts/results/paginationResultWithValue.dart';
+import '../../contracts/results/result.dart';
+import '../../contracts/results/resultWithValue.dart';
+import '../BaseApiService.dart';
 import './interface/IGuideApiService.dart';
 import '../../constants/ApiUrls.dart';
 import '../../contracts/generated/guide/addGuideViewModel.dart';

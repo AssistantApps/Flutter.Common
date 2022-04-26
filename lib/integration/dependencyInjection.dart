@@ -11,7 +11,7 @@ import '../services/api/interface/IPatreonApiService.dart';
 import '../services/api/interface/ITranslationApiService.dart';
 import '../services/api/interface/IUserApiService.dart';
 import '../services/api/interface/IVersionApiService.dart';
-import '../services/api/interface/IsteamApiService.dart';
+import '../services/api/interface/ISteamApiService.dart';
 import '../services/api/patreonApiService.dart';
 import '../services/api/steamApiService.dart';
 import '../services/api/translationApiService.dart';
