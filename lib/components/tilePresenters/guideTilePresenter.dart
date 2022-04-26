@@ -1,15 +1,18 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants/AppImage.dart';
+import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/guide/addGuideViewModel.dart';
 import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
 import '../../contracts/guide/guideDraftModel.dart';
+import '../../integration/dependencyInjection.dart';
 import '../../pages/guide/guideAddEditPage.dart';
 import '../../pages/guide/guideViewPage.dart';
+import '../common/card.dart';
 import '../common/chip.dart';
 import '../common/icon.dart';
+import '../common/image.dart';
+import '../menu/popupMenu.dart';
 
 Widget guideTilePresenter(
     BuildContext context, GuideSearchResultViewModel guide) {

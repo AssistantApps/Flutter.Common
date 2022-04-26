@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../assistantapps_flutter_common.dart';
+import '../contracts/enum/localeKey.dart';
+import '../integration/dependencyInjection.dart';
 
 Widget? asyncSnapshotHandler<T>(
   BuildContext context,

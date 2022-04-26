@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+
+import '../contracts/enum/localeKey.dart';
+import '../integration/dependencyInjection.dart';
 
 String getFriendlyTimeLeft(BuildContext context, int millisecondsLeft) {
   if (millisecondsLeft <= 0)

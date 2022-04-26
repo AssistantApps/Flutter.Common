@@ -1,8 +1,9 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_background/animated_background.dart';
 
 import '../../constants/AppImage.dart';
+import '../../constants/UIConstants.dart';
+import '../../contracts/enum/backgroundType.dart';
 
 class BackgroundWrapper extends StatelessWidget {
   final Key? key;

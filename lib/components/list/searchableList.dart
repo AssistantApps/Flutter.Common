@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../contracts/enum/localeKey.dart';
+import '../../contracts/results/resultWithValue.dart';
 import '../searchable.dart';
+import 'listWithScrollbar.dart';
 
 class SearchableList<T> extends StatelessWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;

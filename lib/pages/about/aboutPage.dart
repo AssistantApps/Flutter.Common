@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../components/adaptive/segmentedControl.dart';
+import '../../components/common/space.dart';
+import '../../components/common/text.dart';
+import '../../contracts/enum/assistantAppType.dart';
+import '../../contracts/enum/localeKey.dart';
+import '../../helpers/deviceHelper.dart';
+import '../../integration/dependencyInjection.dart';
 import 'aboutPageAvailableApps.dart';
 import 'aboutPageTeam.dart';
 

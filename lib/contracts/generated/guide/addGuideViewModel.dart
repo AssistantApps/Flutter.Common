@@ -5,8 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-
+import '../../../helpers/jsonHelper.dart';
 import 'guideContentViewModel.dart';
 import 'guideSectionViewModel.dart';
 

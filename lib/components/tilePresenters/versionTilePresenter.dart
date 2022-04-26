@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../contracts/enum/localeKey.dart';
+import '../../contracts/generated/versionViewModel.dart';
+import '../../contracts/results/resultWithValue.dart';
+import '../../helpers/snapshotHelper.dart';
+import '../../helpers/updateHelper.dart';
+import '../../integration/dependencyInjection.dart';
 import '../../services/base/versionService.dart';
+import '../common/image.dart';
+import '../common/newBanner.dart';
+import '../common/text.dart';
+import 'genericTilePresenter.dart';
+import 'timelineTileItemPresenter.dart';
 
 Widget Function(BuildContext context, VersionViewModel version, int index)
     versionTilePresenter(

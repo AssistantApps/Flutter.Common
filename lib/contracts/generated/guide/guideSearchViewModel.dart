@@ -5,8 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-
+import '../../../helpers/stringHelper.dart';
 import '../../../integration/dependencyInjection.dart';
 import '../../enum/sortDirection.dart';
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../contracts/generated/versionViewModel.dart';
+import '../../integration/dependencyInjection.dart';
 
 Widget timelineTilePresenter(
   BuildContext context,

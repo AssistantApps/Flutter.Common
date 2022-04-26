@@ -1,7 +1,10 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:giffy_dialog/giffy_dialog.dart';
+
+import '../../contracts/enum/localeKey.dart';
+import '../../integration/dependencyInjection.dart';
+import '../common/image.dart';
 
 void prettyDialog(
   BuildContext context,

@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../helpers/jsonHelper.dart';
 
 class TranslatorLeaderboardItemViewModel {
   TranslatorLeaderboardItemViewModel({

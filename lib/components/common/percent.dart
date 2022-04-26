@@ -1,6 +1,7 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+
+import '../../integration/dependencyInjection.dart';
 
 Widget horizontalProgressBar(BuildContext context, double percent,
     {bool animation = true, Widget? text}) {

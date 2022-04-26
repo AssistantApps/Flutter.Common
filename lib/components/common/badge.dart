@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../integration/dependencyInjection.dart';
 
 Widget basicBadge(BuildContext context, String badgeText, Widget child) {
   return Badge(

@@ -1,6 +1,9 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:pagination_view/pagination_view.dart';
+
+import '../../contracts/results/paginationResultWithValue.dart';
+import '../../integration/dependencyInjection.dart';
+import '../common/animation.dart';
 
 class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
   final Future<PaginationResultWithValue<List<T>>> Function(int page)

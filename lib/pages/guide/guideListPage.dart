@@ -1,11 +1,13 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/adaptive/searchBar.dart';
 import '../../components/list/paginationSearchableList.dart';
 import '../../components/tilePresenters/guideTilePresenter.dart';
+import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
 import '../../contracts/generated/guide/guideSearchViewModel.dart';
 import '../../contracts/guide/settingsForGuideListPage.dart';
+import '../../helpers/columnHelper.dart';
 import '../../integration/dependencyInjection.dart';
 
 class GuideListPage extends StatefulWidget {

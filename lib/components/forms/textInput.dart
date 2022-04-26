@@ -1,8 +1,10 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../contracts/enum/localeKey.dart';
 import '../../helpers/validationHelper.dart';
+import '../../integration/dependencyInjection.dart';
+import '../adaptive/checkbox.dart';
 
 var textEditingPadding = EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0);
 

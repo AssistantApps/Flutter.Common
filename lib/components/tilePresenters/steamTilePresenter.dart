@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../constants/UIConstants.dart';
+import '../../contracts/generated/steamBranchesViewModel.dart';
+import '../../contracts/generated/steamNewsItemViewModel.dart';
+import '../../helpers/dateHelper.dart';
+import '../../helpers/externalHelper.dart';
+import '../../integration/dependencyInjection.dart';
+import '../common/card.dart';
 import '../common/icon.dart';
+import '../common/image.dart';
 
 Widget steamNewsItemTilePresenter(
     BuildContext context, SteamNewsItemViewModel newsItem, int index) {

@@ -1,14 +1,22 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../../components/adaptive/bottomModal.dart';
+import '../../../components/adaptive/button.dart';
+import '../../../components/common/space.dart';
+import '../../../components/common/text.dart';
 import '../../../components/forms/textInput.dart';
+import '../../../components/grid/gridWithScrollbar.dart';
 import '../../../constants/PaddingConstant.dart';
 import '../../../contracts/enum/guideSectionItemType.dart';
+import '../../../contracts/enum/localeKey.dart';
 import '../../../contracts/guide/guideSection.dart';
 import '../../../contracts/guide/guideSectionItem.dart';
+import '../../../helpers/columnHelper.dart';
+import '../../../helpers/deviceHelper.dart';
+import '../../../integration/dependencyInjection.dart';
 import 'editGuideSectionItem.dart';
 import 'sectionItemOption.dart';
 

@@ -1,7 +1,8 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../contracts/misc/actionItem.dart';
+import '../../integration/dependencyInjection.dart';
 import 'appBar.dart';
 
 class AppBarForSubPage extends StatelessWidget

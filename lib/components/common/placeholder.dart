@@ -1,6 +1,7 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+
+import '../../integration/dependencyInjection.dart';
 
 Widget placeholderImage(
   BuildContext context, {

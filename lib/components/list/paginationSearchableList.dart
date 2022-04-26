@@ -1,6 +1,11 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
+
+import '../../contracts/enum/localeKey.dart';
+import '../../contracts/results/paginationResultWithValue.dart';
+import '../../contracts/results/resultWithValue.dart';
+import '../../integration/dependencyInjection.dart';
+import 'searchableList.dart';
 
 class PaginationSearchableList<T> extends StatefulWidget {
   final Future<PaginationResultWithValue<List<T>>> Function(int page)

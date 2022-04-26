@@ -1,12 +1,16 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/adaptive/bottomModal.dart';
+import '../../../components/adaptive/button.dart';
+import '../../../components/common/image.dart';
 import '../../../components/common/placeholder.dart';
 import '../../../components/forms/textInput.dart';
 import '../../../contracts/enum/guideSectionItemType.dart';
+import '../../../contracts/enum/localeKey.dart';
 import '../../../contracts/generated/uploadedImageViewModel.dart';
 import '../../../contracts/guide/guideSectionItem.dart';
 import '../../../helpers/imageUploadHelper.dart';
+import '../../../integration/dependencyInjection.dart';
 import '../../misc/markdownPreviewPage.dart';
 
 Widget getSectionEditItem(BuildContext context, GuideSectionItem item,
