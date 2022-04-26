@@ -3,15 +3,19 @@ import 'package:get_it/get_it.dart';
 import '../env/assistantAppsEnvironmentSettings.dart';
 import '../services/api/assistantAppsApiService.dart';
 import '../services/api/donatorApiService.dart';
+import '../services/api/guideApiService.dart';
 import '../services/api/interface/IAssistantAppsApiService.dart';
 import '../services/api/interface/IDonatorApiService.dart';
+import '../services/api/interface/IGuideApiService.dart';
 import '../services/api/interface/IPatreonApiService.dart';
 import '../services/api/interface/ITranslationApiService.dart';
+import '../services/api/interface/IUserApiService.dart';
 import '../services/api/interface/IVersionApiService.dart';
 import '../services/api/interface/IsteamApiService.dart';
 import '../services/api/patreonApiService.dart';
 import '../services/api/steamApiService.dart';
 import '../services/api/translationApiService.dart';
+import '../services/api/userApiService.dart';
 import '../services/api/versionApiService.dart';
 import '../services/base/analyticsService.dart';
 import '../services/base/baseWidgetService.dart';
@@ -67,9 +71,11 @@ void initBaseDependencyInjection(
   // API
   IAssistantAppsApiService? assistantAppsApi,
   IDonatorApiService? donatorApi,
+  IGuideApiService? guideApi,
   IPatreonApiService? patreonApi,
   ISteamApiService? steamApi,
   ITranslationApiService? translationApi,
+  IUserApiService? userApi,
   IVersionApiService? versionApi,
 
   // Data
@@ -97,10 +103,12 @@ void initBaseDependencyInjection(
   regSingleWithBackup<IAssistantAppsApiService>(
       assistantAppsApi, AssistantAppsApiService());
   regSingleWithBackup<IDonatorApiService>(donatorApi, DonatorApiService());
+  regSingleWithBackup<IGuideApiService>(guideApi, GuideApiService());
   regSingleWithBackup<IPatreonApiService>(patreonApi, PatreonApiService());
   regSingleWithBackup<ISteamApiService>(steamApi, SteamApiService());
   regSingleWithBackup<ITranslationApiService>(
       translationApi, TranslationApiService());
+  regSingleWithBackup<IUserApiService>(userApi, UserApiService());
   regSingleWithBackup<IVersionApiService>(versionApi, VersionApiService());
 
   // SignalR
@@ -132,11 +140,13 @@ INotificationService getNotifications() => getIt<INotificationService>();
 IAssistantAppsApiService getAssistantAppsApi() =>
     getIt<IAssistantAppsApiService>();
 IDonatorApiService getAssistantAppsDonators() => getIt<IDonatorApiService>();
+IGuideApiService getAssistantAppsGuide() => getIt<IGuideApiService>();
 IPatreonApiService getAssistantAppsPatreons() => getIt<IPatreonApiService>();
 ISteamApiService getAssistantAppsSteam() => getIt<ISteamApiService>();
 ITranslationApiService getAssistantAppsTranslation() =>
     getIt<ITranslationApiService>();
 IVersionApiService getAssistantAppsVersions() => getIt<IVersionApiService>();
+IUserApiService getAssistantAppsUserApi() => getIt<IUserApiService>();
 
 // AssistantApps SignalR
 OAuthSignalRService getAssistantAppsOAuthSignalR() =>

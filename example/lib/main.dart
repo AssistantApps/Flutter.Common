@@ -6,6 +6,7 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 import 'services/themeService.dart';
 import 'constants/StorybookNames.dart';
 import 'stories/about/aboutStories.dart';
+import 'stories/guide/guideStories.dart';
 import 'stories/home/homeStories.dart';
 import 'stories/searchList/searchListStories.dart';
 
@@ -69,6 +70,7 @@ class _StorybookAppState<T> extends State<StorybookApp>
         ...getHomeStories(),
         ...getAboutStories(),
         ...getSearchListStories(),
+        ...getGuideStories(),
       ],
     );
   }

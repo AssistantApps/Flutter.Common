@@ -66,3 +66,23 @@ bool isMobileScreenWidth(Breakpoint breakpoint) {
 
   return false;
 }
+
+int blogPostItemsCustomColumnCount(Breakpoint breakpoint) {
+  if (breakpoint.window == WindowSize.xsmall) return 1;
+  if (breakpoint.window == WindowSize.small) return 2;
+  if (breakpoint.window == WindowSize.medium) return 3;
+  if (breakpoint.window == WindowSize.large) return 4;
+  if (breakpoint.window == WindowSize.xlarge) return 5;
+
+  return 4;
+}
+
+int sectionItemCustomColumnCount(Breakpoint breakpoint) {
+  if (breakpoint.window == WindowSize.xsmall) return 2;
+  if (breakpoint.window == WindowSize.small) return 3;
+  if (breakpoint.window == WindowSize.medium) return 4;
+  if (breakpoint.window == WindowSize.large) return 5;
+  if (breakpoint.window == WindowSize.xlarge) return 6;
+
+  return 4;
+}

@@ -1,4 +1,4 @@
-import 'package:assistantapps_flutter_common/integration/dependencyInjection.dart';
+import '../integration/dependencyInjection.dart';
 
 String getImagePath(String imagePath, {String? imagePackage}) {
   String prefix = '';

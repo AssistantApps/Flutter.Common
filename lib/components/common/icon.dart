@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../integration/dependencyInjection.dart';
+
 Widget iconWithValueRow(IconData icon, int value) {
   return Row(
     children: [
@@ -9,5 +11,23 @@ Widget iconWithValueRow(IconData icon, int value) {
         child: Text(value.toString()),
       )
     ],
+  );
+}
+
+Widget iconBackgroundCover(BuildContext context, Widget child,
+    {Color? backgroundColour,
+    Color? splashColour,
+    BorderRadiusGeometry? borderRadius}) {
+  return Material(
+    color: backgroundColour ?? getTheme().getPrimaryColour(context),
+    child: InkWell(
+      splashColor: splashColour ?? getTheme().getSecondaryColour(context),
+      child: SizedBox(
+        width: 50,
+        height: 50,
+        child: child,
+      ),
+    ),
+    borderRadius: borderRadius,
   );
 }

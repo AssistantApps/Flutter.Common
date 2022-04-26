@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../constants/AppImage.dart';
+import '../../constants/UIConstants.dart';
 import '../../helpers/pathHelper.dart';
 import '../../integration/dependencyInjection.dart';
 
@@ -127,4 +129,43 @@ Widget getListTileImage(
   );
   if (padding == null) return child;
   return Padding(padding: padding, child: child);
+}
+
+Widget networkBlurHashImage(
+  String imageUrl,
+  String blurHash, {
+  Key? key,
+  BoxFit? boxfit,
+  double? height,
+  double? width,
+  Widget? placeHolder,
+  Widget? errorWidget,
+  void Function()? onTap,
+}) {
+  return InkWell(
+    key: key,
+    child: SizedBox(
+      height: height,
+      width: width,
+      child: OctoImage(
+        fit: boxfit,
+        image: CachedNetworkImageProvider(
+          (imageUrl.contains('http')) ? imageUrl : getPath().defaultProfilePic,
+        ),
+        placeholderBuilder: OctoPlaceholder.blurHash(blurHash),
+        errorBuilder: (_, __, ___) =>
+            errorWidget ??
+            localImage(
+              AppImage.error,
+              imagePackage: UIConstants.CommonPackage,
+              width: width ?? 150,
+              height: height ?? 150,
+            ),
+        // progressIndicatorBuilder: (_, __) => smallLoadingIndicator(),
+      ),
+    ),
+    onTap: () {
+      if (onTap != null) onTap();
+    },
+  );
 }

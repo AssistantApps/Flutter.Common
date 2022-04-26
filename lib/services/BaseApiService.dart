@@ -1,5 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:http/http.dart' as http;
 
+import '../contracts/generated/uploadedImageViewModel.dart';
 import '../contracts/results/resultWithValue.dart';
 import '../integration/dependencyInjection.dart';
 
@@ -83,5 +86,39 @@ class BaseApiService {
       getLog().e("BaseApiService PUT Exception: ${exception.toString()}");
       return ResultWithValue<String>(false, '', exception.toString());
     }
+  }
+
+  Future<ResultWithValue<List<UploadedImageViewModel>>> apiPostFile(
+      String url, List<String> filenames, List<Uint8List> fileContents) async {
+    // var logger = getLog();
+
+    // List<MultipartFile> multipartFiles = List.empty();
+    // for (var fileIndex = 0; fileIndex < filenames.length; fileIndex++) {
+    //   multipartFiles.add(MultipartFile.fromBytes(
+    //     fileContents[fileIndex],
+    //     filename: filenames[fileIndex],
+    //   ));
+    // }
+    // FormData formData = FormData.fromMap({'files': multipartFiles});
+    // try {
+    //   getLog().d('post formdata request to: $url');
+    //   final response = await _dio.post(url, data: formData);
+    //   if (response.statusCode != 200) {
+    //     getLog().e('Status Code: ${response.statusCode}.');
+    //     return ResultWithValue<List<UploadedImageViewModel>>(
+    //         false, null, 'Not a 200 OK response');
+    //   }
+    //   var result = (response.data as List)
+    //       .map((e) => UploadedImageViewModel.fromJson(e))
+    //       .toList();
+    //   return ResultWithValue<List<UploadedImageViewModel>>(true, result, '');
+    // } catch (exception) {
+    //   getLog().e(
+    //       "BaseApiService apiPostFormData Exception: ${exception.toString()}");
+    //   return ResultWithValue<List<UploadedImageViewModel>>(
+    //       false, List.empty(), exception.toString());
+    // }
+    return ResultWithValue<List<UploadedImageViewModel>>(
+        false, List.empty(), 'Not implemented');
   }
 }

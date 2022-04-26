@@ -1,7 +1,10 @@
 class AppImage {
   static const String base = 'assets/images/';
-
+  static const String guide = 'guide/';
+  static const String drawer = 'drawer/';
+  static const String infographic = 'infographic/';
   static const String donationsFolder = 'donations/';
+
   static const String donApplePay = base + donationsFolder + 'applePay.png';
   static const String donBat = base + donationsFolder + 'bat.png';
   static const String donBuyMeACoffee = base + donationsFolder + 'bmc.png';
@@ -14,6 +17,12 @@ class AppImage {
   static const String donPayPal = base + donationsFolder + 'payPal.png';
   static const String donUnknown =
       base + donationsFolder + 'unknownDonation.png';
+
+  static const String error1 = base + infographic + 'error1.png';
+  static const String successGuide = base + infographic + 'successGuide.png';
+  static const String successGuideSVG = base + infographic + 'successGuide.svg';
+  static const String authSVG = base + infographic + 'authentication.svg';
+  static const String defaultGuide = base + guide + 'noImage.png';
 
   static const String assistantApps = 'assistantApps.png';
   static const String unknown = 'unknown.png';
