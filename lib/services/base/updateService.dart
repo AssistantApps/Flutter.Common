@@ -54,7 +54,7 @@ class UpdateService implements IUpdateService {
 
     try {
       String localBuildNumber = versionResult.value.buildNumber;
-      getLog().i('App: $localBuildNumber');
+      getLog().i('Local buildNumber: $localBuildNumber');
 
       int serverBuildNumber = serverVersionResult.value.buildNumber;
       getLog().i('Server buildNumber: $serverBuildNumber');
