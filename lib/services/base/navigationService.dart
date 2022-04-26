@@ -28,20 +28,20 @@ class NavigationService implements INavigationService {
 
     if (navigateTo != null) {
       // await Navigator.pushReplacement(
-      getLog().i('$baseLogMsg - navigateTo !- null');
+      getLog().i('$baseLogMsg - navigateTo != null');
       await Navigator.push(
         context,
         MaterialPageRoute(builder: navigateTo),
       );
     } else if (navigateToNamed != null) {
       if (pushReplacement != null && pushReplacement == true) {
-        getLog().i('$baseLogMsg - pushReplacementNamed');
+        getLog().i('$baseLogMsg - pushReplacementNamed: $navigateToNamed');
         await Navigator.pushReplacementNamed(
           context,
           navigateToNamed,
         );
       } else {
-        getLog().i('$baseLogMsg - pushNamed');
+        getLog().i('$baseLogMsg - pushNamed: $navigateToNamed');
         await Navigator.pushNamed(
           context,
           navigateToNamed,
@@ -67,7 +67,7 @@ class NavigationService implements INavigationService {
         MaterialPageRoute(builder: navigateTo),
       );
     } else if (navigateToNamed != null) {
-      getLog().i('$baseLogMsg - navigateToNamed != null');
+      getLog().i('$baseLogMsg - navigateToNamed: $navigateToNamed');
       // Navigator.pushReplacementNamed(
       Navigator.pushNamed(
         context,
@@ -88,7 +88,7 @@ class NavigationService implements INavigationService {
         MaterialPageRoute(builder: navigateTo),
       );
     } else if (navigateToNamed != null) {
-      getLog().i('$baseLogMsg - navigateToNamed != null');
+      getLog().i('$baseLogMsg - navigateToNamed: $navigateToNamed');
       return await Navigator.pushNamed(
         context,
         navigateToNamed,
