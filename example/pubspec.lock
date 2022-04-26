@@ -42,7 +42,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.35"
+    version: "0.1.37"
   async:
     dependency: transitive
     description:
@@ -845,9 +845,11 @@ packages:
   time_formatter:
     dependency: transitive
     description:
-      name: time_formatter
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: dfa6def5c91d0cb0a393c78b516be301b49d87e2
+      url: "https://github.com/Vishal-Isharani/time_formatter"
+    source: git
     version: "1.0.0+5"
   timelines:
     dependency: transitive

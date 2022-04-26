@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:time_formatter/time_formatter.dart';
 
 import '../components/common/percent.dart';
 import '../contracts/enum/localeKey.dart';
@@ -20,6 +22,10 @@ bool isWithinPeriod(
     return true;
   }
   return false;
+}
+
+String friendlyTimeSince(DateTime date) {
+  return formatTime(date.toLocal().millisecondsSinceEpoch);
 }
 
 Widget getProgressbarFromDates(

@@ -1,9 +1,9 @@
 import 'package:after_layout/after_layout.dart';
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common_example/services/themeService.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
+import 'services/themeService.dart';
 import 'constants/StorybookNames.dart';
 import 'stories/about/aboutStories.dart';
 import 'stories/home/homeStories.dart';
@@ -15,7 +15,7 @@ final _plugins = initializePlugins(
   contentsSidePanel: true,
   knobsSidePanel: true,
   initialDeviceFrameData: DeviceFrameData(
-    device: Devices.android.samsungGalaxyS20,
+    device: Devices.ios.iPhone13ProMax,
   ),
 );
 
