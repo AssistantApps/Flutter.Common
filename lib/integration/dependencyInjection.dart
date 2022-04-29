@@ -1,9 +1,6 @@
 import 'package:get_it/get_it.dart';
 
 import '../env/assistantAppsEnvironmentSettings.dart';
-import '../services/api/assistantAppsApiService.dart';
-import '../services/api/donatorApiService.dart';
-import '../services/api/guideApiService.dart';
 import '../services/api/interface/IAssistantAppsApiService.dart';
 import '../services/api/interface/IDonatorApiService.dart';
 import '../services/api/interface/IGuideApiService.dart';
@@ -12,11 +9,6 @@ import '../services/api/interface/ISteamApiService.dart';
 import '../services/api/interface/ITranslationApiService.dart';
 import '../services/api/interface/IUserApiService.dart';
 import '../services/api/interface/IVersionApiService.dart';
-import '../services/api/patreonApiService.dart';
-import '../services/api/steamApiService.dart';
-import '../services/api/translationApiService.dart';
-import '../services/api/userApiService.dart';
-import '../services/api/versionApiService.dart';
 import '../services/base/interface/IAnalyticsService.dart';
 import '../services/base/interface/IBaseWidgetService.dart';
 import '../services/base/interface/IDialogService.dart';
@@ -40,10 +32,8 @@ import 'commonDependencyInjection.dart';
 import 'dependencyInjectionApi.dart';
 import 'dependencyInjectionBase.dart';
 
-export './dependencyInjectionBase.dart';
 export './dependencyInjectionApi.dart';
-
-final getIt = GetIt.instance;
+export './dependencyInjectionBase.dart';
 
 void initAssistantAppsDependencyInjection(
   AssistantAppsEnvironmentSettings _env, {
@@ -79,7 +69,7 @@ void initAssistantAppsDependencyInjection(
   IBackupJsonService? backup,
   IDataJsonService? data,
 }) {
-  getIt.registerSingleton<AssistantAppsEnvironmentSettings>(_env);
+  GetIt.instance.registerSingleton<AssistantAppsEnvironmentSettings>(_env);
 
   // Base
   initAssistantAppsDependencyInjectionForBaseServices(
@@ -118,8 +108,9 @@ void initAssistantAppsDependencyInjection(
 }
 
 AssistantAppsEnvironmentSettings getEnv() =>
-    getIt<AssistantAppsEnvironmentSettings>();
+    GetIt.instance<AssistantAppsEnvironmentSettings>();
 
 // JSON data
-IBackupJsonService getAssistantAppsBackup() => getIt<IBackupJsonService>();
-IDataJsonService getAssistantAppsData() => getIt<IDataJsonService>();
+IBackupJsonService getAssistantAppsBackup() =>
+    GetIt.instance<IBackupJsonService>();
+IDataJsonService getAssistantAppsData() => GetIt.instance<IDataJsonService>();
