@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/constants/UIConstants.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -77,6 +78,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
     _minutesController =
         TextEditingController(text: this._guideDetails.minutes.toString());
     tags = this._guideDetails.tags;
+    bannerImageData = UploadedImageViewModel(url: AppImage.onlinePatreonIcon);
     //
     _validationMap = {
       LocaleKey.guideName: () =>
@@ -138,13 +140,17 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
           AppImage.error,
           getTranslations().fromKey(LocaleKey.guideSubmissionFailedTitle),
           getTranslations().fromKey(LocaleKey.guideSubmissionFailedMessage),
+          imagePackage: UIConstants.CommonPackage,
           onlyCancelButton: true,
         );
       } else {
         reduxViewModel.deleteGuide(this._guideDetails.guid);
         prettyDialogWithWidget(
           context,
-          WebsafeSvg.asset(AppImage.successGuideSVG),
+          WebsafeSvg.asset(
+            AppImage.successGuideSVG,
+            package: UIConstants.CommonPackage,
+          ),
           getTranslations().fromKey(LocaleKey.guideSubmissionSuccessTitle),
           getTranslations().fromKey(LocaleKey.guideSubmissionSuccessMessage),
           onlyCancelButton: true,
@@ -195,7 +201,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
               _imageUploading = false;
             });
           },
-          () {
+          (_) {
             // Failed
             this.setState(() {
               _imageUploading = false;
@@ -388,9 +394,8 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
               context,
               navigateTo: (context) => SectionAddEditPage(GuideSection(
                 guid: Uuid().v1(),
-                heading: 'New heading',
-                headingTextController:
-                    TextEditingController(text: 'New Heading'),
+                heading: '',
+                headingTextController: TextEditingController(text: ''),
                 items: List.empty(),
                 sortOrder: this.sections.length + 1,
               )),

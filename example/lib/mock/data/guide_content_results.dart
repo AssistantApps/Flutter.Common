@@ -29,7 +29,7 @@ GuideContentViewModel sampleGuideContent1() => GuideContentViewModel(
             ),
             GuideSectionItemViewModel(
               guid: getNewGuid(),
-              content: '# Markdown \n###Is **fun**!',
+              content: '# Markdown \n### Is **fun**!',
               type: GuideSectionItemType.markdown,
             ),
             GuideSectionItemViewModel(
@@ -70,7 +70,7 @@ GuideContentViewModel sampleGuideContent2() => GuideContentViewModel(
             ),
             GuideSectionItemViewModel(
               guid: getNewGuid(),
-              content: '# Markdown \n###Is **fun**!',
+              content: '# Markdown \n### Is **fun**!',
               type: GuideSectionItemType.markdown,
             ),
           ],

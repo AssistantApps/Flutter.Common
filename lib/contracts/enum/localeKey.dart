@@ -563,4 +563,6 @@ enum LocaleKey {
   guideSubmissionFailedMessage,
   guideSubmissionSuccessTitle,
   guideSubmissionSuccessMessage,
+  loginRequiredTitle,
+  loginRequiredMessage,
 }

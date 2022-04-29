@@ -64,6 +64,22 @@ class GuideContentViewModel {
     );
   }
 
+  factory GuideContentViewModel.newGuide(String guid, String langCode) {
+    return GuideContentViewModel(
+      guid: guid,
+      title: '',
+      subTitle: '',
+      showCreatedByUser: false,
+      languageCode: langCode,
+      minutes: 0,
+      tags: [],
+      status: AdminApprovalStatus.Pending,
+      dateUpdated: DateTime.now(),
+      dateCreated: DateTime.now(),
+      sections: [],
+    );
+  }
+
   GuideContentViewModel copyWith({
     String? guid,
     String? title,

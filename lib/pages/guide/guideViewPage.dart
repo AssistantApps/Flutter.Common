@@ -8,6 +8,7 @@ import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSectionItemViewModel.dart';
 import '../../contracts/generated/guide/guideSectionViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../helpers/dateHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import 'section/displayGuideSection.dart';
 
@@ -60,7 +61,7 @@ class GuideViewPage extends StatelessWidget {
 
     List<Widget> sectionWidgets = List.empty(growable: true);
     sectionWidgets.add(textItem(guideContent.subTitle));
-    sectionWidgets.add(textItem(guideContent.dateCreated.toIso8601String()));
+    sectionWidgets.add(textItem(simpleDate(guideContent.dateCreated)));
     if (guideContent.showCreatedByUser &&
         guideContent.userName != null &&
         guideContent.userName!.isNotEmpty) {

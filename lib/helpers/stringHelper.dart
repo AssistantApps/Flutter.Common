@@ -1,4 +1,5 @@
 String joinStringList(List<String> array, String separator) {
+  if (array.isEmpty) return '';
   if (array.length == 1) return array[0];
 
   String result = '';

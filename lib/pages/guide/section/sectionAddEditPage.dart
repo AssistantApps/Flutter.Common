@@ -191,6 +191,7 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
           child: positiveIconButton(
             getTheme().getSecondaryColour(context),
             icon: Icons.add,
+            padding: EdgeInsets.all(8),
             onPress: () {
               adaptiveBottomModalSheet(
                 context,

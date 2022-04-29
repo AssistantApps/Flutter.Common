@@ -158,23 +158,25 @@ class ImageEditItem extends StatefulWidget {
   final void Function()? moveUp;
   final void Function()? moveDown;
   final void Function()? onDelete;
-  ImageEditItem(this.item, this.index, this.onChange, this.moveUp,
-      this.moveDown, this.onDelete);
+  ImageEditItem(
+    this.item,
+    this.index,
+    this.onChange,
+    this.moveUp,
+    this.moveDown,
+    this.onDelete,
+  );
   @override
   _ImageEditItemWidget createState() => _ImageEditItemWidget();
 }
 
 class _ImageEditItemWidget extends State<ImageEditItem> {
   bool _imageUploading = false;
-  late UploadedImageViewModel? _imageData;
-
-  _ImageEditItemWidget() {
-    _imageData = UploadedImageViewModel(url: widget.item.content ?? '');
-  }
+  UploadedImageViewModel? _imageData;
 
   @override
   Widget build(BuildContext context) {
-    var imageOnTap = () {
+    void Function() imageOnTap = () {
       this.setState(() {
         _imageUploading = true;
       });
@@ -185,7 +187,7 @@ class _ImageEditItemWidget extends State<ImageEditItem> {
             _imageUploading = false;
           });
         },
-        () {
+        (_) {
           // Failed
           this.setState(() {
             _imageUploading = false;
@@ -194,13 +196,14 @@ class _ImageEditItemWidget extends State<ImageEditItem> {
       );
     };
 
-    var imageWidget = placeholderImage(context, onTap: imageOnTap);
-    if ((_imageData != null &&
-        _imageData?.url != null &&
-        _imageData?.blurHash != null)) {
+    Widget imageWidget = placeholderImage(context, onTap: imageOnTap);
+    UploadedImageViewModel? localImageData = _imageData;
+    if ((localImageData != null &&
+        localImageData.url.isNotEmpty &&
+        localImageData.blurHash != null)) {
       imageWidget = networkBlurHashImage(
-        _imageData!.url,
-        _imageData!.blurHash ?? '',
+        localImageData.url,
+        localImageData.blurHash ?? '',
         onTap: imageOnTap,
         key: Key('${widget.item.guid}-sectionImage'),
       );
@@ -221,7 +224,7 @@ class _ImageEditItemWidget extends State<ImageEditItem> {
             LocaleKey.guideSectionAddImageCaption,
             onChange: (String newValue) {
               widget.onChange(widget.item.copyWith(
-                content: _imageData?.url,
+                content: localImageData?.url,
                 additionalContent: newValue,
               ));
             },
@@ -242,7 +245,7 @@ Widget markdownEditItem(
     void Function()? onDelete) {
   return Padding(
     key: Key('${item.guid}-padding'),
-    padding: EdgeInsets.symmetric(vertical: 8),
+    padding: EdgeInsets.only(top: 8, bottom: 24),
     child: Column(
       children: [
         getSectionItemHeading(index, getActions(moveUp, moveDown, onDelete)),

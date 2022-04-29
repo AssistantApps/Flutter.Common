@@ -4,13 +4,13 @@ import 'package:assistantapps_flutter_common/pages/about/aboutPageTeam.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
-import '../../constants/StorybookNames.dart';
-import '../../knobs/assistantAppTypes.dart';
+import '../../constants/storybook_names.dart';
+import '../../knobs/assistantapp_types.dart';
 
 List<Story> getAboutStories() {
   return [
     Story(
-      name: StorybookNames.AboutPage,
+      name: StorybookNames.aboutPage,
       description: 'Full page with all default pages',
       builder: (context) => AboutPage(
         key: Key(context.knobs.toString()),
@@ -22,17 +22,17 @@ List<Story> getAboutStories() {
       ),
     ),
     Story(
-      name: StorybookNames.AboutPageContent,
+      name: StorybookNames.aboutPageContent,
       description: 'First tab of the about page',
       builder: (context) => AboutPageAvailableApps(AssistantAppType.Unknown),
     ),
     Story(
-      name: StorybookNames.AboutTeamPage,
+      name: StorybookNames.aboutTeamPage,
       description: 'Lists the Team members',
       builder: (context) => AboutPageTeam(),
     ),
     Story(
-      name: StorybookNames.AboutPageCustom,
+      name: StorybookNames.aboutPageCustom,
       description: 'Example of custom content',
       builder: (context) => AboutPage(
         key: Key(context.knobs.toString()),
@@ -42,7 +42,7 @@ List<Story> getAboutStories() {
           options: getAssistantAppTypeOptions(),
         ),
         aboutPageWidgetsFunc: (innerCtx) => [
-          Text('My app\'s specific content'),
+          const Text('My app\'s specific content'),
         ],
       ),
     ),

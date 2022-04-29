@@ -11,13 +11,14 @@ void prettyDialog(
   String appImage,
   String title,
   String description, {
+  String? imagePackage,
   bool onlyCancelButton = false,
   Function()? onCancel,
   Function()? onSuccess,
 }) {
   prettyDialogWithWidget(
     context,
-    localImage(appImage),
+    localImage(appImage, imagePackage: imagePackage),
     title,
     description,
     onlyCancelButton: onlyCancelButton,

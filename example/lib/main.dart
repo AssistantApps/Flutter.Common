@@ -4,15 +4,15 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart'
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
-import 'services/themeService.dart';
-import 'services/guideApiService.dart';
-import 'constants/StorybookNames.dart';
-import 'stories/about/aboutStories.dart';
-import 'stories/guide/guideStories.dart';
-import 'stories/home/homeStories.dart';
-import 'stories/searchList/searchListStories.dart';
+import 'services/theme_service.dart';
+import 'services/guideapi_service.dart';
+import 'constants/storybook_names.dart';
+import 'stories/about/about_stories.dart';
+import 'stories/guide/guide_stories.dart';
+import 'stories/home/home_stories.dart';
+import 'stories/searchList/searchlist_stories.dart';
 
-void main() => runApp(StorybookApp());
+void main() => runApp(const StorybookApp());
 
 final _plugins = initializePlugins(
   contentsSidePanel: true,
@@ -23,6 +23,8 @@ final _plugins = initializePlugins(
 );
 
 class StorybookApp extends StatefulWidget {
+  const StorybookApp({Key? key}) : super(key: key);
+
   @override
   _StorybookAppState createState() => _StorybookAppState();
 }
@@ -49,6 +51,8 @@ class _StorybookAppState<T> extends State<StorybookApp>
       guideApi: GuideApiService(),
     );
 
+    getTranslations().load(const Locale('en'));
+
     setState(() {
       hasLoaded = true;
     });
@@ -63,10 +67,14 @@ class _StorybookAppState<T> extends State<StorybookApp>
 
   @override
   Widget build(BuildContext context) {
-    if (hasLoaded == false) return Center(child: CircularProgressIndicator());
+    if (hasLoaded == false) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
 
     return Storybook(
-      initialStory: StorybookNames.Welcome,
+      initialStory: StorybookNames.welcome,
       plugins: _plugins,
       showPanel: true,
       stories: [

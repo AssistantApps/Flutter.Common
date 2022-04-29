@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-final Color themePrimary = Color.fromRGBO(0, 200, 83, 1); // greenAccent[700]
-final Color themeSecondary =
+const Color themePrimary = Color.fromRGBO(0, 200, 83, 1); // greenAccent[700]
+const Color themeSecondary =
     Color.fromRGBO(255, 171, 64, 1); //Colors.orangeAccent[200]
-final String themeFontFamily = 'Roboto';
+const String themeFontFamily = 'Roboto';
 
 ThemeData darkTheme() {
   final base = ThemeData.dark();
@@ -19,8 +19,8 @@ ThemeData darkTheme() {
     primaryTextTheme:
         _buildAppTextTheme(base.primaryTextTheme, themeFontFamily),
     // accentTextTheme: _buildAppTextTheme(base.accentTextTheme, fontFamily), //DEPRECATED
-    iconTheme: IconThemeData(color: themeSecondary),
-    buttonTheme: ButtonThemeData(
+    iconTheme: const IconThemeData(color: themeSecondary),
+    buttonTheme: const ButtonThemeData(
       buttonColor: themeSecondary,
       textTheme: ButtonTextTheme.primary,
     ),

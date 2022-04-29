@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../../integration/dependencyInjection.dart';
 
-Widget positiveButton(BuildContext context,
-    {required String title,
-    String? eventString,
-    EdgeInsets? padding,
-    Color? backgroundColour,
-    Color? foregroundColour,
-    Function()? onPress}) {
+Widget positiveButton(
+  BuildContext context, {
+  required String title,
+  String? eventString,
+  EdgeInsets? padding,
+  Color? backgroundColour,
+  Color? foregroundColour,
+  Function()? onPress,
+}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return ElevatedButton(
     child: padding == null
@@ -29,10 +31,19 @@ Widget positiveButton(BuildContext context,
   );
 }
 
-Widget positiveIconButton(Color colour,
-        {IconData? icon, Function()? onPress}) =>
+Widget positiveIconButton(
+  Color colour, {
+  required IconData icon,
+  EdgeInsets? padding,
+  Function()? onPress,
+}) =>
     ElevatedButton(
-      child: Icon(icon),
+      child: padding == null
+          ? Icon(icon)
+          : Padding(
+              padding: padding,
+              child: Icon(icon),
+            ),
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(colour),
       ),

@@ -4,7 +4,6 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 import '../../../contracts/enum/guideSectionItemType.dart';
-import '../../../contracts/generated/guide/guideSectionItemViewModel.dart';
 
 Widget sectionListItem(BuildContext context, String text, List<Widget> widgets,
     {void Function()? onEdit,

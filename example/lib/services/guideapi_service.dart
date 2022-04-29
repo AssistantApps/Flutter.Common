@@ -1,12 +1,13 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:assistantapps_flutter_common/constants/ApiUrls.dart';
 
-import '../mock/data/guideContentResults.dart';
-import '../mock/data/guideSearchResults.dart';
+import '../mock/data/guide_content_results.dart';
+import '../mock/data/guide_search_results.dart';
 
 class GuideApiService extends BaseApiService implements IGuideApiService {
   GuideApiService() : super('');
 
+  @override
   Future<PaginationResultWithValue<List<GuideSearchResultViewModel>>>
       getAllGuides(GuideSearchViewModel searchOptions) async {
     List<GuideSearchResultViewModel> guides = List.empty(growable: true);
@@ -24,7 +25,7 @@ class GuideApiService extends BaseApiService implements IGuideApiService {
   @override
   Future<Result> addGuide(AddGuideViewModel newGuide) async {
     try {
-      final response = await this.apiPost(
+      final response = await apiPost(
         ApiUrls.guideDetail,
         newGuide.toRawJson(),
       );

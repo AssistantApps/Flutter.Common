@@ -9,12 +9,14 @@ import 'guidHelper.dart';
 
 bool isDebugingIos = false;
 
-bool isApple =
-    UniversalPlatform.isIOS || UniversalPlatform.isMacOS || isDebugingIos;
+bool isApple = UniversalPlatform.isIOS ||
+    UniversalPlatform.isMacOS || //
+    isDebugingIos;
 
 bool isiOS = UniversalPlatform.isIOS;
 bool isAndroid = UniversalPlatform.isAndroid;
 bool isWeb = UniversalPlatform.isWeb;
+bool isDesktop = UniversalPlatform.isDesktop;
 
 Future<String> getDeviceId() async {
   String? deviceId = await PlatformDeviceId.getDeviceId;
