@@ -25,7 +25,7 @@ class _StorybookWrapperState extends State<StorybookWrapper> {
   @override
   initState() {
     super.initState();
-    initBaseDependencyInjection(
+    initAssistantAppsDependencyInjection(
       widget.env,
       theme: StorybookThemeService(),
       guideApi: GuideApiService(),

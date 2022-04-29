@@ -45,7 +45,7 @@ class _StorybookAppState<T> extends State<StorybookApp>
 
   @override
   void afterFirstLayout(BuildContext context) {
-    initBaseDependencyInjection(
+    initAssistantAppsDependencyInjection(
       _env,
       theme: StorybookThemeService(),
       guideApi: GuideApiService(),

@@ -1,4 +1,4 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+import 'package:assistantapps_flutter_common/contracts/results/resultWithValue.dart';
 import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
@@ -7,6 +7,8 @@ import '../../components/dialogs/prettyDialog.dart';
 import '../../components/list/paginationSearchableList.dart';
 import '../../components/tilePresenters/guideTilePresenter.dart';
 import '../../constants/AppImage.dart';
+import '../../constants/LocalStorageKey.dart';
+import '../../constants/UIConstants.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
@@ -58,44 +60,44 @@ class _GuideListWidget extends State<GuideListPage> {
         child: Icon(Icons.add),
         backgroundColor: getTheme().fabColourSelector(context),
         foregroundColor: getTheme().fabForegroundColourSelector(context),
-        onPressed: () async {
-          // TODO Complete this
+        onPressed: onFabPress,
+      ),
+    );
+  }
 
-          // var assistantAppsToken = await getSecureStorageRepo()
-          //     .loadStringFromStorageCheckExpiry(
-          //         LocalStorageKey.assistantAppsJwtToken);
-          // if (assistantAppsToken.hasFailed) {
-          prettyDialogWithWidget(
-            context,
-            WebsafeSvg.asset(AppImage.authSVG,
-                package: UIConstants.CommonPackage),
-            getTranslations().fromKey(LocaleKey.loginRequiredTitle),
-            getTranslations().fromKey(LocaleKey.loginRequiredMessage),
-            onSuccess: () {
-              // getNavigation().navigateHomeAsync(
-              //   context,
-              //   navigateToNamed: Routes.profile,
-              // );
-            },
-            onCancel: () {
-              Navigator.of(context).pop();
-            },
-          );
-          //   return;
-          // }
-          // getNavigation().navigateAwayFromHomeAsync(
+  Future<void> onFabPress() async {
+    // TODO Complete this
+    ResultWithValue<String> assistantAppsToken = await getSecureStorageRepo()
+        .loadStringFromStorageCheckExpiry(
+            LocalStorageKey.assistantAppsJwtToken);
+    if (assistantAppsToken.hasFailed) {
+      prettyDialogWithWidget(
+        context,
+        WebsafeSvg.asset(AppImage.authSVG, package: UIConstants.CommonPackage),
+        getTranslations().fromKey(LocaleKey.loginRequiredTitle),
+        getTranslations().fromKey(LocaleKey.loginRequiredMessage),
+        onSuccess: () {
+          // getNavigation().navigateHomeAsync(
           //   context,
-          //   navigateTo: (context) => GuideAddEditPage(
-          //     GuideContentViewModel.newGuide(
-          //       getNewGuid(),
-          //       widget.draftModel.selectedLanguage,
-          //     ),
-          //     List.empty(growable: true),
-          //     draftModel: widget.draftModel,
-          //     isEdit: false,
-          //   ),
+          //   navigateToNamed: Routes.profile,
           // );
         },
+        onCancel: () {
+          Navigator.of(context).pop();
+        },
+      );
+      return;
+    }
+    getNavigation().navigateAwayFromHomeAsync(
+      context,
+      navigateTo: (context) => GuideAddEditPage(
+        GuideContentViewModel.newGuide(
+          getNewGuid(),
+          widget.draftModel.selectedLanguage,
+        ),
+        List.empty(growable: true),
+        draftModel: widget.draftModel,
+        isEdit: false,
       ),
     );
   }
