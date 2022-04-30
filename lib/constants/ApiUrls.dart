@@ -1,4 +1,5 @@
 class ApiUrls {
+  static const String accountLogin = "Account/Login";
   static const String donator = "donation";
   static const String patreon = "patreon";
 

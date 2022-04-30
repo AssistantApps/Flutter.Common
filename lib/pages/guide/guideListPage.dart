@@ -14,22 +14,18 @@ import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
 import '../../contracts/generated/guide/guideSearchViewModel.dart';
 import '../../contracts/guide/guideDraftModel.dart';
-import '../../contracts/guide/settingsForGuideListPage.dart';
 import '../../helpers/columnHelper.dart';
 import '../../helpers/guidHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import 'guideAddEditPage.dart';
 
 class GuideListPage extends StatefulWidget {
-  final String _analyticsKey;
-  final SettingsForGuideListPage _settings;
   final GuideDraftModel draftModel;
-  GuideListPage(
-    this._analyticsKey,
-    this._settings, {
+  GuideListPage({
+    required String analyticsKey,
     required this.draftModel,
   }) {
-    getAnalytics().trackEvent(_analyticsKey);
+    getAnalytics().trackEvent(analyticsKey);
   }
   @override
   _GuideListWidget createState() => _GuideListWidget(
@@ -54,7 +50,7 @@ class _GuideListWidget extends State<GuideListPage> {
       //     this.searchObj = newSearchObj;
       //   });
       // }),
-      body: getBody(widget._settings, this.searchObj.getHash()),
+      body: getBody(widget.draftModel, this.searchObj.getHash()),
       floatingActionButton: FloatingActionButton(
         heroTag: 'AddGuide',
         child: Icon(Icons.add),
@@ -66,24 +62,19 @@ class _GuideListWidget extends State<GuideListPage> {
   }
 
   Future<void> onFabPress() async {
-    // TODO Complete this
-    ResultWithValue<String> assistantAppsToken = await getSecureStorageRepo()
-        .loadStringFromStorageCheckExpiry(
-            LocalStorageKey.assistantAppsJwtToken);
+    ResultWithValue<String> assistantAppsToken =
+        await getSecureStorageRepo().loadStringFromStorageCheckExpiry(
+      LocalStorageKey.assistantAppsJwtToken,
+    );
     if (assistantAppsToken.hasFailed) {
       prettyDialogWithWidget(
         context,
         WebsafeSvg.asset(AppImage.authSVG, package: UIConstants.CommonPackage),
         getTranslations().fromKey(LocaleKey.loginRequiredTitle),
         getTranslations().fromKey(LocaleKey.loginRequiredMessage),
-        onSuccess: () {
-          // getNavigation().navigateHomeAsync(
-          //   context,
-          //   navigateToNamed: Routes.profile,
-          // );
-        },
+        onSuccess: widget.draftModel.googleLogin,
         onCancel: () {
-          Navigator.of(context).pop();
+          getNavigation().pop(context);
         },
       );
       return;
@@ -102,7 +93,7 @@ class _GuideListWidget extends State<GuideListPage> {
     );
   }
 
-  Widget getBody(SettingsForGuideListPage viewModel, String searchObjHash) {
+  Widget getBody(GuideDraftModel draftModel, String searchObjHash) {
     List<Widget> columnWidgets = List.empty(growable: true);
     columnWidgets.add(
       searchBar(context, TextEditingController(), null, (String search) {
@@ -117,7 +108,7 @@ class _GuideListWidget extends State<GuideListPage> {
           this.searchObj.copyWith(
                 page: page,
                 appGuid: getEnv().assistantAppsAppGuid,
-                languageCode: viewModel.selectedLanguage,
+                languageCode: draftModel.selectedLanguage,
               ),
         ),
         guideTilePresenter,

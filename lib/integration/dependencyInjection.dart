@@ -10,6 +10,7 @@ import '../services/api/interface/ITranslationApiService.dart';
 import '../services/api/interface/IUserApiService.dart';
 import '../services/api/interface/IVersionApiService.dart';
 import '../services/base/interface/IAnalyticsService.dart';
+import '../services/base/interface/IAuthApiService.dart';
 import '../services/base/interface/IBaseWidgetService.dart';
 import '../services/base/interface/IDialogService.dart';
 import '../services/base/interface/ILanguageService.dart';
@@ -63,6 +64,7 @@ void initAssistantAppsDependencyInjection(
   ITranslationApiService? translationApi,
   IUserApiService? userApi,
   IVersionApiService? versionApi,
+  IAuthApiService? assistantAppsAuthApi,
   OAuthSignalRService? oAuthSignalR,
 
   // Data
@@ -100,6 +102,7 @@ void initAssistantAppsDependencyInjection(
     userApi: userApi,
     versionApi: versionApi,
     oAuthSignalR: oAuthSignalR,
+    assistantAppsAuthApi: assistantAppsAuthApi,
   );
 
   // Data

@@ -9,12 +9,13 @@ List<Story> getGuideStories() {
       name: StorybookNames.guidePage,
       description: 'Quick intro to this site',
       builder: (context) => GuideListPage(
-        'analyticsKey',
-        SettingsForGuideListPage(selectedLanguage: 'en'),
+        analyticsKey: 'analyticsKey',
         draftModel: GuideDraftModel(
           selectedLanguage: '',
+          assistantAppsToken: '',
           deleteGuide: (_) {},
           updateGuide: (__) {},
+          googleLogin: () {},
         ),
       ),
     ),
@@ -33,8 +34,10 @@ List<Story> getGuideStories() {
         List.empty(growable: true),
         draftModel: GuideDraftModel(
           selectedLanguage: '',
+          assistantAppsToken: '',
           deleteGuide: (_) {},
           updateGuide: (__) {},
+          googleLogin: () {},
         ),
         isEdit: false,
       ),

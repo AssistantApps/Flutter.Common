@@ -16,6 +16,8 @@ import '../services/api/steamApiService.dart';
 import '../services/api/translationApiService.dart';
 import '../services/api/userApiService.dart';
 import '../services/api/versionApiService.dart';
+import '../services/base/authApiService.dart';
+import '../services/base/interface/IAuthApiService.dart';
 import '../services/signalr/OAuthSignalRService.dart';
 import 'commonDependencyInjection.dart';
 
@@ -28,6 +30,7 @@ void initAssistantAppsDependencyInjectionForApi({
   required ITranslationApiService? translationApi,
   required IUserApiService? userApi,
   required IVersionApiService? versionApi,
+  required IAuthApiService? assistantAppsAuthApi,
   required OAuthSignalRService? oAuthSignalR,
 }) {
   regBackup<IAssistantAppsApiService>(
@@ -39,6 +42,7 @@ void initAssistantAppsDependencyInjectionForApi({
   regBackup<ITranslationApiService>(translationApi, TranslationApiService());
   regBackup<IUserApiService>(userApi, UserApiService());
   regBackup<IVersionApiService>(versionApi, VersionApiService());
+  regBackup<IAuthApiService>(assistantAppsAuthApi, AuthApiService());
 
   // SignalR
   regBackup<OAuthSignalRService>(oAuthSignalR, OAuthSignalRService());
@@ -57,6 +61,7 @@ ITranslationApiService getAssistantAppsTranslation() =>
 IVersionApiService getAssistantAppsVersions() =>
     GetIt.instance<IVersionApiService>();
 IUserApiService getAssistantAppsUserApi() => GetIt.instance<IUserApiService>();
+IAuthApiService getAssistantAppsAuthApi() => GetIt.instance<IAuthApiService>();
 
 // AssistantApps SignalR
 OAuthSignalRService getAssistantAppsOAuthSignalR() =>

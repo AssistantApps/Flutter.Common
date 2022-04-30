@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 
 import '../contracts/generated/uploadedImageViewModel.dart';
 import '../contracts/results/resultWithValue.dart';
@@ -33,8 +34,12 @@ class BaseApiService {
     }
   }
 
-  Future<ResultWithValue<String>> apiPost(String url, dynamic body,
-      {Map<String, String>? headers}) async {
+  Future<ResultWithValue<String>> apiPost(
+    String url,
+    dynamic body, {
+    Map<String, String>? headers,
+    void Function(Map<String, String>)? headerHandler,
+  }) async {
     try {
       getLog().d('post request to: $_baseUrl/$url');
       getLog().d('post request body: $body');
@@ -53,6 +58,9 @@ class BaseApiService {
           ? response.body.substring(0, 100)
           : response.body;
       getLog().d('post response body: $displayTest...');
+
+      if (headerHandler != null) headerHandler(response.headers);
+
       return ResultWithValue<String>(true, response.body, '');
     } catch (exception) {
       getLog().e("BaseApiService POST Exception: ${exception.toString()}");

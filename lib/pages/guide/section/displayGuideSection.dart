@@ -99,13 +99,14 @@ Widget? getSectionItem(BuildContext context, GuideSectionItemViewModel item) {
 }
 
 Widget textListItem(GuideSectionItemViewModel item) => flatCard(
-      child: ListTile(
-        title: Text(
+      child: Padding(
+        child: Text(
           item.content,
           maxLines: 2000,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(fontSize: 16),
         ),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       ),
     );
 
@@ -145,7 +146,7 @@ Widget markdownListItem(GuideSectionItemViewModel item) {
   return flatCard(
     child: Padding(
       child: MarkdownBody(data: item.content),
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
     ),
   );
 }
