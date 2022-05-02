@@ -535,6 +535,7 @@ enum LocaleKey {
   creative,
   twitchDrop,
   quicksilverCompanion,
+  mergeInventoryQuantities,
   //
   inputTooShort,
   inputTooLong,
