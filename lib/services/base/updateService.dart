@@ -34,19 +34,7 @@ class UpdateService implements IUpdateService {
       return ResultWithValue<bool>(false, false, versionResult.errorMessage);
     }
 
-    // ResultWithValue<PackageInfo> versionResult = ResultWithValue(
-    //     true,
-    //     PackageInfo(
-    //       appName: 'test',
-    //       buildNumber: '200',
-    //       packageName: 'test',
-    //       version: '1.250.1',
-    //     ),
-    //     '');
-
-    List<PlatformType> platforms = List.empty(growable: true);
-    if (isApple) platforms.add(PlatformType.Apple);
-    if (isAndroid) platforms.add(PlatformType.Android);
+    List<PlatformType> platforms = getPlatforms();
     ResultWithValue<VersionViewModel> serverVersionResult =
         await getAssistantAppsVersions().getLatest(platforms);
     if (serverVersionResult.hasFailed) {
@@ -55,15 +43,25 @@ class UpdateService implements IUpdateService {
     }
 
     try {
+      String versionNumber = versionResult.value.version;
+      getLog().i('Local versionNumber: $versionNumber');
+
       String localBuildNumber = versionResult.value.buildNumber;
       getLog().i('Local buildNumber: $localBuildNumber');
 
       int serverBuildNumber = serverVersionResult.value.buildNumber;
       getLog().i('Server buildNumber: $serverBuildNumber');
 
+      int buildNumberOverride = getEnv().appVersionBuildNumberOverride ?? 0;
+      if (buildNumberOverride > 0) {
+        localBuildNumber = buildNumberOverride.toString();
+        getLog().i('Overridden local buildNumber: $localBuildNumber');
+      }
+
       if (serverBuildNumber > int.parse(localBuildNumber)) {
         return ResultWithValue<bool>(true, true, 'Outdated');
       }
+
       return ResultWithValue<bool>(true, false, 'Up to date');
     } catch (exception) {
       getLog().e("versionCheck Exception: ${exception.toString()}");
@@ -72,9 +70,11 @@ class UpdateService implements IUpdateService {
   }
 
   void showUpdateSnackbar(BuildContext context, String externalUrl) {
-    LocaleKey storeLocale = isApple //
-        ? LocaleKey.appStore
-        : LocaleKey.googlePlay;
+    LocaleKey storeLocale = LocaleKey.appStore;
+
+    if (isAndroid) {
+      storeLocale = LocaleKey.googlePlay;
+    }
 
     getSnackbar().showSnackbar(
       context,
