@@ -17,6 +17,7 @@ bool isiOS = UniversalPlatform.isIOS;
 bool isAndroid = UniversalPlatform.isAndroid;
 bool isWeb = UniversalPlatform.isWeb;
 bool isDesktop = UniversalPlatform.isDesktop;
+bool isWindows = UniversalPlatform.isWindows;
 
 Future<String> getDeviceId() async {
   String? deviceId = await PlatformDeviceId.getDeviceId;
@@ -30,6 +31,7 @@ List<PlatformType> getPlatforms() {
   List<PlatformType> plats = List.empty(growable: true);
   if (isiOS || isApple) plats.add(PlatformType.Apple);
   if (isAndroid) plats.add(PlatformType.Android);
+  if (isWindows) plats.add(PlatformType.Windows);
   if (isWeb) plats.add(PlatformType.Web);
   return plats;
 }

@@ -5,6 +5,7 @@ enum PlatformType {
   Apple,
   Web,
   API,
+  Windows,
 }
 
 final platformTypeValues = EnumValues({
@@ -12,6 +13,7 @@ final platformTypeValues = EnumValues({
   "1": PlatformType.Apple,
   "2": PlatformType.Web,
   "3": PlatformType.API,
+  "4": PlatformType.Windows,
 });
 
 final platformTypeToIntValues = EnumValues({
@@ -19,4 +21,5 @@ final platformTypeToIntValues = EnumValues({
   PlatformType.Apple.toString(): "1",
   PlatformType.Web.toString(): "2",
   PlatformType.API.toString(): "3",
+  PlatformType.Windows.toString(): "4",
 });

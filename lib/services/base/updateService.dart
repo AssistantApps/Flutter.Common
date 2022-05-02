@@ -29,6 +29,8 @@ class UpdateService implements IUpdateService {
     ResultWithValue<PackageInfo> versionResult =
         await VersionService().currentAppVersion();
     if (versionResult.hasFailed) {
+      getLog().d('Could not get version number from app. ' +
+          versionResult.errorMessage);
       return ResultWithValue<bool>(false, false, versionResult.errorMessage);
     }
 

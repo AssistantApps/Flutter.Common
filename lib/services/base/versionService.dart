@@ -8,11 +8,6 @@ class VersionService {
     PackageInfo defaultResult =
         PackageInfo(appName: '', buildNumber: '', packageName: '', version: '');
 
-    bool hasPackageInfo = isAndroid || isiOS;
-    if (!hasPackageInfo) {
-      return ResultWithValue<PackageInfo>(
-          false, defaultResult, 'platform not supported');
-    }
     try {
       var packInfo = await PackageInfo.fromPlatform();
       return ResultWithValue<PackageInfo>(true, packInfo, '');
