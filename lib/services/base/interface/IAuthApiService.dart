@@ -1,7 +1,5 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
-import '../../../contracts/generated/auth/oAuthUserViewModel.dart';
-
 class IAuthApiService {
   Future<ResultWithValue<DateTime>> login(
       OAuthUserViewModel oAuthDetails) async {

@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
 import '../contracts/generated/uploadedImageViewModel.dart';
 import '../contracts/results/resultWithValue.dart';
