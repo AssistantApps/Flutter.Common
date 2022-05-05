@@ -62,6 +62,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
       this.setState(() {
         fetchedPages.add(temp.currentPage);
         totalPages = temp.totalPages;
+        totalRows = totalRows + temp.value.length;
       });
       return temp.value;
     }
@@ -95,7 +96,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
         context,
         data,
         index,
-        totalRows,
+        totalRows - 1,
       );
     }
   }
