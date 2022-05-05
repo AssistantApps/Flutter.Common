@@ -134,10 +134,16 @@ class SearchableWidget<T> extends State<Searchable<T>> {
         return Column(
           children: [
             searchBar(
-                context, controller, widget.hintText, onSearchTextChanged),
+              context,
+              controller,
+              widget.hintText,
+              onSearchTextChanged,
+            ),
             widget.firstListItemWidget!,
             Expanded(
-              child: Center(child: getLoading().smallLoadingIndicator()),
+              child: Center(
+                child: getLoading().smallLoadingIndicator(),
+              ),
             ),
           ],
         );
