@@ -1,9 +1,6 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/localeKey.dart';
-import '../../integration/dependencyInjection.dart';
-
 Widget searchBar(context, TextEditingController controller, String? hintText,
         void Function(String) onSearchTextChanged) =>
     _androidSearchBar(context, controller, hintText, onSearchTextChanged);
