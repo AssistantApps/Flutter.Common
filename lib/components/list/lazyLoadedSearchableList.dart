@@ -12,7 +12,7 @@ class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
       backupListGetter;
   final int pageSize;
   final Widget Function(BuildContext, T)? listItemDisplayer;
-  final Widget Function(BuildContext, T, int)? listItemWithIndexDisplayer;
+  final Widget Function(BuildContext, T, int, int)? listItemWithIndexDisplayer;
   final String? customKey;
   final String? hintText;
   final String? loadingText;
@@ -45,6 +45,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
   ScrollController _scrollController = ScrollController();
   List<int> fetchedPages = List.empty(growable: true);
   int totalPages = 1;
+  int totalRows = 0;
   // bool usingBackupGetter = false;
 
   _LazyLoadSearchableListWidget();
@@ -73,6 +74,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
         this.setState(() {
           fetchedPages.add(tempBackup.currentPage);
           totalPages = tempBackup.totalPages;
+          totalRows = totalRows + tempBackup.value.length;
           // usingBackupGetter = true;
         });
         return tempBackup.value;
@@ -89,7 +91,12 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
     if (widget.listItemDisplayer != null) {
       return widget.listItemDisplayer!(context, data);
     } else {
-      return widget.listItemWithIndexDisplayer!(context, data, index);
+      return widget.listItemWithIndexDisplayer!(
+        context,
+        data,
+        index,
+        totalRows,
+      );
     }
   }
 
