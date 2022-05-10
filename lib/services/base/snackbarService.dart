@@ -19,6 +19,7 @@ class SnackbarService implements ISnackbarService {
     void Function()? onPositive,
     String? onPositiveText,
     IconData? onPositiveIcon,
+    void Function()? onNegative,
   }) {
     _sweetSheet.show(
       context: context,
@@ -37,7 +38,7 @@ class SnackbarService implements ISnackbarService {
               title: '',
             ),
       negative: SweetSheetAction(
-        onPressed: () => getNavigation().pop(context),
+        onPressed: onNegative ?? () => getNavigation().pop(context),
         title: getTranslations().fromKey(LocaleKey.close),
       ),
     );

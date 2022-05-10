@@ -11,5 +11,6 @@ class ISnackbarService {
     void Function()? onPositive,
     String? onPositiveText,
     IconData? onPositiveIcon,
+    void Function()? onNegative,
   }) {}
 }
