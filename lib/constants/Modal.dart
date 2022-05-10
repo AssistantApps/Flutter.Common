@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/deviceHelper.dart';
+
 BoxConstraints modalDefaultSize(BuildContext context) {
   return BoxConstraints(
     minHeight: (MediaQuery.of(context).size.height) / 2,
@@ -17,5 +19,8 @@ BoxConstraints modalMiniSize(BuildContext context) {
 BoxConstraints modalFullHeightSize(BuildContext context) {
   return BoxConstraints(
     minHeight: (MediaQuery.of(context).size.height) / 2,
+    maxHeight: isWindows
+        ? (MediaQuery.of(context).size.height) * 0.9
+        : double.infinity,
   );
 }

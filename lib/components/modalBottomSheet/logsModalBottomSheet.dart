@@ -3,6 +3,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 import '../../constants/AppDuration.dart';
 import '../../constants/Modal.dart';
+import '../../integration/talker.dart';
 
 class LogsModalBottomSheet extends StatelessWidget {
   final String title;
@@ -16,8 +17,8 @@ class LogsModalBottomSheet extends StatelessWidget {
       child: Container(
         constraints: modalFullHeightSize(context),
         child: TalkerScreen(
-          talker: Talker.instance,
-          options: TalkerScreenOptions(appBarTitle: title),
+          talker: talkerInstance,
+          appBarTitle: title,
         ),
       ),
     );

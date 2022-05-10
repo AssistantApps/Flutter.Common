@@ -1,5 +1,5 @@
+import '../../integration/talker.dart';
 import 'interface/ILoggingService.dart';
-import 'package:talker/talker.dart';
 
 class LoggerService implements ILoggerService {
   LoggerService() {
@@ -18,26 +18,26 @@ class LoggerService implements ILoggerService {
     // );
 
     // Handle exceptions and errors
-    Talker.instance.configure();
+    // Talker.instance.configure();
   }
 
   @override
   void v(String message) {
-    Talker.instance.verbose(message);
+    talkerInstance.verbose(message);
   }
 
   @override
   void i(String message) {
-    Talker.instance.info(message);
+    talkerInstance.info(message);
   }
 
   @override
   void d(String message) {
-    Talker.instance.debug(message);
+    talkerInstance.debug(message);
   }
 
   @override
   void e(String message) {
-    Talker.instance.error(message);
+    talkerInstance.error(message);
   }
 }

@@ -40,10 +40,17 @@ List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
   List<Widget> result = List.empty(growable: true);
   for (ActionItem action in actions) {
     if (action.image != null) {
-      result.add(InkWell(child: action.image, onTap: action.onPressed));
+      result.add(InkWell(
+        child: action.image,
+        onTap: action.onPressed,
+      ));
     } else {
       result.add(
-        IconButton(icon: Icon(action.icon), onPressed: action.onPressed),
+        IconButton(
+          icon: Icon(action.icon),
+          tooltip: action.text,
+          onPressed: action.onPressed,
+        ),
       );
     }
   }

@@ -58,7 +58,7 @@ Widget androidCheckboxGroup(
       selectedTextStyle: TextStyle(color: Colors.black),
       unselectedColor: unselectedColor,
     ),
-    onSelected: (index, isSelected) {
+    onSelected: (String value, int index, bool isSelected) {
       String selectedItem = allItemList[index];
       if (isSelected) {
         onChanged([...selectedItems, selectedItem]);

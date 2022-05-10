@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.1.44
+version: 0.1.45
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -41,7 +41,7 @@ dependencies:
   flutter_sticky_header: 0.6.1
   flutter_svg: 1.0.3
   giffy_dialog: 1.8.0
-  group_button: 4.6.0
+  group_button: 5.0.1
   image_picker: 0.8.5
   intl: 0.17.0
   material_segmented_control: 3.1.2
@@ -70,7 +70,7 @@ dependencies:
       ref: master
 
   # logging
-  talker: 0.8.0
+  talker: 0.11.0
   talker_flutter:
     git:
       url: https://github.com/AssistantApps/talker.git
