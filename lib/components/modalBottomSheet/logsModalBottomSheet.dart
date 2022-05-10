@@ -15,7 +15,7 @@ class LogsModalBottomSheet extends StatelessWidget {
     return AnimatedSize(
       duration: AppDuration.modal,
       child: Container(
-        constraints: modalFullHeightSize(context),
+        constraints: logsModalFullHeightSize(context),
         child: TalkerScreen(
           talker: talkerInstance,
           appBarTitle: title,
