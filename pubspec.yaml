@@ -17,7 +17,6 @@ dependencies:
   get_it: 7.2.0
   http: 0.13.4
   signalr_netcore: 1.2.5
-  collection: 1.15.0
   shared_preferences: 2.0.13
   flutter_secure_storage: 5.0.2
 
