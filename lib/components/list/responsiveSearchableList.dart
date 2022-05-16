@@ -49,6 +49,28 @@ class _ResponsiveListDetailWidget<T>
   Widget detailView = Center(child: getLoading().smallLoadingIndicator());
   _ResponsiveListDetailWidget();
 
+  void Function(BuildContext, T) getItemClickFunc(ResponsiveFlexData flexData) {
+    return (flexData.isMobile && widget.listItemMobileOnTap != null)
+        ? widget.listItemMobileOnTap!
+        : alterDetailView;
+  }
+
+  void alterDetailView(BuildContext currentContext, T itemToView) {
+    Widget newDetailWidget = widget.listItemDesktopOnTap!(
+      currentContext,
+      itemToView,
+      updateDetailView,
+    );
+    updateDetailView(newDetailWidget);
+  }
+
+  void updateDetailView(Widget newDetailView) {
+    this.setState(() {
+      detailViewKey = Key(DateTime.now().millisecondsSinceEpoch.toString());
+      detailView = newDetailView;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return BreakpointBuilder(
@@ -118,27 +140,5 @@ class _ResponsiveListDetailWidget<T>
         );
       },
     );
-  }
-
-  void Function(BuildContext, T) getItemClickFunc(ResponsiveFlexData flexData) {
-    return (flexData.isMobile && widget.listItemMobileOnTap != null)
-        ? widget.listItemMobileOnTap!
-        : alterDetailView;
-  }
-
-  void alterDetailView(BuildContext currentContext, T itemToView) {
-    Widget newDetailWidget = widget.listItemDesktopOnTap!(
-      currentContext,
-      itemToView,
-      updateDetailView,
-    );
-    updateDetailView(newDetailWidget);
-  }
-
-  void updateDetailView(Widget newDetailView) {
-    this.setState(() {
-      detailViewKey = Key(DateTime.now().millisecondsSinceEpoch.toString());
-      detailView = newDetailView;
-    });
   }
 }
