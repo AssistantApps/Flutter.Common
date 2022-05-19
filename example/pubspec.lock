@@ -7,7 +7,7 @@ packages:
       name: after_layout
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   animate_do:
     dependency: transitive
     description:
@@ -42,7 +42,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.48"
+    version: "0.1.52"
   async:
     dependency: transitive
     description:
@@ -91,7 +91,7 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.0"
+    version: "3.2.1"
   cached_network_image_platform_interface:
     dependency: transitive
     description:
@@ -245,14 +245,14 @@ packages:
       name: file_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.4.0"
+    version: "4.5.1"
   file_picker_cross:
     dependency: transitive
     description:
       name: file_picker_cross
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.0"
+    version: "4.6.0"
   file_selector:
     dependency: transitive
     description:
@@ -267,13 +267,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.2+1"
-  file_selector_macos:
-    dependency: transitive
-    description:
-      name: file_selector_macos
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4+1"
   file_selector_platform_interface:
     dependency: transitive
     description:
@@ -288,20 +281,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.1+3"
-  file_selector_windows:
-    dependency: transitive
-    description:
-      name: file_selector_windows
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2+1"
   fl_chart:
     dependency: transitive
     description:
       name: fl_chart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.45.1"
+    version: "0.50.6"
   flare_dart:
     dependency: transitive
     description:
@@ -349,13 +335,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-  flutter_layout_grid:
+  flutter_file_dialog:
     dependency: transitive
     description:
-      name: flutter_layout_grid
+      name: flutter_file_dialog
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "2.3.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -432,7 +418,7 @@ packages:
       name: flutter_sticky_header
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.1"
+    version: "0.6.2"
   flutter_svg:
     dependency: transitive
     description:
@@ -505,7 +491,7 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.5"
+    version: "0.8.5+3"
   image_picker_android:
     dependency: transitive
     description:
@@ -596,7 +582,7 @@ packages:
       name: material_segmented_control
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.2"
+    version: "4.0.0"
   meta:
     dependency: transitive
     description:
@@ -618,6 +604,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  msgpack_dart:
+    dependency: transitive
+    description:
+      name: msgpack_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   nested:
     dependency: transitive
     description:
@@ -631,14 +624,7 @@ packages:
       name: octo_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
-  package_info:
-    dependency: transitive
-    description:
-      name: package_info
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2"
+    version: "1.0.2"
   package_info_plus:
     dependency: transitive
     description:
@@ -771,7 +757,7 @@ packages:
       name: percent_indicator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
+    version: "4.2.2"
   petitparser:
     dependency: transitive
     description:
@@ -876,7 +862,7 @@ packages:
       name: responsive_grid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.1.0"
   rxdart:
     dependency: transitive
     description:
@@ -884,13 +870,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.26.0"
-  share:
-    dependency: transitive
-    description:
-      name: share
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.4"
   share_plus:
     dependency: transitive
     description:
@@ -939,7 +918,7 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.13"
+    version: "2.0.15"
   shared_preferences_android:
     dependency: transitive
     description:
@@ -1002,7 +981,7 @@ packages:
       name: signalr_netcore
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.5"
+    version: "1.3.0"
   simple_animations:
     dependency: transitive
     description:
@@ -1186,7 +1165,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.20"
+    version: "6.1.2"
   url_launcher_android:
     dependency: transitive
     description:
@@ -1277,7 +1256,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.5"
+    version: "2.6.1"
   xdg_directories:
     dependency: transitive
     description:
@@ -1293,5 +1272,5 @@ packages:
     source: hosted
     version: "5.1.0"
 sdks:
-  dart: ">=2.17.0-0 <3.0.0"
-  flutter: ">=2.8.1"
+  dart: ">=2.17.0 <3.0.0"
+  flutter: ">=3.0.0"

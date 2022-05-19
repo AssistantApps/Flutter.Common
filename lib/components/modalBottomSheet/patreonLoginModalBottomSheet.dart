@@ -68,7 +68,10 @@ class _PatreonLoginModalBottomSheetWidget
 
       if (objFromServer.loginFailed != false ||
           objFromServer.belongsToAssistantAppsCampaign != true) {
-        widget.onLogin(new Result(false, 'invalid payload'));
+        widget.onLogin(new Result(
+          false,
+          'loginFailed or belongsToAssistantAppsCampaign',
+        ));
         return;
       }
 
