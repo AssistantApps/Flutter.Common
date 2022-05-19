@@ -73,8 +73,9 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
     ));
 
     return listWithScrollbar(
-        itemCount: columnWidgets.length,
-        itemBuilder: (BuildContext context, int index) => columnWidgets[index],
-        padding: EdgeInsets.symmetric(horizontal: 16));
+      itemCount: columnWidgets.length,
+      itemBuilder: (BuildContext context, int index) => columnWidgets[index],
+      padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
+    );
   }
 }
