@@ -554,6 +554,7 @@ enum LocaleKey {
   updateName,
   updateDateReleased,
   updateDaysSincePreviousUpdate,
+  shareOpenMenu,
   //
   inputTooShort,
   inputTooLong,
