@@ -66,6 +66,10 @@ class _PatreonLoginModalBottomSheetWidget
         errorMessage: (payload[2]) as String,
       );
 
+      getLog().i('loginFailed ' + objFromServer.loginFailed.toString());
+      getLog().i('belongsToAssistantAppsCampaign ' +
+          objFromServer.belongsToAssistantAppsCampaign.toString());
+
       if (objFromServer.loginFailed != false ||
           objFromServer.belongsToAssistantAppsCampaign != true) {
         widget.onLogin(new Result(
