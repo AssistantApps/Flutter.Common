@@ -3,10 +3,10 @@ import 'package:share_plus/share_plus.dart';
 import '../contracts/enum/localeKey.dart';
 import 'dependencyInjection.dart';
 
-shareText(LocaleKey localeKey) {
+void shareText(LocaleKey localeKey) {
   shareTextManual(getTranslations().fromKey(localeKey));
 }
 
-shareTextManual(String text) {
+void shareTextManual(String text) {
   Share.share(text);
 }
