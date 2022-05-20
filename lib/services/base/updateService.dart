@@ -6,12 +6,12 @@ import 'package:package_info_plus/package_info_plus.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/enum/platformType.dart';
 import '../../contracts/generated/versionViewModel.dart';
+import '../../contracts/misc/versionDetail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import 'interface/IUpdateService.dart';
-import 'versionService.dart';
 
 class UpdateService implements IUpdateService {
   Future<void> checkForUpdate(BuildContext context, String externalUrl) async {
@@ -26,8 +26,7 @@ class UpdateService implements IUpdateService {
   }
 
   Future<ResultWithValue<bool>> isOutdatedVersionCheck() async {
-    ResultWithValue<PackageInfo> versionResult =
-        await VersionService().currentAppVersion();
+    ResultWithValue<VersionDetail> versionResult = await getPackageInfo();
     if (versionResult.hasFailed) {
       getLog().d('Could not get version number from app. ' +
           versionResult.errorMessage);
@@ -66,6 +65,49 @@ class UpdateService implements IUpdateService {
     } catch (exception) {
       getLog().e("versionCheck Exception: ${exception.toString()}");
       return ResultWithValue<bool>(false, false, exception.toString());
+    }
+  }
+
+  Future<ResultWithValue<VersionDetail>> getPackageInfo() async {
+    VersionDetail result = VersionDetail(
+      buildNumber: '',
+      packageName: '',
+      version: '',
+    );
+    //
+    ResultWithValue<PackageInfo> versionResult = await currentAppVersion();
+    if (versionResult.hasFailed) {
+      getLog().d(
+        'Could not get version number from app. ' + versionResult.errorMessage,
+      );
+      return ResultWithValue<VersionDetail>(
+        false,
+        result,
+        versionResult.errorMessage,
+      );
+    }
+
+    result.buildNumber = versionResult.value.buildNumber;
+    result.packageName = versionResult.value.packageName;
+    result.version = versionResult.value.version;
+
+    return ResultWithValue<VersionDetail>(true, result, '');
+  }
+
+  Future<ResultWithValue<PackageInfo>> currentAppVersion() async {
+    PackageInfo defaultResult = PackageInfo(
+      appName: '',
+      buildNumber: '',
+      packageName: '',
+      version: '',
+    );
+
+    try {
+      PackageInfo packInfo = await PackageInfo.fromPlatform();
+      return ResultWithValue<PackageInfo>(true, packInfo, '');
+    } catch (exception) {
+      return ResultWithValue<PackageInfo>(
+          false, defaultResult, exception.toString());
     }
   }
 

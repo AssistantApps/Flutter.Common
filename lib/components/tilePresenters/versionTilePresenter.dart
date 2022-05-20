@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/versionViewModel.dart';
+import '../../contracts/misc/versionDetail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';
 import '../../helpers/updateHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import '../../services/base/versionService.dart';
 import '../common/image.dart';
 import '../common/newBanner.dart';
 import '../common/text.dart';
@@ -76,15 +75,15 @@ Widget Function(
 }
 
 Widget packageVersionTile(String gameVersion, {Function()? onTap}) {
-  return FutureBuilder<ResultWithValue<PackageInfo>>(
-    future: VersionService().currentAppVersion(),
+  return FutureBuilder<ResultWithValue<VersionDetail>>(
+    future: getUpdate().getPackageInfo(),
     builder: (BuildContext context,
-        AsyncSnapshot<ResultWithValue<PackageInfo>> snapshot) {
+        AsyncSnapshot<ResultWithValue<VersionDetail>> snapshot) {
       Widget? errorWidget = asyncSnapshotHandler(context, snapshot,
           loader: () => getLoading().loadingIndicator());
       if (errorWidget != null) return Container();
 
-      ResultWithValue<PackageInfo>? packageInfoResult = snapshot.data;
+      ResultWithValue<VersionDetail>? packageInfoResult = snapshot.data;
       String appVersionString = getTranslations() //
           .fromKey(LocaleKey.appVersion)
           .replaceAll('{0}', packageInfoResult?.value.version ?? '1.0');

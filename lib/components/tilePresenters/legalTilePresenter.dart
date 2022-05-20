@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../contracts/enum/localeKey.dart';
+import '../../contracts/misc/versionDetail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import '../../services/base/versionService.dart';
 import 'linkTilePresenter.dart';
 
 Widget legalTilePresenter({LocaleKey? description}) {
-  return FutureBuilder<ResultWithValue<PackageInfo>>(
-    future: VersionService().currentAppVersion(),
+  return FutureBuilder<ResultWithValue<VersionDetail>>(
+    future: getUpdate().getPackageInfo(),
     builder: (BuildContext context,
-        AsyncSnapshot<ResultWithValue<PackageInfo>> snapshot) {
+        AsyncSnapshot<ResultWithValue<VersionDetail>> snapshot) {
       Widget? errorWidget = asyncSnapshotHandler(context, snapshot);
       if (errorWidget != null) return errorWidget;
 
