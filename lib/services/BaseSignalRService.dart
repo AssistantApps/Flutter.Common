@@ -10,7 +10,6 @@ class BaseSignalRService {
   late HubConnection? _hubConnection;
   BaseSignalRService(String baseUrl) {
     this._baseUrl = baseUrl;
-    getLog().d('BaseSignalRService ctor: $baseUrl');
   }
 
   Future<Result> createConnection(
