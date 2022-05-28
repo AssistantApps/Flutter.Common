@@ -91,6 +91,10 @@ class UpdateService implements IUpdateService {
     result.packageName = versionResult.value.packageName;
     result.version = versionResult.value.version;
 
+    if (getEnv().appVersionBuildNameOverride != null) {
+      result.version = getEnv().appVersionBuildNameOverride!;
+    }
+
     return ResultWithValue<VersionDetail>(true, result, '');
   }
 
