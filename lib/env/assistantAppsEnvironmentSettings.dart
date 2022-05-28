@@ -5,6 +5,7 @@ class AssistantAppsEnvironmentSettings {
   String currentWhatIsNewGuid;
   String patreonOAuthClientId;
   int? appVersionBuildNumberOverride;
+  int? appVersionBuildNameOverride;
 
   AssistantAppsEnvironmentSettings({
     this.isProduction = true,
@@ -13,5 +14,6 @@ class AssistantAppsEnvironmentSettings {
     required this.currentWhatIsNewGuid,
     required this.patreonOAuthClientId,
     this.appVersionBuildNumberOverride,
+    this.appVersionBuildNameOverride,
   });
 }
