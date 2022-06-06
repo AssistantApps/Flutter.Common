@@ -32,7 +32,6 @@ dependencies:
   enum_to_string: 2.0.1
   extended_masked_text: 2.3.1
   file_picker_cross: 4.6.0
-  fl_chart: 0.50.6
   flutter_chip_tags: 1.0.4
   # flutter_layout_grid: 1.0.6
   flutter_markdown: 0.6.10
