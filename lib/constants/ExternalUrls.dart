@@ -17,4 +17,6 @@ class ExternalUrls {
       'https://assistantapps.com/assets/favicon/android-icon-192x192.png';
   static const String assistantAppsWebsite = 'https://assistantapps.com';
   static const String assistantAppsToolSite = 'https://tools.assistantapps.com';
+  static const String assistantAppsDocsSyncNotice =
+      'https://docs.assistantapps.com/#/apps/nms/notices/sync';
 }
