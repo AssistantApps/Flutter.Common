@@ -42,7 +42,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.58"
+    version: "0.1.59"
   async:
     dependency: transitive
     description:
@@ -204,13 +204,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
-  equatable:
-    dependency: transitive
-    description:
-      name: equatable
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.3"
   extended_masked_text:
     dependency: transitive
     description:
@@ -281,13 +274,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.1+3"
-  fl_chart:
-    dependency: transitive
-    description:
-      name: fl_chart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.51.0"
   flare_dart:
     dependency: transitive
     description:
