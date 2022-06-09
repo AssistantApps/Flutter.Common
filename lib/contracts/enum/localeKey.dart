@@ -555,6 +555,8 @@ enum LocaleKey {
   updateDateReleased,
   updateDaysSincePreviousUpdate,
   shareOpenMenu,
+  syncDocumentationNotice,
+  syncSelectLocationToSaveFile,
   //
   inputTooShort,
   inputTooLong,
