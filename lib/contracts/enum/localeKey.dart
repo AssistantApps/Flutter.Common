@@ -557,6 +557,7 @@ enum LocaleKey {
   shareOpenMenu,
   syncDocumentationNotice,
   syncSelectLocationToSaveFile,
+  addedInUpdate,
   //
   inputTooShort,
   inputTooLong,
