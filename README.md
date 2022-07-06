@@ -6,7 +6,11 @@ _Designed to be used by apps that belong to the [AssistantApps](https://assistan
 
 ### Run in storybook mode
 ```
-flutter run -t example/lib/storybook.dart -d chrome --no-sound-null-safety
+flutter run -t example/lib/main.dart -d chrome --no-sound-null-safety
+```
+or
+```
+flutter run -t example/lib/main.dart -d edge --no-sound-null-safety
 ```
 
 ### Generate LocaleKey.dart

@@ -559,6 +559,9 @@ enum LocaleKey {
   syncDocumentationNotice,
   syncSelectLocationToSaveFile,
   addedInUpdate,
+  suggestALink,
+  creatureHarvestKill,
+  creatureHarvestHarvest,
   //
   inputTooShort,
   inputTooLong,
