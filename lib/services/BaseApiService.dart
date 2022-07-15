@@ -50,7 +50,11 @@ class BaseApiService {
       if (response.statusCode != 200) {
         getLog().e('Status Code: ${response.statusCode}.');
         getLog().e('Not a 200 OK response ${response.body}');
-        return ResultWithValue<String>(false, '', 'Not a 200 OK response');
+        return ResultWithValue<String>(
+          false,
+          response.body,
+          response.reasonPhrase ?? 'Not a 200 OK response',
+        );
       }
       int responseLength = response.body.length;
       String displayTest = responseLength > 100
@@ -81,7 +85,11 @@ class BaseApiService {
         getLog().e('Status Code: ${response.statusCode}.');
         getLog().e('Not a 200 OK response ${response.body}');
         getLog().e('Message: ${response.reasonPhrase}');
-        return ResultWithValue<String>(false, '', 'Not a 200 OK response');
+        return ResultWithValue<String>(
+          false,
+          '',
+          response.reasonPhrase ?? 'Not a 200 OK response',
+        );
       }
       int responseLength = response.body.length;
       String displayTest = responseLength > 100
