@@ -7,6 +7,7 @@ Widget positiveButton(
   required String title,
   String? eventString,
   EdgeInsets? padding,
+  Size? minimumSize,
   Color? backgroundColour,
   Color? foregroundColour,
   Function()? onPress,
@@ -26,6 +27,7 @@ Widget positiveButton(
       foregroundColor: MaterialStateProperty.all<Color>(
         foregroundColour ?? getTheme().buttonForegroundColour(context),
       ),
+      minimumSize: MaterialStateProperty.all<Size?>(minimumSize),
     ),
     onPressed: (onPress != null) ? onPress : null,
   );

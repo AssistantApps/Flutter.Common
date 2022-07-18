@@ -103,6 +103,38 @@ class BaseApiService {
     }
   }
 
+  Future<ResultWithValue<String>> apiDelete(String url, dynamic body,
+      {Map<String, String>? headers}) async {
+    try {
+      getLog().d('delete request to: $_baseUrl/$url');
+      getLog().d('delete request body: $body');
+      final response = await http.delete(
+        Uri.parse('$_baseUrl/$url'),
+        body: body,
+        headers: headers ?? {"Content-Type": "application/json"},
+      );
+      if (response.statusCode != 200) {
+        getLog().e('Status Code: ${response.statusCode}.');
+        getLog().e('Not a 200 OK response ${response.body}');
+        getLog().e('Message: ${response.reasonPhrase}');
+        return ResultWithValue<String>(
+          false,
+          '',
+          response.reasonPhrase ?? 'Not a 200 OK response',
+        );
+      }
+      int responseLength = response.body.length;
+      String displayTest = responseLength > 100
+          ? response.body.substring(0, 100)
+          : response.body;
+      getLog().d('delete response body: $displayTest...');
+      return ResultWithValue<String>(true, response.body, '');
+    } catch (exception) {
+      getLog().e("BaseApiService DELETE Exception: ${exception.toString()}");
+      return ResultWithValue<String>(false, '', exception.toString());
+    }
+  }
+
   Future<ResultWithValue<List<UploadedImageViewModel>>> apiPostFile(
       String url, List<String> filenames, List<Uint8List> fileContents) async {
     // var logger = getLog();
