@@ -85,7 +85,7 @@ class TranslationService implements ITranslationService {
       Locale(localeMap.code);
 
   @override
-  Future<String> langaugeSelectionPage(BuildContext context) async {
+  Future<String?> langaugeSelectionPage(BuildContext context) async {
     List<LocalizationMap> supportedLanguageMaps =
         getLanguage().getLocalizationMaps();
     List<DropdownOption> orderedLangs = supportedLanguageMaps
@@ -95,7 +95,7 @@ class TranslationService implements ITranslationService {
             ))
         .toList();
     orderedLangs.sort((a, b) => a.title.compareTo(b.title));
-    var dialogResult = await getNavigation().navigateAsync<String>(
+    String? dialogResult = await getNavigation().navigateAsync<String>(
       context,
       navigateTo: (context) => OptionsListPageDialog(
         getTranslations().fromKey(LocaleKey.appLanguage),
@@ -114,6 +114,6 @@ class TranslationService implements ITranslationService {
         },
       ),
     );
-    return dialogResult ?? getLanguage().defaultLanguageMap().code;
+    return dialogResult;
   }
 }

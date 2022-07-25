@@ -18,5 +18,5 @@ abstract class ITranslationService {
   Locale getLocaleFromKey(String supportedLanguageKey);
   Locale getLocaleFromLocalMap(LocalizationMap localeMap);
 
-  Future<String> langaugeSelectionPage(BuildContext context) async => 'en';
+  Future<String?> langaugeSelectionPage(BuildContext context) async => 'en';
 }

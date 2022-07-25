@@ -15,8 +15,10 @@ Widget gridWithScrollbar({
   bool shrinkWrap = true,
   ScrollController? scrollController,
 }) =>
-    BreakpointBuilder(
-        builder: (BuildContext innerContext, Breakpoint breakpoint) {
+    BreakpointBuilder(builder: (
+      BuildContext innerContext,
+      Breakpoint breakpoint,
+    ) {
       int Function(Breakpoint p1) columnCalc =
           gridViewColumnCalculator ?? getCustomColumnCount;
       int crossAxisCount = columnCalc(breakpoint);
@@ -51,11 +53,7 @@ Widget gridWithScrollbar({
     });
 
 Widget androidGridWithScrollbar({int? itemCount, required Widget listView}) =>
-    Scrollbar(
-      child: listView,
-    );
+    Scrollbar(child: listView);
 
 Widget appleGridWithScrollbar({int? itemCount, required Widget listView}) =>
-    CupertinoScrollbar(
-      child: listView,
-    );
+    CupertinoScrollbar(child: listView);
