@@ -1048,12 +1048,10 @@ packages:
   talker_flutter:
     dependency: "direct main"
     description:
-      path: "packages/talker_flutter"
-      ref: master
-      resolved-ref: f8e943920a5640f5fc9845c8ae14f95605d72c81
-      url: "https://github.com/AssistantApps/talker.git"
-    source: git
-    version: "1.4.1"
+      name: talker_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.2"
   talker_logger:
     dependency: transitive
     description:
