@@ -42,7 +42,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.67"
+    version: "0.1.68"
   async:
     dependency: transitive
     description:
@@ -176,13 +176,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
-  dio:
-    dependency: transitive
-    description:
-      name: dio
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.0.6"
   disk_space:
     dependency: transitive
     description:
@@ -1077,23 +1070,23 @@ packages:
       name: talker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.0"
+    version: "1.1.0"
   talker_flutter:
     dependency: transitive
     description:
       path: "packages/talker_flutter"
       ref: master
-      resolved-ref: "2d5951e894a78b6d797dab3d54ce378903319528"
+      resolved-ref: f8e943920a5640f5fc9845c8ae14f95605d72c81
       url: "https://github.com/AssistantApps/talker.git"
     source: git
-    version: "0.11.0"
+    version: "1.4.1"
   talker_logger:
     dependency: transitive
     description:
       name: talker_logger
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.11.1"
+    version: "1.1.0+1"
   term_glyph:
     dependency: transitive
     description:
