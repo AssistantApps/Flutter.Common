@@ -12,7 +12,13 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
   VersionApiService() : super(getEnv().assistantAppsApiUrl);
 
   Future<ResultWithValue<VersionViewModel>> getLatest(
-      List<PlatformType> platforms) async {
+    List<PlatformType> platforms,
+  ) async {
+    if (platforms.length < 1) {
+      return ResultWithValue<VersionViewModel>(
+          false, VersionViewModel.empty(), 'No Platforms specified');
+    }
+
     List<String?> queryParams =
         platforms.map((p) => platformTypeToIntValues.map[p]).toList();
     String queryPath = '';
@@ -21,7 +27,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       if (queryPath.isNotEmpty) {
         queryPath = queryPath + '&';
       }
-      queryPath = queryPath + '=' + queryParam;
+      queryPath = queryPath + 'platforms=' + queryParam;
     }
     String url =
         "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}?$queryPath";
