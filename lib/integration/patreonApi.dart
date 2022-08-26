@@ -1,5 +1,5 @@
 import '../contracts/generated/auth/patreonOAuthViewModel.dart';
-import 'dependencyInjection.dart';
+import './dependencyInjection.dart';
 
 String patreonApiUrl = 'https://www.patreon.com';
 String patreonApiOAuthUrl = '$patreonApiUrl/oauth2/authorize';

@@ -3,7 +3,7 @@ import 'package:sweetsheet/sweetsheet.dart';
 
 import '../../contracts/enum/localeKey.dart';
 import '../../integration/dependencyInjection.dart';
-import 'interface/ISnackbarService.dart';
+import './interface/ISnackbarService.dart';
 
 class SnackbarService implements ISnackbarService {
   late SweetSheet _sweetSheet;

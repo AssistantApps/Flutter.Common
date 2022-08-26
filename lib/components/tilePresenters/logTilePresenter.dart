@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../adaptive/bottomModal.dart';
 import '../modalBottomSheet/logsModalBottomSheet.dart';
-import 'linkTilePresenter.dart';
+import './linkTilePresenter.dart';
 
 Widget logTilePresenter(BuildContext context, {String title = 'Logs'}) {
   return linkSettingTilePresenter(

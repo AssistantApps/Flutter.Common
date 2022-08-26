@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../contracts/enum/localeKey.dart';
 import '../integration/dependencyInjection.dart';
-import 'dateHelper.dart';
+import './dateHelper.dart';
 
 String getVersionReleaseDate(bool isCurrentVersion, DateTime dateTime) {
   if (dateTime.isAfter(DateTime.now())) {

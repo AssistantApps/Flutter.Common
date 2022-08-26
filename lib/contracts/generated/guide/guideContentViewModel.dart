@@ -6,8 +6,8 @@ import 'dart:convert';
 
 import '../../../helpers/jsonHelper.dart';
 import '../../enum/adminApprovalStatus.dart';
-import 'addGuideViewModel.dart';
-import 'guideSectionViewModel.dart';
+import './addGuideViewModel.dart';
+import './guideSectionViewModel.dart';
 
 class GuideContentViewModel {
   GuideContentViewModel({

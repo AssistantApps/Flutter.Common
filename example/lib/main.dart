@@ -4,13 +4,13 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart'
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 
-import 'services/theme_service.dart';
-import 'services/guideapi_service.dart';
-import 'constants/storybook_names.dart';
-import 'stories/about/about_stories.dart';
-import 'stories/guide/guide_stories.dart';
-import 'stories/home/home_stories.dart';
-import 'stories/searchList/searchlist_stories.dart';
+import './services/theme_service.dart';
+import './services/guideapi_service.dart';
+import './constants/storybook_names.dart';
+import './stories/about/about_stories.dart';
+import './stories/guide/guide_stories.dart';
+import './stories/home/home_stories.dart';
+import './stories/searchList/searchlist_stories.dart';
 
 void main() => runApp(const StorybookApp());
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../contracts/enum/localeKey.dart';
 import '../integration/dependencyInjection.dart';
-import 'stringHelper.dart';
+import './stringHelper.dart';
 
 OutlineInputBorder getTextFieldValidationBorderColour(
     BuildContext context, List<LocaleKey> errorLocales, bool showValidation) {

@@ -5,7 +5,7 @@ import '../../contracts/generated/patreonViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
-import 'interface/IPatreonApiService.dart';
+import './interface/IPatreonApiService.dart';
 
 class PatreonApiService extends BaseApiService implements IPatreonApiService {
   PatreonApiService() : super(getEnv().assistantAppsApiUrl);

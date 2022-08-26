@@ -6,7 +6,7 @@ import '../../contracts/generated/appsLinkViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseJsonService.dart';
-import 'interface/IdataJsonService.dart';
+import './interface/IdataJsonService.dart';
 
 class DataJsonService extends BaseJsonService implements IDataJsonService {
   //

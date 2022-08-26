@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/misc/popupMenuActionItem.dart';
 import '../menu/popupMenu.dart';
-import 'genericTilePresenter.dart';
+import './genericTilePresenter.dart';
 
 Widget assistantAppLinkPresenter(
   BuildContext context,

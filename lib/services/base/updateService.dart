@@ -11,7 +11,7 @@ import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import 'interface/IUpdateService.dart';
+import './interface/IUpdateService.dart';
 
 class UpdateService implements IUpdateService {
   Future<void> checkForUpdate(BuildContext context, String externalUrl) async {

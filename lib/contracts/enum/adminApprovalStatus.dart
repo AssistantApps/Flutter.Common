@@ -1,4 +1,4 @@
-import 'enumBase.dart';
+import './enumBase.dart';
 
 enum AdminApprovalStatus {
   Pending,
@@ -6,6 +6,7 @@ enum AdminApprovalStatus {
   Denied,
   Approved,
 }
+
 final adminApprovalStatusValues = EnumValues({
   '0': AdminApprovalStatus.Pending,
   '1': AdminApprovalStatus.InReview,

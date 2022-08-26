@@ -30,8 +30,8 @@ import '../../helpers/deviceHelper.dart';
 import '../../helpers/imageUploadHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../validation/commonValidator.dart';
-import 'section/displayGuideSection.dart';
-import 'section/sectionAddEditPage.dart';
+import './section/displayGuideSection.dart';
+import './section/sectionAddEditPage.dart';
 
 class GuideAddEditPage extends StatefulWidget {
   final String? analyticsKey;

@@ -6,7 +6,7 @@ import '../../contracts/results/paginationResultWithValue.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
-import 'interface/IVersionApiService.dart';
+import './interface/IVersionApiService.dart';
 
 class VersionApiService extends BaseApiService implements IVersionApiService {
   VersionApiService() : super(getEnv().assistantAppsApiUrl);

@@ -5,7 +5,7 @@ import 'package:universal_platform/universal_platform.dart';
 import '../contracts/enum/platformType.dart';
 import '../contracts/misc/actionItem.dart';
 import '../integration/dependencyInjection.dart';
-import 'guidHelper.dart';
+import './guidHelper.dart';
 
 bool isDebugingIos = false;
 

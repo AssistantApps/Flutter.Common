@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../integration/dependencyInjection.dart';
-import 'interface/INavigationService.dart';
+import './interface/INavigationService.dart';
 
 class NavigationService implements INavigationService {
   @override

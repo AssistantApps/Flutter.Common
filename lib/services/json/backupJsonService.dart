@@ -6,7 +6,7 @@ import '../../contracts/results/paginationResultWithValue.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseJsonService.dart';
-import 'interface/IbackupJsonService.dart';
+import './interface/IbackupJsonService.dart';
 
 class BackupJsonService extends BaseJsonService implements IBackupJsonService {
   Future<ResultWithValue<List<PatreonViewModel>>> getPatrons(context) async {

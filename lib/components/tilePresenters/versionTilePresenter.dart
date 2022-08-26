@@ -10,8 +10,8 @@ import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
 import '../common/newBanner.dart';
 import '../common/text.dart';
-import 'genericTilePresenter.dart';
-import 'timelineTileItemPresenter.dart';
+import './genericTilePresenter.dart';
+import './timelineTileItemPresenter.dart';
 
 Widget Function(
   BuildContext context,

@@ -5,7 +5,7 @@ import '../../contracts/misc/responsiveFlexData.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/columnHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import 'searchableList.dart';
+import './searchableList.dart';
 
 class ResponsiveListDetailView<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;

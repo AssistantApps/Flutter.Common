@@ -17,7 +17,7 @@ import '../../contracts/guide/guideDraftModel.dart';
 import '../../helpers/columnHelper.dart';
 import '../../helpers/guidHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import 'guideAddEditPage.dart';
+import './guideAddEditPage.dart';
 
 class GuideListPage extends StatefulWidget {
   final GuideDraftModel draftModel;

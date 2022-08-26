@@ -5,7 +5,7 @@ import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/steamNewsItemViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
-import 'SteamNewsListPageComponent.dart';
+import './SteamNewsListPageComponent.dart';
 
 class SteamNewsPage extends StatelessWidget {
   final String analyticsKey;

@@ -5,7 +5,7 @@ import '../../contracts/generated/translatorLeaderboardItemViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
-import 'interface/IAssistantAppsApiService.dart';
+import './interface/IAssistantAppsApiService.dart';
 
 class AssistantAppsApiService extends BaseApiService
     implements IAssistantAppsApiService {

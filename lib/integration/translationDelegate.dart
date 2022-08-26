@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../services/base/interface/ITranslationsService.dart';
-import 'dependencyInjection.dart';
+import './dependencyInjection.dart';
 
 class TranslationsDelegate extends LocalizationsDelegate<ITranslationService> {
   final Locale? newLocale;

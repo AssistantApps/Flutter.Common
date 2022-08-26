@@ -1,4 +1,4 @@
-import 'interface/IAnalyticsService.dart';
+import './interface/IAnalyticsService.dart';
 
 class AnalyticsService implements IAnalyticsService {
   void trackEvent(String key, {dynamic data}) {}

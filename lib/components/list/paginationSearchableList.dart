@@ -5,7 +5,7 @@ import '../../contracts/enum/localeKey.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
-import 'searchableList.dart';
+import './searchableList.dart';
 
 class PaginationSearchableList<T> extends StatefulWidget {
   final Future<PaginationResultWithValue<List<T>>> Function(int page)

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/AppImage.dart';
 import '../../constants/UIConstants.dart';
-import 'image.dart';
+import './image.dart';
 
 class DonationImage {
   static Widget applePay({double size = 35, EdgeInsets? padding}) =>

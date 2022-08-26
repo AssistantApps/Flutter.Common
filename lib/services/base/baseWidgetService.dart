@@ -4,7 +4,7 @@ import '../../components/adaptive/appBar.dart';
 import '../../components/adaptive/appBarForSubPage.dart';
 import '../../components/adaptive/appScaffold.dart';
 import '../../contracts/misc/actionItem.dart';
-import 'interface/IBaseWidgetService.dart';
+import './interface/IBaseWidgetService.dart';
 
 class BaseWidgetService implements IBaseWidgetService {
   Widget appScaffold(

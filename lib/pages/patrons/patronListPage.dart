@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/enum/localeKey.dart';
 import '../../integration/dependencyInjection.dart';
-import 'patronListPageComponent.dart';
+import './patronListPageComponent.dart';
 
 class PatronListPage extends StatelessWidget {
   final String analyticsKey;

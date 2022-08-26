@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../contracts/enum/localeKey.dart';
 import '../contracts/results/resultWithValue.dart';
 import '../integration/dependencyInjection.dart';
-import 'adaptive/searchBar.dart';
-import 'common/animation.dart';
-import 'common/space.dart';
+import './adaptive/searchBar.dart';
+import './common/animation.dart';
+import './common/space.dart';
 
 class Searchable<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;

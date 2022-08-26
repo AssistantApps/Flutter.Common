@@ -7,7 +7,7 @@ import 'package:path/path.dart';
 
 import '../contracts/generated/uploadedImageViewModel.dart';
 import '../integration/dependencyInjection.dart';
-import 'deviceHelper.dart';
+import './deviceHelper.dart';
 
 void adaptiveImageUploadToServer(
     void Function(UploadedImageViewModel) onSuccess,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
-import 'button.dart';
+import './button.dart';
 
 Widget paginationControl(BuildContext context, int currentPage, int totalPages,
         Function() next, Function() prev) =>

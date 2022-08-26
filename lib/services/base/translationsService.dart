@@ -12,7 +12,7 @@ import '../../contracts/localizationMap.dart';
 import '../../contracts/search/dropdownOption.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../pages/dialog/optionsListPageDialog.dart';
-import 'interface/ITranslationsService.dart';
+import './interface/ITranslationsService.dart';
 
 class TranslationService implements ITranslationService {
   late Locale locale;

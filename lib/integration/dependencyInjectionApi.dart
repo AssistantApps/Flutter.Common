@@ -19,7 +19,7 @@ import '../services/api/versionApiService.dart';
 import '../services/base/authApiService.dart';
 import '../services/base/interface/IAuthApiService.dart';
 import '../services/signalr/OAuthSignalRService.dart';
-import 'commonDependencyInjection.dart';
+import './commonDependencyInjection.dart';
 
 void initAssistantAppsDependencyInjectionForApi({
   required IAssistantAppsApiService? assistantAppsApi,

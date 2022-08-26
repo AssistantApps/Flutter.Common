@@ -6,7 +6,7 @@ import '../../contracts/results/result.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
-import 'interface/IAuthApiService.dart';
+import './interface/IAuthApiService.dart';
 
 class AuthApiService extends BaseApiService implements IAuthApiService {
   AuthApiService() : super(getEnv().assistantAppsApiUrl);

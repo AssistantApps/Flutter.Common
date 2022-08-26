@@ -5,7 +5,7 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import '../../constants/ApiUrls.dart';
 import '../../contracts/generated/uploadedImageViewModel.dart';
 import '../../integration/dependencyInjection.dart';
-import 'interface/IUserApiService.dart';
+import './interface/IUserApiService.dart';
 
 class UserApiService extends BaseApiService implements IUserApiService {
   UserApiService() : super(getEnv().assistantAppsApiUrl);

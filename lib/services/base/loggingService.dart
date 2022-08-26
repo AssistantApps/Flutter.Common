@@ -1,5 +1,5 @@
 import '../../integration/talker.dart';
-import 'interface/ILoggingService.dart';
+import './interface/ILoggingService.dart';
 
 class LoggerService implements ILoggerService {
   LoggerService() {

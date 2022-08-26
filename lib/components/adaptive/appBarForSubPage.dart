@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/misc/actionItem.dart';
 import '../../integration/dependencyInjection.dart';
-import 'appBar.dart';
+import './appBar.dart';
 
 class AppBarForSubPage extends StatelessWidget
     implements PreferredSizeWidget, ObstructingPreferredSizeWidget {

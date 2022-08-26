@@ -17,8 +17,8 @@ import '../../../contracts/guide/guideSectionItem.dart';
 import '../../../helpers/columnHelper.dart';
 import '../../../helpers/deviceHelper.dart';
 import '../../../integration/dependencyInjection.dart';
-import 'editGuideSectionItem.dart';
-import 'sectionItemOption.dart';
+import './editGuideSectionItem.dart';
+import './sectionItemOption.dart';
 
 class SectionAddEditPage extends StatefulWidget {
   final bool isEdit;

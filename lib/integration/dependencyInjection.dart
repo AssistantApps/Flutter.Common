@@ -29,9 +29,9 @@ import '../services/json/dataJsonService.dart';
 import '../services/json/interface/IbackupJsonService.dart';
 import '../services/json/interface/IdataJsonService.dart';
 import '../services/signalr/OAuthSignalRService.dart';
-import 'commonDependencyInjection.dart';
-import 'dependencyInjectionApi.dart';
-import 'dependencyInjectionBase.dart';
+import './commonDependencyInjection.dart';
+import './dependencyInjectionApi.dart';
+import './dependencyInjectionBase.dart';
 
 export './dependencyInjectionApi.dart';
 export './dependencyInjectionBase.dart';

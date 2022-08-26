@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'stringHelper.dart';
+import './stringHelper.dart';
 
 class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {

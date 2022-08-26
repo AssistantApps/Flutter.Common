@@ -7,8 +7,8 @@ import '../../contracts/enum/assistantAppType.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import 'aboutPageAvailableApps.dart';
-import 'aboutPageTeam.dart';
+import './aboutPageAvailableApps.dart';
+import './aboutPageTeam.dart';
 
 class AboutPage extends StatefulWidget {
   final Key key;
