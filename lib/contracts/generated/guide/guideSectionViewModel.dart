@@ -6,7 +6,7 @@
 import 'dart:convert';
 
 import '../../../helpers/jsonHelper.dart';
-import 'guideSectionItemViewModel.dart';
+import './guideSectionItemViewModel.dart';
 
 class GuideSectionViewModel {
   String guid;
