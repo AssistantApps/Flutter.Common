@@ -562,6 +562,7 @@ enum LocaleKey {
   suggestALink,
   creatureHarvestKill,
   creatureHarvestHarvest,
+  galacticAddressPlanetIndex,
   //
   inputTooShort,
   inputTooLong,
