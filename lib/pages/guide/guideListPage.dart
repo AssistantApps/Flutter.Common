@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../components/adaptive/searchBar.dart';
-import '../../components/dialogs/prettyDialog.dart';
+import '../../components/common/text.dart';
 import '../../components/list/paginationSearchableList.dart';
 import '../../components/tilePresenters/guideTilePresenter.dart';
 import '../../constants/AppImage.dart';
@@ -67,14 +67,31 @@ class _GuideListWidget extends State<GuideListPage> {
       LocalStorageKey.assistantAppsJwtToken,
     );
     if (assistantAppsToken.hasFailed) {
-      prettyDialogWithWidget(
+      getDialog().showSimpleDialog(
         context,
-        WebsafeSvg.asset(AppImage.authSVG, package: UIConstants.CommonPackage),
         getTranslations().fromKey(LocaleKey.loginRequiredTitle),
-        getTranslations().fromKey(LocaleKey.loginRequiredMessage),
-        onSuccess: widget.draftModel.googleLogin,
-        onCancel: () {
-          getNavigation().pop(context);
+        Column(
+          children: [
+            WebsafeSvg.asset(
+              AppImage.authSVG,
+              package: UIConstants.CommonPackage,
+            ),
+            genericItemDescription(
+              getTranslations().fromKey(LocaleKey.loginRequiredMessage),
+            ),
+          ],
+        ),
+        buttonBuilder: (BuildContext btnContext) {
+          return [
+            getDialog().simpleDialogPositiveButton(
+              context,
+              onTap: () => widget.draftModel.googleLogin(),
+            ),
+            getDialog().simpleDialogCloseButton(
+              context,
+              onTap: () => getNavigation().pop(btnContext),
+            ),
+          ];
         },
       );
       return;

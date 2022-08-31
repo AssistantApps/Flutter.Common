@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:assistantapps_flutter_common/constants/UIConstants.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,6 @@ import 'package:websafe_svg/websafe_svg.dart';
 import '../../components/common/image.dart';
 import '../../components/common/placeholder.dart';
 import '../../components/common/space.dart';
-import '../../components/dialogs/prettyDialog.dart';
 import '../../components/forms/textInput.dart';
 import '../../constants/AppImage.dart';
 import '../../contracts/enum/localeKey.dart';
@@ -135,26 +135,55 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
         _isLoading = false;
       });
       if (addResult.hasFailed) {
-        prettyDialog(
+        getDialog().showSimpleDialog(
           context,
-          AppImage.error,
           getTranslations().fromKey(LocaleKey.guideSubmissionFailedTitle),
-          getTranslations().fromKey(LocaleKey.guideSubmissionFailedMessage),
-          imagePackage: UIConstants.CommonPackage,
-          onlyCancelButton: true,
+          Column(
+            children: [
+              localImage(
+                AppImage.error,
+                imagePackage: UIConstants.CommonPackage,
+              ),
+              genericItemDescription(
+                getTranslations()
+                    .fromKey(LocaleKey.guideSubmissionFailedMessage),
+              ),
+            ],
+          ),
+          buttonBuilder: (BuildContext btnContext) {
+            return [
+              getDialog().simpleDialogCloseButton(
+                context,
+                onTap: () => getNavigation().pop(btnContext),
+              ),
+            ];
+          },
         );
       } else {
         reduxViewModel.deleteGuide(this._guideDetails.guid);
-        prettyDialogWithWidget(
+        getDialog().showSimpleDialog(
           context,
-          WebsafeSvg.asset(
-            AppImage.successGuideSVG,
-            package: UIConstants.CommonPackage,
-          ),
           getTranslations().fromKey(LocaleKey.guideSubmissionSuccessTitle),
-          getTranslations().fromKey(LocaleKey.guideSubmissionSuccessMessage),
-          onlyCancelButton: true,
-          onCancel: () => Navigator.of(context).pop(),
+          Column(
+            children: [
+              WebsafeSvg.asset(
+                AppImage.successGuideSVG,
+                package: UIConstants.CommonPackage,
+              ),
+              genericItemDescription(
+                getTranslations()
+                    .fromKey(LocaleKey.guideSubmissionSuccessMessage),
+              ),
+            ],
+          ),
+          buttonBuilder: (BuildContext btnContext) {
+            return [
+              getDialog().simpleDialogCloseButton(
+                context,
+                onTap: () => getNavigation().pop(btnContext),
+              ),
+            ];
+          },
         );
       }
     }
