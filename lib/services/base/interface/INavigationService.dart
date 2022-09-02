@@ -26,4 +26,6 @@ class INavigationService {
   }
 
   Future pop<T extends Object>(BuildContext context, [T? result]) async {}
+
+  Future popUntil(BuildContext context, List<String> routes) async {}
 }

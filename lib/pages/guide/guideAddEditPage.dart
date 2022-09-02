@@ -1,5 +1,4 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common/constants/UIConstants.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -10,28 +9,14 @@ import 'package:responsive_grid/responsive_grid.dart';
 import 'package:uuid/uuid.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
-import '../../components/common/image.dart';
 import '../../components/common/placeholder.dart';
-import '../../components/common/space.dart';
 import '../../components/forms/textInput.dart';
 import '../../constants/AppImage.dart';
-import '../../contracts/enum/localeKey.dart';
-import '../../contracts/generated/guide/addGuideViewModel.dart';
-import '../../contracts/generated/guide/guideContentViewModel.dart';
-import '../../contracts/generated/guide/guideSectionItemViewModel.dart';
-import '../../contracts/generated/guide/guideSectionViewModel.dart';
 import '../../contracts/generated/uploadedImageViewModel.dart';
-import '../../contracts/guide/guideDraftModel.dart';
-import '../../contracts/guide/guideSection.dart';
 import '../../contracts/mapper/guideSectionMapper.dart';
-import '../../contracts/results/result.dart';
-import '../../helpers/columnHelper.dart';
-import '../../helpers/deviceHelper.dart';
 import '../../helpers/imageUploadHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../validation/commonValidator.dart';
-import './section/displayGuideSection.dart';
-import './section/sectionAddEditPage.dart';
 
 class GuideAddEditPage extends StatefulWidget {
   final String? analyticsKey;

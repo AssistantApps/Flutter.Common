@@ -102,4 +102,14 @@ class NavigationService implements INavigationService {
     getLog().i('navigationService - pop');
     Navigator.of(context).pop(result);
   }
+
+  @override
+  Future popUntil(BuildContext context, List<String> routes) async {
+    getLog().i('navigationService - pop');
+    Navigator.of(context).popUntil((Route<dynamic> route) {
+      return !route.willHandlePopInternally &&
+          route is ModalRoute &&
+          (routes.contains(route.settings.name));
+    });
+  }
 }
