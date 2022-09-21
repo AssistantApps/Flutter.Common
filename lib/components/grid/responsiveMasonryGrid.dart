@@ -4,8 +4,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../helpers/columnHelper.dart';
 
-Widget responsiveStaggeredGrid(
-  List<StaggeredGridTile> items,
+Widget responsiveMasonryGrid(
+  Widget Function(BuildContext itemCtx, int index) itemBuilder,
   int Function(Breakpoint breakpoint)? columnCountFunc,
 ) {
   return Padding(
@@ -15,12 +15,13 @@ Widget responsiveStaggeredGrid(
         int numCols = (columnCountFunc == null)
             ? getCustomColumnCount(breakpoint)
             : columnCountFunc(breakpoint);
-        return StaggeredGrid.count(
-          key: Key("staggeredGrid-col-$numCols"),
+
+        return MasonryGridView.count(
+          key: Key("masonryGrid-col-$numCols"),
           crossAxisCount: numCols,
           mainAxisSpacing: 4.0,
           crossAxisSpacing: 4.0,
-          children: items,
+          itemBuilder: itemBuilder,
         );
       },
     ),

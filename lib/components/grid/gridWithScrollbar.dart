@@ -33,20 +33,24 @@ Widget gridWithScrollbar({
       //   itemBuilder: itemBuilder,
       //   key: Key('grid-cross-axis$crossAxisCount'),
       // );
-      StaggeredGridView listView = StaggeredGridView.countBuilder(
+
+      GridView listView = GridView.custom(
         primary: false,
         shrinkWrap: true,
         padding: padding ?? const EdgeInsets.all(8),
         physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
-        staggeredTileBuilder: (_) => StaggeredTile.fit(1),
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 4,
-        mainAxisSpacing: 4,
-        itemCount: itemCount,
-        itemBuilder: itemBuilder,
+        childrenDelegate: SliverChildBuilderDelegate(itemBuilder),
+        gridDelegate: SliverQuiltedGridDelegate(
+          crossAxisCount: crossAxisCount,
+          crossAxisSpacing: 4,
+          mainAxisSpacing: 4,
+          repeatPattern: QuiltedGridRepeatPattern.inverted,
+          pattern: List.filled(itemCount, QuiltedGridTile(1, 1)),
+        ),
         controller: scrollController,
         key: Key('grid-cross-axis$crossAxisCount'),
       );
+
       return isiOS
           ? appleGridWithScrollbar(itemCount: itemCount, listView: listView)
           : androidGridWithScrollbar(itemCount: itemCount, listView: listView);
