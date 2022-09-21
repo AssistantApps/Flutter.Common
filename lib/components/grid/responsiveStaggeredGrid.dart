@@ -4,10 +4,10 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../helpers/columnHelper.dart';
 
-Widget responsiveStaggeredGrid(
-  List<StaggeredGridTile> items,
+Widget responsiveStaggeredGrid({
+  required List<StaggeredGridTile> items,
   int Function(Breakpoint breakpoint)? columnCountFunc,
-) {
+}) {
   return Padding(
     padding: EdgeInsets.all(8.0),
     child: BreakpointBuilder(

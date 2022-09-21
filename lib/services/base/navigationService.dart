@@ -19,10 +19,12 @@ class NavigationService implements INavigationService {
   }
 
   @override
-  Future<bool> navigateHomeAsync(context,
-      {Widget Function(BuildContext)? navigateTo,
-      String? navigateToNamed,
-      bool? pushReplacement}) async {
+  Future<bool> navigateHomeAsync(
+    context, {
+    Widget Function(BuildContext)? navigateTo,
+    String? navigateToNamed,
+    bool? pushReplacement,
+  }) async {
     const baseLogMsg = 'navigationService - navigateHomeAsync';
     Navigator.popUntil(context, (r) => !Navigator.canPop(context));
 
@@ -72,6 +74,7 @@ class NavigationService implements INavigationService {
       Navigator.pushNamed(
         context,
         navigateToNamed,
+        arguments: navigateToNamedParameters,
       );
     }
   }

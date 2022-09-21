@@ -34,21 +34,26 @@ Widget gridWithScrollbar({
       //   key: Key('grid-cross-axis$crossAxisCount'),
       // );
 
-      GridView listView = GridView.custom(
+      StaggeredGrid stagGrid = StaggeredGrid.count(
+        crossAxisCount: crossAxisCount,
+        crossAxisSpacing: 4,
+        mainAxisSpacing: 4,
+        children: List.filled(itemCount, 1)
+            .asMap()
+            .entries
+            .map((entry) => itemBuilder(innerContext, entry.key))
+            .toList(),
+        key: Key('grid-cross-axis$crossAxisCount'),
+      );
+
+      ListView listView = ListView(
         primary: false,
         shrinkWrap: true,
         padding: padding ?? const EdgeInsets.all(8),
         physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
-        childrenDelegate: SliverChildBuilderDelegate(itemBuilder),
-        gridDelegate: SliverQuiltedGridDelegate(
-          crossAxisCount: crossAxisCount,
-          crossAxisSpacing: 4,
-          mainAxisSpacing: 4,
-          repeatPattern: QuiltedGridRepeatPattern.inverted,
-          pattern: List.filled(itemCount, QuiltedGridTile(1, 1)),
-        ),
         controller: scrollController,
-        key: Key('grid-cross-axis$crossAxisCount'),
+        key: Key('list-grid-cross-axis$crossAxisCount'),
+        children: [Expanded(child: stagGrid)],
       );
 
       return isiOS
