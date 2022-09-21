@@ -77,7 +77,6 @@ export './contracts/localizationMap.dart';
 export './contracts/misc/actionItem.dart';
 export './contracts/misc/popupMenuActionItem.dart';
 export './contracts/misc/responsiveFlexData.dart';
-export './contracts/misc/staggeredGridItem.dart';
 export './contracts/results/paginationResultWithValue.dart';
 export './contracts/results/result.dart';
 export './contracts/results/resultWithDoubleValue.dart';
