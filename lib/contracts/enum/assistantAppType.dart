@@ -5,6 +5,7 @@ enum AssistantAppType {
   NMS,
   SMS,
   KGZ,
+  DKM,
 }
 
 final assistantAppTypeValues = EnumValues({
@@ -12,4 +13,5 @@ final assistantAppTypeValues = EnumValues({
   "NMS": AssistantAppType.NMS,
   "SMS": AssistantAppType.SMS,
   "KGZ": AssistantAppType.KGZ,
+  "DKM": AssistantAppType.DKM,
 });

@@ -13,6 +13,7 @@ Widget listWithScrollbar(
     ScrollController? scrollController //
     }) {
   ListView listView = ListView.builder(
+    primary: false,
     // physics: isApple ? BouncingScrollPhysics() : ClampingScrollPhysics(),
     physics: const AlwaysScrollableScrollPhysics(),
     key: key,

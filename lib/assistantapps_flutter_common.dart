@@ -29,6 +29,7 @@ export './components/list/responsiveSearchableList.dart';
 export './components/list/searchableList.dart';
 export './components/menu/popupMenu.dart';
 export './components/modalBottomSheet/assistantAppsModalBottomSheet.dart';
+export './components/modalBottomSheet/logsModalBottomSheet.dart';
 export './components/modalBottomSheet/patreonLoginModalBottomSheet.dart';
 export './components/tilePresenters/externalLinkTilePresenter.dart';
 export './components/tilePresenters/genericTilePresenter.dart';

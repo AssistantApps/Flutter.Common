@@ -40,12 +40,14 @@ class LocalStorageService implements ILocalStorageService {
       String key) async {
     ResultWithValue<String> stringFromStorageResult =
         await loadStringFromStorage(key);
-    if (stringFromStorageResult.hasFailed)
+    if (stringFromStorageResult.hasFailed) {
+      print('stringFromStorageResult hasFailed');
       return ResultWithValue<Map<String, dynamic>>(
         stringFromStorageResult.isSuccess,
         Map<String, dynamic>(),
-        stringFromStorageResult.toString(),
+        stringFromStorageResult.errorMessage,
       );
+    }
     String stateString = stringFromStorageResult.value;
     try {
       Map<String, dynamic> stateMap =

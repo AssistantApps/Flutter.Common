@@ -59,6 +59,7 @@ class Searchable<T> extends StatefulWidget {
 
 class SearchableWidget<T> extends State<Searchable<T>> {
   TextEditingController controller = TextEditingController();
+  ScrollController listScrollController = ScrollController();
   List<T> _searchResult = [];
   List<T> _listResults = [];
   bool hasLoaded = false;
@@ -218,6 +219,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
 
       columnWidgets.add(Expanded(
         child: widget.listOrGridDisplay(
+          scrollController: listScrollController,
           itemCount: listLength,
           itemBuilder: (context, index) {
             if (widget.firstListItemWidget != null) {
