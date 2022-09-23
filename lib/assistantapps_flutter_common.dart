@@ -75,6 +75,7 @@ export './contracts/guide/guideSection.dart';
 export './contracts/guide/guideSectionItem.dart';
 export './contracts/guide/settingsForGuideListPage.dart';
 export './contracts/localizationMap.dart';
+export './contracts/staggeredGridTileItem.dart';
 export './contracts/misc/actionItem.dart';
 export './contracts/misc/popupMenuActionItem.dart';
 export './contracts/misc/responsiveFlexData.dart';
