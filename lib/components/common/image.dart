@@ -169,3 +169,10 @@ Widget networkBlurHashImage(
     },
   );
 }
+
+Image getCountryFlag(String countryCode) {
+  return Image.asset(
+    'icons/flags/png/$countryCode.png',
+    package: 'country_icons',
+  );
+}

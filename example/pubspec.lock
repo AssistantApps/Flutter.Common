@@ -42,7 +42,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.1.79"
+    version: "0.1.80"
   async:
     dependency: transitive
     description:
@@ -141,6 +141,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  country_icons:
+    dependency: transitive
+    description:
+      name: country_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   cross_file:
     dependency: transitive
     description:
