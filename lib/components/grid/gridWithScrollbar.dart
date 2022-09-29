@@ -53,7 +53,7 @@ Widget gridWithScrollbar({
         physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
         controller: scrollController,
         key: Key('list-grid-cross-axis$crossAxisCount'),
-        children: [Expanded(child: stagGrid)],
+        children: [stagGrid],
       );
 
       return isiOS
