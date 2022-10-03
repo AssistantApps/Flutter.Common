@@ -24,14 +24,30 @@ Widget listWithScrollbar(
     controller: scrollController,
   );
   return isApple
-      ? appleListWithScrollbar(listView: listView)
-      : androidListWithScrollbar(listView: listView);
+      ? appleListWithScrollbar(
+          listView: listView,
+          scrollController: scrollController,
+        )
+      : androidListWithScrollbar(
+          listView: listView,
+          scrollController: scrollController,
+        );
 }
 
-Widget androidListWithScrollbar({required Widget listView}) => Scrollbar(
+Widget androidListWithScrollbar({
+  required Widget listView,
+  ScrollController? scrollController,
+}) =>
+    Scrollbar(
       child: listView,
+      controller: scrollController,
     );
 
-Widget appleListWithScrollbar({required Widget listView}) => CupertinoScrollbar(
+Widget appleListWithScrollbar({
+  required Widget listView,
+  ScrollController? scrollController,
+}) =>
+    CupertinoScrollbar(
       child: listView,
+      controller: scrollController,
     );
