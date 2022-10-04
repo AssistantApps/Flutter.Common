@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.1.85
+version: 0.1.86
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -32,7 +32,7 @@ dependencies:
   dotted_border: 2.0.0+2
   enum_to_string: 2.0.1
   extended_masked_text: 2.3.1
-  file_picker_cross: 4.6.0
+  file_picker: 5.2.0+1
   flutter_chip_tags: 2.0.2
   # flutter_layout_grid: 1.0.6
   flutter_markdown: 0.6.12
@@ -77,8 +77,8 @@ dev_dependencies:
   flutter_lints: 2.0.1
   storybook_flutter: 0.11.2
 
-dependency_overrides:
-  ffi: 2.0.1
+# dependency_overrides:
+#   ffi: 2.0.1
 
 flutter:
   uses-material-design: true

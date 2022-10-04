@@ -1,13 +1,13 @@
 import 'dart:typed_data';
 
-import 'package:assistantapps_flutter_common/contracts/results/resultWithValue.dart';
-import 'package:file_picker_cross/file_picker_cross.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
+import '../contracts/results/resultWithValue.dart';
 import '../contracts/generated/uploadedImageViewModel.dart';
 import '../integration/dependencyInjection.dart';
-import './deviceHelper.dart';
+import 'deviceHelper.dart';
 
 void adaptiveImageUploadToServer(
     void Function(UploadedImageViewModel) onSuccess,
@@ -55,10 +55,15 @@ void adaptiveImageUpload({
       //   }
       // });
     } else if (isDesktop) {
-      FilePickerCross myFile = await FilePickerCross.importFromStorage(
-        type: FileTypeCross.image,
+      FilePickerResult? myFile = await FilePicker.platform.pickFiles(
+        type: FileType.image,
       );
-      fileContents = myFile.toUint8List();
+      if (myFile == null || myFile.files.length < 1) {
+        getLog().e('pickFiles result is null');
+        uploadError('pickFiles result is null');
+        return;
+      }
+      fileContents = myFile.files[0].bytes; //.toUint8List();
     } else if (isAndroid || isiOS) {
       ImagePicker picker = ImagePicker();
       XFile? pickedFileNative =
