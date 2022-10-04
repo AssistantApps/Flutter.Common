@@ -13,8 +13,12 @@ class SteamNewsPage extends StatelessWidget {
   final AssistantAppType appType;
   final Future<ResultWithValue<List<SteamNewsItemViewModel>>> Function(
       BuildContext) backupFunc;
-  SteamNewsPage(this.analyticsKey, this.appType,
-      {this.bottomNavigationBar, required this.backupFunc}) {
+  SteamNewsPage(
+    this.analyticsKey,
+    this.appType, {
+    this.bottomNavigationBar,
+    required this.backupFunc,
+  }) {
     getAnalytics().trackEvent(this.analyticsKey);
   }
 

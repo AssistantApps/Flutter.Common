@@ -15,6 +15,10 @@ List<Option<AssistantAppType>> getAssistantAppTypeOptions() => [
         value: AssistantAppType.SMS,
       ),
       const Option<AssistantAppType>(
+        label: 'DKM',
+        value: AssistantAppType.DKM,
+      ),
+      const Option<AssistantAppType>(
         label: 'KGZ',
         value: AssistantAppType.KGZ,
       ),
