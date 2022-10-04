@@ -33,7 +33,7 @@ class BaseSignalRService {
       this._hubConnection?.state == HubConnectionState.Connected;
 
   void addListener(
-      SignalRReceiveEvent event, void Function(List<Object>?) onFunc) async {
+      SignalRReceiveEvent event, void Function(List<Object?>?) onFunc) async {
     getLog().d('Listening for: ${EnumToString.convertToString(event)}');
     if (!isConnected) return;
 

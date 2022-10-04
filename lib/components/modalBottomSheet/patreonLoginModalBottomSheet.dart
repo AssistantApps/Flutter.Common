@@ -51,7 +51,7 @@ class _PatreonLoginModalBottomSheetWidget
     String deviceId = await getDeviceId();
     getLog().d(deviceId);
     _oAuthSignal.joinGroup(deviceId);
-    _oAuthSignal.listenToOAuth((List<Object>? payload) {
+    _oAuthSignal.listenToOAuth((List<Object?>? payload) {
       getLog().d('listenToOAuth');
 
       if (payload == null || payload.length < 2) {

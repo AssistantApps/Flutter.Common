@@ -9,7 +9,7 @@ environment:
   flutter: '>=1.17.0'
 
 dependencies:
-  storybook_flutter: ^0.10.1
+  storybook_flutter: 0.11.2
   after_layout: 1.2.0
 
   # temp
@@ -24,7 +24,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: 2.0.1
+
+dependency_overrides:
+  ffi: 2.0.1
 
 flutter:
   uses-material-design: true

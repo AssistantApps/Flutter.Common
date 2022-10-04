@@ -26,7 +26,7 @@ class StorybookApp extends StatefulWidget {
   const StorybookApp({Key? key}) : super(key: key);
 
   @override
-  _StorybookAppState createState() => _StorybookAppState();
+  createState() => _StorybookAppState();
 }
 
 class _StorybookAppState<T> extends State<StorybookApp>

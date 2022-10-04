@@ -16,7 +16,7 @@ class StorybookWrapper extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _StorybookWrapperState createState() => _StorybookWrapperState();
+  createState() => _StorybookWrapperState();
 }
 
 class _StorybookWrapperState extends State<StorybookWrapper> {

@@ -6,7 +6,7 @@ class AuthButton {
   static Widget google({required void Function() onPressed}) =>
       GoogleAuthButton(
         onPressed: onPressed,
-        darkMode: true,
+        themeMode: ThemeMode.dark,
       );
 
   static Widget patreon({required void Function() onPressed}) =>

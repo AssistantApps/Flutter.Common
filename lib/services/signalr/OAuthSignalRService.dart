@@ -9,7 +9,7 @@ class OAuthSignalRService extends BaseSignalRService {
   Future<Result> connectToAuth(void Function({Exception? error}) onClose) =>
       this.createConnection(onClose);
 
-  void listenToOAuth(void Function(List<Object>?) onFunc) =>
+  void listenToOAuth(void Function(List<Object?>?) onFunc) =>
       this.addListener(SignalRReceiveEvent.OAuthComplete, onFunc);
 
   void removeListenToOAuth() =>
