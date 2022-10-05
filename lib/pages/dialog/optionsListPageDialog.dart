@@ -6,7 +6,8 @@ class OptionsListPageDialog extends StatefulWidget {
   final String title;
   final int minListForSearch;
   final List<DropdownOption> options;
-  final Widget Function(BuildContext, DropdownOption, int)? customPresenter;
+  final Widget Function(BuildContext, DropdownOption, int,
+      {void Function()? onTap})? customPresenter;
   final void Function(DropdownOption)? addOption;
   final void Function(DropdownOption)? onDelete;
 
@@ -51,9 +52,11 @@ class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
       );
     }
 
-    Widget Function(BuildContext p1, DropdownOption p2, int p3) presenter =
+    Widget Function(BuildContext p1,
+            DropdownOption p2, int p3, {void Function()? onTap}) presenter =
         widget.customPresenter ??
-            (BuildContext innerC, DropdownOption option, int index) =>
+            (BuildContext innerC, DropdownOption option, int index,
+                    {void Function()? onTap}) =>
                 optionTilePresenter(innerC, option,
                     onDelete: (widget.onDelete != null)
                         ? () {

@@ -16,7 +16,10 @@ import '../common/image.dart';
 import '../menu/popupMenu.dart';
 
 Widget guideTilePresenter(
-    BuildContext context, GuideSearchResultViewModel guide) {
+  BuildContext context,
+  GuideSearchResultViewModel guide, {
+  void Function()? onTap,
+}) {
   // Widget imageWidget =
   //     (guide.imageUrl == null || guide.imageUrl.length < 5)
   //         ? localImage(AppImage.error1, boxfit: BoxFit.fitWidth)

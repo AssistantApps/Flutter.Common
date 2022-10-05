@@ -25,7 +25,12 @@ class LanguageSelectionPageContent extends StatelessWidget {
       getTranslations().fromKey(LocaleKey.appLanguage),
       options,
       minListForSearch: 25,
-      customPresenter: (BuildContext innerC, DropdownOption opt, int) {
+      customPresenter: (
+        BuildContext innerC,
+        DropdownOption opt,
+        int index, {
+        void Function()? onTap,
+      }) {
         LocalizationMap supportedLang =
             supportedLanguageMaps.firstWhere((sl) => sl.code == opt.value);
         return languageTilePresenter(

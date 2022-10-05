@@ -11,8 +11,8 @@ class Searchable<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
   //
-  final Widget Function(BuildContext, T)? itemDisplayer;
-  final Widget Function(BuildContext, T, int)? itemWithIndexDisplayer;
+  final Widget Function(BuildContext, T, {void Function()? onTap})? itemDisplayer;
+  final Widget Function(BuildContext, T, int, {void Function()? onTap})? itemWithIndexDisplayer;
   final Widget Function(
       { //
       required int itemCount,

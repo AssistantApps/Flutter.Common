@@ -12,7 +12,8 @@ class PaginationSearchableList<T> extends StatefulWidget {
       listGetter;
   final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
   final LocaleKey? backupListWarningMessage;
-  final Widget Function(BuildContext context, T) listItemDisplayer;
+  final Widget Function(BuildContext context, T, {void Function()? onTap})
+      listItemDisplayer;
   final bool Function(T, String) listItemSearch;
   final void Function()? deleteAll;
   final int minListForSearch;
@@ -62,7 +63,8 @@ class PaginationSearchableListWidget<T>
       listGetter;
   int currentPage = 1;
   int totalPages = 1;
-  final Widget Function(BuildContext context, T) listItemDisplayer;
+  final Widget Function(BuildContext context, T, {void Function()? onTap})
+      listItemDisplayer;
   final bool Function(T, String) listItemSearch;
   final int minListForSearch;
   final String? customKey;

@@ -10,7 +10,8 @@ import './searchableList.dart';
 class ResponsiveListDetailView<T> extends StatefulWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Widget? firstListItemWidget;
-  final Widget Function(BuildContext context, T, int index) listItemDisplayer;
+  final Widget Function(BuildContext context, T, int index,
+      {void Function()? onTap}) listItemDisplayer;
   final void Function(BuildContext context, T)? listItemMobileOnTap;
   final Widget Function(
           BuildContext context, T, void Function(Widget) updateDetailView)?
@@ -99,11 +100,14 @@ class _ResponsiveListDetailWidget<T>
         void Function(BuildContext, T) onTapFunc = getItemClickFunc(flexData);
         SearchableList<T> listView = SearchableList<T>(
           interceptedListGetter,
-          listItemWithIndexDisplayer:
-              (BuildContext innerC, T item, int index) => GestureDetector(
-            child: widget.listItemDisplayer(innerC, item, index),
-            onTap: () => onTapFunc(innerC, item),
-          ),
+          listItemWithIndexDisplayer: (
+            BuildContext innerC,
+            T item,
+            int index, {
+            void Function()? onTap,
+          }) =>
+              widget.listItemDisplayer(innerC, item, index,
+                  onTap: () => onTapFunc(innerC, item)),
           listItemSearch: widget.listItemSearch,
           key: widget.key,
           hintText: widget.hintText,

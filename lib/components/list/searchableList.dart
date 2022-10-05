@@ -9,8 +9,8 @@ import './listWithScrollbar.dart';
 class SearchableList<T> extends StatelessWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
-  final Widget Function(BuildContext, T)? listItemDisplayer;
-  final Widget Function(BuildContext, T, int)? listItemWithIndexDisplayer;
+  final Widget Function(BuildContext, T, {void Function()? onTap})? listItemDisplayer;
+  final Widget Function(BuildContext, T, int, {void Function()? onTap})? listItemWithIndexDisplayer;
   final bool Function(T, String)? listItemSearch;
   final void Function()? deleteAll;
   final LocaleKey? backupListWarningMessage;

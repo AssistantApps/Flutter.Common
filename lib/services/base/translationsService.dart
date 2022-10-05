@@ -101,7 +101,12 @@ class TranslationService implements ITranslationService {
         getTranslations().fromKey(LocaleKey.appLanguage),
         orderedLangs,
         minListForSearch: 15,
-        customPresenter: (BuildContext innerC, DropdownOption opt, int index) {
+        customPresenter: (
+          BuildContext innerC,
+          DropdownOption opt,
+          int index, {
+          void Function()? onTap,
+        }) {
           LocalizationMap supportedLang =
               supportedLanguageMaps.firstWhere((sl) => sl.code == opt.value);
           return languageTilePresenter(
