@@ -12,7 +12,11 @@ import '../common/icon.dart';
 import '../common/image.dart';
 
 Widget steamNewsItemTilePresenter(
-    BuildContext context, SteamNewsItemViewModel newsItem, int index) {
+  BuildContext context,
+  SteamNewsItemViewModel newsItem,
+  int index, {
+  void Function()? onTap,
+}) {
   Widget image = networkImage(
     newsItem.image,
     boxfit: BoxFit.fitWidth,

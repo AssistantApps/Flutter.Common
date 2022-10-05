@@ -10,8 +10,10 @@ import './gridWithScrollbar.dart';
 class SearchableGrid<T> extends StatelessWidget {
   final Future<ResultWithValue<List<T>>> Function() listGetter;
   final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
-  final Widget Function(BuildContext, T)? gridItemDisplayer;
-  final Widget Function(BuildContext, T, int)? gridItemWithIndexDisplayer;
+  final Widget Function(BuildContext, T, {void Function()? onTap})?
+      gridItemDisplayer;
+  final Widget Function(BuildContext, T, int, {void Function()? onTap})?
+      gridItemWithIndexDisplayer;
   final int Function(Breakpoint)? gridViewColumnCalculator;
   //
   final bool Function(T, String)? gridItemSearch;

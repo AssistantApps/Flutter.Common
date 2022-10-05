@@ -5,7 +5,11 @@ import '../../contracts/generated/patreonViewModel.dart';
 import '../../helpers/externalHelper.dart';
 import './genericTilePresenter.dart';
 
-Widget patronTilePresenter(BuildContext context, PatreonViewModel patron) {
+Widget patronTilePresenter(
+  BuildContext context,
+  PatreonViewModel patron, {
+  void Function()? onTap,
+}) {
   if (patron.url == ExternalUrls.patreon) {
     Function() onTap = () => launchExternalURL(patron.url);
     return Card(
