@@ -47,7 +47,7 @@ Widget steamNewsItemTilePresenter(
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(4),
+            padding: EdgeInsets.all(8),
             child: Text(
               newsItem.shortDescription,
               textAlign: TextAlign.center,
