@@ -86,13 +86,14 @@ class NavigationService implements INavigationService {
     const baseLogMsg = 'navigationService - navigateAsync';
     if (navigateTo != null) {
       getLog().i('$baseLogMsg - navigateTo != null');
-      return await Navigator.push(
+      return await Navigator.push<T>(
         context,
         MaterialPageRoute(builder: navigateTo),
       );
     } else if (navigateToNamed != null) {
       getLog().i('$baseLogMsg - navigateToNamed: $navigateToNamed');
-      return await Navigator.pushNamed(
+      // Using <dynamic> as a fix for strange null safety typecasting
+      return await Navigator.pushNamed<dynamic>(
         context,
         navigateToNamed,
       );
