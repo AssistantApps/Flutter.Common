@@ -22,15 +22,15 @@ Widget steamNewsItemTilePresenter(
     boxfit: BoxFit.fitWidth,
     loading: getPath().steamNewsDefaultImage,
   );
-  return GestureDetector(
-    child: Card(
-      semanticContainer: true,
-      clipBehavior: Clip.antiAliasWithSaveLayer,
+  return Card(
+    semanticContainer: true,
+    clipBehavior: Clip.antiAliasWithSaveLayer,
+    child: InkWell(
       child: Column(
         children: <Widget>[
           image,
           Padding(
-            padding: EdgeInsets.only(top: 4, right: 4, left: 4),
+            padding: const EdgeInsets.only(top: 4, right: 8, left: 8),
             child: Text(
               newsItem.name,
               textAlign: TextAlign.center,
@@ -38,7 +38,7 @@ Widget steamNewsItemTilePresenter(
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 4, right: 4, left: 4),
+            padding: const EdgeInsets.only(top: 4, right: 4, left: 4),
             child: Text(
               DateFormat(UIConstants.DateFormat)
                   .format(newsItem.date.toLocal()),
@@ -47,7 +47,7 @@ Widget steamNewsItemTilePresenter(
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Text(
               newsItem.shortDescription,
               textAlign: TextAlign.center,
@@ -55,7 +55,7 @@ Widget steamNewsItemTilePresenter(
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.only(top: 8, bottom: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -67,9 +67,9 @@ Widget steamNewsItemTilePresenter(
           ),
         ],
       ),
-      margin: const EdgeInsets.all(4),
+      onTap: () => launchExternalURL(newsItem.link),
     ),
-    onTap: () => launchExternalURL(newsItem.link),
+    margin: const EdgeInsets.all(4),
   );
 }
 
