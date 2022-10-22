@@ -48,24 +48,32 @@ ListOrGridDisplayType gridWithScrollbar = (
       key: Key('grid-cross-axis$crossAxisCount'),
     );
 
-    ListView listView = ListView(
-      primary: false,
-      shrinkWrap: true,
-      padding: padding ?? const EdgeInsets.all(8),
-      physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
-      controller: scrollController,
-      key: Key('list-grid-cross-axis$crossAxisCount'),
-      children: [stagGrid],
-    );
+    // ListView listView = ListView(
+    //   primary: false,
+    //   shrinkWrap: true,
+    //   padding: padding ?? const EdgeInsets.all(8),
+    //   physics: isiOS ? BouncingScrollPhysics() : ClampingScrollPhysics(),
+    //   controller: scrollController,
+    //   key: Key('list-grid-cross-axis$crossAxisCount'),
+    //   children: [stagGrid],
+    // );
 
     return isiOS
-        ? appleGridWithScrollbar(itemCount: itemCount, listView: listView)
-        : androidGridWithScrollbar(itemCount: itemCount, listView: listView);
+        ? appleGridWithScrollbar(itemCount: itemCount, stagGrid: stagGrid)
+        : androidGridWithScrollbar(itemCount: itemCount, stagGrid: stagGrid);
   });
 };
 
-Widget androidGridWithScrollbar({int? itemCount, required Widget listView}) =>
-    Scrollbar(child: listView);
+Widget androidGridWithScrollbar(
+        {int? itemCount, required StaggeredGrid stagGrid}) =>
+    Scrollbar(
+        child: SingleChildScrollView(
+      child: Scrollbar(child: stagGrid),
+    ));
 
-Widget appleGridWithScrollbar({int? itemCount, required Widget listView}) =>
-    CupertinoScrollbar(child: listView);
+Widget appleGridWithScrollbar(
+        {int? itemCount, required StaggeredGrid stagGrid}) =>
+    Scrollbar(
+        child: SingleChildScrollView(
+      child: CupertinoScrollbar(child: stagGrid),
+    ));

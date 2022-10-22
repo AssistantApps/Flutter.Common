@@ -46,33 +46,15 @@ class SearchableGrid<T> extends StatelessWidget {
     this.backupListWarningMessage,
   });
 
-  ListOrGridDisplayType localGridWithScrollbar = (
-      { //
-      required int itemCount,
-      Key? key,
-      required Widget Function(BuildContext, int) itemBuilder,
-      int Function(Breakpoint)? gridViewColumnCalculator,
-      bool? shrinkWrap,
-      EdgeInsetsGeometry? padding,
-      ScrollController? scrollController //
-      }) {
-    return gridWithScrollbar(
-      key: key,
-      itemCount: itemCount,
-      itemBuilder: itemBuilder,
-      gridViewColumnCalculator: gridViewColumnCalculator,
-      scrollController: scrollController,
-    );
-  };
-
   @override
   Widget build(BuildContext context) {
     return Searchable(
       listGetter,
-      localGridWithScrollbar,
+      gridWithScrollbar,
       backupListGetter: backupListGetter,
       itemDisplayer: gridItemDisplayer,
       itemWithIndexDisplayer: gridItemWithIndexDisplayer,
+      gridViewColumnCalculator: gridViewColumnCalculator,
       //
       key: key,
       listItemSearch: gridItemSearch,

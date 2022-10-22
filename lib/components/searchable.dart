@@ -1,3 +1,4 @@
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../contracts/enum/localeKey.dart';
@@ -15,6 +16,7 @@ class Searchable<T> extends StatefulWidget {
   final ListItemWithIndexDisplayerType<T>? itemWithIndexDisplayer;
   final ListItemSearchType<T>? listItemSearch;
   final ListOrGridDisplayType listOrGridDisplay;
+  final int Function(Breakpoint)? gridViewColumnCalculator;
   //
   final void Function()? deleteAll;
   final int minListForSearch;
@@ -33,6 +35,7 @@ class Searchable<T> extends StatefulWidget {
     this.listItemSearch,
     this.itemDisplayer,
     this.itemWithIndexDisplayer,
+    this.gridViewColumnCalculator,
     this.key,
     this.firstListItemWidget,
     this.keepFirstListItemWidgetVisible,
@@ -212,6 +215,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       columnWidgets.add(Expanded(
         child: widget.listOrGridDisplay(
           scrollController: listScrollController,
+          gridViewColumnCalculator: widget.gridViewColumnCalculator,
           itemCount: listLength,
           itemBuilder: (context, index) {
             if (widget.firstListItemWidget != null) {
