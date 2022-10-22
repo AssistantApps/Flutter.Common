@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pagination_view/pagination_view.dart';
 
 import '../../contracts/results/paginationResultWithValue.dart';
+import '../../contracts/types/listTypes.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/animation.dart';
 
 class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
-  final Future<PaginationResultWithValue<List<T>>> Function(int page)
-      listGetter;
-  final Future<PaginationResultWithValue<List<T>>> Function(int page)?
-      backupListGetter;
+  final ListItemPaginationDisplayerType<T> listGetter;
+  final ListItemPaginationDisplayerType<T>? backupListGetter;
   final int pageSize;
-  final Widget Function(BuildContext, T)? listItemDisplayer;
+  final ListItemDisplayerType<T>? listItemDisplayer;
   final Widget Function(BuildContext, T, int, int)? listItemWithIndexDisplayer;
   final String? customKey;
   final String? hintText;

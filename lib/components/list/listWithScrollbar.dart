@@ -1,13 +1,16 @@
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../contracts/types/listTypes.dart';
 import '../../helpers/deviceHelper.dart';
 
-Widget listWithScrollbar(
+ListOrGridDisplayType listWithScrollbar = (
     { //
     required int itemCount,
     Key? key,
     required Widget Function(BuildContext, int) itemBuilder,
+    int Function(Breakpoint)? gridViewColumnCalculator,
     bool? shrinkWrap,
     EdgeInsetsGeometry? padding,
     ScrollController? scrollController //
@@ -32,7 +35,7 @@ Widget listWithScrollbar(
           listView: listView,
           scrollController: scrollController,
         );
-}
+};
 
 Widget androidListWithScrollbar({
   required Widget listView,

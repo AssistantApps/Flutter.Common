@@ -2,18 +2,24 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/enum/donationType.dart';
 import '../../contracts/generated/donationViewModel.dart';
+import '../../contracts/types/listTypes.dart';
 import '../../helpers/dateHelper.dart';
 import '../common/donationImage.dart';
 
-Widget donationTilePresenter(BuildContext context, DonationViewModel donator) =>
-    ListTile(
-      leading: Padding(
-        padding: EdgeInsets.all(4),
-        child: getImage(donator.type),
-      ),
-      title: normalText(donator.username),
-      subtitle: normalText(simpleDate(donator.date.toLocal())),
-    );
+ListItemDisplayerType<DonationViewModel> donationTilePresenter = (
+  BuildContext context,
+  DonationViewModel donator, {
+  void Function()? onTap,
+}) {
+  return ListTile(
+    leading: Padding(
+      padding: EdgeInsets.all(4),
+      child: getImage(donator.type),
+    ),
+    title: normalText(donator.username),
+    subtitle: normalText(simpleDate(donator.date.toLocal())),
+  );
+};
 
 Widget normalText(String text) => Text(
       text,

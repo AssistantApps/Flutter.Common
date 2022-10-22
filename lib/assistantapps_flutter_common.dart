@@ -84,6 +84,7 @@ export './contracts/results/result.dart';
 export './contracts/results/resultWithDoubleValue.dart';
 export './contracts/results/resultWithValue.dart';
 export './contracts/search/dropdownOption.dart';
+export './contracts/types/listTypes.dart';
 //
 // Environment
 export './env/assistantAppsEnvironmentSettings.dart';

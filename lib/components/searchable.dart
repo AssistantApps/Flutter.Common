@@ -2,28 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../contracts/enum/localeKey.dart';
 import '../contracts/results/resultWithValue.dart';
+import '../contracts/types/listTypes.dart';
 import '../integration/dependencyInjection.dart';
 import './adaptive/searchBar.dart';
 import './common/animation.dart';
 import './common/space.dart';
 
 class Searchable<T> extends StatefulWidget {
-  final Future<ResultWithValue<List<T>>> Function() listGetter;
-  final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
+  final ListGetterType<T> listGetter;
+  final ListGetterType<T>? backupListGetter;
+  final ListItemDisplayerType<T>? itemDisplayer;
+  final ListItemWithIndexDisplayerType<T>? itemWithIndexDisplayer;
+  final ListItemSearchType<T>? listItemSearch;
+  final ListOrGridDisplayType listOrGridDisplay;
   //
-  final Widget Function(BuildContext, T, {void Function()? onTap})? itemDisplayer;
-  final Widget Function(BuildContext, T, int, {void Function()? onTap})? itemWithIndexDisplayer;
-  final Widget Function(
-      { //
-      required int itemCount,
-      Key? key,
-      required Widget Function(BuildContext, int) itemBuilder,
-      bool? shrinkWrap,
-      EdgeInsetsGeometry? padding,
-      ScrollController? scrollController //
-      }) listOrGridDisplay;
-  //
-  final bool Function(T, String)? listItemSearch;
   final void Function()? deleteAll;
   final int minListForSearch;
   final Key? key;

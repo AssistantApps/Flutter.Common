@@ -4,19 +4,18 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/types/listTypes.dart';
 import '../searchable.dart';
 import './gridWithScrollbar.dart';
 
 class SearchableGrid<T> extends StatelessWidget {
-  final Future<ResultWithValue<List<T>>> Function() listGetter;
-  final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
-  final Widget Function(BuildContext, T, {void Function()? onTap})?
-      gridItemDisplayer;
-  final Widget Function(BuildContext, T, int, {void Function()? onTap})?
-      gridItemWithIndexDisplayer;
-  final int Function(Breakpoint)? gridViewColumnCalculator;
+  final ListGetterType<T> listGetter;
+  final ListGetterType<T>? backupListGetter;
+  final ListItemDisplayerType<T>? gridItemDisplayer;
+  final ListItemWithIndexDisplayerType<T>? gridItemWithIndexDisplayer;
+  final ListItemSearchType<T>? gridItemSearch;
   //
-  final bool Function(T, String)? gridItemSearch;
+  final int Function(Breakpoint)? gridViewColumnCalculator;
   final void Function()? deleteAll;
   final LocaleKey? backupListWarningMessage;
   final int minListForSearch;
@@ -47,11 +46,12 @@ class SearchableGrid<T> extends StatelessWidget {
     this.backupListWarningMessage,
   });
 
-  Widget localGridWithScrollbar(
+  ListOrGridDisplayType localGridWithScrollbar = (
       { //
       required int itemCount,
       Key? key,
       required Widget Function(BuildContext, int) itemBuilder,
+      int Function(Breakpoint)? gridViewColumnCalculator,
       bool? shrinkWrap,
       EdgeInsetsGeometry? padding,
       ScrollController? scrollController //
@@ -63,7 +63,7 @@ class SearchableGrid<T> extends StatelessWidget {
       gridViewColumnCalculator: gridViewColumnCalculator,
       scrollController: scrollController,
     );
-  }
+  };
 
   @override
   Widget build(BuildContext context) {

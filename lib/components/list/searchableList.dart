@@ -1,17 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/localeKey.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/types/listTypes.dart';
 import '../searchable.dart';
 import './listWithScrollbar.dart';
 
 class SearchableList<T> extends StatelessWidget {
-  final Future<ResultWithValue<List<T>>> Function() listGetter;
-  final Future<ResultWithValue<List<T>>> Function()? backupListGetter;
-  final Widget Function(BuildContext, T, {void Function()? onTap})? listItemDisplayer;
-  final Widget Function(BuildContext, T, int, {void Function()? onTap})? listItemWithIndexDisplayer;
-  final bool Function(T, String)? listItemSearch;
+  final ListGetterType<T> listGetter;
+  final ListGetterType<T>? backupListGetter;
+  final ListItemDisplayerType<T>? listItemDisplayer;
+  final ListItemWithIndexDisplayerType<T>? listItemWithIndexDisplayer;
+  final ListItemSearchType<T>? listItemSearch;
   final void Function()? deleteAll;
   final LocaleKey? backupListWarningMessage;
   final int minListForSearch;
@@ -43,7 +42,7 @@ class SearchableList<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Searchable(
+    return Searchable<T>(
       listGetter,
       listWithScrollbar,
       backupListGetter: backupListGetter,
