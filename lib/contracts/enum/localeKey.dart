@@ -584,6 +584,12 @@ enum LocaleKey {
   timeMorning,
   timeDay,
   timeNight,
+  stepNum,
+  downloadNomNom,
+  downloadFromGithub,
+  nomNomStep2,
+  nomNomStep3,
+  nomNomStep4,
   //
   inputTooShort,
   inputTooLong,
