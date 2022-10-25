@@ -590,6 +590,8 @@ enum LocaleKey {
   nomNomStep2,
   nomNomStep3,
   nomNomStep4,
+  syncWithNomNom,
+  syncWithNomNomDesc,
   //
   inputTooShort,
   inputTooLong,
