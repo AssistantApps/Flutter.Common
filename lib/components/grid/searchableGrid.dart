@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/localeKey.dart';
-import '../../contracts/results/resultWithValue.dart';
 import '../../contracts/types/listTypes.dart';
 import '../searchable.dart';
 import './gridWithScrollbar.dart';
