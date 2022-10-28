@@ -47,8 +47,10 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
   }
 
   Future<PaginationResultWithValue<List<VersionViewModel>>> getHistory(
-      String langCode, List<PlatformType> platforms,
-      {int page = 1}) async {
+    String langCode,
+    List<PlatformType> platforms, {
+    int page = 1,
+  }) async {
     VersionSearchViewModel body = VersionSearchViewModel(
       appGuid: getEnv().assistantAppsAppGuid,
       languageCode: langCode,
@@ -56,8 +58,10 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       page: page,
     );
     try {
-      final response =
-          await this.apiPost(ApiUrls.versionSearch, body.toRawJson());
+      final response = await this.apiPost(
+        ApiUrls.versionSearch,
+        body.toRawJson(),
+      );
       if (response.hasFailed) {
         return PaginationResultWithValue<List<VersionViewModel>>(
             false, List.empty(growable: true), 0, 0, response.errorMessage);

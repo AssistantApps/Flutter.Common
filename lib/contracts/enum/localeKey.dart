@@ -592,6 +592,13 @@ enum LocaleKey {
   nomNomStep4,
   syncWithNomNom,
   syncWithNomNomDesc,
+  museumDonation,
+  effects,
+  requiredItems,
+  requiredForDeed,
+  foodPreferences,
+  favourite,
+  hated,
   //
   inputTooShort,
   inputTooLong,
