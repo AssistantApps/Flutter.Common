@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart'
+    hide ModalBottomSheetRoute;
 
 // import '../../helpers/deviceHelper.dart';
 
