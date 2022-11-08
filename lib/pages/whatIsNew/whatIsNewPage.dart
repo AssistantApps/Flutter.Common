@@ -6,11 +6,13 @@ import '../../integration/dependencyInjection.dart';
 class WhatIsNewPage extends StatelessWidget {
   final String analyticsKey;
   final String selectedLanguage;
+  final List<PlatformType>? overriddenPlatforms;
   final List<Widget> Function(VersionViewModel)? additionalBuilder;
 
   WhatIsNewPage(
     this.analyticsKey, {
     required this.selectedLanguage,
+    this.overriddenPlatforms,
     this.additionalBuilder,
   }) {
     getAnalytics().trackEvent(analyticsKey);
@@ -29,7 +31,7 @@ class WhatIsNewPage extends StatelessWidget {
       body: WhatIsNewPageComponent(
         currentWhatIsNewGuid,
         this.selectedLanguage,
-        getPlatforms(),
+        overriddenPlatforms ?? getPlatforms(),
         smallLoadMorePageButton(context),
         (version) async => await getNavigation().navigateAsync(
           context,
