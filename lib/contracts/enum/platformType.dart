@@ -6,6 +6,7 @@ enum PlatformType {
   Web,
   API,
   Windows,
+  GithubWindowsInstaller,
 }
 
 final platformTypeValues = EnumValues({
@@ -14,6 +15,7 @@ final platformTypeValues = EnumValues({
   "2": PlatformType.Web,
   "3": PlatformType.API,
   "4": PlatformType.Windows,
+  "5": PlatformType.GithubWindowsInstaller,
 });
 
 final platformTypeToIntValues = EnumValues({
@@ -22,4 +24,5 @@ final platformTypeToIntValues = EnumValues({
   PlatformType.Web.toString(): "2",
   PlatformType.API.toString(): "3",
   PlatformType.Windows.toString(): "4",
+  PlatformType.GithubWindowsInstaller.toString(): "5",
 });
