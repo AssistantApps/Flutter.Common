@@ -18,6 +18,7 @@ bool isAndroid = UniversalPlatform.isAndroid;
 bool isWeb = UniversalPlatform.isWeb;
 bool isDesktop = UniversalPlatform.isDesktop;
 bool isWindows = UniversalPlatform.isWindows;
+bool isLinux = UniversalPlatform.isLinux;
 
 Future<String> getDeviceId() async {
   String? deviceId = await PlatformDeviceId.getDeviceId;
