@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Badge;
 import 'package:badges/badges.dart';
 
 import '../../integration/dependencyInjection.dart';
