@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.2.4
+version: 0.2.5
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -43,7 +43,6 @@ dependencies:
   image_picker: 0.8.6
   intl: 0.17.0
   material_segmented_control: 4.0.0
-  modal_bottom_sheet: 2.1.2
   octo_image: 1.0.2
   package_info_plus: 1.4.3+1
   pagination_view: 2.0.0
@@ -66,6 +65,12 @@ dependencies:
     git:
       url: https://github.com/Vishal-Isharani/time_formatter
       ref: master
+
+  modal_bottom_sheet:
+    git:  
+      url: https://github.com/CoolDude53/modal_bottom_sheet.git  
+      ref: main
+      path: modal_bottom_sheet
 
   # logging
   talker: 2.0.0+1
