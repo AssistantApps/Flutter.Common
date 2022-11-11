@@ -599,6 +599,9 @@ enum LocaleKey {
   foodPreferences,
   favourite,
   hated,
+  instructions,
+  nomNomCollaboration,
+  nomNomCollaborationDesc,
   //
   inputTooShort,
   inputTooLong,
