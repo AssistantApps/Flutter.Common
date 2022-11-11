@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.2.5
+version: 0.2.6
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -67,8 +67,8 @@ dependencies:
       ref: master
 
   modal_bottom_sheet:
-    git:  
-      url: https://github.com/CoolDude53/modal_bottom_sheet.git  
+    git:
+      url: https://github.com/CoolDude53/modal_bottom_sheet.git
       ref: main
       path: modal_bottom_sheet
 
