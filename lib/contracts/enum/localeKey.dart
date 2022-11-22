@@ -602,6 +602,7 @@ enum LocaleKey {
   instructions,
   nomNomCollaboration,
   nomNomCollaborationDesc,
+  portalCodeCopied,
   //
   inputTooShort,
   inputTooLong,
