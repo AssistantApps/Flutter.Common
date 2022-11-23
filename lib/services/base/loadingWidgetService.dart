@@ -24,7 +24,7 @@ class LoadingWidgetService implements ILoadingWidgetService {
       );
 
   @override
-  Widget loadingIndicator({double height: 50.0}) => Container(
+  Widget loadingIndicator({double height = 50.0}) => Container(
         alignment: Alignment(0, 0),
         child: smallLoadingIndicator(),
         height: height,

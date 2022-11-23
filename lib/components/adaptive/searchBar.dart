@@ -23,11 +23,6 @@ Widget _androidSearchBar(context, TextEditingController controller,
                 child: TextField(
                   controller: controller,
                   keyboardType: TextInputType.text,
-                  toolbarOptions: ToolbarOptions(
-                    copy: true,
-                    paste: true,
-                    selectAll: true,
-                  ),
                   cursorColor: getTheme().getSecondaryColour(context),
                   decoration: InputDecoration(
                     hintText: hintText == null
