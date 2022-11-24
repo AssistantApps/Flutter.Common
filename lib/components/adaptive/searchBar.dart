@@ -12,42 +12,43 @@ Widget _androidSearchBar(context, TextEditingController controller,
     child: Padding(
       padding: const EdgeInsets.all(4.0),
       child: Card(
-          child: Column(
-        children: [
-          Flex(
-            direction: Axis.horizontal,
-            children: [
-              Padding(padding: EdgeInsets.all(16), child: Icon(Icons.search)),
-              Flexible(
-                flex: 3,
-                child: TextField(
-                  controller: controller,
-                  keyboardType: TextInputType.text,
-                  cursorColor: getTheme().getSecondaryColour(context),
-                  decoration: InputDecoration(
-                    hintText: hintText == null
-                        ? getTranslations().fromKey(LocaleKey.searchItems)
-                        : hintText,
-                    border: InputBorder.none,
+        child: Column(
+          children: [
+            Flex(
+              direction: Axis.horizontal,
+              children: [
+                Padding(padding: EdgeInsets.all(16), child: Icon(Icons.search)),
+                Flexible(
+                  flex: 3,
+                  child: TextField(
+                    controller: controller,
+                    keyboardType: TextInputType.text,
+                    cursorColor: getTheme().getSecondaryColour(context),
+                    decoration: InputDecoration(
+                      hintText: hintText == null
+                          ? getTranslations().fromKey(LocaleKey.searchItems)
+                          : hintText,
+                      border: InputBorder.none,
+                    ),
+                    onChanged: onSearchTextChanged,
                   ),
-                  onChanged: onSearchTextChanged,
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 6),
-                child: IconButton(
-                  icon: Icon(Icons.cancel),
-                  onPressed: () {
-                    controller.clear();
-                    onSearchTextChanged('');
-                    // FocusScope.of(context).requestFocus(new FocusNode());
-                  },
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 6),
+                  child: IconButton(
+                    icon: Icon(Icons.cancel),
+                    onPressed: () {
+                      controller.clear();
+                      onSearchTextChanged('');
+                      // FocusScope.of(context).requestFocus(new FocusNode());
+                    },
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
-      )),
+              ],
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }
