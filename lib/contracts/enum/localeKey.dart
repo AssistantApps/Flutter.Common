@@ -603,6 +603,7 @@ enum LocaleKey {
   nomNomCollaboration,
   nomNomCollaborationDesc,
   portalCodeCopied,
+  randomPortal,
   //
   inputTooShort,
   inputTooLong,
