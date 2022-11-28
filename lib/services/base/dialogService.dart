@@ -51,6 +51,7 @@ class DialogService implements IDialogService {
     context,
     TextEditingController controller, {
     String? title,
+    List<int>? amounts,
     Function(BuildContext ctx, String)? onSuccess,
   }) {}
 
