@@ -604,6 +604,8 @@ enum LocaleKey {
   nomNomCollaborationDesc,
   portalCodeCopied,
   randomPortal,
+  forceNumberOfColumns,
+  allItemsListUseCompactTiles,
   //
   inputTooShort,
   inputTooLong,
