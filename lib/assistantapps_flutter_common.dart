@@ -55,6 +55,7 @@ export './contracts/enum/localeKey.dart';
 export './contracts/enum/networkState.dart';
 export './contracts/enum/oAuthProviderType.dart';
 export './contracts/enum/platformType.dart';
+export './contracts/generated/appNoticeViewModel.dart';
 export './contracts/generated/appsLinkViewModel.dart';
 export './contracts/generated/donationViewModel.dart';
 export './contracts/generated/patreonViewModel.dart';
