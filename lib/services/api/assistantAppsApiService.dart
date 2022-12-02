@@ -1,8 +1,10 @@
 import 'dart:convert';
 
 import '../../constants/ApiUrls.dart';
+import '../../contracts/generated/appNoticeViewModel.dart';
 import '../../contracts/generated/translatorLeaderboardItemViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
+import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
 import './interface/IAssistantAppsApiService.dart';
@@ -36,6 +38,27 @@ class AssistantAppsApiService extends BaseApiService
       return PaginationResultWithValue<
               List<TranslatorLeaderboardItemViewModel>>(
           false, List.empty(), 1, 0, exception.toString());
+    }
+  }
+
+  Future<ResultWithValue<List<AppNoticeViewModel>>> getAppNotices(
+    String langCode,
+  ) async {
+    try {
+      final response = await apiGet(
+        'appNotice/${getEnv().assistantAppsAppGuid}/$langCode',
+      );
+      if (response.hasFailed) {
+        return ResultWithValue<List<AppNoticeViewModel>>(
+            false, List.empty(growable: true), response.errorMessage);
+      }
+      final List newsList = json.decode(response.value);
+      var news = newsList.map((r) => AppNoticeViewModel.fromJson(r)).toList();
+      return ResultWithValue(true, news, '');
+    } catch (exception) {
+      getLog().e("AppNotices Api Exception: ${exception.toString()}");
+      return ResultWithValue<List<AppNoticeViewModel>>(
+          false, List.empty(growable: true), exception.toString());
     }
   }
 }
