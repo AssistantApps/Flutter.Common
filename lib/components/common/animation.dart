@@ -9,10 +9,10 @@ Widget animateWidgetIn({
 }) {
   return FadeIn(
     key: key,
-    child: child,
     animate: true,
     manualTrigger: false,
-    duration: duration ?? Duration(milliseconds: 500),
+    duration: duration ?? const Duration(milliseconds: 500),
+    child: child,
   );
 }
 
@@ -23,10 +23,10 @@ Widget animateScaleUp({
 }) {
   return ZoomIn(
     key: key,
-    child: child,
     animate: true,
     manualTrigger: false,
-    duration: duration ?? Duration(milliseconds: 500),
+    duration: duration ?? const Duration(milliseconds: 500),
+    child: child,
   );
   // return Spring.scale(
   //   start: 0.2,
@@ -51,6 +51,49 @@ Widget animateSlideInFromLeft({
   return Spring.slide(
     child: child,
     slideType: SlideType.slide_in_left,
-    animDuration: duration ?? Duration(milliseconds: 500),
+    animDuration: duration ?? const Duration(milliseconds: 500),
   );
+}
+
+class AnimateScaleHeightFrom0ToFull extends StatefulWidget {
+  final Widget child;
+  final Duration duration;
+
+  const AnimateScaleHeightFrom0ToFull({
+    Key? key,
+    required this.child,
+    this.duration = const Duration(milliseconds: 500),
+  }) : super(key: key);
+
+  @override
+  createState() => _AnimateScaleHeightFrom0ToFullState();
+}
+
+class _AnimateScaleHeightFrom0ToFullState
+    extends State<AnimateScaleHeightFrom0ToFull> with TickerProviderStateMixin {
+  AnimationController? _controller;
+  Animation<double>? _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: widget.duration,
+      vsync: this,
+    );
+    _animation = CurvedAnimation(
+      parent: _controller!,
+      curve: Curves.easeInOut,
+    );
+    _controller!.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizeTransition(
+      sizeFactor: _animation!,
+      axis: Axis.vertical,
+      child: widget.child,
+    );
+  }
 }

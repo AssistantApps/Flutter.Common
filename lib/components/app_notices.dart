@@ -47,7 +47,9 @@ class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ...notices.map(appNoticeTileCore).toList(),
+        ...notices
+            .map((n) => AnimateScaleHeightFrom0ToFull(child: appNoticeTile(n)))
+            .toList(),
         Expanded(child: widget.child),
       ],
     );
