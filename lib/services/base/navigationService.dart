@@ -103,8 +103,12 @@ class NavigationService implements INavigationService {
 
   @override
   Future pop<T extends Object>(BuildContext context, [T? result]) async {
-    getLog().i('navigationService - pop');
-    Navigator.of(context).pop(result);
+    if (Navigator.canPop(context)) {
+      getLog().i('navigationService - pop');
+      Navigator.of(context).pop(result);
+    } else {
+      getLog().i('navigationService - CANT pop');
+    }
   }
 
   @override
