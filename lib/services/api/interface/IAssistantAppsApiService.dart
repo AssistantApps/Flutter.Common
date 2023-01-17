@@ -13,7 +13,7 @@ class IAssistantAppsApiService {
 
   Future<ResultWithValue<List<AppNoticeViewModel>>> getAppNotices(
       String langCode) async {
-    return PaginationResultWithValue<List<AppNoticeViewModel>>(
-        false, List.empty(growable: true), 1, 0, '');
+    return ResultWithValue<List<AppNoticeViewModel>>(
+        false, List.empty(growable: true), '');
   }
 }
