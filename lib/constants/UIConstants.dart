@@ -7,4 +7,5 @@ class UIConstants {
   static ShapeBorder noBorderRadius =
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(0));
   static const String CommonPackage = 'assistantapps_flutter_common';
+  static BorderRadius tileLeadingBorderRadius = BorderRadius.circular(4.0);
 }

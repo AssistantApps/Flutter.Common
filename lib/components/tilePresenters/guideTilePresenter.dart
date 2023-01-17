@@ -33,7 +33,7 @@ Widget guideTilePresenter(
   if (guide.showCreatedByUser && guide.userName.isNotEmpty) {
     firstRow.add(Row(
       children: [
-        Icon(Icons.person),
+        const Icon(Icons.person),
         Text(guide.userName),
       ],
     ));
@@ -41,7 +41,7 @@ Widget guideTilePresenter(
   if (guide.minutes > 0) {
     firstRow.add(Row(
       children: [
-        Icon(Icons.timer),
+        const Icon(Icons.timer),
         Text(
           getTranslations()
               .fromKey(LocaleKey.minutes)
