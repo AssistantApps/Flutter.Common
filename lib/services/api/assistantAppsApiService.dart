@@ -13,11 +13,12 @@ class AssistantAppsApiService extends BaseApiService
     implements IAssistantAppsApiService {
   AssistantAppsApiService() : super(getEnv().assistantAppsApiUrl);
 
+  @override
   Future<PaginationResultWithValue<List<TranslatorLeaderboardItemViewModel>>>
       getTranslators() async {
-    String url = '${ApiUrls.translatorLeaderboard}';
+    String url = ApiUrls.translatorLeaderboard;
     try {
-      final response = await this.apiPost(url, json.encode({}));
+      final response = await apiPost(url, json.encode({}));
       if (response.hasFailed) {
         return PaginationResultWithValue<
                 List<TranslatorLeaderboardItemViewModel>>(
@@ -41,6 +42,7 @@ class AssistantAppsApiService extends BaseApiService
     }
   }
 
+  @override
   Future<ResultWithValue<List<AppNoticeViewModel>>> getAppNotices(
     String langCode,
   ) async {

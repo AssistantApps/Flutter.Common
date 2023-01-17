@@ -15,7 +15,7 @@ class DataJsonService extends BaseJsonService implements IDataJsonService {
   Future<ResultWithValue<List<AssistantAppsLinkViewModel>>> getAssistantApps(
       BuildContext context) async {
     try {
-      dynamic responseJson = await this.getJsonFromCommonPackage(
+      dynamic responseJson = await getJsonFromCommonPackage(
         context,
         'data/assistantAppLinks',
       );
