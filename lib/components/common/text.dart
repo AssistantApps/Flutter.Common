@@ -8,47 +8,47 @@ Widget genericEllipsesText(String text) => Text(
     );
 
 Widget genericItemText(String text) => Container(
+      margin: const EdgeInsets.all(4.0),
       child: Text(
         text,
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
       ),
-      margin: const EdgeInsets.all(4.0),
     );
 
 Widget genericItemName(String name, {maxLines = 3}) => Container(
+      margin: const EdgeInsets.all(4.0),
       child: Text(
         name,
         textAlign: TextAlign.center,
         maxLines: maxLines,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 20),
+        style: const TextStyle(fontSize: 20),
       ),
-      margin: const EdgeInsets.all(4.0),
     );
 
 Widget genericItemDescription(String description,
         {TextStyle? textStyle, int maxLines = 10}) =>
     Container(
+      margin: const EdgeInsets.all(4.0),
       child: Text(
         description,
         textAlign: TextAlign.center,
         maxLines: maxLines,
         style: textStyle,
       ),
-      margin: const EdgeInsets.all(4.0),
     );
 
 Widget genericItemGroup(String group, {Key? key, int maxLines = 2}) => //
     Container(
       key: key,
+      margin: const EdgeInsets.all(4.0),
       child: Text(
         group,
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(fontSize: 18),
       ),
-      margin: const EdgeInsets.all(4.0),
     );
 
 TextEditingController maskedTextController({

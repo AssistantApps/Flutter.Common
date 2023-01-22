@@ -21,6 +21,7 @@ export './components/common/newBanner.dart';
 export './components/common/percent.dart';
 export './components/common/space.dart';
 export './components/common/text.dart';
+export './components/feedback/feedback_wrapper.dart';
 export './components/fun/backgroundWrapper.dart';
 export './components/grid/gridWithScrollbar.dart';
 export './components/grid/responsiveStaggeredGrid.dart';
