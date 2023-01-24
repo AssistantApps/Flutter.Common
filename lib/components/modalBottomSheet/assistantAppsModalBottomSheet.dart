@@ -6,7 +6,9 @@ import '../../pages/about/aboutPageAvailableApps.dart';
 
 class AssistantAppsModalBottomSheet extends StatelessWidget {
   final AssistantAppType appType;
-  AssistantAppsModalBottomSheet({this.appType = AssistantAppType.Unknown});
+  const AssistantAppsModalBottomSheet(
+      {Key? key, this.appType = AssistantAppType.Unknown})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class AssistantAppsModalBottomSheet extends StatelessWidget {
       duration: const Duration(milliseconds: 150),
       child: Container(
         constraints: modalMiniSize(context),
-        child: AboutPageAvailableApps(this.appType),
+        child: AboutPageAvailableApps(appType),
       ),
     );
   }

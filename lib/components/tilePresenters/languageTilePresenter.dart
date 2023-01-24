@@ -8,10 +8,10 @@ Widget languageTilePresenter(
     {LocaleKey? trailingDisplay, int? percentageComplete, Function()? onTap}) {
   return ListTile(
     leading: SizedBox(
-      child: Image.asset('icons/flags/png/$countryCode.png',
-          package: 'country_icons'),
       width: 50,
       height: 50,
+      child: Image.asset('icons/flags/png/$countryCode.png',
+          package: 'country_icons'),
     ),
     title: Text(
       name,
@@ -37,7 +37,7 @@ Widget? getTrailingWidget(LocaleKey? trailingDisplay, int? percentageComplete) {
     );
   }
 
-  if (textToDisp.length < 1) return null;
+  if (textToDisp.isEmpty) return null;
 
   return Text(
     textToDisp,

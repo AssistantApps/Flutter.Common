@@ -38,11 +38,11 @@ Widget? popupMenu(
       icon: Icons.delete,
       onPressed: onDelete,
       text: getTranslations().fromKey(LocaleKey.delete),
-      style: TextStyle(color: Colors.red),
+      style: const TextStyle(color: Colors.red),
     ));
   }
 
-  if (additionalItems != null && additionalItems.length > 0) {
+  if (additionalItems != null && additionalItems.isNotEmpty) {
     items.addAll(additionalItems);
   }
   return popupMenuFromArray(items, iconColour, customIcon, nothingToDisplay);
@@ -50,14 +50,14 @@ Widget? popupMenu(
 
 Widget? popupMenuFromArray(List<PopupMenuActionItem>? items, Color? iconColour,
     IconData? customIcon, Widget? nothingToDisplay) {
-  if (items == null || items.length == 0) {
+  if (items == null || items.isEmpty) {
     return nothingToDisplay;
   }
   if (items.length == 1) {
     if (items[0].image != null) {
       return GestureDetector(
-        child: items[0].image,
         onTap: items[0].onPressed,
+        child: items[0].image,
       );
     }
     return IconButton(
@@ -75,7 +75,7 @@ Widget? popupMenuFromArray(List<PopupMenuActionItem>? items, Color? iconColour,
       }
     },
     icon: Icon(
-      customIcon != null ? customIcon : Icons.more_vert,
+      customIcon ?? Icons.more_vert,
       color: iconColour,
     ),
     itemBuilder: (BuildContext context) {
@@ -85,7 +85,7 @@ Widget? popupMenuFromArray(List<PopupMenuActionItem>? items, Color? iconColour,
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(right: 8),
+                      padding: const EdgeInsets.only(right: 8),
                       child: Icon(pi.icon),
                     ),
                     Text(pi.text, style: pi.style),

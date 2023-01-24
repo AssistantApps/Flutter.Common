@@ -8,7 +8,7 @@ Widget basicBadge(BuildContext context, String badgeText, Widget child) {
     badgeContent: Text(badgeText),
     badgeColor: getTheme().getSecondaryColour(context),
     position: BadgePosition.bottomEnd(),
+    padding: const EdgeInsets.all(8),
     child: child,
-    padding: EdgeInsets.all(8),
   );
 }

@@ -25,7 +25,7 @@ void _androidBottomModalSheet(BuildContext context,
     expand: false,
     builder: (innerContext) => builder(innerContext),
     shape: hasRoundedCorners
-        ? RoundedRectangleBorder(
+        ? const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(10),
               topRight: Radius.circular(10),

@@ -47,7 +47,7 @@ Widget genericItemGroup(String group, {Key? key, int maxLines = 2}) => //
         group,
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
       ),
     );
 

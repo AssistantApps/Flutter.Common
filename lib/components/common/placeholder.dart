@@ -14,15 +14,15 @@ Widget placeholderImage(
     width: width ?? 100,
     height: height ?? 100,
     child: Padding(
-      padding: EdgeInsets.only(top: 12, left: 4, right: 4, bottom: 4),
+      padding: const EdgeInsets.only(top: 12, left: 4, right: 4, bottom: 4),
       child: DottedBorder(
         borderType: BorderType.RRect,
-        radius: Radius.circular(12),
-        padding: EdgeInsets.all(6),
-        dashPattern: [8, 4],
+        radius: const Radius.circular(12),
+        padding: const EdgeInsets.all(6),
+        dashPattern: const [8, 4],
         color: getTheme().getSecondaryColour(context),
         child: InkWell(
-          child: ClipRRect(
+          child: const ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(12)),
             child: Center(
               child: Icon(Icons.image, size: 50),
@@ -47,15 +47,15 @@ Widget placeholderFullRow(
 }) {
   return InkWell(
     child: Padding(
-      padding: EdgeInsets.only(top: 12, left: 4, right: 4, bottom: 4),
+      padding: const EdgeInsets.only(top: 12, left: 4, right: 4, bottom: 4),
       child: DottedBorder(
         borderType: BorderType.RRect,
-        radius: Radius.circular(12),
-        padding: EdgeInsets.all(6),
-        dashPattern: [8, 4],
+        radius: const Radius.circular(12),
+        padding: const EdgeInsets.all(6),
+        dashPattern: const [8, 4],
         color: getTheme().getSecondaryColour(context),
         child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
           child: Center(
             child: SizedBox(
               width: width ?? 75,

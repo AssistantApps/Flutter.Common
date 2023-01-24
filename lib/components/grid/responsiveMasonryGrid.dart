@@ -9,7 +9,7 @@ Widget responsiveMasonryGrid(
   int Function(Breakpoint breakpoint)? columnCountFunc,
 ) {
   return Padding(
-    padding: EdgeInsets.all(8.0),
+    padding: const EdgeInsets.all(8.0),
     child: BreakpointBuilder(
       builder: (BuildContext innerContext, Breakpoint breakpoint) {
         int numCols = (columnCountFunc == null)

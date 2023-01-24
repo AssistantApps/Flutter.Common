@@ -14,7 +14,7 @@ Widget adaptiveAppScaffold(
       builder != null ? Builder(builder: (inner) => builder(inner)) : body;
 
   return Scaffold(
-    key: Key('homeScaffold'),
+    key: const Key('homeScaffold'),
     appBar: appBar,
     body: customBody,
     drawer: drawer,

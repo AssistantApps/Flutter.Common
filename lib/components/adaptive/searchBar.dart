@@ -17,7 +17,8 @@ Widget _androidSearchBar(context, TextEditingController controller,
             Flex(
               direction: Axis.horizontal,
               children: [
-                Padding(padding: EdgeInsets.all(16), child: Icon(Icons.search)),
+                const Padding(
+                    padding: EdgeInsets.all(16), child: Icon(Icons.search)),
                 Flexible(
                   flex: 3,
                   child: TextField(
@@ -25,18 +26,17 @@ Widget _androidSearchBar(context, TextEditingController controller,
                     keyboardType: TextInputType.text,
                     cursorColor: getTheme().getSecondaryColour(context),
                     decoration: InputDecoration(
-                      hintText: hintText == null
-                          ? getTranslations().fromKey(LocaleKey.searchItems)
-                          : hintText,
+                      hintText: hintText ??
+                          getTranslations().fromKey(LocaleKey.searchItems),
                       border: InputBorder.none,
                     ),
                     onChanged: onSearchTextChanged,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 6),
                   child: IconButton(
-                    icon: Icon(Icons.cancel),
+                    icon: const Icon(Icons.cancel),
                     onPressed: () {
                       controller.clear();
                       onSearchTextChanged('');

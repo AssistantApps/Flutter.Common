@@ -20,9 +20,10 @@ class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
   final String? errorMessage;
   final String? emptyMessage;
 
-  LazyLoadSearchableList(
+  const LazyLoadSearchableList(
     this.listGetter,
     this.pageSize, {
+    Key? key,
     this.listItemDisplayer,
     this.listItemWithIndexDisplayer,
     this.customKey,
@@ -33,15 +34,15 @@ class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
     this.loadMoreItemWidget,
     this.errorMessage,
     this.emptyMessage,
-  });
+  }) : super(key: key);
+
   @override
-  _LazyLoadSearchableListWidget<T> createState() =>
-      _LazyLoadSearchableListWidget<T>();
+  createState() => _LazyLoadSearchableListWidget<T>();
 }
 
 class _LazyLoadSearchableListWidget<T extends dynamic>
     extends State<LazyLoadSearchableList<T>> {
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   List<int> fetchedPages = List.empty(growable: true);
   int totalPages = 1;
   int totalRows = 0;
@@ -57,8 +58,8 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
     PaginationResultWithValue<List<T>> temp =
         await widget.listGetter(pageToGet);
     if (temp.isSuccess && mounted) {
-      getLog().d('getMoreData' + temp.isSuccess.toString());
-      this.setState(() {
+      getLog().d('getMoreData ${temp.isSuccess}');
+      setState(() {
         fetchedPages.add(temp.currentPage);
         totalPages = temp.totalPages;
         totalRows = totalRows + temp.value.length;
@@ -67,11 +68,11 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
     }
 
     if (widget.backupListGetter != null && mounted) {
-      getLog().d('backup getMoreData' + temp.isSuccess.toString());
+      getLog().d('backup getMoreData${temp.isSuccess}');
       PaginationResultWithValue<List<T>> tempBackup =
           await widget.backupListGetter!(pageToGet);
       if (tempBackup.isSuccess) {
-        this.setState(() {
+        setState(() {
           fetchedPages.add(tempBackup.currentPage);
           totalPages = tempBackup.totalPages;
           totalRows = totalRows + tempBackup.value.length;
@@ -104,7 +105,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
   Widget build(BuildContext context) {
     List<T> prefetch = List.empty(growable: true);
     return animateWidgetIn(
-      key: Key('lazyLoaded-anim'),
+      key: const Key('lazyLoaded-anim'),
       child: PaginationView<T>(
         preloadedItems: prefetch,
         itemBuilder: (BuildContext innerCtxt, T user, int index) =>
@@ -120,7 +121,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
         bottomLoader: Center(child: getLoading().smallLoadingTile(context)),
         initialLoader: getLoading().fullPageLoading(context),
         scrollController: _scrollController,
-        key: Key('lazyLoaded'),
+        key: const Key('lazyLoaded'),
       ),
     );
   }

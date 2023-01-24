@@ -54,18 +54,18 @@ Widget guideTilePresenter(
     children: <Widget>[
       imageWidget,
       Padding(
-        padding: EdgeInsets.only(top: 8),
+        padding: const EdgeInsets.only(top: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: firstRow,
         ),
       ),
       Padding(
-        padding: EdgeInsets.only(top: 8, bottom: 12, right: 4, left: 4),
+        padding: const EdgeInsets.only(top: 8, bottom: 12, right: 4, left: 4),
         child: Text(
           guide.title,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
       ),
       Wrap(
@@ -95,14 +95,14 @@ Widget draftGuideTilePresenter(
   List<Widget> firstRow = [];
   firstRow.add(Row(
     children: [
-      Icon(Icons.person),
+      const Icon(Icons.person),
       Text(username.isNotEmpty ? username : 'Please log in')
     ],
   ));
   if (guide.minutes > 0) {
     firstRow.add(Row(
       children: [
-        Icon(Icons.timer),
+        const Icon(Icons.timer),
         Text(getTranslations()
             .fromKey(LocaleKey.minutes)
             .replaceAll('{0}', guide.minutes.toString())),
@@ -116,18 +116,18 @@ Widget draftGuideTilePresenter(
         getPath().defaultGuideImage,
       ),
       Padding(
-        padding: EdgeInsets.only(top: 8),
+        padding: const EdgeInsets.only(top: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: firstRow,
         ),
       ),
       Padding(
-        padding: EdgeInsets.only(top: 4, right: 4, left: 4),
+        padding: const EdgeInsets.only(top: 4, right: 4, left: 4),
         child: Text(
           guide.title,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
       ),
       Wrap(
@@ -138,7 +138,7 @@ Widget draftGuideTilePresenter(
       ),
     ],
   );
-  void Function() editFunc = () async => await getNavigation().navigateAsync(
+  editFunc() async => await getNavigation().navigateAsync(
         context,
         navigateTo: (context) => GuideAddEditPage(
           GuideContentViewModel.fromAddGuide(guide),
@@ -164,7 +164,7 @@ Widget draftGuideTilePresenter(
                 ) ??
                 Container(),
             backgroundColour: getTheme().getCardBackgroundColour(context),
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(10),
             ),
           ),

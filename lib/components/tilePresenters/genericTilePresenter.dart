@@ -22,9 +22,9 @@ ListTile genericListTileWithSubtitle(context,
     Function()? onTap,
     Function()? onLongPress}) {
   String title = description != null //
-      ? name + ' - ' + description
+      ? '$name - $description'
       : name;
-  if (title.length == 0) title = ' ';
+  if (title.isEmpty) title = ' ';
 
   return ListTile(
     leading: genericTileImage(
@@ -141,7 +141,7 @@ ListTile genericListTileWithNetworkImage(context,
     Function()? onTap,
     Function()? onLongPress}) {
   String title = description != null //
-      ? name + ' - ' + description
+      ? '$name - $description'
       : name;
   return ListTile(
     leading: isWeb
@@ -195,8 +195,8 @@ Widget? genericTileImage(
   if (imageBackgroundColour == null) return child;
 
   Widget container = Container(
-    child: child,
     color: HexColor(imageBackgroundColour),
+    child: child,
   );
   if (borderRadius != null) {
     return ClipRRect(

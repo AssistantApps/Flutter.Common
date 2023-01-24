@@ -55,7 +55,7 @@ Widget androidCheckboxGroup(
       direction: Axis.horizontal,
       borderRadius: const BorderRadius.all(Radius.circular(4)),
       selectedColor: activeColor,
-      selectedTextStyle: TextStyle(color: Colors.black),
+      selectedTextStyle: const TextStyle(color: Colors.black),
       unselectedColor: unselectedColor,
     ),
     onSelected: (String value, int index, bool isSelected) {

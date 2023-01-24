@@ -16,33 +16,37 @@ import '../list/listWithScrollbar.dart';
 class PatreonLoginModalBottomSheet extends StatefulWidget {
   final String analyticsKey;
   final void Function(Result) onLogin;
-  PatreonLoginModalBottomSheet(this.analyticsKey, this.onLogin);
+
+  const PatreonLoginModalBottomSheet(this.analyticsKey, this.onLogin,
+      {Key? key})
+      : super(key: key);
+
   @override
-  _PatreonLoginModalBottomSheetWidget createState() =>
-      _PatreonLoginModalBottomSheetWidget();
+  createState() => _PatreonLoginModalBottomSheetWidget();
 }
 
 class _PatreonLoginModalBottomSheetWidget
     extends State<PatreonLoginModalBottomSheet> {
   late String _deviceId;
   NetworkState _signalRNetworkState = NetworkState.Loading;
-  OAuthSignalRService _oAuthSignal = getAssistantAppsOAuthSignalR();
+  final OAuthSignalRService _oAuthSignal = getAssistantAppsOAuthSignalR();
 
   @override
   void initState() {
     _oAuthSignal
         .connectToAuth(connectionFailed)
         .then((Result connectionResult) {
-      if (connectionResult.hasFailed)
+      if (connectionResult.hasFailed) {
         connectionFailed();
-      else
+      } else {
         setupListeners();
+      }
     });
     super.initState();
   }
 
   void connectionFailed({Exception? error}) {
-    this.setState(() {
+    setState(() {
       _signalRNetworkState = NetworkState.Error;
     });
   }
@@ -55,7 +59,7 @@ class _PatreonLoginModalBottomSheetWidget
       getLog().d('listenToOAuth');
 
       if (payload == null || payload.length < 2) {
-        widget.onLogin(new Result(false, 'invalid payload'));
+        widget.onLogin(Result(false, 'invalid payload'));
         return;
       }
 
@@ -66,23 +70,23 @@ class _PatreonLoginModalBottomSheetWidget
         errorMessage: (payload[2]) as String,
       );
 
-      getLog().i('loginFailed ' + objFromServer.loginFailed.toString());
-      getLog().i('belongsToAssistantAppsCampaign ' +
-          objFromServer.belongsToAssistantAppsCampaign.toString());
+      getLog().i('loginFailed ${objFromServer.loginFailed}');
+      getLog().i(
+          'belongsToAssistantAppsCampaign ${objFromServer.belongsToAssistantAppsCampaign}');
 
       if (objFromServer.loginFailed != false ||
           objFromServer.belongsToAssistantAppsCampaign != true) {
-        widget.onLogin(new Result(
+        widget.onLogin(Result(
           false,
           'loginFailed or belongsToAssistantAppsCampaign',
         ));
         return;
       }
 
-      widget.onLogin(new Result(true, ''));
+      widget.onLogin(Result(true, ''));
       getNavigation().pop(context);
     });
-    this.setState(() {
+    setState(() {
       _deviceId = deviceId;
       _signalRNetworkState = NetworkState.Success;
     });
@@ -96,7 +100,7 @@ class _PatreonLoginModalBottomSheetWidget
           [
             getLoading().smallLoadingIndicator(),
             emptySpace2x(),
-            Text('Connecting to Server'),
+            const Text('Connecting to Server'),
           ],
         ),
       );
@@ -104,7 +108,11 @@ class _PatreonLoginModalBottomSheetWidget
     if (_signalRNetworkState == NetworkState.Error) {
       return displayContentInModal(
         centerContentInModal(
-          [Center(child: Text('Could not connect to authentication servers'))],
+          [
+            const Center(
+              child: Text('Could not connect to authentication servers'),
+            )
+          ],
         ),
       );
     }
@@ -112,7 +120,7 @@ class _PatreonLoginModalBottomSheetWidget
     List<Widget> widgets = List.empty(growable: true);
     widgets.add(emptySpace1x());
     widgets.add(Padding(
-      padding: EdgeInsets.only(left: 12, top: 6, right: 12),
+      padding: const EdgeInsets.only(left: 12, top: 6, right: 12),
       child: AuthButton.patreon(
         onPressed: () {
           String oAuthUrl = getPatreonUrl(

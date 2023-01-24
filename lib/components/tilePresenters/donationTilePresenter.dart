@@ -13,7 +13,7 @@ ListItemDisplayerType<DonationViewModel> donationTilePresenter = (
 }) {
   return ListTile(
     leading: Padding(
-      padding: EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4),
       child: getImage(donator.type),
     ),
     title: normalText(donator.username),

@@ -15,7 +15,7 @@ Widget horizontalProgressBar(BuildContext context, double percent,
     percent: localPercent,
     center: text ?? Text('$displayPercent %'),
     // linearStrokeCap: LinearStrokeCap.roundAll,
-    barRadius: Radius.circular(8),
+    barRadius: const Radius.circular(8),
     progressColor: getTheme().getSecondaryColour(context),
     backgroundColor: getTheme().getBackgroundColour(context),
   );

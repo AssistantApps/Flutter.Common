@@ -12,17 +12,18 @@ class AppBarForSubPage extends StatelessWidget
   final List<ActionItem>? shortcutActions;
   final bool showHomeAction;
   final bool showBackAction;
-  final preferredSize;
-  final bottom;
-  final backgroundColor;
-  static final kMinInteractiveDimensionCupertino = 44.0;
+  @override
+  final Size preferredSize;
+  final PreferredSizeWidget? bottom;
+  final Color? backgroundColor;
+  static const kMinInteractiveDimensionCupertino = 44.0;
 
   AppBarForSubPage(this.title, this.actions, this.showHomeAction,
       this.showBackAction, this.shortcutActions,
-      {this.bottom, this.backgroundColor})
+      {Key? key, this.bottom, this.backgroundColor})
       : preferredSize = Size.fromHeight(
-            kToolbarHeight + (bottom?.preferredSize?.height ?? 0.0)),
-        super();
+            kToolbarHeight + (bottom?.preferredSize.height ?? 0.0)),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) =>
@@ -32,9 +33,9 @@ class AppBarForSubPage extends StatelessWidget
       List<ActionItem>? shortcutActions) {
     List<Widget> actionWidgets = List.empty(growable: true);
     return adaptiveAppBar(context, title, actionWidgets,
-        leading: this.showBackAction
+        leading: showBackAction
             ? IconButton(
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 onPressed: () async =>
                     await getNavigation().navigateBackOrHomeAsync(context),
               )
@@ -53,7 +54,7 @@ PreferredSizeWidget adaptiveAppBarForSubPageHelper(
   bool showHomeAction = false,
   bool showBackAction = true,
 }) {
-  if (actions == null || actions.length == 0) {
+  if (actions == null || actions.isEmpty) {
     actions = List.empty(growable: true);
   }
   if (showHomeAction) {

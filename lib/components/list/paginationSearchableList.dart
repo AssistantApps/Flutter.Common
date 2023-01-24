@@ -26,10 +26,11 @@ class PaginationSearchableList<T> extends StatefulWidget {
   final Widget? firstListItemWidget;
   final Widget? lastListItemWidget;
 
-  PaginationSearchableList(
+  const PaginationSearchableList(
     this.listGetter,
     this.listItemDisplayer,
     this.listItemSearch, {
+    Key? key,
     this.customKey,
     this.hintText,
     this.loadingText,
@@ -42,9 +43,10 @@ class PaginationSearchableList<T> extends StatefulWidget {
     this.backupListWarningMessage,
     this.firstListItemWidget,
     this.lastListItemWidget,
-  });
+  }) : super(key: key);
   @override
   PaginationSearchableListWidget<T> createState() =>
+      // ignore: no_logic_in_create_state
       PaginationSearchableListWidget<T>(
         listGetter,
         listItemDisplayer,
@@ -88,7 +90,7 @@ class PaginationSearchableListWidget<T>
   Future<ResultWithValue<List<T>>> hookIntoListGetter() async {
     final temp = await listGetter(this.currentPage);
     if (temp.isSuccess) {
-      this.setState(() {
+      setState(() {
         currentPage = temp.currentPage;
         totalPages = temp.totalPages;
       });
@@ -98,23 +100,27 @@ class PaginationSearchableListWidget<T>
   }
 
   void nextPage() {
-    this.setState(() {
+    setState(() {
       currentPage = this.currentPage + 1;
     });
   }
 
   void prevPage() {
-    this.setState(() {
+    setState(() {
       currentPage = this.currentPage - 1;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    var firstListItemWidget =
-        InkWell(child: widget.firstListItemWidget, onTap: prevPage);
-    var lastListItemWidget =
-        InkWell(child: widget.lastListItemWidget, onTap: nextPage);
+    InkWell firstListItemWidget = InkWell(
+      onTap: prevPage,
+      child: widget.firstListItemWidget,
+    );
+    InkWell lastListItemWidget = InkWell(
+      onTap: nextPage,
+      child: widget.lastListItemWidget,
+    );
     return SearchableList<T>(
       () => hookIntoListGetter(),
       listItemDisplayer: listItemDisplayer,

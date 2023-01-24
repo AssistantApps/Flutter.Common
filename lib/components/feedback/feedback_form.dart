@@ -1,9 +1,6 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:assistantapps_flutter_common/components/feedback/feedback_animation_state.dart';
-import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/feedback_question_type.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/enum/networkState.dart';
 import '../../contracts/generated/feedback/feedback_form_question_viewmodel.dart';
@@ -15,6 +12,7 @@ import '../../integration/dependencyInjectionBase.dart';
 import '../adaptive/button.dart';
 import '../common/space.dart';
 import '../common/text.dart';
+import 'feedback_animation_state.dart';
 import 'feedback_form_header.dart';
 import 'feedback_services.dart';
 

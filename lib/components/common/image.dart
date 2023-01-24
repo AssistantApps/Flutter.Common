@@ -25,8 +25,8 @@ Widget networkImage(
       placeholderBuilder: (BuildContext context) {
         return Center(
             child: Padding(
+          padding: const EdgeInsets.all(12),
           child: loading ?? getLoading().smallLoadingIndicator(),
-          padding: EdgeInsets.all(12),
         ));
       },
       errorBuilder: OctoError.icon(color: Colors.red),
@@ -37,7 +37,7 @@ Widget networkImage(
   };
 
   if (imageUrl.contains('.svg')) {
-    getImgWidget = () => Container(
+    getImgWidget = () => SizedBox(
           height: height,
           width: width,
           child: SvgPicture.network(
@@ -80,17 +80,17 @@ Widget localImage(
 
   if (borderRadius != null) {
     return Padding(
+      padding: padding,
       child: ClipRRect(
         borderRadius: borderRadius,
         child: imgWidget,
       ),
-      padding: padding,
     );
   }
 
   return Padding(
-    child: imgWidget,
     padding: padding,
+    child: imgWidget,
   );
 }
 

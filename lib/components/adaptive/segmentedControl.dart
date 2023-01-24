@@ -39,7 +39,7 @@ Widget androidSegmentedControl(
   double? borderRadius,
   EdgeInsets? padding,
 }) {
-  Map<int, Widget> map = Map<int, Widget>();
+  Map<int, Widget> map = <int, Widget>{};
   for (int childIndex = 0; childIndex < controlItems.length; childIndex++) {
     map.putIfAbsent(childIndex, () => controlItems[childIndex]);
   }
@@ -50,7 +50,7 @@ Widget androidSegmentedControl(
     borderColor: getTheme().getSecondaryColour(context),
     selectedColor: getTheme().getSecondaryColour(context),
     unselectedColor: getTheme().getIsDark(context)
-        ? Color.fromRGBO(47, 47, 47, 1)
+        ? const Color.fromRGBO(47, 47, 47, 1)
         : Colors.white,
     borderRadius: borderRadius ?? 4.0,
     verticalOffset: verticalOffset,
@@ -64,7 +64,7 @@ Widget androidSegmentedControl(
 
 Widget getSegmentedControlOption(String text) {
   return Padding(
-    padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+    padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
     child: Text(text),
   );
 }
@@ -75,12 +75,12 @@ Widget getImageSegmentedControlOption(String path) {
 
 Widget getSegmentedControlWithIconOption(IconData icon, String text) {
   return Padding(
-    padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+    padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
-          padding: EdgeInsets.only(right: 8),
+          padding: const EdgeInsets.only(right: 8),
           child: Icon(icon),
         ),
         Text(text)

@@ -22,27 +22,27 @@ Widget wrapInCommonCard(Widget bodyWidget, {Function()? onTap}) {
   return Card(
     semanticContainer: true,
     clipBehavior: Clip.antiAliasWithSaveLayer,
-    child: InkWell(
-      child: Padding(
-        padding: PaddingConstant.commonCard,
-        child: bodyWidget,
-      ),
-      onTap: onTap,
-    ),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10.0),
     ),
     elevation: 5,
     margin: const EdgeInsets.all(4),
+    child: InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: PaddingConstant.commonCard,
+        child: bodyWidget,
+      ),
+    ),
   );
 }
 
 Widget flatCard({Widget? child, Color? shadowColor}) {
   return Card(
-    child: child,
     margin: const EdgeInsets.all(0.0),
     shape: UIConstants.noBorderRadius,
     shadowColor: shadowColor,
+    child: child,
   );
 }
 

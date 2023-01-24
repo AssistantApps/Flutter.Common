@@ -14,12 +14,6 @@ Widget positiveButton(
 }) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return ElevatedButton(
-    child: padding == null
-        ? textWidget
-        : Padding(
-            padding: padding,
-            child: textWidget,
-          ),
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all<Color>(
         backgroundColour ?? getTheme().buttonBackgroundColour(context),
@@ -30,6 +24,12 @@ Widget positiveButton(
       minimumSize: MaterialStateProperty.all<Size?>(minimumSize),
     ),
     onPressed: (onPress != null) ? onPress : null,
+    child: padding == null
+        ? textWidget
+        : Padding(
+            padding: padding,
+            child: textWidget,
+          ),
   );
 }
 
@@ -40,16 +40,16 @@ Widget positiveIconButton(
   Function()? onPress,
 }) =>
     ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(colour),
+      ),
+      onPressed: (onPress != null) ? onPress : null,
       child: padding == null
           ? Icon(icon)
           : Padding(
               padding: padding,
               child: Icon(icon),
             ),
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(colour),
-      ),
-      onPressed: (onPress != null) ? onPress : null,
     );
 
 Widget negativeButton(
@@ -60,18 +60,18 @@ Widget negativeButton(
     Function()? onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
   return MaterialButton(
+    color: backgroundColour,
+    onPressed: (onPress != null) ? onPress : null,
     child: padding == null
         ? textWidget
         : Padding(
             padding: padding,
             child: textWidget,
           ),
-    color: backgroundColour,
-    onPressed: (onPress != null) ? onPress : null,
   );
 }
 
 Widget disabledButton({required String title}) => ElevatedButton(
-      child: Text(title),
       onPressed: null,
+      child: Text(title),
     );

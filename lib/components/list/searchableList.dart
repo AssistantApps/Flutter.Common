@@ -14,7 +14,6 @@ class SearchableList<T> extends StatelessWidget {
   final void Function()? deleteAll;
   final LocaleKey? backupListWarningMessage;
   final int minListForSearch;
-  final Key? key;
   final Widget? firstListItemWidget;
   final bool? keepFirstListItemWidgetVisible;
   final Widget? lastListItemWidget;
@@ -22,12 +21,12 @@ class SearchableList<T> extends StatelessWidget {
   final String? loadingText;
   final bool addFabPadding;
 
-  SearchableList(
+  const SearchableList(
     this.listGetter, {
     this.listItemSearch,
     this.listItemDisplayer,
     this.listItemWithIndexDisplayer,
-    this.key,
+    Key? key,
     this.firstListItemWidget,
     this.keepFirstListItemWidgetVisible,
     this.lastListItemWidget,
@@ -38,7 +37,7 @@ class SearchableList<T> extends StatelessWidget {
     this.addFabPadding = false,
     this.backupListGetter,
     this.backupListWarningMessage,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

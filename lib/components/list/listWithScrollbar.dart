@@ -42,8 +42,8 @@ Widget androidListWithScrollbar({
   ScrollController? scrollController,
 }) =>
     Scrollbar(
-      child: listView,
       controller: scrollController,
+      child: listView,
     );
 
 Widget appleListWithScrollbar({
@@ -51,6 +51,6 @@ Widget appleListWithScrollbar({
   ScrollController? scrollController,
 }) =>
     CupertinoScrollbar(
-      child: listView,
       controller: scrollController,
+      child: listView,
     );

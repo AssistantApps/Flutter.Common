@@ -7,7 +7,7 @@ Widget iconWithValueRow(IconData icon, int value) {
     children: [
       Icon(icon),
       Padding(
-        padding: EdgeInsets.only(left: 4),
+        padding: const EdgeInsets.only(left: 4),
         child: Text(value.toString()),
       )
     ],
@@ -20,6 +20,7 @@ Widget iconBackgroundCover(BuildContext context, Widget child,
     BorderRadiusGeometry? borderRadius}) {
   return Material(
     color: backgroundColour ?? getTheme().getPrimaryColour(context),
+    borderRadius: borderRadius,
     child: InkWell(
       splashColor: splashColour ?? getTheme().getSecondaryColour(context),
       child: SizedBox(
@@ -28,6 +29,5 @@ Widget iconBackgroundCover(BuildContext context, Widget child,
         child: child,
       ),
     ),
-    borderRadius: borderRadius,
   );
 }

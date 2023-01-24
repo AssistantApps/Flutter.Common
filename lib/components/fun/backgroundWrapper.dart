@@ -6,25 +6,24 @@ import '../../constants/UIConstants.dart';
 import '../../contracts/enum/backgroundType.dart';
 
 class BackgroundWrapper extends StatelessWidget {
-  final Key? key;
   final Widget body;
   final BackgroundType backgroundType;
-  BackgroundWrapper({
-    this.key,
+  const BackgroundWrapper({
+    Key? key,
     required this.body,
     required this.backgroundType,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (this.backgroundType == BackgroundType.NotSet) return this.body;
+    if (backgroundType == BackgroundType.NotSet) return body;
 
     return Stack(
-      key: this.key,
+      key: key,
       alignment: AlignmentDirectional.topStart,
       children: [
-        AnimatedBackgroundWrapper(this.backgroundType),
-        this.body,
+        AnimatedBackgroundWrapper(backgroundType),
+        body,
       ],
     );
   }
@@ -32,25 +31,21 @@ class BackgroundWrapper extends StatelessWidget {
 
 class AnimatedBackgroundWrapper extends StatefulWidget {
   final BackgroundType backgroundType;
-  AnimatedBackgroundWrapper(this.backgroundType);
+  const AnimatedBackgroundWrapper(this.backgroundType, {Key? key})
+      : super(key: key);
 
   @override
-  _AnimatedBackgroundWidget createState() => _AnimatedBackgroundWidget(
-        this.backgroundType,
-      );
+  createState() => _AnimatedBackgroundWidget();
 }
 
 class _AnimatedBackgroundWidget extends State<AnimatedBackgroundWrapper>
     with TickerProviderStateMixin {
-  final BackgroundType backgroundType;
-  _AnimatedBackgroundWidget(this.backgroundType);
-
   @override
   Widget build(BuildContext context) {
     return AnimatedBackground(
-      behaviour: getFromType(this.backgroundType),
+      behaviour: getFromType(widget.backgroundType),
       vsync: this,
-      child: Center(),
+      child: const Center(),
     );
   }
 }
