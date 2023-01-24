@@ -1,8 +1,8 @@
-import 'package:assistantapps_flutter_common/contracts/results/resultWithValue.dart';
 import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../components/adaptive/searchBar.dart';
+import '../../components/common/cachedFutureBuilder.dart';
 import '../../components/common/text.dart';
 import '../../components/list/paginationSearchableList.dart';
 import '../../components/tilePresenters/guideTilePresenter.dart';
@@ -14,21 +14,26 @@ import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
 import '../../contracts/generated/guide/guideSearchViewModel.dart';
 import '../../contracts/guide/guideDraftModel.dart';
+import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/columnHelper.dart';
 import '../../helpers/guidHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import './guideAddEditPage.dart';
+import 'guideAddEditPage.dart';
 
 class GuideListPage extends StatefulWidget {
   final GuideDraftModel draftModel;
+
   GuideListPage({
+    Key? key,
     required String analyticsKey,
     required this.draftModel,
-  }) {
+  }) : super(key: key) {
     getAnalytics().trackEvent(analyticsKey);
   }
+
   @override
-  _GuideListWidget createState() => _GuideListWidget(
+  // ignore: no_logic_in_create_state
+  createState() => _GuideListWidget(
         GuideSearchViewModel.defaultSearch(),
       );
 }
@@ -50,63 +55,79 @@ class _GuideListWidget extends State<GuideListPage> {
       //     this.searchObj = newSearchObj;
       //   });
       // }),
-      body: getBody(widget.draftModel, this.searchObj.getHash()),
-      floatingActionButton: FloatingActionButton(
-        heroTag: 'AddGuide',
-        child: Icon(Icons.add),
-        backgroundColor: getTheme().fabColourSelector(context),
-        foregroundColor: getTheme().fabForegroundColourSelector(context),
-        onPressed: onFabPress,
+      body: getBody(widget.draftModel, searchObj.getHash()),
+      floatingActionButton: CachedFutureBuilder(
+        future: getSecureStorageRepo().loadStringFromStorageCheckExpiry(
+          LocalStorageKey.assistantAppsJwtToken,
+        ),
+        whileLoading: () => addGuideFab(
+          context,
+          getLoading().smallLoadingIndicator(),
+          () {},
+        ),
+        whenDoneLoading: (ResultWithValue<String> aaTokenResult) {
+          if (aaTokenResult.hasFailed) {
+            return addGuideFab(
+              context,
+              const Icon(Icons.add),
+              () => getDialog().showSimpleDialog(
+                context,
+                getTranslations().fromKey(LocaleKey.loginRequiredTitle),
+                Column(
+                  children: [
+                    WebsafeSvg.asset(
+                      AppImage.authSVG,
+                      package: UIConstants.CommonPackage,
+                    ),
+                    genericItemDescription(
+                      getTranslations().fromKey(LocaleKey.loginRequiredMessage),
+                    ),
+                  ],
+                ),
+                buttonBuilder: (BuildContext btnContext) {
+                  return [
+                    getDialog().simpleDialogPositiveButton(
+                      btnContext,
+                      onTap: () => widget.draftModel.googleLogin(),
+                    ),
+                    getDialog().simpleDialogCloseButton(
+                      btnContext,
+                      onTap: () => getNavigation().pop(btnContext),
+                    ),
+                  ];
+                },
+              ),
+            );
+          }
+
+          return addGuideFab(
+            context,
+            const Icon(Icons.add),
+            () => getNavigation().navigateAwayFromHomeAsync(
+              context,
+              navigateTo: (_) => GuideAddEditPage(
+                GuideContentViewModel.newGuide(
+                  getNewGuid(),
+                  widget.draftModel.selectedLanguage,
+                ),
+                List.empty(growable: true),
+                draftModel: widget.draftModel,
+                isEdit: false,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 
-  Future<void> onFabPress() async {
-    ResultWithValue<String> assistantAppsToken =
-        await getSecureStorageRepo().loadStringFromStorageCheckExpiry(
-      LocalStorageKey.assistantAppsJwtToken,
-    );
-    if (assistantAppsToken.hasFailed) {
-      getDialog().showSimpleDialog(
-        context,
-        getTranslations().fromKey(LocaleKey.loginRequiredTitle),
-        Column(
-          children: [
-            WebsafeSvg.asset(
-              AppImage.authSVG,
-              package: UIConstants.CommonPackage,
-            ),
-            genericItemDescription(
-              getTranslations().fromKey(LocaleKey.loginRequiredMessage),
-            ),
-          ],
-        ),
-        buttonBuilder: (BuildContext btnContext) {
-          return [
-            getDialog().simpleDialogPositiveButton(
-              context,
-              onTap: () => widget.draftModel.googleLogin(),
-            ),
-            getDialog().simpleDialogCloseButton(
-              context,
-              onTap: () => getNavigation().pop(btnContext),
-            ),
-          ];
-        },
-      );
-      return;
-    }
-    getNavigation().navigateAwayFromHomeAsync(
-      context,
-      navigateTo: (context) => GuideAddEditPage(
-        GuideContentViewModel.newGuide(
-          getNewGuid(),
-          widget.draftModel.selectedLanguage,
-        ),
-        List.empty(growable: true),
-        draftModel: widget.draftModel,
-        isEdit: false,
-      ),
+  Widget addGuideFab(BuildContext fabCtx, Widget child, void Function() onTap) {
+    return FloatingActionButton(
+      heroTag: 'AddGuide',
+      backgroundColor: getTheme().fabColourSelector(fabCtx),
+      foregroundColor: getTheme().fabForegroundColourSelector(fabCtx),
+      onPressed: onTap,
+      child: child,
     );
   }
 
@@ -114,19 +135,19 @@ class _GuideListWidget extends State<GuideListPage> {
     List<Widget> columnWidgets = List.empty(growable: true);
     columnWidgets.add(
       searchBar(context, TextEditingController(), null, (String search) {
-        this.setState(() {
-          this.searchObj = this.searchObj.copyWith(name: search);
+        setState(() {
+          searchObj = searchObj.copyWith(name: search);
         });
       }),
     );
     columnWidgets.add(Expanded(
       child: PaginationSearchableList<GuideSearchResultViewModel>(
         (int page) => getAssistantAppsGuide().getAllGuides(
-          this.searchObj.copyWith(
-                page: page,
-                appGuid: getEnv().assistantAppsAppGuid,
-                languageCode: draftModel.selectedLanguage,
-              ),
+          searchObj.copyWith(
+            page: page,
+            appGuid: getEnv().assistantAppsAppGuid,
+            languageCode: draftModel.selectedLanguage,
+          ),
         ),
         guideTilePresenter,
         (GuideSearchResultViewModel _, String __) => false,

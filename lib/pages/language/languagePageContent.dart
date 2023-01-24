@@ -5,7 +5,8 @@ import './translationsPerLanguageCustomChart.dart';
 
 class LanguagePageContent extends StatelessWidget {
   final List<Widget>? additionalButtons;
-  LanguagePageContent({this.additionalButtons});
+  const LanguagePageContent({Key? key, this.additionalButtons})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class LanguagePageContent extends StatelessWidget {
 
     return ListView(
       shrinkWrap: true,
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       children: widgets,
     );
   }

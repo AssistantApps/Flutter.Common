@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../helpers/colourHelper.dart';
 import '../../integration/dependencyInjectionBase.dart';
-import '../common/animation.dart';
 import 'feedback_animation_state.dart';
 import 'feedback_constants.dart';
 import 'feedback_form.dart';
 import 'feedback_options.dart';
 import 'feedback_services.dart';
+import 'feedback_wrapper_top_layer.dart';
 
 class FeedbackWrapper extends StatefulWidget {
   final FeedbackOptions options;
@@ -35,8 +36,8 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
   final GlobalKey _appKey = GlobalKey(debugLabel: 'feedbackapp');
   final FeedbackServices _services = FeedbackServices();
 
-  AnimationController? _controller;
   Animation<double>? _animation;
+  AnimationController? _controller;
 
   @override
   void initState() {
@@ -45,6 +46,7 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
       vsync: this,
       duration: FeedbackConstants.openingAnimDuration,
     );
+
     _animation = CurvedAnimation(
       parent: _controller!,
       curve: Curves.easeInOut,
@@ -60,11 +62,6 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
 
   @override
   Widget build(BuildContext context) {
-    final Widget materialApp = KeyedSubtree(
-      key: _appKey,
-      child: widget.child,
-    );
-
     if (_services.feedbackAnimationState == FeedbackAnimationState.opening) {
       _controller?.forward().whenComplete(() {
         _services.feedbackAnimationState = FeedbackAnimationState.open;
@@ -77,91 +74,86 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
       });
     }
 
-    Size screenMediaQuery = MediaQuery.of(context).size;
     bool animateOpenClose =
         _services.feedbackAnimationState == FeedbackAnimationState.open ||
             _services.feedbackAnimationState == FeedbackAnimationState.opening;
 
-    return Column(
-      children: [
-        SizeTransition(
-          sizeFactor: _animation!,
-          axis: Axis.vertical,
-          child: Padding(
-            padding: FeedbackConstants.miniAppPadding,
-            child: const FeedbackForm(),
-          ),
+    EdgeInsets animatedPadding = animateOpenClose //
+        ? FeedbackConstants.miniAppPadding
+        : EdgeInsets.zero;
+    BorderRadius borderRadius =
+        _services.feedbackAnimationState == FeedbackAnimationState.open
+            ? FeedbackConstants.miniAppBorderRadius
+            : BorderRadius.zero;
+
+    KeyedSubtree materialApp = KeyedSubtree(
+      key: _appKey,
+      child: widget.child,
+    );
+
+    List<Widget> stackWidgets = [materialApp];
+    if (_services.feedbackAnimationState == FeedbackAnimationState.open ||
+        _services.feedbackAnimationState == FeedbackAnimationState.opening) {
+      stackWidgets.add(
+        FeedbackWrapperTopLayer(
+          feedbackServices: _services,
+          options: widget.options,
         ),
-        Expanded(
-          child: AnimatedPadding(
-            padding: animateOpenClose
-                ? FeedbackConstants.miniAppPadding
-                : EdgeInsets.zero,
-            duration: FeedbackConstants.openingAnimDuration,
-            curve: Curves.easeInOut,
-            child: ClipRRect(
-              borderRadius: _services.feedbackAnimationState ==
-                      FeedbackAnimationState.open
-                  ? FeedbackConstants.miniAppBorderRadius
-                  : BorderRadius.zero,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  materialApp,
-                  if (_services.feedbackAnimationState ==
-                          FeedbackAnimationState.open ||
-                      _services.feedbackAnimationState ==
-                          FeedbackAnimationState.opening) ...[
-                    Positioned(
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: screenMediaQuery.height,
-                      child: GestureDetector(
-                        child: animateWidgetIn(
-                          duration: FeedbackConstants.openingAnimDuration,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Container(
-                                color: getTheme().getPrimaryColour(context),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(12),
-                                  child: Text(
-                                    'Return to app',
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  color: Colors.black.withOpacity(0.5),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        onTap: () {
-                          _services.feedbackAnimationState =
-                              FeedbackAnimationState.closing;
-                        },
-                      ),
-                    ),
-                  ],
-                ],
+      );
+    }
+
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            getTheme().getScaffoldBackgroundColour(context),
+            darken(getTheme().getScaffoldBackgroundColour(context), 0.25),
+          ],
+        ),
+      ),
+      child: Column(
+        children: [
+          SizeTransition(
+            sizeFactor: _animation!,
+            axis: Axis.vertical,
+            child: Padding(
+              padding: FeedbackConstants.miniAppPadding,
+              child: FeedbackForm(
+                feedbackServices: _services,
               ),
             ),
           ),
-        ),
-      ],
+          Expanded(
+            child: GestureDetector(
+              child: AnimatedPadding(
+                padding: animatedPadding,
+                duration: FeedbackConstants.openingAnimDuration,
+                curve: Curves.easeInOut,
+                child: ClipRRect(
+                  borderRadius: borderRadius,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: stackWidgets,
+                  ),
+                ),
+              ),
+              onTap: () {
+                _services.feedbackAnimationState =
+                    FeedbackAnimationState.closing;
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   @override
   void dispose() {
-    _controller?.dispose();
     _services.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 }

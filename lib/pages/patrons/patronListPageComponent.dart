@@ -14,6 +14,8 @@ import '../../integration/dependencyInjection.dart';
 import '../../services/json/backupJsonService.dart';
 
 class PatronListPageComponent extends StatelessWidget {
+  const PatronListPageComponent({Key? key}) : super(key: key);
+
   Future<ResultWithValue<List<PatreonViewModel>>> wrapPatronsListCall(
     BuildContext context,
     Future<ResultWithValue<List<PatreonViewModel>>> Function() getPatrons,
@@ -34,10 +36,9 @@ class PatronListPageComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future<ResultWithValue<List<PatreonViewModel>>> Function() apiFunc =
-        () => getAssistantAppsPatreons().getPatrons();
-    Future<ResultWithValue<List<PatreonViewModel>>> Function() backupFunc =
-        () => BackupJsonService().getPatrons(context);
+    apiFunc() => getAssistantAppsPatreons().getPatrons();
+    backupFunc() => BackupJsonService().getPatrons(context);
+
     return BackgroundWrapper(
       backgroundType: BackgroundType.Patreon,
       body: SearchableGrid<PatreonViewModel>(

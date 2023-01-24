@@ -7,8 +7,10 @@ import './patronListPageComponent.dart';
 class PatronListPage extends StatelessWidget {
   final String analyticsKey;
   final Widget? bottomNavigationBar;
-  PatronListPage(this.analyticsKey, {this.bottomNavigationBar}) {
-    getAnalytics().trackEvent(this.analyticsKey);
+
+  PatronListPage(this.analyticsKey, {Key? key, this.bottomNavigationBar})
+      : super(key: key) {
+    getAnalytics().trackEvent(analyticsKey);
   }
 
   @override
@@ -20,8 +22,8 @@ class PatronListPage extends StatelessWidget {
         showHomeAction: true,
         title: Text(getTranslations().fromKey(LocaleKey.patrons)),
       ),
-      body: PatronListPageComponent(),
-      bottomNavigationBar: this.bottomNavigationBar,
+      body: const PatronListPageComponent(),
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 }

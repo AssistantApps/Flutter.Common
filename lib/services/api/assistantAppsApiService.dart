@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../../constants/ApiUrls.dart';
 import '../../contracts/generated/appNoticeViewModel.dart';
+import '../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
 import '../../contracts/generated/translatorLeaderboardItemViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../contracts/results/resultWithValue.dart';
@@ -61,6 +62,33 @@ class AssistantAppsApiService extends BaseApiService
       getLog().e("AppNotices Api Exception: ${exception.toString()}");
       return ResultWithValue<List<AppNoticeViewModel>>(
           false, List.empty(growable: true), exception.toString());
+    }
+  }
+
+  @override
+  Future<ResultWithValue<FeedbackFormWithQuestionsViewModel>>
+      getLatestFeedbackForm() async {
+    try {
+      final response = await apiGet(
+        'feedback/latest/${getEnv().assistantAppsAppGuid}',
+      );
+      if (response.hasFailed) {
+        return ResultWithValue<FeedbackFormWithQuestionsViewModel>(
+          false,
+          FeedbackFormWithQuestionsViewModel.fromRawJson('{}'),
+          response.errorMessage,
+        );
+      }
+      final FeedbackFormWithQuestionsViewModel feedback =
+          FeedbackFormWithQuestionsViewModel.fromRawJson(response.value);
+      return ResultWithValue(true, feedback, '');
+    } catch (exception) {
+      getLog().e("LatestFeedbackForm Api Exception: ${exception.toString()}");
+      return ResultWithValue<FeedbackFormWithQuestionsViewModel>(
+        false,
+        FeedbackFormWithQuestionsViewModel.fromRawJson('{}'),
+        exception.toString(),
+      );
     }
   }
 }

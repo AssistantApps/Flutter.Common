@@ -16,7 +16,7 @@ class CachedFutureBuilder<T> extends StatefulWidget {
 
   @override
   // ignore: no_logic_in_create_state
-  _CachedFutureBuilderWidget<T> createState() => _CachedFutureBuilderWidget<T>(
+  createState() => _CachedFutureBuilderWidget<T>(
         future,
         whileLoading,
         whenDoneLoading,
