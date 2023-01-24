@@ -5,14 +5,17 @@ import '../common/animation.dart';
 import 'feedback_animation_state.dart';
 import 'feedback_constants.dart';
 import 'feedback_form.dart';
+import 'feedback_options.dart';
 import 'feedback_services.dart';
 
 class FeedbackWrapper extends StatefulWidget {
+  final FeedbackOptions options;
   final Widget child;
 
   const FeedbackWrapper({
     Key? key,
     required this.child,
+    required this.options,
   }) : super(key: key);
 
   @override
@@ -86,7 +89,7 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
           axis: Axis.vertical,
           child: Padding(
             padding: FeedbackConstants.miniAppPadding,
-            child: FeedbackForm(),
+            child: const FeedbackForm(),
           ),
         ),
         Expanded(
@@ -96,24 +99,27 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
                 : EdgeInsets.zero,
             duration: FeedbackConstants.openingAnimDuration,
             curve: Curves.easeInOut,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                materialApp,
-                if (_services.feedbackAnimationState ==
-                        FeedbackAnimationState.open ||
-                    _services.feedbackAnimationState ==
-                        FeedbackAnimationState.opening) ...[
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: screenMediaQuery.height,
-                    child: GestureDetector(
-                      child: animateWidgetIn(
-                        duration: FeedbackConstants.openingAnimDuration,
-                        child: ClipRRect(
-                          borderRadius: FeedbackConstants.miniAppBorderRadius,
+            child: ClipRRect(
+              borderRadius: _services.feedbackAnimationState ==
+                      FeedbackAnimationState.open
+                  ? FeedbackConstants.miniAppBorderRadius
+                  : BorderRadius.zero,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  materialApp,
+                  if (_services.feedbackAnimationState ==
+                          FeedbackAnimationState.open ||
+                      _services.feedbackAnimationState ==
+                          FeedbackAnimationState.opening) ...[
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: screenMediaQuery.height,
+                      child: GestureDetector(
+                        child: animateWidgetIn(
+                          duration: FeedbackConstants.openingAnimDuration,
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -136,15 +142,15 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
                             ],
                           ),
                         ),
+                        onTap: () {
+                          _services.feedbackAnimationState =
+                              FeedbackAnimationState.closing;
+                        },
                       ),
-                      onTap: () {
-                        _services.feedbackAnimationState =
-                            FeedbackAnimationState.closing;
-                      },
                     ),
-                  ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),
