@@ -1,15 +1,15 @@
 import './enumBase.dart';
 
 enum AdminApprovalStatus {
-  Pending,
-  InReview,
-  Denied,
-  Approved,
+  pending,
+  inReview,
+  denied,
+  approved,
 }
 
 final adminApprovalStatusValues = EnumValues({
-  '0': AdminApprovalStatus.Pending,
-  '1': AdminApprovalStatus.InReview,
-  '2': AdminApprovalStatus.Denied,
-  '3': AdminApprovalStatus.Approved,
+  '0': AdminApprovalStatus.pending,
+  '1': AdminApprovalStatus.inReview,
+  '2': AdminApprovalStatus.denied,
+  '3': AdminApprovalStatus.approved,
 });

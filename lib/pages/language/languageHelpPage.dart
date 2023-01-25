@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 class LanguageHelpPage extends StatelessWidget {
   final String analyticsKey;
   final List<Widget>? additionalButtons;
-  LanguageHelpPage(this.analyticsKey, {this.additionalButtons}) {
-    getAnalytics().trackEvent(this.analyticsKey);
+
+  LanguageHelpPage(
+    this.analyticsKey, {
+    Key? key,
+    this.additionalButtons,
+  }) : super(key: key) {
+    getAnalytics().trackEvent(analyticsKey);
   }
 
   @override

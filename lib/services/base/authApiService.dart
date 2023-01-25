@@ -11,11 +11,12 @@ import './interface/IAuthApiService.dart';
 class AuthApiService extends BaseApiService implements IAuthApiService {
   AuthApiService() : super(getEnv().assistantAppsApiUrl);
 
+  @override
   Future<ResultWithValue<DateTime>> login(
       OAuthUserViewModel oAuthDetails) async {
-    Map<String, String> headers = Map<String, String>();
+    Map<String, String> headers = <String, String>{};
     try {
-      final responseResult = await this.apiPost(
+      final responseResult = await apiPost(
         ApiUrls.accountLogin,
         oAuthDetails.toRawJson(),
         headerHandler: (Map<String, String> responseHeaders) {
@@ -33,8 +34,8 @@ class AuthApiService extends BaseApiService implements IAuthApiService {
             false, DateTime.now(), 'AA Token header not found');
       }
 
-      print('AA - Token');
-      print(tokenHeader);
+      getLog().d('AA - Token');
+      getLog().d(tokenHeader);
 
       String? tokenExpiryHeader = headers[ApiHeader.tokenExpiry];
       if (tokenExpiryHeader == null || tokenExpiryHeader.isEmpty) {
@@ -70,8 +71,8 @@ class AuthApiService extends BaseApiService implements IAuthApiService {
         return ResultWithValue<DateTime>(
             false, DateTime.now(), 'AssistantApps userGuid header not found');
       }
-      print('userNameHeader');
-      print(userNameHeader);
+      getLog().d('userNameHeader');
+      getLog().d(userNameHeader);
 
       return ResultWithValue<DateTime>(true, dateTimeExpiry, '');
     } catch (exception) {
@@ -81,6 +82,7 @@ class AuthApiService extends BaseApiService implements IAuthApiService {
     }
   }
 
+  @override
   Future<Result> logout() async {
     try {
       await getSecureStorageRepo().saveToStorageWithExpiry(

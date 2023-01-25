@@ -6,17 +6,17 @@ import FlutterMacOS
 import Foundation
 
 import flutter_secure_storage_macos
-import package_info_plus_macos
+import package_info_plus
 import path_provider_macos
 import platform_device_id
 import platform_device_id_macos
-import share_plus_macos
-import shared_preferences_macos
+import share_plus
+import shared_preferences_foundation
 import sqflite
 import url_launcher_macos
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  FlutterSecureStorageMacosPlugin.register(with: registry.registrar(forPlugin: "FlutterSecureStorageMacosPlugin"))
+  FlutterSecureStoragePlugin.register(with: registry.registrar(forPlugin: "FlutterSecureStoragePlugin"))
   FLTPackageInfoPlusPlugin.register(with: registry.registrar(forPlugin: "FLTPackageInfoPlusPlugin"))
   PathProviderPlugin.register(with: registry.registrar(forPlugin: "PathProviderPlugin"))
   PlatformDeviceIdMacosPlugin.register(with: registry.registrar(forPlugin: "PlatformDeviceIdMacosPlugin"))

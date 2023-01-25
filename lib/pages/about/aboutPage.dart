@@ -11,17 +11,17 @@ import './aboutPageAvailableApps.dart';
 import './aboutPageTeam.dart';
 
 class AboutPage extends StatefulWidget {
-  final Key key;
   final AssistantAppType appType;
   final List<Widget> Function(BuildContext context)? aboutPageWidgetsFunc;
-  AboutPage({
-    required this.key,
-    this.appType = AssistantAppType.Unknown,
+
+  const AboutPage({
+    Key? key,
+    this.appType = AssistantAppType.unknown,
     this.aboutPageWidgetsFunc,
   }) : super(key: key);
 
   @override
-  _AboutPageWidget createState() => _AboutPageWidget();
+  createState() => _AboutPageWidget();
 }
 
 class _AboutPageWidget extends State<AboutPage> {
@@ -62,8 +62,8 @@ class _AboutPageWidget extends State<AboutPage> {
                 verticalOffset: 8,
                 controlItems: options,
                 currentSelection: tabSelection,
-                onSegmentChosen: (int newTab) => this.setState(() {
-                  this.tabSelection = newTab;
+                onSegmentChosen: (int newTab) => setState(() {
+                  tabSelection = newTab;
                 }),
               ),
             ),
@@ -72,7 +72,7 @@ class _AboutPageWidget extends State<AboutPage> {
           Column(
             key: Key(widget.appType.toString()),
             mainAxisSize: MainAxisSize.max,
-            children: buildPage(context, this.tabSelection),
+            children: buildPage(context, tabSelection),
           ),
         ],
       ),
@@ -85,7 +85,7 @@ class _AboutPageWidget extends State<AboutPage> {
       if (widget.aboutPageWidgetsFunc != null) ...[
         () => widget.aboutPageWidgetsFunc!(pageContext),
       ],
-      () => [AboutPageTeam()],
+      () => [const AboutPageTeam()],
     ];
   }
 

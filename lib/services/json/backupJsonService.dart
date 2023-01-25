@@ -9,10 +9,11 @@ import '../BaseJsonService.dart';
 import './interface/IbackupJsonService.dart';
 
 class BackupJsonService extends BaseJsonService implements IBackupJsonService {
+  @override
   Future<ResultWithValue<List<PatreonViewModel>>> getPatrons(context) async {
     try {
       dynamic jsonString =
-          await this.getJsonFromAssets(context, 'data/patronsBackup');
+          await getJsonFromAssets(context, 'data/patronsBackup');
       List responseJson = json.decode(jsonString);
       List<PatreonViewModel> backupItems =
           responseJson.map((m) => PatreonViewModel.fromJson(m)).toList();
@@ -25,13 +26,14 @@ class BackupJsonService extends BaseJsonService implements IBackupJsonService {
     }
   }
 
+  @override
   Future<PaginationResultWithValue<List<DonationViewModel>>> getDonations(
       context,
       {int page = 1,
       int pageSize = 20}) async {
     try {
       dynamic jsonString =
-          await this.getJsonFromAssets(context, 'data/donationsBackup');
+          await getJsonFromAssets(context, 'data/donationsBackup');
       List responseJson = json.decode(jsonString);
       List<DonationViewModel> backupItems =
           responseJson.map((m) => DonationViewModel.fromJson(m)).toList();

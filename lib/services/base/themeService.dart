@@ -1,3 +1,5 @@
+// ignore_for_file: use_full_hex_values_for_flutter_colors, avoid_returning_null_for_void
+
 import 'package:flutter/material.dart';
 
 import '../../helpers/colourHelper.dart';
@@ -10,23 +12,23 @@ class ThemeService implements IThemeService {
   @override
   ThemeData getTheme(BuildContext context) => ThemeData();
   @override
-  Color getPrimaryColour(BuildContext context) => Color(0);
+  Color getPrimaryColour(BuildContext context) => const Color(0);
   @override
-  Color getSecondaryColour(BuildContext context) => Color(0);
+  Color getSecondaryColour(BuildContext context) => const Color(0);
   @override
-  Color getDarkModeSecondaryColour() => Color(0);
+  Color getDarkModeSecondaryColour() => const Color(0);
   @override
   bool getIsDark(BuildContext context) => false;
   @override
-  Color getBackgroundColour(BuildContext context) => Color(0);
+  Color getBackgroundColour(BuildContext context) => const Color(0);
   @override
-  Color getScaffoldBackgroundColour(BuildContext context) => Color(0);
+  Color getScaffoldBackgroundColour(BuildContext context) => const Color(0);
   @override
   void setFontFamily(BuildContext context, String fontFamily) => null;
   @override
-  Color getH1Colour(BuildContext context) => Color(0);
+  Color getH1Colour(BuildContext context) => const Color(0);
   @override
-  Color getTextColour(BuildContext context) => Color(0);
+  Color getTextColour(BuildContext context) => const Color(0);
   @override
   void setBrightness(BuildContext context, bool isDark) => null;
   @override
@@ -34,19 +36,19 @@ class ThemeService implements IThemeService {
   @override
   Color getIosColour() => HexColor('607d8b');
   @override
-  Color getCardTextColour(BuildContext context) => Color(0);
+  Color getCardTextColour(BuildContext context) => const Color(0);
   @override
-  Color getCardBackgroundColour(BuildContext context) => Color(0);
+  Color getCardBackgroundColour(BuildContext context) => const Color(0);
   @override
   bool useWhiteForeground(Color backgroundColor) => false;
   @override
-  Color getForegroundTextColour(Color backgroundColor) => Color(0);
+  Color getForegroundTextColour(Color backgroundColor) => const Color(0);
   @override
-  Color fabForegroundColourSelector(BuildContext context) => Color(0);
+  Color fabForegroundColourSelector(BuildContext context) => const Color(0);
   @override
-  Color fabColourSelector(BuildContext context) => Color(0);
+  Color fabColourSelector(BuildContext context) => const Color(0);
   @override
-  Color buttonBackgroundColour(BuildContext context) => Color(0);
+  Color buttonBackgroundColour(BuildContext context) => const Color(0);
   @override
-  Color buttonForegroundColour(BuildContext context) => Color(0);
+  Color buttonForegroundColour(BuildContext context) => const Color(0);
 }

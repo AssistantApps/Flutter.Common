@@ -40,7 +40,7 @@ class PatronListPageComponent extends StatelessWidget {
     backupFunc() => BackupJsonService().getPatrons(context);
 
     return BackgroundWrapper(
-      backgroundType: BackgroundType.Patreon,
+      backgroundType: BackgroundType.patreon,
       body: SearchableGrid<PatreonViewModel>(
         () => wrapPatronsListCall(context, apiFunc),
         gridItemDisplayer: patronTilePresenter,

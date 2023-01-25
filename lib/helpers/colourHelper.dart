@@ -6,7 +6,7 @@ class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
+      hexColor = "FF$hexColor";
     }
     return int.parse(hexColor, radix: 16);
   }
@@ -27,7 +27,7 @@ class HexColor extends Color {
           hexColor[2];
     }
     if (hexColor.length != 6) {
-      throw new Exception('Invalid HEX color.');
+      throw Exception('Invalid HEX color.');
     }
 
     // invert color components
@@ -38,7 +38,7 @@ class HexColor extends Color {
     String b = (255 - int.parse(hexColor.substring(4, 6), radix: 16))
         .toRadixString(16);
     // pad each with zeros and return
-    return '#' + padString(r, 0) + padString(g, 2) + padString(b, 2);
+    return '#${padString(r, 0)}${padString(g, 2)}${padString(b, 2)}';
   }
 
   static Color invertColor(String hexColor) =>

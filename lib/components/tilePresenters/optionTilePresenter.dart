@@ -5,9 +5,13 @@ import '../../integration/dependencyInjection.dart';
 import '../menu/popupMenu.dart';
 import './genericTilePresenter.dart';
 
-Widget optionTilePresenter(BuildContext context, DropdownOption option,
-    {Function()? onDelete}) {
+Widget optionTilePresenter(
+  BuildContext context,
+  DropdownOption option, {
+  Function()? onDelete,
+}) {
   return Card(
+    margin: const EdgeInsets.all(0.0),
     child: genericListTile(
       context,
       leadingImage: null,
@@ -17,6 +21,5 @@ Widget optionTilePresenter(BuildContext context, DropdownOption option,
           ? popupMenu(context, onEdit: null, onDelete: onDelete)
           : null,
     ),
-    margin: const EdgeInsets.all(0.0),
   );
 }

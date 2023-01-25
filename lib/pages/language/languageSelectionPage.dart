@@ -8,6 +8,8 @@ import '../../integration/dependencyInjection.dart';
 import '../dialog/optionsListPageDialog.dart';
 
 class LanguageSelectionPageContent extends StatelessWidget {
+  const LanguageSelectionPageContent({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     List<LocalizationMap> supportedLanguageMaps =

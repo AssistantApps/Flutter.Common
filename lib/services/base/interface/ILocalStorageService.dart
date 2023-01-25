@@ -18,5 +18,5 @@ class ILocalStorageService {
   Future<ResultWithValue<Map<String, dynamic>>> loadFromStorage(
           String key) async =>
       ResultWithValue<Map<String, dynamic>>(
-          false, Map<String, dynamic>(), 'Not Implemented');
+          false, <String, dynamic>{}, 'Not Implemented');
 }

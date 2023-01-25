@@ -18,7 +18,7 @@ class AppNoticesWrapper extends StatefulWidget {
 
 class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
     with AfterLayoutMixin<AppNoticesWrapper> {
-  NetworkState networkState = NetworkState.Loading;
+  NetworkState networkState = NetworkState.loading;
   List<AppNoticeViewModel> notices = List.empty(growable: true);
 
   @override
@@ -32,14 +32,14 @@ class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
     bool hasNotices = apiResult.isSuccess && apiResult.value.isNotEmpty;
     if (hasNotices == false) {
       setState(() {
-        networkState = NetworkState.Error;
+        networkState = NetworkState.error;
       });
       return;
     }
 
     setState(() {
       notices = apiResult.value;
-      networkState = NetworkState.Success;
+      networkState = NetworkState.success;
     });
   }
 

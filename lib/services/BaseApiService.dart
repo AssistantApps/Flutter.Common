@@ -14,7 +14,7 @@ class BaseApiService {
 
   Future<ResultWithValue<String>> apiGet(String url,
       {Map<String, String>? headers}) async {
-    return await this.webGet('$_baseUrl/$url', headers: headers);
+    return await webGet('$_baseUrl/$url', headers: headers);
   }
 
   Future<ResultWithValue<String>> webGet(String url,

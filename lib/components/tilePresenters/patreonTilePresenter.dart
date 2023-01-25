@@ -11,16 +11,16 @@ Widget patronTilePresenter(
   void Function()? onTap,
 }) {
   if (patron.url == ExternalUrls.patreon) {
-    Function() onTap = () => launchExternalURL(patron.url);
+    localOnTap() => launchExternalURL(patron.url);
     return Card(
       child: genericListTileWithNetworkImage(
         context,
         imageUrl: patron.imageUrl,
         name: patron.name,
-        onTap: onTap,
+        onTap: localOnTap,
         trailing: IconButton(
-          icon: Icon(Icons.exit_to_app),
-          onPressed: onTap,
+          icon: const Icon(Icons.exit_to_app),
+          onPressed: localOnTap,
         ),
       ),
     );

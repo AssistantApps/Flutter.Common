@@ -13,10 +13,11 @@ import '../../integration/dependencyInjection.dart';
 class GuideApiService extends BaseApiService implements IGuideApiService {
   GuideApiService() : super(getEnv().assistantAppsApiUrl);
 
+  @override
   Future<PaginationResultWithValue<List<GuideSearchResultViewModel>>>
       getAllGuides(GuideSearchViewModel searchOptions) async {
     try {
-      final response = await this.apiPost(
+      final response = await apiPost(
         ApiUrls.guideSearch,
         searchOptions.toRawJson(),
       );
@@ -46,7 +47,7 @@ class GuideApiService extends BaseApiService implements IGuideApiService {
   @override
   Future<Result> addGuide(AddGuideViewModel newGuide) async {
     try {
-      final response = await this.apiPost(
+      final response = await apiPost(
         ApiUrls.guideDetail,
         newGuide.toRawJson(),
       );
@@ -66,11 +67,11 @@ class GuideApiService extends BaseApiService implements IGuideApiService {
       String guid) async {
     try {
       var url = "${ApiUrls.guideContent}/$guid";
-      ResultWithValue<String> response = await this.apiGet(url);
+      ResultWithValue<String> response = await apiGet(url);
       if (response.hasFailed) {
         return ResultWithValue<GuideContentViewModel>(
           false,
-          GuideContentViewModel.fromJson(Map<String, dynamic>()),
+          GuideContentViewModel.fromJson(<String, dynamic>{}),
           response.errorMessage,
         );
       }
@@ -82,7 +83,7 @@ class GuideApiService extends BaseApiService implements IGuideApiService {
           "GuideApiService-getGuideContent Exception: ${exception.toString()}");
       return ResultWithValue<GuideContentViewModel>(
         false,
-        GuideContentViewModel.fromJson(Map<String, dynamic>()),
+        GuideContentViewModel.fromJson(<String, dynamic>{}),
         exception.toString(),
       );
     }

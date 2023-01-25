@@ -4,27 +4,27 @@ import 'package:flutter/material.dart';
 import '../results/paginationResultWithValue.dart';
 import '../results/resultWithValue.dart';
 
-typedef Future<ResultWithValue<List<T>>> ListGetterType<T>();
+typedef ListGetterType<T> = Future<ResultWithValue<List<T>>> Function();
 
-typedef Widget ListItemDisplayerType<T>(
+typedef ListItemDisplayerType<T> = Widget Function(
   BuildContext ctx,
   T item, {
   void Function()? onTap,
 });
 
-typedef Widget ListItemWithIndexDisplayerType<T>(
+typedef ListItemWithIndexDisplayerType<T> = Widget Function(
   BuildContext ctx,
   T item,
   int index, {
   void Function()? onTap,
 });
 
-typedef bool ListItemSearchType<T>(
+typedef ListItemSearchType<T> = bool Function(
   T item,
   String searchTerm,
 );
 
-typedef Widget ListOrGridDisplayType(
+typedef ListOrGridDisplayType = Widget Function(
     { //
     required int itemCount,
     Key? key,
@@ -35,6 +35,5 @@ typedef Widget ListOrGridDisplayType(
     ScrollController? scrollController //
     });
 
-typedef Future<
-    PaginationResultWithValue<
-        List<T>>> ListItemPaginationDisplayerType<T>(int index);
+typedef ListItemPaginationDisplayerType<T>
+    = Future<PaginationResultWithValue<List<T>>> Function(int index);

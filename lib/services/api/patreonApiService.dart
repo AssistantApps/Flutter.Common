@@ -10,9 +10,10 @@ import './interface/IPatreonApiService.dart';
 class PatreonApiService extends BaseApiService implements IPatreonApiService {
   PatreonApiService() : super(getEnv().assistantAppsApiUrl);
 
+  @override
   Future<ResultWithValue<List<PatreonViewModel>>> getPatrons() async {
     try {
-      final response = await this.apiGet(ApiUrls.patreon);
+      final response = await apiGet(ApiUrls.patreon);
       if (response.hasFailed) {
         return ResultWithValue<List<PatreonViewModel>>(
             false, List.empty(growable: true), response.errorMessage);

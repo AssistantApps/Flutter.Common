@@ -30,10 +30,10 @@ Future<String> getDeviceId() async {
 
 List<PlatformType> getPlatforms() {
   List<PlatformType> plats = List.empty(growable: true);
-  if (isiOS || isApple) plats.add(PlatformType.Apple);
-  if (isAndroid) plats.add(PlatformType.Android);
-  if (isWindows) plats.add(PlatformType.Windows);
-  if (isWeb) plats.add(PlatformType.Web);
+  if (isiOS || isApple) plats.add(PlatformType.apple);
+  if (isAndroid) plats.add(PlatformType.android);
+  if (isWindows) plats.add(PlatformType.windows);
+  if (isWeb) plats.add(PlatformType.web);
   return plats;
 }
 
@@ -41,10 +41,12 @@ List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
   List<Widget> result = List.empty(growable: true);
   for (ActionItem action in actions) {
     if (action.image != null) {
-      result.add(InkWell(
-        child: action.image,
-        onTap: action.onPressed,
-      ));
+      result.add(
+        InkWell(
+          onTap: action.onPressed,
+          child: action.image,
+        ),
+      );
     } else {
       result.add(
         IconButton(
@@ -62,15 +64,20 @@ List<Widget> actionItemToAppleAction(context, List<ActionItem> actions) {
   List<Widget> result = List.empty(growable: true);
   for (ActionItem action in actions) {
     if (action.image != null) {
-      result.add(InkWell(child: action.image, onTap: action.onPressed));
+      result.add(
+        InkWell(
+          onTap: action.onPressed,
+          child: action.image,
+        ),
+      );
     } else {
       result.add(
         InkWell(
+          onTap: action.onPressed,
           child: Icon(
             action.icon,
             color: getTheme().getPrimaryColour(context),
           ),
-          onTap: action.onPressed,
         ),
       );
     }
@@ -78,4 +85,5 @@ List<Widget> actionItemToAppleAction(context, List<ActionItem> actions) {
   return result;
 }
 
-Widget customDivider() => isWeb ? Divider(thickness: .5) : Divider();
+Widget customDivider() =>
+    isWeb ? const Divider(thickness: .5) : const Divider();

@@ -157,7 +157,7 @@ Widget networkBlurHashImage(
             errorWidget ??
             localImage(
               AppImage.error,
-              imagePackage: UIConstants.CommonPackage,
+              imagePackage: UIConstants.commonPackage,
               width: width ?? 150,
               height: height ?? 150,
             ),

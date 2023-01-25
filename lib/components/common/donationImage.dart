@@ -10,7 +10,7 @@ class DonationImage {
         AppImage.donApplePay,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget bat({double size = 35, EdgeInsets? padding}) =>
@@ -18,7 +18,7 @@ class DonationImage {
         AppImage.donBat,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget buyMeACoffee({double size = 35, EdgeInsets? padding}) =>
@@ -26,7 +26,7 @@ class DonationImage {
         AppImage.donBuyMeACoffee,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget googlePay({double size = 35, EdgeInsets? padding}) =>
@@ -34,7 +34,7 @@ class DonationImage {
         AppImage.donGooglePay,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget kofi({double size = 35, EdgeInsets? padding}) =>
@@ -42,7 +42,7 @@ class DonationImage {
         AppImage.donKofi,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget openCollective({double size = 35, EdgeInsets? padding}) =>
@@ -50,7 +50,7 @@ class DonationImage {
         AppImage.donOpenCollective,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget patreon(
@@ -59,7 +59,7 @@ class DonationImage {
         useAlt ? AppImage.donPatreonAlt : AppImage.donPatreon,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget payPal({double size = 35, EdgeInsets? padding}) =>
@@ -67,7 +67,7 @@ class DonationImage {
         AppImage.donPayPal,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 
   static Widget unknown({double size = 35, EdgeInsets? padding}) =>
@@ -75,6 +75,6 @@ class DonationImage {
         AppImage.donUnknown,
         size: size,
         padding: padding,
-        package: UIConstants.CommonPackage,
+        package: UIConstants.commonPackage,
       );
 }

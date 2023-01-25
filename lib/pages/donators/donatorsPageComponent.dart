@@ -15,12 +15,12 @@ class DonatorsPageComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return LazyLoadSearchableList<DonationViewModel>(
       (int page) => getAssistantAppsDonators().getDonators(page: page),
-      UIConstants.DonationsPageSize,
+      UIConstants.donationsPageSize,
       listItemDisplayer: donationTilePresenter,
       backupListGetter: (int page) => getAssistantAppsBackup().getDonations(
         context,
         page: page,
-        pageSize: UIConstants.DonationsPageSize,
+        pageSize: UIConstants.donationsPageSize,
       ),
       loadMoreItemWidget: loadMoreItemWidget,
     );

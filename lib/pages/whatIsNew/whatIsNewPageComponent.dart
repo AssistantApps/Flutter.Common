@@ -13,7 +13,7 @@ class WhatIsNewPageComponent extends StatelessWidget {
   final Widget loadMoreItemWidget;
   final void Function(VersionViewModel) onTap;
 
-  WhatIsNewPageComponent(
+  const WhatIsNewPageComponent(
     this.currentWhatIsNewGuid,
     this.selectedLanguage,
     this.platforms,

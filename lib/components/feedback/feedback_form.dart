@@ -2,10 +2,8 @@ import 'dart:typed_data';
 
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:image_painter/src/_paint_over_image.dart';
 
 import '../../contracts/enum/feedback_question_type.dart';
-import '../../contracts/enum/localeKey.dart';
 import '../../contracts/enum/networkState.dart';
 import '../../contracts/generated/feedback/feedback_form_question_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
@@ -36,7 +34,7 @@ class FeedbackForm extends StatefulWidget {
 
 class _FeedbackFormState extends State<FeedbackForm>
     with AfterLayoutMixin<FeedbackForm>, TickerProviderStateMixin {
-  NetworkState networkState = NetworkState.Loading;
+  NetworkState networkState = NetworkState.loading;
   List<FeedbackFormQuestionViewModel> items = List.empty(growable: true);
   int questionIndex = 0;
 
@@ -48,13 +46,13 @@ class _FeedbackFormState extends State<FeedbackForm>
         await getAssistantAppsApi().getLatestFeedbackForm();
     if (apiResult.hasFailed) {
       setState(() {
-        networkState = NetworkState.Error;
+        networkState = NetworkState.error;
       });
       return;
     }
 
     setState(() {
-      networkState = NetworkState.Success;
+      networkState = NetworkState.success;
       items = apiResult.value.items;
     });
   }
@@ -63,10 +61,10 @@ class _FeedbackFormState extends State<FeedbackForm>
   Widget build(BuildContext context) {
     Size screenMediaQuery = MediaQuery.of(context).size;
 
-    if (networkState == NetworkState.Loading) {
+    if (networkState == NetworkState.loading) {
       return Center(child: getLoading().smallLoadingIndicator());
     }
-    if (networkState == NetworkState.Error) {
+    if (networkState == NetworkState.error) {
       return Center(child: getLoading().customErrorWidget(context));
     }
 
@@ -225,8 +223,7 @@ class _FeedbackFormState extends State<FeedbackForm>
               context,
               title: 'Save & upload', //TODO translate
               onPress: () async {
-                ImagePainterState? imageState =
-                    localServices.painterKey.currentState;
+                var imageState = localServices.painterKey.currentState;
                 if (imageState == null) {
                   return;
                 }

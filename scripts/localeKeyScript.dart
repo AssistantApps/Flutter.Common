@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -36,7 +38,7 @@ Future<List<String>> getTranslationKeys() async {
 }
 
 Future writeServerData(List<String> keys) async {
-  if (keys.length < 1) return;
+  if (keys.isEmpty) return;
   print('Writing to LocaleKey.dart');
   final file = File('./lib/contracts/enum/localeKey.dart');
   await file.writeAsString('enum LocaleKey {\n');

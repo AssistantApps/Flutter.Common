@@ -29,23 +29,23 @@ Widget normalText(String text) => Text(
 
 Widget getImage(DonationType donation) {
   switch (donation) {
-    case DonationType.APPLEPLAY:
+    case DonationType.applePay:
       return DonationImage.applePay();
-    case DonationType.BRAVEREWARDS:
+    case DonationType.braveRewards:
       return DonationImage.bat();
-    case DonationType.BUYMEACOFFEE:
+    case DonationType.buyMeACoffee:
       return DonationImage.buyMeACoffee();
-    case DonationType.GOOGLEPLAY:
+    case DonationType.googlePlay:
       return DonationImage.googlePay();
-    case DonationType.KOFI:
+    case DonationType.kofi:
       return DonationImage.kofi();
-    case DonationType.OPENCOLLECTIVE:
+    case DonationType.openCollective:
       return DonationImage.openCollective();
-    case DonationType.PATREON:
+    case DonationType.patreon:
       return DonationImage.patreon();
-    case DonationType.PAYPAL:
+    case DonationType.paypal:
       return DonationImage.payPal();
-    case DonationType.UNKNOWN:
+    case DonationType.unknown:
     default:
       return DonationImage.unknown();
   }

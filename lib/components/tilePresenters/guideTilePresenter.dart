@@ -26,7 +26,7 @@ Widget guideTilePresenter(
   //         : networkImage(post.coverImageUrl, boxfit: BoxFit.fitWidth);
   Widget imageWidget = localImage(
     getPath().defaultGuideImage,
-    imagePackage: UIConstants.CommonPackage,
+    imagePackage: UIConstants.commonPackage,
   );
 
   List<Widget> firstRow = List.empty(growable: true);

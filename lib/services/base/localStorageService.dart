@@ -7,7 +7,7 @@ import '../../repository/interface/ILocalStorageRepository.dart';
 import './interface/ILocalStorageService.dart';
 
 class LocalStorageService implements ILocalStorageService {
-  late ILocalStorageRepository _localRepo;
+  late final ILocalStorageRepository _localRepo;
 
   LocalStorageService(this._localRepo);
 
@@ -17,7 +17,7 @@ class LocalStorageService implements ILocalStorageService {
       await _localRepo.saveToStorage(key, stateString);
       return Result(true, '');
     } catch (exception) {
-      getLog().e('saveToStorage. ' + exception.toString());
+      getLog().e('saveToStorage. $exception');
       return Result(false, exception.toString());
     }
   }
@@ -41,10 +41,10 @@ class LocalStorageService implements ILocalStorageService {
     ResultWithValue<String> stringFromStorageResult =
         await loadStringFromStorage(key);
     if (stringFromStorageResult.hasFailed) {
-      print('stringFromStorageResult hasFailed');
+      getLog().e('stringFromStorageResult hasFailed');
       return ResultWithValue<Map<String, dynamic>>(
         stringFromStorageResult.isSuccess,
-        Map<String, dynamic>(),
+        <String, dynamic>{},
         stringFromStorageResult.errorMessage,
       );
     }
@@ -54,9 +54,9 @@ class LocalStorageService implements ILocalStorageService {
           json.decode(stateString) as Map<String, dynamic>;
       return ResultWithValue<Map<String, dynamic>>(true, stateMap, '');
     } catch (exception) {
-      getLog().e('loadFromStorage. ' + exception.toString());
+      getLog().e('loadFromStorage. $exception');
       return ResultWithValue<Map<String, dynamic>>(
-          false, Map<String, dynamic>(), exception.toString());
+          false, <String, dynamic>{}, exception.toString());
     }
   }
 
@@ -74,7 +74,7 @@ class LocalStorageService implements ILocalStorageService {
       storageWithExpiry =
           StorageWithExpiry.fromRawJson(stateStringResult.value);
     } catch (exception) {
-      getLog().e('loadFromStorage' + exception.toString());
+      getLog().e('loadFromStorage$exception');
       return ResultWithValue<String>(false, '', exception.toString());
     }
 

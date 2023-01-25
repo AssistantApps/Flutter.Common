@@ -10,9 +10,9 @@ Widget linkSettingTilePresenter(
   Function()? onTap,
 }) {
   //
-  void Function() tempOnTap = () {
+  tempOnTap() {
     if (onTap != null) onTap();
-  };
+  }
 
   return flatCard(
     child: ListTile(

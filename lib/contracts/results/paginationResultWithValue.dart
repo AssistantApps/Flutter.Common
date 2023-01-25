@@ -10,8 +10,8 @@ class PaginationResultWithValue<T> extends ResultWithValue<T> {
   PaginationResultWithValue(bool isSuccess, T value, int currentPage,
       int totalPages, String errorMessage)
       : super(isSuccess, value, errorMessage) {
-    this.currentPage = currentPage;
-    this.totalPages = totalPages;
+    currentPage = currentPage;
+    totalPages = totalPages;
   }
 }
 

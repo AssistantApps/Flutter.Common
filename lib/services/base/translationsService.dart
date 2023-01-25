@@ -16,7 +16,7 @@ import './interface/ITranslationsService.dart';
 
 class TranslationService implements ITranslationService {
   late Locale locale;
-  late Map<dynamic, dynamic> _localisedValues = Map<dynamic, dynamic>();
+  late Map<dynamic, dynamic> _localisedValues = <dynamic, dynamic>{};
 
   @override
   Future<ITranslationService> load(Locale locale) async {
@@ -36,6 +36,7 @@ class TranslationService implements ITranslationService {
     return this;
   }
 
+  @override
   get currentLanguage => locale.languageCode;
 
   @override
@@ -46,7 +47,7 @@ class TranslationService implements ITranslationService {
 
   @override
   String fromString(String keyString) {
-    return _localisedValues[keyString] ?? "$keyString";
+    return _localisedValues[keyString] ?? keyString;
   }
 
   @override
@@ -75,7 +76,7 @@ class TranslationService implements ITranslationService {
     if (langIndex < 0) {
       getLog()
           .e('language not found ($supportedLanguageKey), revert to english');
-      return Locale('en');
+      return const Locale('en');
     }
     return Locale(supportedLanguageKey);
   }

@@ -1,6 +1,6 @@
 enum NetworkState {
-  Pending,
-  Loading,
-  Success,
-  Error,
+  pending,
+  loading,
+  success,
+  error,
 }

@@ -25,6 +25,7 @@ Widget steamNewsItemTilePresenter(
   return Card(
     semanticContainer: true,
     clipBehavior: Clip.antiAliasWithSaveLayer,
+    margin: const EdgeInsets.all(4),
     child: InkWell(
       child: Column(
         children: <Widget>[
@@ -34,16 +35,16 @@ Widget steamNewsItemTilePresenter(
             child: Text(
               newsItem.name,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 4, right: 4, left: 4),
             child: Text(
-              DateFormat(UIConstants.DateFormat)
+              DateFormat(UIConstants.dateFormat)
                   .format(newsItem.date.toLocal()),
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14),
+              style: const TextStyle(fontSize: 14),
             ),
           ),
           Padding(
@@ -51,7 +52,7 @@ Widget steamNewsItemTilePresenter(
             child: Text(
               newsItem.shortDescription,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ),
           Padding(
@@ -69,7 +70,6 @@ Widget steamNewsItemTilePresenter(
       ),
       onTap: () => launchExternalURL(newsItem.link),
     ),
-    margin: const EdgeInsets.all(4),
   );
 }
 
@@ -78,7 +78,7 @@ Widget steamBranchItemTilePresenter(
   // ignore: unnecessary_null_comparison
   String date = branch.lastUpdate == null
       ? '...'
-      : DateFormat(UIConstants.DateTimeFormat).format(
+      : DateFormat(UIConstants.dateTimeFormat).format(
           branch.lastUpdate.toLocal(),
         );
   return flatCard(

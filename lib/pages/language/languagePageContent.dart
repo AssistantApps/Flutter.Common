@@ -19,7 +19,7 @@ class LanguagePageContent extends StatelessWidget {
     widgets.add(genericItemText(
       getTranslations().fromKey(LocaleKey.translationPercentageComplete),
     ));
-    widgets.add(TranslationsPerLanguageCustomChart());
+    widgets.add(const TranslationsPerLanguageCustomChart());
     if (additionalButtons != null) widgets.addAll(additionalButtons!);
 
     return ListView(

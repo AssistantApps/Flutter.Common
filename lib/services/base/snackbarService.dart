@@ -11,6 +11,7 @@ class SnackbarService implements ISnackbarService {
     _sweetSheet = SweetSheet();
   }
 
+  @override
   void showSnackbar(
     context,
     LocaleKey lang, {
@@ -24,7 +25,7 @@ class SnackbarService implements ISnackbarService {
     _sweetSheet.show(
       context: context,
       title: Text(getTranslations().fromKey(lang)),
-      description: (description == null) ? Text('') : Text(description),
+      description: (description == null) ? const Text('') : Text(description),
       color: SweetSheetColor.SUCCESS,
       isDismissible: true,
       positive: (onPositiveText != null)

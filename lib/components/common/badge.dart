@@ -6,9 +6,11 @@ import '../../integration/dependencyInjection.dart';
 Widget basicBadge(BuildContext context, String badgeText, Widget child) {
   return Badge(
     badgeContent: Text(badgeText),
-    badgeColor: getTheme().getSecondaryColour(context),
+    badgeStyle: BadgeStyle(
+      badgeColor: getTheme().getSecondaryColour(context),
+      padding: const EdgeInsets.all(8),
+    ),
     position: BadgePosition.bottomEnd(),
-    padding: const EdgeInsets.all(8),
     child: child,
   );
 }

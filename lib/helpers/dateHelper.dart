@@ -53,7 +53,7 @@ Widget getProgressbarFromDates(
     animation: animation,
     text: Text(
       '${percentage.toStringAsFixed(0)}% - $timeLeft',
-      style: TextStyle(color: Colors.black),
+      style: const TextStyle(color: Colors.black),
     ),
   );
 }

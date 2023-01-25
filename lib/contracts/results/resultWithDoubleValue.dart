@@ -5,6 +5,6 @@ class ResultWithDoubleValue<T, K> extends ResultWithValue<T> {
   ResultWithDoubleValue(
       bool isSuccess, T value, K secondValue, String errorMessage)
       : super(isSuccess, value, errorMessage) {
-    this.secondValue = secondValue;
+    secondValue = secondValue;
   }
 }

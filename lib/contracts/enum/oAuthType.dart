@@ -1,3 +1,3 @@
 enum OAuthType {
-  Patreon,
+  patreon,
 }

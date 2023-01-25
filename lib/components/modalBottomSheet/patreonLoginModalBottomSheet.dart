@@ -28,7 +28,7 @@ class PatreonLoginModalBottomSheet extends StatefulWidget {
 class _PatreonLoginModalBottomSheetWidget
     extends State<PatreonLoginModalBottomSheet> {
   late String _deviceId;
-  NetworkState _signalRNetworkState = NetworkState.Loading;
+  NetworkState _signalRNetworkState = NetworkState.loading;
   final OAuthSignalRService _oAuthSignal = getAssistantAppsOAuthSignalR();
 
   @override
@@ -47,7 +47,7 @@ class _PatreonLoginModalBottomSheetWidget
 
   void connectionFailed({Exception? error}) {
     setState(() {
-      _signalRNetworkState = NetworkState.Error;
+      _signalRNetworkState = NetworkState.error;
     });
   }
 
@@ -88,13 +88,13 @@ class _PatreonLoginModalBottomSheetWidget
     });
     setState(() {
       _deviceId = deviceId;
-      _signalRNetworkState = NetworkState.Success;
+      _signalRNetworkState = NetworkState.success;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_signalRNetworkState == NetworkState.Loading) {
+    if (_signalRNetworkState == NetworkState.loading) {
       return displayContentInModal(
         centerContentInModal(
           [
@@ -105,7 +105,7 @@ class _PatreonLoginModalBottomSheetWidget
         ),
       );
     }
-    if (_signalRNetworkState == NetworkState.Error) {
+    if (_signalRNetworkState == NetworkState.error) {
       return displayContentInModal(
         centerContentInModal(
           [

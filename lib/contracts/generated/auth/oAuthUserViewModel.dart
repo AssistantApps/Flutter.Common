@@ -22,11 +22,11 @@ class OAuthUserViewModel {
   String toRawJson() => json.encode(toJson());
 
   Map<String, dynamic> toJson() => {
-        'oAuthType': oAuthProviderTypeToInt(this.oAuthType),
-        'profileUrl': this.profileUrl,
-        'username': this.username,
-        'email': this.email,
-        'tokenId': this.tokenId,
-        'accessToken': this.accessToken,
+        'oAuthType': oAuthProviderTypeToInt(oAuthType),
+        'profileUrl': profileUrl,
+        'username': username,
+        'email': email,
+        'tokenId': tokenId,
+        'accessToken': accessToken,
       };
 }

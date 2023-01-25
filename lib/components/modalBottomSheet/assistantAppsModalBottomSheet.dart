@@ -7,7 +7,7 @@ import '../../pages/about/aboutPageAvailableApps.dart';
 class AssistantAppsModalBottomSheet extends StatelessWidget {
   final AssistantAppType appType;
   const AssistantAppsModalBottomSheet(
-      {Key? key, this.appType = AssistantAppType.Unknown})
+      {Key? key, this.appType = AssistantAppType.unknown})
       : super(key: key);
 
   @override

@@ -1,6 +1,6 @@
 enum BackgroundType {
-  NotSet,
-  Christmas,
-  Patreon,
-  Valentines,
+  notSet,
+  christmas,
+  patreon,
+  valentines,
 }

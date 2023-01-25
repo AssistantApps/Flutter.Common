@@ -12,7 +12,9 @@ import './interface/ILoadingWidgetService.dart';
 class LoadingWidgetService implements ILoadingWidgetService {
   @override
   Widget smallLoadingIndicator() {
-    return isApple ? CupertinoActivityIndicator() : CircularProgressIndicator();
+    return isApple
+        ? const CupertinoActivityIndicator()
+        : const CircularProgressIndicator();
   }
 
   @override
@@ -25,31 +27,28 @@ class LoadingWidgetService implements ILoadingWidgetService {
 
   @override
   Widget loadingIndicator({double height = 50.0}) => Container(
-        alignment: Alignment(0, 0),
-        child: smallLoadingIndicator(),
+        alignment: const Alignment(0, 0),
         height: height,
+        child: smallLoadingIndicator(),
       );
 
   @override
-  Widget fullPageLoading(BuildContext context, {String? loadingText}) =>
-      Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Row(children: <Widget>[
-              smallLoadingIndicator(),
-            ], mainAxisAlignment: MainAxisAlignment.center),
-            Row(children: <Widget>[
-              Container(
-                margin: EdgeInsets.all(12),
-              )
-            ], mainAxisAlignment: MainAxisAlignment.center),
-            Row(children: <Widget>[
-              Text(loadingText ?? getTranslations().fromKey(LocaleKey.loading))
-            ], mainAxisAlignment: MainAxisAlignment.center),
-          ],
-        ),
+  Widget fullPageLoading(BuildContext context, {String? loadingText}) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            smallLoadingIndicator(),
+          ]),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            Container(
+              margin: const EdgeInsets.all(12),
+            )
+          ]),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+            Text(loadingText ?? getTranslations().fromKey(LocaleKey.loading))
+          ]),
+        ],
       );
 
   @override
@@ -60,12 +59,12 @@ class LoadingWidgetService implements ILoadingWidgetService {
           localImage(
             AppImage.error,
             width: 500,
-            padding: EdgeInsets.all(8),
-            imagePackage: UIConstants.CommonPackage,
+            padding: const EdgeInsets.all(8),
+            imagePackage: UIConstants.commonPackage,
           ),
           Text(
             text ?? getTranslations().fromKey(LocaleKey.somethingWentWrong),
-            style: TextStyle(fontSize: 30),
+            style: const TextStyle(fontSize: 30),
             textAlign: TextAlign.center,
           )
         ],

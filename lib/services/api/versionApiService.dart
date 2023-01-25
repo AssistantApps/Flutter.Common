@@ -11,10 +11,11 @@ import './interface/IVersionApiService.dart';
 class VersionApiService extends BaseApiService implements IVersionApiService {
   VersionApiService() : super(getEnv().assistantAppsApiUrl);
 
+  @override
   Future<ResultWithValue<VersionViewModel>> getLatest(
     List<PlatformType> platforms,
   ) async {
-    if (platforms.length < 1) {
+    if (platforms.isEmpty) {
       return ResultWithValue<VersionViewModel>(
           false, VersionViewModel.empty(), 'No Platforms specified');
     }
@@ -25,14 +26,14 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
     for (var queryParam in queryParams) {
       if (queryParam == null || queryParam.isEmpty) continue;
       if (queryPath.isNotEmpty) {
-        queryPath = queryPath + '&';
+        queryPath = '$queryPath&';
       }
-      queryPath = queryPath + 'platforms=' + queryParam;
+      queryPath = '${queryPath}platforms=$queryParam';
     }
     String url =
         "${ApiUrls.appVersion}/${getEnv().assistantAppsAppGuid}?$queryPath";
     try {
-      final response = await this.apiGet(url);
+      final response = await apiGet(url);
       if (response.hasFailed) {
         return ResultWithValue<VersionViewModel>(
             false, VersionViewModel.empty(), response.errorMessage);
@@ -46,6 +47,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
     }
   }
 
+  @override
   Future<PaginationResultWithValue<List<VersionViewModel>>> getHistory(
     String langCode,
     List<PlatformType> platforms, {
@@ -58,7 +60,7 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
       page: page,
     );
     try {
-      final response = await this.apiPost(
+      final response = await apiPost(
         ApiUrls.versionSearch,
         body.toRawJson(),
       );

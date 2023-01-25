@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings, prefer_adjacent_string_concatenation
+
 import '../contracts/generated/auth/patreonOAuthViewModel.dart';
 import './dependencyInjection.dart';
 
@@ -5,7 +7,7 @@ String patreonApiUrl = 'https://www.patreon.com';
 String patreonApiOAuthUrl = '$patreonApiUrl/oauth2/authorize';
 
 String getAssistantAppsPatreonOAuth() =>
-    getEnv().assistantAppsApiUrl + '/OAuth/Patreon';
+    '${getEnv().assistantAppsApiUrl}/OAuth/Patreon';
 
 String getPatreonUrl(PatreonOAuthViewModel oauth) =>
     '$patreonApiOAuthUrl?response_type=code' +

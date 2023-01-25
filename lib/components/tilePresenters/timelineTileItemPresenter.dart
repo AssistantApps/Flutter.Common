@@ -24,7 +24,7 @@ Widget timelineTilePresenter(
         child: (customIndicatorIcon == null)
             ? null
             : Padding(
-                padding: EdgeInsets.all(2),
+                padding: const EdgeInsets.all(2),
                 child: Icon(
                   customIndicatorIcon,
                   color: iconColour ?? Colors.black,

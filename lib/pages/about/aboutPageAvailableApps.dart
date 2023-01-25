@@ -20,11 +20,11 @@ import '../../integration/dependencyInjection.dart';
 
 class AboutPageAvailableApps extends StatefulWidget {
   final AssistantAppType appType;
-  AboutPageAvailableApps(this.appType);
+
+  const AboutPageAvailableApps(this.appType, {Key? key}) : super(key: key);
 
   @override
-  _AboutPageAvailableAppsWidget createState() =>
-      _AboutPageAvailableAppsWidget();
+  createState() => _AboutPageAvailableAppsWidget();
 }
 
 class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
@@ -57,7 +57,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
       (a, b) => (a.sortOrder.compareTo(b.sortOrder)),
     );
 
-    this.setState(() {
+    setState(() {
       isLoading = false;
       assistantAppLinks = sortModifiedAssistantAppLinks;
     });
@@ -72,7 +72,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
     widgets.add(
       localImage(
         '${AppImage.base}${AppImage.assistantApps}',
-        imagePackage: UIConstants.CommonPackage,
+        imagePackage: UIConstants.commonPackage,
         height: 75,
       ),
     );
@@ -82,7 +82,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
       'This app is part of the AssistantApps range',
     ));
 
-    widgets.add(Divider());
+    widgets.add(customDivider());
 
     for (AssistantAppsLinkViewModel appLinkVm in assistantAppLinks) {
       List<PopupMenuActionItem> popups = List.empty(growable: true);
@@ -109,11 +109,9 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
           ));
         }
       }
-      String platforms = 'Available on: ' +
-          joinStringList(
-            popups.map((p) => p.text).toList(),
-            ', ',
-          );
+
+      String platStr = joinStringList(popups.map((p) => p.text).toList(), ', ');
+      String platforms = 'Available on: $platStr';
 
       widgets.add(
         assistantAppLinkPresenter(context, appLinkVm, platforms, popups),
@@ -126,7 +124,7 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
         child: genericListTileWithSubtitle(
           context,
           leadingImage: '${AppImage.base}${AppImage.unknown}',
-          imagePackage: UIConstants.CommonPackage,
+          imagePackage: UIConstants.commonPackage,
           name: 'Coming soon',
         ),
       ),
@@ -134,10 +132,11 @@ class _AboutPageAvailableAppsWidget extends State<AboutPageAvailableApps>
     widgets.add(emptySpace(1));
 
     return ListView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       itemCount: widgets.length,
       itemBuilder: (_, int index) => widgets[index],
       shrinkWrap: true,
+      controller: ScrollController(),
     );
   }
 }

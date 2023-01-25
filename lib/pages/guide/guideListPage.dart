@@ -77,7 +77,7 @@ class _GuideListWidget extends State<GuideListPage> {
                   children: [
                     WebsafeSvg.asset(
                       AppImage.authSVG,
-                      package: UIConstants.CommonPackage,
+                      package: UIConstants.commonPackage,
                     ),
                     genericItemDescription(
                       getTranslations().fromKey(LocaleKey.loginRequiredMessage),

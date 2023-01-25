@@ -16,7 +16,7 @@ class BackgroundWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (backgroundType == BackgroundType.NotSet) return body;
+    if (backgroundType == BackgroundType.notSet) return body;
 
     return Stack(
       key: key,
@@ -52,7 +52,7 @@ class _AnimatedBackgroundWidget extends State<AnimatedBackgroundWrapper>
 
 Behaviour getFromType(BackgroundType backgroundType) {
   switch (backgroundType) {
-    case BackgroundType.Patreon:
+    case BackgroundType.patreon:
       return RandomParticleBehaviour(
         options: getParticleOptions(
           AppImage.specialPatreonLogo,
@@ -61,11 +61,11 @@ Behaviour getFromType(BackgroundType backgroundType) {
           particleCount: 10,
         ),
       );
-    case BackgroundType.Valentines:
+    case BackgroundType.valentines:
       return RandomParticleBehaviour(
         options: getParticleOptions(AppImage.heart),
       );
-    case BackgroundType.Christmas:
+    case BackgroundType.christmas:
     default:
       return RandomParticleBehaviour(
         options: getParticleOptions(AppImage.snowflake),
@@ -80,7 +80,7 @@ ParticleOptions getParticleOptions(
   int particleCount = 50,
 }) {
   ParticleOptions options = ParticleOptions(
-    image: Image.asset(image, package: UIConstants.CommonPackage),
+    image: Image.asset(image, package: UIConstants.commonPackage),
     spawnMaxSpeed: spawnMaxSpeed,
     spawnMinSpeed: spawnMinSpeed,
     particleCount: particleCount,

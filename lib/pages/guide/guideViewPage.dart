@@ -16,15 +16,18 @@ class GuideViewPage extends StatelessWidget {
   final String? analyticsKey;
   final String guideContentGuid;
 
-  GuideViewPage({this.analyticsKey, required this.guideContentGuid}) {
-    if (this.analyticsKey != null)
-      getAnalytics().trackEvent(this.analyticsKey!);
+  GuideViewPage({
+    Key? key,
+    this.analyticsKey,
+    required this.guideContentGuid,
+  }) : super(key: key) {
+    if (analyticsKey != null) getAnalytics().trackEvent(analyticsKey!);
   }
 
   @override
   Widget build(BuildContext context) {
     return CachedFutureBuilder(
-      future: getAssistantAppsGuide().getGuideContent(this.guideContentGuid),
+      future: getAssistantAppsGuide().getGuideContent(guideContentGuid),
       whileLoading: () => getBaseWidget().appScaffold(
         context,
         appBar: getBaseWidget().appBarForSubPage(
@@ -40,9 +43,11 @@ class GuideViewPage extends StatelessWidget {
           context,
           appBar: getBaseWidget().appBarForSubPage(
             context,
-            title: Text(guideContentResult.isSuccess
-                ? guideContentResult.value.title
-                : 'Error'), // TODO translate
+            title: Text(
+              guideContentResult.isSuccess
+                  ? guideContentResult.value.title
+                  : 'Error',
+            ), // TODO translate
           ),
           body: getBody(context, guideContentResult),
         );
@@ -69,7 +74,7 @@ class GuideViewPage extends StatelessWidget {
     }
     sectionWidgets.add(flatCard(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
