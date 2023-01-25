@@ -5,13 +5,7 @@ import 'enumBase.dart';
 enum FeedbackQuestionType {
   PlainText,
   YesNo,
+  Screenshot,
   YesNoUnknown,
   FiveStar,
 }
-
-final feedbackQuestionTypeValues = EnumValues({
-  "0": FeedbackQuestionType.PlainText,
-  "1": FeedbackQuestionType.YesNo,
-  "2": FeedbackQuestionType.YesNoUnknown,
-  "3": FeedbackQuestionType.FiveStar,
-});

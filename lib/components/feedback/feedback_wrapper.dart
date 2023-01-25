@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:screenshot/screenshot.dart';
 
 import '../../helpers/colourHelper.dart';
 import '../../integration/dependencyInjectionBase.dart';
+import '../common/animation.dart';
 import 'feedback_animation_state.dart';
 import 'feedback_constants.dart';
 import 'feedback_form.dart';
+import 'feedback_form_painter.dart';
 import 'feedback_options.dart';
+import 'feedback_screenshot_state.dart';
 import 'feedback_services.dart';
 import 'feedback_wrapper_top_layer.dart';
 
@@ -36,19 +40,19 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
   final GlobalKey _appKey = GlobalKey(debugLabel: 'feedbackapp');
   final FeedbackServices _services = FeedbackServices();
 
-  Animation<double>? _animation;
-  AnimationController? _controller;
+  Animation<double>? _openCloseAnimation;
+  AnimationController? _openCloseController;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
+    _openCloseController = AnimationController(
       vsync: this,
-      duration: FeedbackConstants.openingAnimDuration,
+      duration: FeedbackConstants.openCloseAnimDuration,
     );
 
-    _animation = CurvedAnimation(
-      parent: _controller!,
+    _openCloseAnimation = CurvedAnimation(
+      parent: _openCloseController!,
       curve: Curves.easeInOut,
     );
 
@@ -62,25 +66,35 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
 
   @override
   Widget build(BuildContext context) {
+    Size screenMediaQuery = MediaQuery.of(context).size;
+
     if (_services.feedbackAnimationState == FeedbackAnimationState.opening) {
-      _controller?.forward().whenComplete(() {
+      _openCloseController?.forward().whenComplete(() {
         _services.feedbackAnimationState = FeedbackAnimationState.open;
       });
     }
 
     if (_services.feedbackAnimationState == FeedbackAnimationState.closing) {
-      _controller?.reverse().whenComplete(() {
+      _openCloseController?.reverse().whenComplete(() {
         _services.close();
+      });
+    }
+
+    if (_services.feedbackScreenshotState ==
+        FeedbackScreenshotState.switchingToDraw) {
+      Future.delayed(FeedbackConstants.flashAnimDuration).then((_) {
+        _services.feedbackScreenshotState = FeedbackScreenshotState.draw;
       });
     }
 
     bool animateOpenClose =
         _services.feedbackAnimationState == FeedbackAnimationState.open ||
             _services.feedbackAnimationState == FeedbackAnimationState.opening;
+    double miniAppMultiply =
+        animateOpenClose ? FeedbackConstants.miniAppShrinkPerc : 1;
+    double miniAppWidth = screenMediaQuery.width * miniAppMultiply;
+    double miniAppHeight = screenMediaQuery.height * miniAppMultiply;
 
-    EdgeInsets animatedPadding = animateOpenClose //
-        ? FeedbackConstants.miniAppPadding
-        : EdgeInsets.zero;
     BorderRadius borderRadius =
         _services.feedbackAnimationState == FeedbackAnimationState.open
             ? FeedbackConstants.miniAppBorderRadius
@@ -94,12 +108,48 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
     List<Widget> stackWidgets = [materialApp];
     if (_services.feedbackAnimationState == FeedbackAnimationState.open ||
         _services.feedbackAnimationState == FeedbackAnimationState.opening) {
-      stackWidgets.add(
-        FeedbackWrapperTopLayer(
-          feedbackServices: _services,
-          options: widget.options,
+      if (_services.feedbackScreenshotState != FeedbackScreenshotState.active) {
+        stackWidgets.add(
+          FeedbackWrapperTopLayer(
+            feedbackServices: _services,
+            options: widget.options,
+          ),
+        );
+      }
+    }
+
+    if (_services.feedbackScreenshotState == FeedbackScreenshotState.active ||
+        _services.feedbackScreenshotState ==
+            FeedbackScreenshotState.switchingToDraw) {
+      stackWidgets = [
+        Screenshot(
+          controller: _services.screenshotController,
+          child: materialApp,
         ),
-      );
+        AnimatedOpacity(
+          opacity: _services.feedbackScreenshotState ==
+                  FeedbackScreenshotState.switchingToDraw
+              ? 1.0
+              : 0.0,
+          duration: FeedbackConstants.flashAnimDuration,
+          child: IgnorePointer(
+            ignoring: true,
+            child: Container(color: Colors.grey[200]),
+          ),
+        )
+      ];
+    }
+
+    if (_services.feedbackScreenshotState == FeedbackScreenshotState.draw) {
+      stackWidgets = [
+        Container(color: Colors.grey[200]),
+        animateWidgetIn(
+          duration: FeedbackConstants.flashAnimDuration,
+          child: FeedbackFormPainter(
+            feedbackServices: _services,
+          ),
+        ),
+      ];
     }
 
     return Container(
@@ -116,33 +166,29 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
       child: Column(
         children: [
           SizeTransition(
-            sizeFactor: _animation!,
+            sizeFactor: _openCloseAnimation!,
             axis: Axis.vertical,
             child: Padding(
-              padding: FeedbackConstants.miniAppPadding,
+              padding: EdgeInsets.symmetric(
+                horizontal: (screenMediaQuery.width - miniAppWidth) / 2,
+              ),
               child: FeedbackForm(
                 feedbackServices: _services,
               ),
             ),
           ),
           Expanded(
-            child: GestureDetector(
-              child: AnimatedPadding(
-                padding: animatedPadding,
-                duration: FeedbackConstants.openingAnimDuration,
-                curve: Curves.easeInOut,
-                child: ClipRRect(
-                  borderRadius: borderRadius,
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: stackWidgets,
-                  ),
+            child: AnimatedContainer(
+              width: miniAppWidth,
+              height: miniAppHeight,
+              duration: FeedbackConstants.openCloseAnimDuration,
+              child: ClipRRect(
+                borderRadius: borderRadius,
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: stackWidgets,
                 ),
               ),
-              onTap: () {
-                _services.feedbackAnimationState =
-                    FeedbackAnimationState.closing;
-              },
             ),
           ),
         ],
@@ -153,7 +199,7 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
   @override
   void dispose() {
     _services.dispose();
-    _controller?.dispose();
+    _openCloseController?.dispose();
     super.dispose();
   }
 }

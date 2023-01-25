@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../common/space.dart';
+import '../common/text.dart';
 
 class FeedbackFormHeader extends StatelessWidget {
   final int currentStep;
@@ -19,11 +20,11 @@ class FeedbackFormHeader extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Text('Step $currentStep of $totalSteps'),
+        genericItemDescription('Step $currentStep of $totalSteps'),
         emptySpace1x(),
-        const Text(' | '),
+        genericItemDescription(' | '),
         emptySpace1x(),
-        Text(title),
+        genericItemDescription(title),
       ],
     );
   }

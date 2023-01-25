@@ -11,17 +11,18 @@ class OptionsListPageDialog extends StatefulWidget {
   final void Function(DropdownOption)? addOption;
   final void Function(DropdownOption)? onDelete;
 
-  OptionsListPageDialog(
+  const OptionsListPageDialog(
     this.title,
     this.options, {
+    Key? key,
     this.minListForSearch = 10,
     this.customPresenter,
     this.addOption,
     this.onDelete,
-  });
+  }) : super(key: key);
 
   @override
-  _OptionsListPageDialogWidget createState() => _OptionsListPageDialogWidget();
+  createState() => _OptionsListPageDialogWidget();
 }
 
 class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
@@ -46,9 +47,9 @@ class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
           });
         },
         heroTag: 'OptionsListPageDialog',
-        child: Icon(Icons.add),
         foregroundColor: getTheme().fabForegroundColourSelector(context),
         backgroundColor: getTheme().fabColourSelector(context),
+        child: const Icon(Icons.add),
       );
     }
 
@@ -61,7 +62,7 @@ class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
                     onDelete: (widget.onDelete != null)
                         ? () {
                             widget.onDelete!(option);
-                            this.setState(() {
+                            setState(() {
                               widget.options.remove(option);
                             });
                           }
