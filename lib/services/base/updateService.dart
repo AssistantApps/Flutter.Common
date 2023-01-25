@@ -23,6 +23,7 @@ class UpdateService implements IUpdateService {
     bool isUpToDate = !isOutdatedResult.value;
     if (isOutdatedResult.hasFailed || isUpToDate) return;
     getLog().i('Update available');
+    // ignore: use_build_context_synchronously
     showUpdateSnackbar(context, externalUrl);
   }
 
@@ -118,7 +119,7 @@ class UpdateService implements IUpdateService {
     }
   }
 
-  void showUpdateSnackbar(BuildContext context, String externalUrl) {
+  void showUpdateSnackbar(BuildContext snackCtx, String externalUrl) {
     LocaleKey storeLocale = LocaleKey.appStore;
 
     if (isAndroid) {
@@ -126,7 +127,7 @@ class UpdateService implements IUpdateService {
     }
 
     getSnackbar().showSnackbar(
-      context,
+      snackCtx,
       LocaleKey.updateAvailable,
       duration: const Duration(minutes: 5),
       onPositive: () => launchExternalURL(externalUrl),

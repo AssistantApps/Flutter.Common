@@ -121,6 +121,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
         _isLoading = false;
       });
       if (addResult.hasFailed) {
+        // ignore: use_build_context_synchronously
         getDialog().showSimpleDialog(
           context,
           getTranslations().fromKey(LocaleKey.guideSubmissionFailedTitle),
@@ -147,6 +148,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
         );
       } else {
         reduxViewModel.deleteGuide(_guideDetails.guid);
+        // ignore: use_build_context_synchronously
         getDialog().showSimpleDialog(
           context,
           getTranslations().fromKey(LocaleKey.guideSubmissionSuccessTitle),
