@@ -7,7 +7,7 @@ import '../../repository/interface/ILocalStorageRepository.dart';
 import './interface/ILocalStorageService.dart';
 
 class LocalStorageService implements ILocalStorageService {
-  late final ILocalStorageRepository _localRepo;
+  final ILocalStorageRepository _localRepo;
 
   LocalStorageService(this._localRepo);
 

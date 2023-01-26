@@ -15,8 +15,8 @@ import '../../pages/dialog/optionsListPageDialog.dart';
 import './interface/ITranslationsService.dart';
 
 class TranslationService implements ITranslationService {
-  late Locale locale;
-  late Map<dynamic, dynamic> _localisedValues = <dynamic, dynamic>{};
+  Locale? locale;
+  Map<dynamic, dynamic> _localisedValues = <dynamic, dynamic>{};
 
   @override
   Future<ITranslationService> load(Locale locale) async {
@@ -37,7 +37,7 @@ class TranslationService implements ITranslationService {
   }
 
   @override
-  get currentLanguage => locale.languageCode;
+  get currentLanguage => locale?.languageCode;
 
   @override
   String fromKey(LocaleKey key) {

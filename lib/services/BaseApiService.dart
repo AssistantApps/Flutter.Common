@@ -7,10 +7,8 @@ import '../contracts/results/resultWithValue.dart';
 import '../integration/dependencyInjection.dart';
 
 class BaseApiService {
-  late String _baseUrl;
-  BaseApiService(String baseUrl) {
-    _baseUrl = baseUrl;
-  }
+  final String _baseUrl;
+  BaseApiService(this._baseUrl);
 
   Future<ResultWithValue<String>> apiGet(String url,
       {Map<String, String>? headers}) async {

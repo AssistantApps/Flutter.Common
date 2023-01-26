@@ -3,7 +3,7 @@ import 'package:badges/badges.dart';
 
 import '../../integration/dependencyInjection.dart';
 
-Widget basicBadge(BuildContext context, String badgeText, Widget child) {
+Widget basicBadge(BuildContext context, String badgeText, Widget? child) {
   return Badge(
     badgeContent: Text(badgeText),
     badgeStyle: BadgeStyle(

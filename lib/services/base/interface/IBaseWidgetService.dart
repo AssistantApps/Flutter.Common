@@ -14,8 +14,13 @@ class IBaseWidgetService {
   }) =>
       Container();
 
-  Widget appBar(BuildContext context, Widget title, List<Widget> actions,
-          {Widget? leading, PreferredSizeWidget? bottom}) =>
+  Widget appBar(
+    BuildContext context,
+    Widget title,
+    List<Widget> actions, {
+    Widget? leading,
+    PreferredSizeWidget? bottom,
+  }) =>
       Container();
 
   PreferredSizeWidget appBarForSubPage(

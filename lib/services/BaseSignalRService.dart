@@ -6,11 +6,9 @@ import '../contracts/results/result.dart';
 import '../integration/dependencyInjection.dart';
 
 class BaseSignalRService {
-  late String _baseUrl;
-  late HubConnection? _hubConnection;
-  BaseSignalRService(String baseUrl) {
-    _baseUrl = baseUrl;
-  }
+  final String _baseUrl;
+  HubConnection? _hubConnection;
+  BaseSignalRService(this._baseUrl);
 
   Future<Result> createConnection(
     void Function({Exception? error}) onClose,

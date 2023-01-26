@@ -6,10 +6,7 @@ import '../../integration/dependencyInjection.dart';
 import './interface/ISnackbarService.dart';
 
 class SnackbarService implements ISnackbarService {
-  late SweetSheet _sweetSheet;
-  SnackbarService() {
-    _sweetSheet = SweetSheet();
-  }
+  final SweetSheet _sweetSheet = SweetSheet();
 
   @override
   void showSnackbar(

@@ -6,50 +6,50 @@ import '../../../contracts/search/dropdownOption.dart';
 class IDialogService {
   //
   void showSimpleDialog(
-    context,
+    BuildContext context,
     String title,
     Widget content, {
     List<Widget> Function(BuildContext)? buttonBuilder,
   }) {}
 
   void showSimpleHelpDialog(
-    context,
+    BuildContext context,
     String title,
     String helpContent, {
     List<Widget> Function(BuildContext)? buttonBuilder,
   }) {}
 
   Widget simpleDialogCloseButton(
-    context, {
-    Function()? onTap,
+    BuildContext context, {
+    void Function()? onTap,
   }) =>
       Container();
 
   Widget simpleDialogPositiveButton(
-    context, {
+    BuildContext context, {
     LocaleKey? title,
-    Function? onTap,
+    void Function()? onTap,
   }) =>
       Container();
 
   void showOptionsDialog(
-    context,
+    BuildContext context,
     String title,
     List<DropdownOption> options, {
     String selectedValue = '',
-    Function(BuildContext ctx, String value)? onSuccess,
+    void Function(BuildContext ctx, String value)? onSuccess,
   }) {}
 
   void showQuantityDialog(
-    context,
+    BuildContext context,
     TextEditingController controller, {
     String? title,
     List<int>? amounts,
-    Function(BuildContext ctx, String)? onSuccess,
+    void Function(BuildContext ctx, String)? onSuccess,
   }) {}
 
   void showStarDialog(
-    context,
+    BuildContext context,
     String title, {
     int currentRating = 0,
     Function(BuildContext ctx, int)? onSuccess,

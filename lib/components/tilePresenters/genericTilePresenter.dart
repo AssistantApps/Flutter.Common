@@ -47,23 +47,26 @@ ListTile genericListTileWithSubtitle(context,
   );
 }
 
-ListTile genericListTileWithSubtitleAndImageCount(BuildContext context,
-    {required Widget leadingImage,
-    int? leadingImageCount,
-    bool? imageGreyScale = false,
-    required String title,
-    Widget? subtitle,
-    int maxLines = 1,
-    String? onTapAnalyticsEvent,
-    String? onLongPressAnalyticsEvent,
-    Widget? trailing,
-    bool? dense,
-    Function()? onTap,
-    Function()? onLongPress}) {
-  var leadingImageWidget = (leadingImageCount != null && leadingImageCount > 0)
-      // ? leadingImage
-      ? basicBadge(context, leadingImageCount.toString(), leadingImage)
-      : leadingImage;
+ListTile genericListTileWithSubtitleAndImageCount(
+  BuildContext context, {
+  required Widget? leadingImage,
+  int? leadingImageCount,
+  bool? imageGreyScale = false,
+  required String title,
+  Widget? subtitle,
+  int maxLines = 1,
+  String? onTapAnalyticsEvent,
+  String? onLongPressAnalyticsEvent,
+  Widget? trailing,
+  bool? dense,
+  Function()? onTap,
+  Function()? onLongPress,
+}) {
+  Widget? leadingImageWidget =
+      (leadingImageCount != null && leadingImageCount > 0)
+          // ? leadingImage
+          ? basicBadge(context, leadingImageCount.toString(), leadingImage)
+          : leadingImage;
   return ListTile(
     leading: leadingImageWidget,
     title: Text(

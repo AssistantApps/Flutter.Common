@@ -12,8 +12,8 @@ class FeedbackOptions {
     required this.buildNumber,
     required this.buildVersion,
     required this.buildCommit,
-    required this.returnToAppBannerColour,
     required this.currentLang,
     required this.isPatron,
+    this.returnToAppBannerColour,
   });
 }

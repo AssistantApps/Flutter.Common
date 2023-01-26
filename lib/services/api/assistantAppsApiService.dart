@@ -53,7 +53,10 @@ class AssistantAppsApiService extends BaseApiService
       );
       if (response.hasFailed) {
         return ResultWithValue<List<AppNoticeViewModel>>(
-            false, List.empty(growable: true), response.errorMessage);
+          false,
+          List.empty(),
+          response.errorMessage,
+        );
       }
       final List newsList = json.decode(response.value);
       var news = newsList.map((r) => AppNoticeViewModel.fromJson(r)).toList();
@@ -61,7 +64,10 @@ class AssistantAppsApiService extends BaseApiService
     } catch (exception) {
       getLog().e("AppNotices Api Exception: ${exception.toString()}");
       return ResultWithValue<List<AppNoticeViewModel>>(
-          false, List.empty(growable: true), exception.toString());
+        false,
+        List.empty(),
+        exception.toString(),
+      );
     }
   }
 

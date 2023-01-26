@@ -5,14 +5,11 @@ import '../../helpers/jsonHelper.dart';
 import './resultWithValue.dart';
 
 class PaginationResultWithValue<T> extends ResultWithValue<T> {
-  late int currentPage;
-  late int totalPages;
-  PaginationResultWithValue(bool isSuccess, T value, int currentPage,
-      int totalPages, String errorMessage)
-      : super(isSuccess, value, errorMessage) {
-    currentPage = currentPage;
-    totalPages = totalPages;
-  }
+  int currentPage;
+  int totalPages;
+  PaginationResultWithValue(bool isSuccess, T value, this.currentPage,
+      this.totalPages, String errorMessage)
+      : super(isSuccess, value, errorMessage) {}
 }
 
 class PaginationResultWithValueMapper {

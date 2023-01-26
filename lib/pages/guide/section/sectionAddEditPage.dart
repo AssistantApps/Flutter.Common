@@ -39,19 +39,18 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
   final GuideSection _section;
   Widget _optionsMenu = Container();
   //
-  late Map<LocaleKey, List<LocaleKey> Function()> _validationMap;
+  final Map<LocaleKey, List<LocaleKey> Function()> _validationMap = {
+    // LocaleKey.guideName: () =>
+    //     nameValidator(_titleController.text, minLength: 1, maxLength: 50),
+    // LocaleKey.guideSubTitle: () => nameValidator(_subTitleController.text,
+    //     minLength: 10, maxLength: 100),
+    // LocaleKey.guideMinutes: () =>
+    //     numberValidator(_minutesController.text, min: 0, max: 1000),
+    // LocaleKey.guideTags: () => noValidator(),
+  };
   bool _showValidation = false;
 
   _SectionAddEditWidget(this._section) {
-    _validationMap = {
-      // LocaleKey.guideName: () =>
-      //     nameValidator(_titleController.text, minLength: 1, maxLength: 50),
-      // LocaleKey.guideSubTitle: () => nameValidator(_subTitleController.text,
-      //     minLength: 10, maxLength: 100),
-      // LocaleKey.guideMinutes: () =>
-      //     numberValidator(_minutesController.text, min: 0, max: 1000),
-      // LocaleKey.guideTags: () => noValidator(),
-    };
     _optionsMenu = gridWithScrollbar(
       gridViewColumnCalculator: sectionItemCustomColumnCount,
       itemCount: availableSectionTypes.length,
