@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/adaptive/appBar.dart';
 import '../../components/adaptive/appBarForSubPage.dart';
+import '../../components/adaptive/chip.dart';
 import '../../components/adaptive/appScaffold.dart';
 import '../../contracts/misc/actionItem.dart';
 import './interface/IBaseWidgetService.dart';
@@ -50,5 +51,35 @@ class BaseWidgetService implements IBaseWidgetService {
         shortcutActions: shortcutActions,
         showBackAction: showBackAction,
         showHomeAction: showHomeAction,
+      );
+
+  @override
+  Widget appChip({
+    Key? key,
+    String? text,
+    Widget? label,
+    TextStyle? style,
+    EdgeInsets? labelPadding,
+    double? elevation,
+    EdgeInsets? padding,
+    Color? shadowColor,
+    Icon? deleteIcon,
+    void Function()? onDeleted,
+    void Function()? onTap,
+    Color backgroundColor = Colors.white,
+  }) =>
+      AdaptiveChip(
+        key: key,
+        text: text,
+        label: label,
+        style: style,
+        labelPadding: labelPadding,
+        elevation: elevation,
+        padding: padding,
+        shadowColor: shadowColor,
+        deleteIcon: deleteIcon,
+        onDeleted: onDeleted,
+        onTap: onTap,
+        backgroundColor: backgroundColor,
       );
 }

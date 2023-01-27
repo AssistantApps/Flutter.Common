@@ -59,8 +59,10 @@ Widget negativeButton(
     Color backgroundColour = Colors.red,
     Function()? onPress}) {
   Text textWidget = Text(title, textAlign: TextAlign.center);
-  return MaterialButton(
-    color: backgroundColour,
+  return ElevatedButton(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all<Color>(backgroundColour),
+    ),
     onPressed: (onPress != null) ? onPress : null,
     child: padding == null
         ? textWidget

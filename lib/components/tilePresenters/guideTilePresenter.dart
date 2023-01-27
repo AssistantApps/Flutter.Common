@@ -10,7 +10,6 @@ import '../../integration/dependencyInjection.dart';
 import '../../pages/guide/guideAddEditPage.dart';
 import '../../pages/guide/guideViewPage.dart';
 import '../common/card.dart';
-import '../common/chip.dart';
 import '../common/icon.dart';
 import '../common/image.dart';
 import '../menu/popupMenu.dart';
@@ -71,7 +70,10 @@ Widget guideTilePresenter(
       Wrap(
         alignment: WrapAlignment.center,
         children: guide.tags
-            .map((tag) => genericChip(context, tag, color: Colors.transparent))
+            .map((tag) => getBaseWidget().appChip(
+                  text: tag,
+                  backgroundColor: Colors.transparent,
+                ))
             .toList(),
       ),
     ],
@@ -132,8 +134,11 @@ Widget draftGuideTilePresenter(
       ),
       Wrap(
         alignment: WrapAlignment.center,
-        children: guide.tags
-            .map((g) => genericChip(context, g, color: Colors.transparent))
+        children: guide.tags //
+            .map((g) => getBaseWidget().appChip(
+                  text: g,
+                  backgroundColor: Colors.transparent,
+                ))
             .toList(),
       ),
     ],

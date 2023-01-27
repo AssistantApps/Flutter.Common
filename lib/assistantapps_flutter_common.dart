@@ -5,6 +5,7 @@ export './components/adaptive/bottomModal.dart';
 export './components/adaptive/button.dart';
 export './components/adaptive/checkbox.dart';
 export './components/adaptive/checkboxGroup.dart';
+export './components/adaptive/chip.dart';
 export './components/adaptive/paginationControl.dart';
 export './components/adaptive/searchBar.dart';
 export './components/adaptive/segmentedControl.dart';

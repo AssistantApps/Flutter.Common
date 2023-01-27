@@ -117,7 +117,7 @@ Widget linkListItem(GuideSectionItemViewModel item) {
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(12),
-        child: Chip(
+        child: getBaseWidget().appChip(
           label: Text(item.additionalContent ?? ''),
           backgroundColor: Colors.transparent,
           deleteIcon: const Icon(Icons.open_in_new),

@@ -41,7 +41,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
     List<Widget> wrapChildren = List.empty(growable: true);
     for (PlatformType plat in version.platforms) {
       if (plat == PlatformType.apple) {
-        wrapChildren.add(Chip(
+        wrapChildren.add(getBaseWidget().appChip(
           label: const Text(
             'iOS',
             style: TextStyle(color: Colors.white),
@@ -52,7 +52,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
       if (!isApple) {
         if (plat == PlatformType.android) {
           wrapChildren.add(
-            Chip(
+            getBaseWidget().appChip(
               label: const Text(
                 'Android',
                 style: TextStyle(color: Colors.white),
@@ -63,7 +63,24 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
         }
         if (plat == PlatformType.web) {
           wrapChildren.add(
-            const Chip(label: Text('Web')),
+            getBaseWidget().appChip(
+              label: const Text(
+                'Web',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.purple,
+            ),
+          );
+        }
+        if (plat == PlatformType.githubWindowsInstaller) {
+          wrapChildren.add(
+            getBaseWidget().appChip(
+              label: const Text(
+                'Windows',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.blue,
+            ),
           );
         }
       }
@@ -71,8 +88,10 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
 
     columnWidgets.add(Wrap(
       alignment: WrapAlignment.center,
+      spacing: 4,
       children: wrapChildren,
     ));
+    columnWidgets.add(emptySpace2x());
 
     if (additionalBuilder != null) {
       columnWidgets.addAll(additionalBuilder!(version));

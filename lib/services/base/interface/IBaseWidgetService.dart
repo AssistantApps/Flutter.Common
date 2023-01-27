@@ -32,4 +32,30 @@ class IBaseWidgetService {
     bool showBackAction = true,
   }) =>
       AppBar();
+
+  Widget appChip({
+    Key? key,
+    String? text,
+    Widget? label,
+    TextStyle? style,
+    EdgeInsets? labelPadding,
+    double? elevation,
+    EdgeInsets? padding,
+    Color? shadowColor,
+    Icon? deleteIcon,
+    void Function()? onDeleted,
+    void Function()? onTap,
+    Color backgroundColor = Colors.white,
+  }) =>
+      Chip(
+        key: key,
+        label: Text(text ?? '...'),
+        labelPadding: labelPadding,
+        elevation: elevation,
+        padding: padding,
+        shadowColor: shadowColor,
+        deleteIcon: deleteIcon,
+        onDeleted: onDeleted,
+        backgroundColor: backgroundColor,
+      );
 }
