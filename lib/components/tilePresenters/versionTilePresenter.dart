@@ -50,16 +50,18 @@ Widget Function(
             .replaceAll('{0}', version.buildName),
         subtitle: genericEllipsesText(dateToDisplay),
         trailing: const Icon(Icons.chevron_right),
-        onTap: () => onTap(version),
       ),
       hideTopConnector: index == 0,
       hideBottomConnector: index == totalRows,
       customIndicatorIcon: iconToDisplay,
     );
 
-    Widget paddedChild = Padding(
-      padding: const EdgeInsets.only(left: 12, right: 12),
-      child: child,
+    Widget paddedChild = InkWell(
+      onTap: () => onTap(version),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 12, right: 12),
+        child: child,
+      ),
     );
     if (version.guid.toLowerCase() == versionGuid.toLowerCase()) {
       return wrapInNewBanner(context, LocaleKey.current, paddedChild);

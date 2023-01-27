@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 
-import '../../contracts/generated/versionViewModel.dart';
 import '../../integration/dependencyInjection.dart';
 
 Widget timelineTilePresenter(
@@ -13,7 +12,6 @@ Widget timelineTilePresenter(
   bool? hideBottomConnector,
   Color? lineColour,
   Color? iconColour,
-  void Function(VersionViewModel)? onTap,
 }) {
   return TimelineTile(
     contents: contents,
