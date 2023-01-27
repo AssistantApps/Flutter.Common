@@ -1,4 +1,3 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -9,8 +8,8 @@ import 'package:responsive_grid/responsive_grid.dart';
 import 'package:uuid/uuid.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../components/common/placeholder.dart';
-import '../../components/forms/textInput.dart';
 import '../../constants/AppImage.dart';
 import '../../contracts/generated/uploadedImageViewModel.dart';
 import '../../contracts/mapper/guideSectionMapper.dart';

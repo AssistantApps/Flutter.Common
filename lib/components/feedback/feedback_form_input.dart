@@ -1,13 +1,8 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../contracts/enum/feedback_question_type.dart';
-import '../../contracts/enum/localeKey.dart';
-import '../../contracts/search/dropdownOption.dart';
-import '../../helpers/colourHelper.dart';
-import '../../integration/dependencyInjectionBase.dart';
 import '../adaptive/dropdown.dart';
-import '../forms/starRating.dart';
 
 class FeedbackFormInput extends StatelessWidget {
   final FeedbackQuestionType feedbackQuestionType;

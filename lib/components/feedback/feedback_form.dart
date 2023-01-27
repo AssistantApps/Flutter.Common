@@ -228,6 +228,7 @@ class _FeedbackFormState extends State<FeedbackForm>
             title: 'Submit', //TODO translate
             onTap: () {
               for (var answer in answers) {
+                // ignore: avoid_print
                 print(answer);
               }
             },
