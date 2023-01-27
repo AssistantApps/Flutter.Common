@@ -262,11 +262,10 @@ Widget markdownEditItem(
             ));
           },
         ),
-        positiveButton(
-          context,
+        PositiveButton(
           title: getTranslations()
               .fromKey(LocaleKey.guideSectionAddMarkdownPreview),
-          onPress: () {
+          onTap: () {
             adaptiveBottomModalSheet(
               context,
               builder: (context) => MarkdownPreviewPage(

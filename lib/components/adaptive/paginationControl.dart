@@ -11,10 +11,10 @@ Widget paginationControl(BuildContext context, int currentPage, int totalPages,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         if (currentPage > 1) ...[
-          Center(child: positiveButton(context, title: '<', onPress: prev))
+          Center(child: PositiveButton(title: '<', onTap: prev))
         ],
         if (currentPage < totalPages) ...[
-          Center(child: positiveButton(context, title: '>', onPress: next))
+          Center(child: PositiveButton(title: '>', onTap: next))
         ],
       ],
     );

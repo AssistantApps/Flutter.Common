@@ -31,9 +31,20 @@ class BaseWidgetService implements IBaseWidgetService {
       );
 
   @override
-  Widget appBar(BuildContext context, Widget title, List<Widget> actions,
-          {Widget? leading, PreferredSizeWidget? bottom}) =>
-      adaptiveAppBar(context, title, actions, leading: leading, bottom: bottom);
+  Widget appBar(
+    BuildContext context,
+    Widget title,
+    List<Widget> actions, {
+    Widget? leading,
+    PreferredSizeWidget? bottom,
+  }) =>
+      adaptiveAppBar(
+        context,
+        title,
+        actions,
+        leading: leading,
+        bottom: bottom,
+      );
 
   @override
   PreferredSizeWidget appBarForSubPage(

@@ -22,14 +22,16 @@ class StarRating extends StatelessWidget {
       // alignment: WrapAlignment.center,
       children: List.generate(
         5,
-        (int index) => (index < currentRating)
-            ? GestureDetector(
-                child: Icon(Icons.star, color: colour, size: size),
-                onTap: () => localOnTap(index + 1))
-            : GestureDetector(
-                child: Icon(Icons.star_border, color: colour, size: size),
-                onTap: () => localOnTap(index + 1),
-              ),
+        (int index) => GestureDetector(
+          child: Icon(
+            (index < currentRating) //
+                ? Icons.star
+                : Icons.star_border,
+            color: colour,
+            size: size,
+          ),
+          onTap: () => localOnTap(index + 1),
+        ),
       ),
     );
   }

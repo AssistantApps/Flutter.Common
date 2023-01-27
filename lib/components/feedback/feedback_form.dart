@@ -131,10 +131,10 @@ class _FeedbackFormState extends State<FeedbackForm>
     FeedbackQuestionType currentQuestionType,
     FeedbackServices localServices,
   ) {
-    Widget Function() negativeButtonWidget = () => negativeButton(
+    Widget Function() negativeButtonWidget = () => NegativeButton(
           title: 'Previous', //TODO translate
           backgroundColour: Colors.grey,
-          onPress: () {
+          onTap: () {
             int prevQuestionIndex = qIndex - 1;
             FeedbackFormQuestionViewModel prevQuestion =
                 items[prevQuestionIndex];
@@ -153,10 +153,9 @@ class _FeedbackFormState extends State<FeedbackForm>
 
     Widget? Function() screenshotButtonWidget = () => null;
 
-    Widget Function() positiveButtonWidget = () => positiveButton(
-          context,
+    Widget Function() positiveButtonWidget = () => PositiveButton(
           title: 'Next', //TODO translate
-          onPress: () {
+          onTap: () {
             int nextQuestionIndex = qIndex + 1;
             FeedbackFormQuestionViewModel nextQuestion =
                 items[nextQuestionIndex];
@@ -175,10 +174,10 @@ class _FeedbackFormState extends State<FeedbackForm>
         );
 
     if (qIndex == 0) {
-      negativeButtonWidget = () => negativeButton(
+      negativeButtonWidget = () => NegativeButton(
             title: 'Cancel', //TODO translate
             backgroundColour: Colors.grey,
-            onPress: () {
+            onTap: () {
               localServices.feedbackScreenshotState =
                   FeedbackScreenshotState.notActive;
               localServices.feedbackAnimationState =
@@ -191,20 +190,18 @@ class _FeedbackFormState extends State<FeedbackForm>
     }
 
     if ((qIndex + 1) >= numItems) {
-      positiveButtonWidget = () => positiveButton(
-            context,
+      positiveButtonWidget = () => PositiveButton(
             title: 'Submit', //TODO translate
-            onPress: () {},
+            onTap: () {},
           );
     }
 
     if (currentQuestionType == FeedbackQuestionType.Screenshot) {
       if (localServices.feedbackScreenshotState ==
           FeedbackScreenshotState.active) {
-        screenshotButtonWidget = () => positiveButton(
-              context,
+        screenshotButtonWidget = () => PositiveButton(
               title: 'Capture', //TODO translate
-              onPress: () async {
+              onTap: () async {
                 try {
                   Uint8List? data =
                       await localServices.screenshotController.capture();
@@ -219,10 +216,9 @@ class _FeedbackFormState extends State<FeedbackForm>
       }
       if (localServices.feedbackScreenshotState ==
           FeedbackScreenshotState.draw) {
-        screenshotButtonWidget = () => positiveButton(
-              context,
+        screenshotButtonWidget = () => PositiveButton(
               title: 'Save & upload', //TODO translate
-              onPress: () async {
+              onTap: () async {
                 var imageState = localServices.painterKey.currentState;
                 if (imageState == null) {
                   return;

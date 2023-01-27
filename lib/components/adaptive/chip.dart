@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
 class AdaptiveChip extends StatelessWidget {
@@ -11,7 +12,7 @@ class AdaptiveChip extends StatelessWidget {
   final Icon? deleteIcon;
   final void Function()? onDeleted;
   final void Function()? onTap;
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   const AdaptiveChip({
     Key? key,
@@ -25,7 +26,7 @@ class AdaptiveChip extends StatelessWidget {
     this.deleteIcon,
     this.onDeleted,
     this.onTap,
-    this.backgroundColor = Colors.white,
+    this.backgroundColor,
   })  : assert(text != null || label != null),
         super(key: key);
 
@@ -42,8 +43,11 @@ class AdaptiveChip extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(24.0)),
       ),
       padding: padding ?? const EdgeInsets.all(4.0),
-      side: BorderSide(color: backgroundColor),
-      backgroundColor: backgroundColor,
+      side: BorderSide(
+        color: backgroundColor ?? getTheme().getSecondaryColour(context),
+      ),
+      backgroundColor:
+          backgroundColor ?? getTheme().getSecondaryColour(context),
       deleteIcon: deleteIcon,
       onDeleted: onDeleted,
       labelPadding: labelPadding,
@@ -53,6 +57,9 @@ class AdaptiveChip extends StatelessWidget {
 
     return (onTap == null)
         ? actualChip
-        : GestureDetector(child: actualChip, onTap: onTap);
+        : GestureDetector(
+            onTap: onTap,
+            child: actualChip,
+          );
   }
 }
