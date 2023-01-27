@@ -31,6 +31,7 @@ dependencies:
   collection: 1.17.0
   country_icons: 2.0.2
   dotted_border: 2.0.0+2
+  dropdown_button2: 1.9.2
   enum_to_string: 2.0.1
   extended_masked_text: 2.3.1
   file_picker: 5.2.5

@@ -3,16 +3,11 @@ import 'dart:typed_data';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../contracts/enum/feedback_question_type.dart';
-import '../../contracts/enum/networkState.dart';
+import '../../contracts/generated/feedback/feedback_form_answer_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_question_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
-import '../../contracts/results/resultWithValue.dart';
-import '../../integration/dependencyInjectionApi.dart';
-import '../../integration/dependencyInjectionBase.dart';
-import '../adaptive/button.dart';
-import '../common/space.dart';
-import '../common/text.dart';
 import 'feedback_animation_state.dart';
 import 'feedback_constants.dart';
 import 'feedback_form_header.dart';
@@ -36,6 +31,7 @@ class _FeedbackFormState extends State<FeedbackForm>
     with AfterLayoutMixin<FeedbackForm>, TickerProviderStateMixin {
   NetworkState networkState = NetworkState.loading;
   List<FeedbackFormQuestionViewModel> items = List.empty(growable: true);
+  List<FeedbackFormAnswerViewModel> answers = List.empty(growable: true);
   int questionIndex = 0;
 
   @override
@@ -57,20 +53,44 @@ class _FeedbackFormState extends State<FeedbackForm>
     });
   }
 
+  void saveAnswerToQuestion(String questionGuid, String answer) {
+    FeedbackFormAnswerViewModel answerVm = FeedbackFormAnswerViewModel(
+      feedbackQuestionGuid: questionGuid,
+      value: answer,
+    );
+
+    int existingItemIndex =
+        answers.indexWhere((q) => q.feedbackQuestionGuid == questionGuid);
+    if (existingItemIndex > 0) {
+      setState(() {
+        answers[existingItemIndex] = answerVm;
+      });
+      return;
+    }
+
+    setState(() {
+      answers.add(answerVm);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size screenMediaQuery = MediaQuery.of(context).size;
 
     if (networkState == NetworkState.loading) {
-      return Center(child: getLoading().smallLoadingIndicator());
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: getLoading().smallLoadingIndicator(),
+        ),
+      );
     }
     if (networkState == NetworkState.error) {
       return Center(child: getLoading().customErrorWidget(context));
     }
 
-    FeedbackFormQuestionViewModel currentQuestion = items[questionIndex];
-
     List<Widget> columnWidgets = List.empty(growable: true);
+    FeedbackFormQuestionViewModel currentQuestion = items[questionIndex];
 
     if (currentQuestion.questionType != FeedbackQuestionType.Screenshot) {
       columnWidgets.addAll([
@@ -81,11 +101,25 @@ class _FeedbackFormState extends State<FeedbackForm>
           title: 'Feedback', // TODO translate
         ),
         emptySpace3x(),
-        genericItemName(currentQuestion.questionText),
-        emptySpace2x(),
+        Container(
+          width: double.maxFinite,
+          margin: const EdgeInsets.all(4.0),
+          child: Text(
+            currentQuestion.questionText,
+            textAlign: TextAlign.center,
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontSize: 18),
+          ),
+        ),
+        emptySpace3x(),
         FeedbackFormInput(
           feedbackQuestionType: currentQuestion.questionType,
           screenMediaQuery: screenMediaQuery,
+          saveAnswer: (answer) => saveAnswerToQuestion(
+            currentQuestion.guid,
+            answer,
+          ),
         ),
         emptySpace1x(),
         renderControls(
@@ -192,7 +226,11 @@ class _FeedbackFormState extends State<FeedbackForm>
     if ((qIndex + 1) >= numItems) {
       positiveButtonWidget = () => PositiveButton(
             title: 'Submit', //TODO translate
-            onTap: () {},
+            onTap: () {
+              for (var answer in answers) {
+                print(answer);
+              }
+            },
           );
     }
 
@@ -216,17 +254,17 @@ class _FeedbackFormState extends State<FeedbackForm>
       }
       if (localServices.feedbackScreenshotState ==
           FeedbackScreenshotState.draw) {
-        screenshotButtonWidget = () => PositiveButton(
-              title: 'Save & upload', //TODO translate
-              onTap: () async {
-                var imageState = localServices.painterKey.currentState;
-                if (imageState == null) {
-                  return;
-                }
+        // screenshotButtonWidget = () => PositiveButton(
+        //       title: 'Save & upload', //TODO translate
+        //       onTap: () async {
+        //         var imageState = localServices.painterKey.currentState;
+        //         if (imageState == null) {
+        //           return;
+        //         }
 
-                final finalImage = await imageState.exportImage();
-              },
-            );
+        //         final finalImage = await imageState.exportImage();
+        //       },
+        //     );
       }
     }
 

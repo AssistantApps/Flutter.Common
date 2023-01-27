@@ -1,17 +1,23 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/feedback_question_type.dart';
+import '../../contracts/enum/localeKey.dart';
+import '../../contracts/search/dropdownOption.dart';
 import '../../helpers/colourHelper.dart';
 import '../../integration/dependencyInjectionBase.dart';
+import '../adaptive/dropdown.dart';
 import '../forms/starRating.dart';
 
 class FeedbackFormInput extends StatelessWidget {
   final FeedbackQuestionType feedbackQuestionType;
+  final void Function(String answer) saveAnswer;
   final Size screenMediaQuery;
 
   const FeedbackFormInput({
     Key? key,
     required this.feedbackQuestionType,
+    required this.saveAnswer,
     required this.screenMediaQuery,
   }) : super(key: key);
 
@@ -27,11 +33,13 @@ class FeedbackFormInput extends StatelessWidget {
         decoration: InputDecoration(
           hoverColor: Colors.transparent,
           enabledBorder: OutlineInputBorder(
+            borderRadius: UIConstants.generalBorderRadius,
             borderSide: BorderSide(
               color: darken(getTheme().getPrimaryColour(context), 0.25),
             ),
           ),
           focusedBorder: OutlineInputBorder(
+            borderRadius: UIConstants.generalBorderRadius,
             borderSide: BorderSide(
               color: getTheme().getPrimaryColour(context),
             ),
@@ -39,17 +47,46 @@ class FeedbackFormInput extends StatelessWidget {
           hintText: 'I think that...', // TODO translate
           contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
         ),
+        onChanged: saveAnswer,
       );
     }
 
     if (feedbackQuestionType == FeedbackQuestionType.FiveStar) {
       return Padding(
         padding: const EdgeInsets.only(bottom: 12),
-        child: StarRating(
-          currentRating: 0,
-          onTap: (int newValue) {
-            //
-          },
+        child: Center(
+          child: StarRating(
+            currentRating: 0,
+            size: 44,
+            onTap: (int newValue) => saveAnswer(newValue.toString()),
+          ),
+        ),
+      );
+    }
+
+    if (feedbackQuestionType == FeedbackQuestionType.YesNo ||
+        feedbackQuestionType == FeedbackQuestionType.YesNoUnknown) {
+      List<DropdownOption> options = List.empty(growable: true);
+      options.add(DropdownOption(
+        getTranslations().fromKey(LocaleKey.yes),
+      ));
+      if (feedbackQuestionType == FeedbackQuestionType.YesNoUnknown) {
+        options.add(DropdownOption(
+          getTranslations().fromKey(LocaleKey.unknown),
+        ));
+      }
+      options.add(DropdownOption(
+        getTranslations().fromKey(LocaleKey.no),
+      ));
+
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: AdaptiveDropdown(
+          icon: const Icon(Icons.keyboard_arrow_down),
+          borderRadius: UIConstants.generalBorderRadius,
+          options: options,
+          initialValue: options.first.value,
+          onChanged: saveAnswer,
         ),
       );
     }

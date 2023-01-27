@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -87,11 +88,13 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
       });
     }
 
-    bool animateOpenClose =
+    bool feedbackIsOpen =
         _services.feedbackAnimationState == FeedbackAnimationState.open ||
             _services.feedbackAnimationState == FeedbackAnimationState.opening;
+    bool feedbackIsClosed =
+        _services.feedbackAnimationState != FeedbackAnimationState.closed;
     double miniAppMultiply =
-        animateOpenClose ? FeedbackConstants.miniAppShrinkPerc : 1;
+        feedbackIsOpen ? FeedbackConstants.miniAppShrinkPerc : 1;
     double miniAppWidth = screenMediaQuery.width * miniAppMultiply;
     double miniAppHeight = screenMediaQuery.height * miniAppMultiply;
 
@@ -172,9 +175,9 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
               padding: EdgeInsets.symmetric(
                 horizontal: (screenMediaQuery.width - miniAppWidth) / 2,
               ),
-              child: FeedbackForm(
-                feedbackServices: _services,
-              ),
+              child: feedbackIsClosed
+                  ? FeedbackForm(feedbackServices: _services)
+                  : emptySpace(0),
             ),
           ),
           Expanded(

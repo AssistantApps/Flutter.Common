@@ -1,7 +1,7 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
-class StarRating extends StatelessWidget {
+class StarRating extends StatefulWidget {
   final int currentRating;
   final double size;
   final void Function(int)? onTap;
@@ -14,8 +14,29 @@ class StarRating extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  createState() => _StarRatingState();
+}
+
+class _StarRatingState extends State<StarRating> {
+  int? currentRating;
+
+  @override
+  initState() {
+    super.initState();
+    currentRating = widget.currentRating;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    void Function(int) localOnTap = onTap ?? (int _) => {};
+    //
+    localOnTap(int newIndex) {
+      if (widget.onTap != null) {
+        widget.onTap!(newIndex);
+      }
+      setState(() {
+        currentRating = newIndex;
+      });
+    }
 
     Color colour = getTheme().getSecondaryColour(context);
     return Wrap(
@@ -24,11 +45,11 @@ class StarRating extends StatelessWidget {
         5,
         (int index) => GestureDetector(
           child: Icon(
-            (index < currentRating) //
+            (index < (currentRating ?? 0)) //
                 ? Icons.star
                 : Icons.star_border,
             color: colour,
-            size: size,
+            size: widget.size,
           ),
           onTap: () => localOnTap(index + 1),
         ),

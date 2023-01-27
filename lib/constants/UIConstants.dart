@@ -8,4 +8,5 @@ class UIConstants {
       RoundedRectangleBorder(borderRadius: BorderRadius.circular(0));
   static const String commonPackage = 'assistantapps_flutter_common';
   static BorderRadius tileLeadingBorderRadius = BorderRadius.circular(4.0);
+  static BorderRadius generalBorderRadius = BorderRadius.circular(8.0);
 }
