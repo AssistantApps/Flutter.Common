@@ -17,6 +17,6 @@ Widget horizontalProgressBar(BuildContext context, double percent,
     // linearStrokeCap: LinearStrokeCap.roundAll,
     barRadius: const Radius.circular(8),
     progressColor: getTheme().getSecondaryColour(context),
-    backgroundColor: getTheme().getBackgroundColour(context),
+    backgroundColor: getTheme().getCardBackgroundColour(context),
   );
 }

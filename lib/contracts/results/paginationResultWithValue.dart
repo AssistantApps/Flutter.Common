@@ -9,7 +9,7 @@ class PaginationResultWithValue<T> extends ResultWithValue<T> {
   int totalPages;
   PaginationResultWithValue(bool isSuccess, T value, this.currentPage,
       this.totalPages, String errorMessage)
-      : super(isSuccess, value, errorMessage) {}
+      : super(isSuccess, value, errorMessage);
 }
 
 class PaginationResultWithValueMapper {
