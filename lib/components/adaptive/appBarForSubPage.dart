@@ -5,7 +5,7 @@ import '../../contracts/misc/actionItem.dart';
 import '../../integration/dependencyInjection.dart';
 import './appBar.dart';
 
-class AppBarForSubPage extends StatelessWidget
+class AdaptiveAppBarForSubPage extends StatelessWidget
     implements PreferredSizeWidget, ObstructingPreferredSizeWidget {
   final Widget? title;
   final List<ActionItem> actions;
@@ -18,10 +18,16 @@ class AppBarForSubPage extends StatelessWidget
   final Color? backgroundColor;
   static const kMinInteractiveDimensionCupertino = 44.0;
 
-  AppBarForSubPage(this.title, this.actions, this.showHomeAction,
-      this.showBackAction, this.shortcutActions,
-      {Key? key, this.bottom, this.backgroundColor})
-      : preferredSize = Size.fromHeight(
+  AdaptiveAppBarForSubPage(
+    this.title,
+    this.actions,
+    this.showHomeAction,
+    this.showBackAction,
+    this.shortcutActions, {
+    Key? key,
+    this.bottom,
+    this.backgroundColor,
+  })  : preferredSize = Size.fromHeight(
             kToolbarHeight + (bottom?.preferredSize.height ?? 0.0)),
         super(key: key);
 

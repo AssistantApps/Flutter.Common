@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/adaptive/appBar.dart';
 import '../../components/adaptive/appBarForSubPage.dart';
+import '../../components/adaptive/checkbox.dart';
 import '../../components/adaptive/chip.dart';
 import '../../components/adaptive/appScaffold.dart';
 import '../../contracts/misc/actionItem.dart';
@@ -66,7 +67,7 @@ class BaseWidgetService implements IBaseWidgetService {
         ),
       );
     }
-    return AppBarForSubPage(
+    return AdaptiveAppBarForSubPage(
       title,
       actions,
       showHomeAction,
@@ -103,5 +104,19 @@ class BaseWidgetService implements IBaseWidgetService {
         onDeleted: onDeleted,
         onTap: onTap,
         backgroundColor: backgroundColor,
+      );
+
+  @override
+  Widget adaptiveCheckbox({
+    Key? key,
+    required bool value,
+    required void Function(bool newValue) onChanged,
+    Color? activeColor,
+  }) =>
+      AdaptiveCheckbox(
+        key: key,
+        value: value,
+        onChanged: onChanged,
+        activeColor: activeColor,
       );
 }

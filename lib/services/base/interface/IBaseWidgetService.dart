@@ -1,6 +1,9 @@
 import 'package:assistantapps_flutter_common/contracts/misc/actionItem.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/adaptive/checkbox.dart';
+import '../../../components/adaptive/chip.dart';
+
 class IBaseWidgetService {
   Widget appScaffold(
     BuildContext context, {
@@ -47,15 +50,31 @@ class IBaseWidgetService {
     void Function()? onTap,
     Color backgroundColor = Colors.white,
   }) =>
-      Chip(
+      AdaptiveChip(
         key: key,
-        label: Text(text ?? '...'),
+        text: text,
+        label: label,
+        style: style,
         labelPadding: labelPadding,
         elevation: elevation,
         padding: padding,
         shadowColor: shadowColor,
         deleteIcon: deleteIcon,
         onDeleted: onDeleted,
+        onTap: onTap,
         backgroundColor: backgroundColor,
+      );
+
+  Widget adaptiveCheckbox({
+    Key? key,
+    required bool value,
+    required void Function(bool newValue) onChanged,
+    Color? activeColor,
+  }) =>
+      AdaptiveCheckbox(
+        key: key,
+        value: value,
+        onChanged: onChanged,
+        activeColor: activeColor,
       );
 }
