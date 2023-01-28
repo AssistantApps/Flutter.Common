@@ -73,7 +73,7 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
 
     if (_services.feedbackAnimationState == FeedbackAnimationState.closing) {
       _openCloseController?.reverse().whenComplete(() {
-        _services.close();
+        _services.feedbackAnimationState = FeedbackAnimationState.closed;
       });
     }
 

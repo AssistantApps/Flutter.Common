@@ -99,6 +99,12 @@ class _FeedbackFormState extends State<FeedbackForm>
           currentStep: (questionIndex + 1),
           totalSteps: items.length,
           title: 'Feedback', // TODO translate
+          closeForm: () {
+            widget.feedbackServices.feedbackScreenshotState =
+                FeedbackScreenshotState.notActive;
+            widget.feedbackServices.feedbackAnimationState =
+                FeedbackAnimationState.closing;
+          },
         ),
         const EmptySpace3x(),
         Container(
@@ -167,7 +173,7 @@ class _FeedbackFormState extends State<FeedbackForm>
   ) {
     Widget Function() negativeButtonWidget = () => NegativeButton(
           title: 'Previous', //TODO translate
-          backgroundColour: Colors.grey,
+          backgroundColour: Colors.grey[400]!,
           onTap: () {
             int prevQuestionIndex = qIndex - 1;
             FeedbackFormQuestionViewModel prevQuestion =
@@ -210,15 +216,12 @@ class _FeedbackFormState extends State<FeedbackForm>
     if (qIndex == 0) {
       negativeButtonWidget = () => NegativeButton(
             title: 'Cancel', //TODO translate
-            backgroundColour: Colors.grey,
+            backgroundColour: Colors.grey[400]!,
             onTap: () {
               localServices.feedbackScreenshotState =
                   FeedbackScreenshotState.notActive;
               localServices.feedbackAnimationState =
                   FeedbackAnimationState.closing;
-              setState(() {
-                questionIndex = 0;
-              });
             },
           );
     }

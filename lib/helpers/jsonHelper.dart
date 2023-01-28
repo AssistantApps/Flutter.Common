@@ -81,3 +81,17 @@ List<T> readListSafe<T>(
     return List.empty();
   }
 }
+
+List<String> readStringListSafe(
+  Map<dynamic, dynamic>? json,
+  String prop,
+) {
+  if (json == null) return List.empty();
+  try {
+    if (json[prop] == null) return List.empty();
+    return (json[prop] as List).map((item) => item.toString()).toList();
+  } catch (ex) {
+    getLog().e('readStringListSafe: $ex. prop: $prop. value: ${json[prop]}');
+    return List.empty();
+  }
+}

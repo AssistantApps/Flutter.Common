@@ -2,6 +2,8 @@ import 'package:assistantapps_flutter_common/helpers/deviceHelper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../integration/dependencyInjectionBase.dart';
+
 class AdaptiveCheckbox extends StatelessWidget {
   final bool value;
   final Color? activeColor;
@@ -19,14 +21,14 @@ class AdaptiveCheckbox extends StatelessWidget {
     if (isiOS) {
       return CupertinoSwitch(
         value: value,
-        activeColor: activeColor,
+        activeColor: activeColor ?? getTheme().getSecondaryColour(context),
         onChanged: onChanged,
       );
     }
 
     return Switch(
       value: value,
-      activeColor: activeColor,
+      activeColor: activeColor ?? getTheme().getSecondaryColour(context),
       onChanged: onChanged,
     );
   }

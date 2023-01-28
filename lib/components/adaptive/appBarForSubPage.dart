@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/misc/actionItem.dart';
+import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';
+import '../common/actionItem.dart';
 import './appBar.dart';
+import 'shortcutActionButton.dart';
 
 class AdaptiveAppBarForSubPage extends StatelessWidget
     implements PreferredSizeWidget, ObstructingPreferredSizeWidget {
@@ -41,9 +44,24 @@ class AdaptiveAppBarForSubPage extends StatelessWidget
           )
         : null;
 
+    List<Widget> actionWidgets = List.empty(growable: true);
+
+    if (shortcutActions != null && shortcutActions!.isNotEmpty) {
+      actionWidgets.add(
+        ShortcutActionButton(shortcutActions!),
+      );
+    }
+    actionWidgets.addAll(actionItemToAndroidAction(context, actions));
+
+    if (showHomeAction) {
+      actionWidgets.addAll(
+        actionItemToAndroidAction(context, [goHomeAction(context)]),
+      );
+    }
+
     return AdaptiveAppBar(
       title: title,
-      actions: List.empty(),
+      actions: actionWidgets,
       leading: leadingWidget,
     );
   }

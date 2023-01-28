@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../components/fun/backgroundWrapper.dart';
-import '../../components/grid/searchableGrid.dart';
+import '../../assistantapps_flutter_common.dart';
 import '../../components/tilePresenters/patreonTilePresenter.dart';
 import '../../constants/AppImage.dart';
-import '../../constants/ExternalUrls.dart';
-import '../../contracts/enum/backgroundType.dart';
-import '../../contracts/enum/localeKey.dart';
-import '../../contracts/generated/patreonViewModel.dart';
-import '../../contracts/results/resultWithValue.dart';
-import '../../helpers/columnHelper.dart';
-import '../../integration/dependencyInjection.dart';
-import '../../services/json/backupJsonService.dart';
 
 class PatronListPageComponent extends StatelessWidget {
   const PatronListPageComponent({Key? key}) : super(key: key);
@@ -41,14 +32,17 @@ class PatronListPageComponent extends StatelessWidget {
 
     return BackgroundWrapper(
       backgroundType: BackgroundType.patreon,
-      body: SearchableGrid<PatreonViewModel>(
-        () => wrapPatronsListCall(context, apiFunc),
-        gridItemDisplayer: patronTilePresenter,
-        gridItemSearch: (_, __) => false,
-        backupListGetter: () => wrapPatronsListCall(context, backupFunc),
-        minListForSearch: 20000,
-        addFabPadding: true,
-        gridViewColumnCalculator: patreonCustomColumnCount,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 16, left: 4, right: 4),
+        child: SearchableGrid<PatreonViewModel>(
+          () => wrapPatronsListCall(context, apiFunc),
+          gridItemDisplayer: patronTilePresenter,
+          gridItemSearch: (_, __) => false,
+          backupListGetter: () => wrapPatronsListCall(context, backupFunc),
+          minListForSearch: 20000,
+          addFabPadding: true,
+          gridViewColumnCalculator: patreonCustomColumnCount,
+        ),
       ),
     );
   }

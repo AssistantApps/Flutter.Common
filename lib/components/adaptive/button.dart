@@ -128,12 +128,11 @@ class NegativeButton extends StatelessWidget {
       eventString: eventString,
       padding: padding,
       backgroundColour: backgroundColour,
-      foregroundColour: getTheme().getH1Colour(context),
+      foregroundColour: getTheme().getForegroundTextColour(backgroundColour),
       onTap: onTap,
     );
   }
 }
-
 
 Widget disabledButton({required String title}) => ElevatedButton(
       onPressed: null,

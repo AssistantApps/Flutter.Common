@@ -3,6 +3,7 @@ library assistantapps_flutter_common;
 // Components
 export './components/adaptive/appBar.dart';
 export './components/adaptive/appBarForSubPage.dart';
+export './components/adaptive/appScaffold.dart';
 export './components/adaptive/bottomModal.dart';
 export './components/adaptive/button.dart';
 export './components/adaptive/checkbox.dart';
@@ -12,6 +13,7 @@ export './components/adaptive/paginationControl.dart';
 export './components/adaptive/searchBar.dart';
 export './components/adaptive/segmentedControl.dart';
 export './components/app_notices.dart';
+export './components/common/actionItem.dart';
 export './components/common/animation.dart';
 export './components/common/authButtons.dart';
 export './components/common/badge.dart';

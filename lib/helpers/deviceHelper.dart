@@ -37,7 +37,10 @@ List<PlatformType> getPlatforms() {
   return plats;
 }
 
-List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
+List<Widget> actionItemToAndroidAction(
+  BuildContext context,
+  List<ActionItem> actions,
+) {
   List<Widget> result = List.empty(growable: true);
   for (ActionItem action in actions) {
     if (action.image != null) {
@@ -50,7 +53,10 @@ List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
     } else {
       result.add(
         IconButton(
-          icon: Icon(action.icon),
+          icon: Icon(
+            action.icon,
+            color: getTheme().getTextColour(context),
+          ),
           tooltip: action.text,
           onPressed: action.onPressed,
         ),
@@ -60,7 +66,10 @@ List<Widget> actionItemToAndroidAction(List<ActionItem> actions) {
   return result;
 }
 
-List<Widget> actionItemToAppleAction(context, List<ActionItem> actions) {
+List<Widget> actionItemToAppleAction(
+  BuildContext context,
+  List<ActionItem> actions,
+) {
   List<Widget> result = List.empty(growable: true);
   for (ActionItem action in actions) {
     if (action.image != null) {

@@ -24,6 +24,7 @@ class AdaptiveAppBar extends StatelessWidget {
       centerTitle: true,
       actions: actions,
       backgroundColor: getTheme().getPrimaryColour(context),
+      foregroundColor: getTheme().getTextColour(context),
       bottom: bottom,
     );
   }
