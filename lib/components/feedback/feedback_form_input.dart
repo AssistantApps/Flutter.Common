@@ -80,7 +80,6 @@ class FeedbackFormInput extends StatelessWidget {
           icon: const Icon(Icons.keyboard_arrow_down),
           borderRadius: UIConstants.generalBorderRadius,
           options: options,
-          initialValue: options.first.value,
           onChanged: saveAnswer,
         ),
       );

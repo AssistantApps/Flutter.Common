@@ -47,7 +47,8 @@ class BaseApiService {
       );
       if (response.statusCode != 200) {
         getLog().e('Status Code: ${response.statusCode}.');
-        getLog().e('Not a 200 OK response ${response.body}');
+        getLog().e(
+            'Not a 200 OK response "${response.body}". ${response.toString()}');
         return ResultWithValue<String>(
           false,
           response.body,

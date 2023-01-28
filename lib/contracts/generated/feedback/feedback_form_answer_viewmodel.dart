@@ -12,7 +12,7 @@ class FeedbackFormAnswerViewModel {
   String toRawJson() => json.encode(toJson());
 
   Map<String, dynamic> toJson() => {
-        'feedbackQuestionGuid': feedbackQuestionGuid,
-        'value': value,
+        'feedbackFormQuestionGuid': feedbackQuestionGuid,
+        'answer': value,
       };
 }

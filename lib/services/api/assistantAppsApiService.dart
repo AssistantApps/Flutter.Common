@@ -2,9 +2,11 @@ import 'dart:convert';
 
 import '../../constants/ApiUrls.dart';
 import '../../contracts/generated/appNoticeViewModel.dart';
+import '../../contracts/generated/feedback/feedback_form_answer_submission_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
 import '../../contracts/generated/translatorLeaderboardItemViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
+import '../../contracts/results/result.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';
@@ -76,7 +78,7 @@ class AssistantAppsApiService extends BaseApiService
       getLatestFeedbackForm() async {
     try {
       final response = await apiGet(
-        'feedback/latest/${getEnv().assistantAppsAppGuid}',
+        '${ApiUrls.feedbackLatest}/${getEnv().assistantAppsAppGuid}',
       );
       if (response.hasFailed) {
         return ResultWithValue<FeedbackFormWithQuestionsViewModel>(
@@ -95,6 +97,27 @@ class AssistantAppsApiService extends BaseApiService
         FeedbackFormWithQuestionsViewModel.fromRawJson('{}'),
         exception.toString(),
       );
+    }
+  }
+
+  @override
+  Future<Result> submitFeedbackFormAnswers(
+    FeedbackFormAnswerSubmissionViewModel feedbackAnswers,
+  ) async {
+    try {
+      final response = await apiPost(
+        ApiUrls.feedbackAnswer,
+        feedbackAnswers.toRawJson(),
+      );
+      if (response.hasFailed) {
+        return Result(false, response.errorMessage);
+      }
+
+      return Result(true, '');
+    } catch (exception) {
+      getLog().e(
+          "submitFeedbackFormAnswers Api Exception: ${exception.toString()}");
+      return Result(false, exception.toString());
     }
   }
 }

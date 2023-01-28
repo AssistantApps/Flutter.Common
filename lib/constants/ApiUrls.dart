@@ -24,4 +24,8 @@ class ApiUrls {
   static const String guideDetail = "GuideDetail";
   static const String guideSearch = "GuideDetail/Search";
   static const String guideContent = "GuideContent";
+
+  // Feedback
+  static const String feedbackLatest = "feedback/latest";
+  static const String feedbackAnswer = "feedbackAnswer";
 }

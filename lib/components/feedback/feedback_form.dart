@@ -1,10 +1,13 @@
 import 'dart:typed_data';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
+import '../../constants/AppImage.dart';
 import '../../contracts/enum/feedback_question_type.dart';
+import '../../contracts/generated/feedback/feedback_form_answer_submission_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_answer_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_question_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
@@ -30,7 +33,8 @@ class FeedbackForm extends StatefulWidget {
 class _FeedbackFormState extends State<FeedbackForm>
     with AfterLayoutMixin<FeedbackForm>, TickerProviderStateMixin {
   NetworkState networkState = NetworkState.loading;
-  List<FeedbackFormQuestionViewModel> items = List.empty(growable: true);
+  FeedbackFormWithQuestionsViewModel? viewmodel;
+  bool feedbackSubmitted = false;
   List<FeedbackFormAnswerViewModel> answers = List.empty(growable: true);
   int questionIndex = 0;
 
@@ -49,7 +53,7 @@ class _FeedbackFormState extends State<FeedbackForm>
 
     setState(() {
       networkState = NetworkState.success;
-      items = apiResult.value.items;
+      viewmodel = apiResult.value;
     });
   }
 
@@ -90,7 +94,27 @@ class _FeedbackFormState extends State<FeedbackForm>
     }
 
     List<Widget> columnWidgets = List.empty(growable: true);
+    if (feedbackSubmitted) {
+      columnWidgets.add(const LocalImage(imagePath: AppImage.successGuide));
+    } else {
+      columnWidgets = _getFormComponents(screenMediaQuery);
+    }
+
+    return AnimatedSize(
+      duration: FeedbackConstants.openCloseAnimDuration,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: columnWidgets,
+      ),
+    );
+  }
+
+  List<Widget> _getFormComponents(Size screenMediaQuery) {
+    var items = viewmodel?.items ?? List.empty();
     FeedbackFormQuestionViewModel currentQuestion = items[questionIndex];
+
+    List<Widget> columnWidgets = List.empty(growable: true);
 
     if (currentQuestion.questionType != FeedbackQuestionType.Screenshot) {
       columnWidgets.addAll([
@@ -99,12 +123,7 @@ class _FeedbackFormState extends State<FeedbackForm>
           currentStep: (questionIndex + 1),
           totalSteps: items.length,
           title: 'Feedback', // TODO translate
-          closeForm: () {
-            widget.feedbackServices.feedbackScreenshotState =
-                FeedbackScreenshotState.notActive;
-            widget.feedbackServices.feedbackAnimationState =
-                FeedbackAnimationState.closing;
-          },
+          closeForm: () => widget.feedbackServices.close(),
         ),
         const EmptySpace3x(),
         Container(
@@ -120,6 +139,7 @@ class _FeedbackFormState extends State<FeedbackForm>
         ),
         const EmptySpace3x(),
         FeedbackFormInput(
+          key: Key(currentQuestion.guid.toString()),
           feedbackQuestionType: currentQuestion.questionType,
           screenMediaQuery: screenMediaQuery,
           saveAnswer: (answer) => saveAnswerToQuestion(
@@ -155,14 +175,7 @@ class _FeedbackFormState extends State<FeedbackForm>
       ]);
     }
 
-    return AnimatedSize(
-      duration: FeedbackConstants.openCloseAnimDuration,
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: columnWidgets,
-      ),
-    );
+    return columnWidgets;
   }
 
   Widget renderControls(
@@ -177,7 +190,7 @@ class _FeedbackFormState extends State<FeedbackForm>
           onTap: () {
             int prevQuestionIndex = qIndex - 1;
             FeedbackFormQuestionViewModel prevQuestion =
-                items[prevQuestionIndex];
+                viewmodel!.items[prevQuestionIndex];
             if (prevQuestion.questionType == FeedbackQuestionType.Screenshot) {
               localServices.feedbackScreenshotState =
                   FeedbackScreenshotState.active;
@@ -198,7 +211,7 @@ class _FeedbackFormState extends State<FeedbackForm>
           onTap: () {
             int nextQuestionIndex = qIndex + 1;
             FeedbackFormQuestionViewModel nextQuestion =
-                items[nextQuestionIndex];
+                viewmodel!.items[nextQuestionIndex];
             if (nextQuestion.questionType == FeedbackQuestionType.Screenshot) {
               localServices.feedbackScreenshotState =
                   FeedbackScreenshotState.active;
@@ -217,23 +230,41 @@ class _FeedbackFormState extends State<FeedbackForm>
       negativeButtonWidget = () => NegativeButton(
             title: 'Cancel', //TODO translate
             backgroundColour: Colors.grey[400]!,
-            onTap: () {
-              localServices.feedbackScreenshotState =
-                  FeedbackScreenshotState.notActive;
-              localServices.feedbackAnimationState =
-                  FeedbackAnimationState.closing;
-            },
+            onTap: () => widget.feedbackServices.close(),
           );
     }
 
     if ((qIndex + 1) >= numItems) {
       positiveButtonWidget = () => PositiveButton(
             title: 'Submit', //TODO translate
-            onTap: () {
-              for (var answer in answers) {
-                // ignore: avoid_print
-                print(answer);
+            onTap: () async {
+              setState(() {
+                networkState = NetworkState.loading;
+              });
+              String deviceId = await getDeviceId();
+              FeedbackFormAnswerSubmissionViewModel payload =
+                  FeedbackFormAnswerSubmissionViewModel(
+                items: answers,
+                feedbackFormGuid: viewmodel!.guid,
+                platformType: EnumToString.convertToString(
+                  getPlatforms().first,
+                ),
+                userUniqueIdentifier: deviceId,
+              );
+              Result submissionResult = await getAssistantAppsApi()
+                  .submitFeedbackFormAnswers(payload);
+              print('hasFailed: ${submissionResult.hasFailed}');
+              if (submissionResult.hasFailed) {
+                setState(() {
+                  networkState = NetworkState.error;
+                });
+                return;
               }
+              setState(() {
+                networkState = NetworkState.success;
+                feedbackSubmitted = true;
+              });
+              widget.feedbackServices.close();
             },
           );
     }

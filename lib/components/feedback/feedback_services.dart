@@ -44,7 +44,8 @@ class FeedbackServices extends ChangeNotifier {
   }
 
   close() {
-    _feedbackAnimationState = FeedbackAnimationState.closing;
+    feedbackScreenshotState = FeedbackScreenshotState.notActive;
+    feedbackAnimationState = FeedbackAnimationState.closing;
     notifyListeners();
   }
 }
