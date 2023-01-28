@@ -11,7 +11,6 @@ import '../../contracts/generated/feedback/feedback_form_answer_submission_viewm
 import '../../contracts/generated/feedback/feedback_form_answer_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_question_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
-import 'feedback_animation_state.dart';
 import 'feedback_constants.dart';
 import 'feedback_form_header.dart';
 import 'feedback_form_input.dart';
@@ -253,7 +252,6 @@ class _FeedbackFormState extends State<FeedbackForm>
               );
               Result submissionResult = await getAssistantAppsApi()
                   .submitFeedbackFormAnswers(payload);
-              print('hasFailed: ${submissionResult.hasFailed}');
               if (submissionResult.hasFailed) {
                 setState(() {
                   networkState = NetworkState.error;
