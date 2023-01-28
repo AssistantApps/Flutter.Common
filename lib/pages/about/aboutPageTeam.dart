@@ -59,7 +59,7 @@ class AboutPageTeam extends StatelessWidget {
             'Moderator | NMS Dataminer | Keeper of Obscure Knowledge'),
       ),
     );
-    widgets.add(emptySpace(1));
+    widgets.add(const EmptySpace(1));
 
     return ListView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),

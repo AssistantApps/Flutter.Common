@@ -11,12 +11,12 @@ class LanguagePageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = [
-      genericItemDescription(
+      GenericItemDescription(
         getTranslations().fromKey(LocaleKey.languageContent),
       ),
-      emptySpace3x(),
+      const EmptySpace3x(),
     ];
-    widgets.add(genericItemText(
+    widgets.add(GenericItemText(
       getTranslations().fromKey(LocaleKey.translationPercentageComplete),
     ));
     widgets.add(const TranslationsPerLanguageCustomChart());

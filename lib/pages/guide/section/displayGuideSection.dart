@@ -98,7 +98,7 @@ Widget? getSectionItem(BuildContext context, GuideSectionItemViewModel item) {
   }
 }
 
-Widget textListItem(GuideSectionItemViewModel item) => flatCard(
+Widget textListItem(GuideSectionItemViewModel item) => FlatCard(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
         child: Text(
@@ -112,7 +112,7 @@ Widget textListItem(GuideSectionItemViewModel item) => flatCard(
 
 Widget linkListItem(GuideSectionItemViewModel item) {
   onTap() => launchExternalURL(item.content);
-  return flatCard(
+  return FlatCard(
     child: InkWell(
       onTap: onTap,
       child: Padding(
@@ -132,7 +132,7 @@ Widget imageListItem(context, GuideSectionItemViewModel item) {
   String imagePath = item.content;
 
   return InkWell(
-    child: flatCard(child: networkImage(imagePath)),
+    child: FlatCard(child: ImageFromNetwork(imageUrl: imagePath)),
     // onTap: () async {
     //   await navigateAsync(
     //     context,
@@ -143,7 +143,7 @@ Widget imageListItem(context, GuideSectionItemViewModel item) {
 }
 
 Widget markdownListItem(GuideSectionItemViewModel item) {
-  return flatCard(
+  return FlatCard(
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       child: MarkdownBody(data: item.content),
@@ -175,7 +175,7 @@ Widget tableListItem(context, GuideSectionItemViewModel item) {
   //   rows.add(TableRow(children: rowChildren));
   // }
 
-  return flatCard(
+  return FlatCard(
     child: Padding(
       padding: const EdgeInsets.all(16.0),
       child: Table(
@@ -187,7 +187,7 @@ Widget tableListItem(context, GuideSectionItemViewModel item) {
   );
 }
 
-Widget textItem(String text, {TextStyle? style}) => flatCard(
+Widget textItem(String text, {TextStyle? style}) => FlatCard(
       child: ListTile(
         title: Text(
           text,

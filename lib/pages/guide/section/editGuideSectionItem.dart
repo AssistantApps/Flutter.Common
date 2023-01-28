@@ -198,14 +198,14 @@ class _ImageEditItemWidget extends State<ImageEditItem> {
       );
     }
 
-    Widget imageWidget = placeholderImage(context, onTap: imageOnTap);
+    Widget imageWidget = PlaceholderImage(onTap: imageOnTap);
     UploadedImageViewModel? localImageData = _imageData;
     if ((localImageData != null &&
         localImageData.url.isNotEmpty &&
         localImageData.blurHash != null)) {
-      imageWidget = networkBlurHashImage(
-        localImageData.url,
-        localImageData.blurHash ?? '',
+      imageWidget = NetworkBlurHashImage(
+        imageUrl: localImageData.url,
+        blurHash: localImageData.blurHash ?? '',
         onTap: imageOnTap,
         key: Key('${widget.item.guid}-sectionImage'),
       );

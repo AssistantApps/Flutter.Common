@@ -26,17 +26,17 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> columnWidgets = List.empty(growable: true);
-    columnWidgets.add(emptySpace(1));
+    columnWidgets.add(const EmptySpace(1));
 
     bool isCurrentVersion =
         version.guid.toLowerCase() == currentWhatIsNewGuid.toLowerCase();
 
-    columnWidgets.add(genericItemText(getVersionReleaseDate(
+    columnWidgets.add(GenericItemText(getVersionReleaseDate(
       isCurrentVersion,
       version.activeDate,
     )));
 
-    columnWidgets.add(emptySpace(1));
+    columnWidgets.add(const EmptySpace(1));
 
     List<Widget> wrapChildren = List.empty(growable: true);
     for (PlatformType plat in version.platforms) {
@@ -91,7 +91,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
       spacing: 4,
       children: wrapChildren,
     ));
-    columnWidgets.add(emptySpace2x());
+    columnWidgets.add(const EmptySpace2x());
 
     if (additionalBuilder != null) {
       columnWidgets.addAll(additionalBuilder!(version));

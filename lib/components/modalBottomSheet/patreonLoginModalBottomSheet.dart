@@ -99,7 +99,7 @@ class _PatreonLoginModalBottomSheetWidget
         centerContentInModal(
           [
             getLoading().smallLoadingIndicator(),
-            emptySpace2x(),
+            const EmptySpace2x(),
             const Text('Connecting to Server'),
           ],
         ),
@@ -118,7 +118,7 @@ class _PatreonLoginModalBottomSheetWidget
     }
 
     List<Widget> widgets = List.empty(growable: true);
-    widgets.add(emptySpace1x());
+    widgets.add(const EmptySpace1x());
     widgets.add(Padding(
       padding: const EdgeInsets.only(left: 12, top: 6, right: 12),
       child: AuthButton.patreon(

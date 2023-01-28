@@ -94,13 +94,13 @@ class _FeedbackFormState extends State<FeedbackForm>
 
     if (currentQuestion.questionType != FeedbackQuestionType.Screenshot) {
       columnWidgets.addAll([
-        emptySpace3x(),
+        const EmptySpace3x(),
         FeedbackFormHeader(
           currentStep: (questionIndex + 1),
           totalSteps: items.length,
           title: 'Feedback', // TODO translate
         ),
-        emptySpace3x(),
+        const EmptySpace3x(),
         Container(
           width: double.maxFinite,
           margin: const EdgeInsets.all(4.0),
@@ -112,7 +112,7 @@ class _FeedbackFormState extends State<FeedbackForm>
             style: const TextStyle(fontSize: 18),
           ),
         ),
-        emptySpace3x(),
+        const EmptySpace3x(),
         FeedbackFormInput(
           feedbackQuestionType: currentQuestion.questionType,
           screenMediaQuery: screenMediaQuery,
@@ -121,31 +121,31 @@ class _FeedbackFormState extends State<FeedbackForm>
             answer,
           ),
         ),
-        emptySpace1x(),
+        const EmptySpace1x(),
         renderControls(
           questionIndex,
           items.length,
           currentQuestion.questionType,
           widget.feedbackServices,
         ),
-        emptySpace3x(),
+        const EmptySpace3x(),
       ]);
     } else {
       columnWidgets.addAll([
-        emptySpace3x(),
+        const EmptySpace3x(),
         FeedbackFormHeader(
           currentStep: (questionIndex + 1),
           totalSteps: items.length,
           title: 'Feedback', // TODO translate
         ),
-        emptySpace1x(),
+        const EmptySpace1x(),
         renderControls(
           questionIndex,
           items.length,
           currentQuestion.questionType,
           widget.feedbackServices,
         ),
-        emptySpace3x(),
+        const EmptySpace3x(),
       ]);
     }
 

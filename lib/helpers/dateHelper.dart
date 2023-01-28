@@ -47,9 +47,8 @@ Widget getProgressbarFromDates(
     timeLeft = getFriendlyTimeLeft(context, milliLeft);
   }
 
-  return horizontalProgressBar(
-    context,
-    percentage.toDouble(),
+  return HorizontalProgressBar(
+    percent: percentage.toDouble(),
     animation: animation,
     text: Text(
       '${percentage.toStringAsFixed(0)}% - $timeLeft',

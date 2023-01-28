@@ -33,7 +33,7 @@ class WhatIsNewPage extends StatelessWidget {
         currentWhatIsNewGuid,
         selectedLanguage,
         overriddenPlatforms ?? getPlatforms(),
-        smallLoadMorePageButton(context),
+        const SmallLoadMorePageButton(),
         (version) async => await getNavigation().navigateAsync(
           context,
           navigateTo: (context) => WhatIsNewDetailPage(

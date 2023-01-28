@@ -48,7 +48,7 @@ Widget Function(
         name: getTranslations()
             .fromKey(LocaleKey.release)
             .replaceAll('{0}', version.buildName),
-        subtitle: genericEllipsesText(dateToDisplay),
+        subtitle: GenericEllipsesText(dateToDisplay),
         trailing: const Icon(Icons.chevron_right),
       ),
       hideTopConnector: index == 0,
@@ -64,7 +64,7 @@ Widget Function(
       ),
     );
     if (version.guid.toLowerCase() == versionGuid.toLowerCase()) {
-      return wrapInNewBanner(context, LocaleKey.current, paddedChild);
+      return WrapInNewBanner(message: LocaleKey.current, child: paddedChild);
     }
     return paddedChild;
   }
@@ -101,7 +101,7 @@ Widget packageVersionTile(String gameVersion, {Function()? onTap}) {
 
       return ListTile(
         key: const Key('versionNumber'),
-        leading: getCorrectlySizedImageFromIcon(context, Icons.code),
+        leading: const CorrectlySizedImageFromIcon(icon: Icons.code),
         title: titleWidget,
         subtitle: subtitleWidget,
         onTap: onTap,

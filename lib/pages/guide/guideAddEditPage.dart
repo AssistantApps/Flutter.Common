@@ -126,11 +126,11 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
           getTranslations().fromKey(LocaleKey.guideSubmissionFailedTitle),
           Column(
             children: [
-              localImage(
-                AppImage.error,
+              const LocalImage(
+                imagePath: AppImage.error,
                 imagePackage: UIConstants.commonPackage,
               ),
-              genericItemDescription(
+              GenericItemDescription(
                 getTranslations()
                     .fromKey(LocaleKey.guideSubmissionFailedMessage),
               ),
@@ -157,7 +157,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
                 AppImage.successGuideSVG,
                 package: UIConstants.commonPackage,
               ),
-              genericItemDescription(
+              GenericItemDescription(
                 getTranslations()
                     .fromKey(LocaleKey.guideSubmissionSuccessMessage),
               ),
@@ -225,13 +225,13 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
         );
       }
 
-      Widget imageWidget = placeholderImage(context, onTap: imageOnTap);
+      Widget imageWidget = PlaceholderImage(onTap: imageOnTap);
       if ((bannerImageData != null &&
           bannerImageData?.url != null &&
           bannerImageData?.blurHash != null)) {
-        imageWidget = networkBlurHashImage(
-          bannerImageData!.url,
-          bannerImageData!.blurHash ?? '',
+        imageWidget = NetworkBlurHashImage(
+          imageUrl: bannerImageData!.url,
+          blurHash: bannerImageData!.blurHash ?? '',
           onTap: imageOnTap,
           key: const Key('BannerImage'),
         );
@@ -400,8 +400,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
       }
 
       List<Widget> sectionStickyWidgets = [
-        placeholderFullRow(
-          context,
+        PlaceholderFullRow(
           icon: Icons.add_box,
           onTap: () async {
             GuideSection? result =
@@ -421,7 +420,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
             });
           },
         ),
-        emptySpace10x(),
+        const EmptySpace10x(),
       ];
 
       stickyWidgets.add(SliverStickyHeader(
@@ -442,7 +441,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
       List<Widget> stickyGuideDetailsWidgets = [
         ResponsiveGridRow(children: griWidgets),
         customDivider(),
-        emptySpace1x(),
+        const EmptySpace1x(),
       ];
       return CustomScrollView(
         shrinkWrap: true,

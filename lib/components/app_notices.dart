@@ -61,7 +61,7 @@ class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
         ...notices
             .map((n) => AnimateScaleHeightFrom0ToFull(child: appNoticeTile(n)))
             .toList(),
-        emptySpace1x(),
+        const EmptySpace1x(),
         Expanded(child: innerChild),
       ],
     );

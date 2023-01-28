@@ -30,19 +30,19 @@ class _AboutPageWidget extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> options = [
-      getSegmentedControlWithIconOption(
-        Icons.apps_rounded,
-        'AssistantApps',
+      const SegmentedControlWithIconOption(
+        icon: Icons.apps_rounded,
+        text: 'AssistantApps',
       ),
       if (widget.aboutPageWidgetsFunc != null) ...[
-        getSegmentedControlWithIconOption(
-          Icons.help_outline,
-          'This app',
+        const SegmentedControlWithIconOption(
+          icon: Icons.help_outline,
+          text: 'This app',
         ),
       ],
-      getSegmentedControlWithIconOption(
-        Icons.people_alt,
-        'Team',
+      const SegmentedControlWithIconOption(
+        icon: Icons.people_alt,
+        text: 'Team',
       ),
     ];
     return getBaseWidget().appScaffold(
@@ -56,16 +56,13 @@ class _AboutPageWidget extends State<AboutPage> {
         key: Key('currentSelection: $tabSelection'),
         children: <Widget>[
           if (options.length > 1) ...[
-            Container(
-              child: adaptiveSegmentedControl(
-                context,
-                verticalOffset: 8,
-                controlItems: options,
-                currentSelection: tabSelection,
-                onSegmentChosen: (int newTab) => setState(() {
-                  tabSelection = newTab;
-                }),
-              ),
+            AdaptiveSegmentedControl(
+              verticalOffset: 8,
+              controlItems: options,
+              currentSelection: tabSelection,
+              onSegmentChosen: (int newTab) => setState(() {
+                tabSelection = newTab;
+              }),
             ),
             customDivider(),
           ],
@@ -97,12 +94,12 @@ class _AboutPageWidget extends State<AboutPage> {
     } //
     catch (ex) {
       return [
-        emptySpace1x(),
+        const EmptySpace1x(),
         Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            genericItemName(getTranslations().fromKey(LocaleKey.noItems)),
+            GenericItemName(getTranslations().fromKey(LocaleKey.noItems)),
           ],
         )
       ];

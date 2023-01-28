@@ -20,11 +20,11 @@ class FeedbackFormHeader extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.max,
       children: [
-        genericItemDescription('Step $currentStep of $totalSteps'),
-        emptySpace1x(),
-        genericItemDescription(' | '),
-        emptySpace1x(),
-        genericItemDescription(title),
+        GenericItemDescription('Step $currentStep of $totalSteps'),
+        const EmptySpace1x(),
+        const GenericItemDescription(' | '),
+        const EmptySpace1x(),
+        GenericItemDescription(title),
       ],
     );
   }

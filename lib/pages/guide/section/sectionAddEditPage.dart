@@ -112,7 +112,12 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
       // bool isMobile = isMobileScreenWidth(breakpoint);
 
       griWidgets.add(
-        ResponsiveGridCol(lg: 12, md: 12, sm: 12, child: emptySpace1x()),
+        ResponsiveGridCol(
+          lg: 12,
+          md: 12,
+          sm: 12,
+          child: const EmptySpace1x(),
+        ),
       );
       griWidgets.add(ResponsiveGridCol(
         xl: 3,
@@ -140,7 +145,7 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
           child: Padding(
             padding: const EdgeInsets.all(12),
             child: Center(
-                child: genericItemName(
+                child: GenericItemName(
               getTranslations().fromKey(LocaleKey.noItems),
             )),
           ),
@@ -191,9 +196,9 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
         lg: 12,
         child: Padding(
           padding: PaddingConstant.listViewPadding,
-          child: positiveIconButton(
-            getTheme().getSecondaryColour(context),
+          child: PositiveIconButton(
             icon: Icons.add,
+            colour: getTheme().getSecondaryColour(context),
             padding: const EdgeInsets.all(8),
             onPress: () {
               adaptiveBottomModalSheet(
@@ -205,7 +210,7 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
         ),
       ));
 
-      griWidgets.add(ResponsiveGridCol(lg: 12, child: emptySpace8x()));
+      griWidgets.add(ResponsiveGridCol(lg: 12, child: const EmptySpace8x()));
       return SingleChildScrollView(
         child: ResponsiveGridRow(children: griWidgets),
       );

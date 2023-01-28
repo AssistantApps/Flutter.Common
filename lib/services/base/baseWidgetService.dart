@@ -5,6 +5,7 @@ import '../../components/adaptive/appBarForSubPage.dart';
 import '../../components/adaptive/chip.dart';
 import '../../components/adaptive/appScaffold.dart';
 import '../../contracts/misc/actionItem.dart';
+import '../../integration/dependencyInjectionBase.dart';
 import './interface/IBaseWidgetService.dart';
 
 class BaseWidgetService implements IBaseWidgetService {
@@ -19,8 +20,7 @@ class BaseWidgetService implements IBaseWidgetService {
     Widget? floatingActionButton,
     FloatingActionButtonLocation? floatingActionButtonLocation,
   }) =>
-      adaptiveAppScaffold(
-        context,
+      AdaptiveAppScaffold(
         appBar: appBar,
         body: body,
         builder: builder,
@@ -38,10 +38,9 @@ class BaseWidgetService implements IBaseWidgetService {
     Widget? leading,
     PreferredSizeWidget? bottom,
   }) =>
-      adaptiveAppBar(
-        context,
-        title,
-        actions,
+      AdaptiveAppBar(
+        title: title,
+        actions: actions,
         leading: leading,
         bottom: bottom,
       );
@@ -54,15 +53,27 @@ class BaseWidgetService implements IBaseWidgetService {
     List<ActionItem>? shortcutActions,
     bool showHomeAction = false,
     bool showBackAction = true,
-  }) =>
-      adaptiveAppBarForSubPageHelper(
-        context,
-        title: title,
-        actions: actions,
-        shortcutActions: shortcutActions,
-        showBackAction: showBackAction,
-        showHomeAction: showHomeAction,
+  }) {
+    if (actions == null || actions.isEmpty) {
+      actions = List.empty(growable: true);
+    }
+    if (showHomeAction) {
+      actions.add(
+        ActionItem(
+          icon: Icons.home,
+          onPressed: () async =>
+              await getNavigation().navigateHomeAsync(context),
+        ),
       );
+    }
+    return AppBarForSubPage(
+      title,
+      actions,
+      showHomeAction,
+      showBackAction,
+      shortcutActions,
+    );
+  }
 
   @override
   Widget appChip({

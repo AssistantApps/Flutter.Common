@@ -173,7 +173,7 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
               ),
               child: feedbackIsClosed
                   ? FeedbackForm(feedbackServices: _services)
-                  : emptySpace(0),
+                  : const EmptySpace(0),
             ),
           ),
           Expanded(

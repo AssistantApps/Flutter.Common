@@ -17,8 +17,8 @@ Widget steamNewsItemTilePresenter(
   int index, {
   void Function()? onTap,
 }) {
-  Widget image = networkImage(
-    newsItem.image,
+  Widget image = ImageFromNetwork(
+    imageUrl: newsItem.image,
     boxfit: BoxFit.fitWidth,
     loading: getPath().steamNewsDefaultImage,
   );
@@ -60,9 +60,9 @@ Widget steamNewsItemTilePresenter(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                iconWithValueRow(Icons.thumb_up, newsItem.upVotes),
-                iconWithValueRow(Icons.thumb_down, newsItem.downVotes),
-                iconWithValueRow(Icons.comment, newsItem.commentCount),
+                IconWithValueRow(Icons.thumb_up, newsItem.upVotes),
+                IconWithValueRow(Icons.thumb_down, newsItem.downVotes),
+                IconWithValueRow(Icons.comment, newsItem.commentCount),
               ],
             ),
           ),
@@ -81,7 +81,7 @@ Widget steamBranchItemTilePresenter(
       : DateFormat(UIConstants.dateTimeFormat).format(
           branch.lastUpdate.toLocal(),
         );
-  return flatCard(
+  return FlatCard(
     child: ListTile(
       title: Text(
         branch.name,

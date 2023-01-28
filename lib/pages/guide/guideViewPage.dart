@@ -72,7 +72,7 @@ class GuideViewPage extends StatelessWidget {
         guideContent.userName!.isNotEmpty) {
       sectionWidgets.add(textItem(guideContent.userName!));
     }
-    sectionWidgets.add(flatCard(
+    sectionWidgets.add(FlatCard(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12),
         child: Row(
@@ -83,8 +83,8 @@ class GuideViewPage extends StatelessWidget {
             //   guideContent.likes,
             //   colour: getPrimaryColour(context),
             // ),
-            iconWithValueRow(Icons.thumb_up, guideContent.likes),
-            iconWithValueRow(Icons.remove_red_eye, guideContent.views),
+            IconWithValueRow(Icons.thumb_up, guideContent.likes),
+            IconWithValueRow(Icons.remove_red_eye, guideContent.views),
           ],
         ),
       ),

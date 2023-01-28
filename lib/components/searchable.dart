@@ -128,11 +128,10 @@ class SearchableWidget<T> extends State<Searchable<T>> {
           widget.firstListItemWidget != null) {
         return Column(
           children: [
-            searchBar(
-              context,
-              controller,
-              widget.hintText,
-              onSearchTextChanged,
+            SearchBar(
+              controller: controller,
+              hintText: widget.hintText,
+              onSearchTextChanged: onSearchTextChanged,
             ),
             widget.firstListItemWidget!,
             Expanded(
@@ -151,7 +150,11 @@ class SearchableWidget<T> extends State<Searchable<T>> {
     List<Widget> columnWidgets = List.empty(growable: true);
     if (_listResults.length > widget.minListForSearch) {
       columnWidgets.add(
-        searchBar(context, controller, widget.hintText, onSearchTextChanged),
+        SearchBar(
+          controller: controller,
+          hintText: widget.hintText,
+          onSearchTextChanged: onSearchTextChanged,
+        ),
       );
     }
 
@@ -202,7 +205,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
         additionalWidgets.add(deleteAllButton(context));
       }
       if (widget.addFabPadding ?? false) {
-        additionalWidgets.add(emptySpace10x());
+        additionalWidgets.add(const EmptySpace10x());
       }
       if (widget.lastListItemWidget != null) {
         additionalWidgets.add(widget.lastListItemWidget!);

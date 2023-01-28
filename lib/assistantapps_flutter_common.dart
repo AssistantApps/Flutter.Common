@@ -1,6 +1,8 @@
 library assistantapps_flutter_common;
 
 // Components
+export './components/adaptive/appBar.dart';
+export './components/adaptive/appBarForSubPage.dart';
 export './components/adaptive/bottomModal.dart';
 export './components/adaptive/button.dart';
 export './components/adaptive/checkbox.dart';

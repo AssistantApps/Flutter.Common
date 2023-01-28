@@ -104,7 +104,7 @@ Widget formBoolInput(
         mainAxisAlignment:
             isMobile ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: [
-          adaptiveCheckbox(
+          AdaptiveCheckbox(
             value: value,
             onChanged: onChange,
           ),

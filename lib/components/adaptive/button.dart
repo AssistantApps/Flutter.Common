@@ -2,6 +2,45 @@ import 'package:flutter/material.dart';
 
 import '../../integration/dependencyInjection.dart';
 
+class BaseButton extends StatelessWidget {
+  final String title;
+  final String? eventString;
+  final EdgeInsets? padding;
+  final Size? minimumSize;
+  final Color backgroundColour;
+  final Color foregroundColour;
+  final void Function()? onTap;
+
+  const BaseButton({
+    Key? key,
+    required this.title,
+    this.eventString,
+    this.padding,
+    this.minimumSize,
+    required this.backgroundColour,
+    required this.foregroundColour,
+    this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    Text textWidget = Text(title, textAlign: TextAlign.center);
+    return ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(backgroundColour),
+        foregroundColor: MaterialStateProperty.all<Color>(
+          foregroundColour,
+        ),
+        minimumSize: MaterialStateProperty.all<Size?>(minimumSize),
+      ),
+      onPressed: (onTap != null) ? onTap : null,
+      child: padding != null
+          ? Padding(padding: padding!, child: textWidget)
+          : textWidget,
+    );
+  }
+}
+
 class PositiveButton extends StatelessWidget {
   final String title;
   final String? eventString;
@@ -24,43 +63,47 @@ class PositiveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Text textWidget = Text(title, textAlign: TextAlign.center);
-    return ElevatedButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(
+    return BaseButton(
+      title: title,
+      eventString: eventString,
+      padding: padding,
+      minimumSize: minimumSize,
+      backgroundColour:
           backgroundColour ?? getTheme().buttonBackgroundColour(context),
-        ),
-        foregroundColor: MaterialStateProperty.all<Color>(
+      foregroundColour:
           foregroundColour ?? getTheme().buttonForegroundColour(context),
-        ),
-        minimumSize: MaterialStateProperty.all<Size?>(minimumSize),
-      ),
-      onPressed: (onTap != null) ? onTap : null,
-      child: padding != null
-          ? Padding(padding: padding!, child: textWidget)
-          : textWidget,
+      onTap: onTap,
     );
   }
 }
 
-Widget positiveIconButton(
-  Color colour, {
-  required IconData icon,
-  EdgeInsets? padding,
-  Function()? onPress,
-}) =>
-    ElevatedButton(
+class PositiveIconButton extends StatelessWidget {
+  final Color colour;
+  final IconData icon;
+  final EdgeInsets? padding;
+  final void Function()? onPress;
+
+  const PositiveIconButton({
+    Key? key,
+    required this.icon,
+    required this.colour,
+    this.padding,
+    this.onPress,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(colour),
       ),
-      onPressed: (onPress != null) ? onPress : null,
-      child: padding == null
-          ? Icon(icon)
-          : Padding(
-              padding: padding,
-              child: Icon(icon),
-            ),
+      onPressed: onPress,
+      child: padding != null
+          ? Padding(padding: padding!, child: Icon(icon))
+          : Icon(icon),
     );
+  }
+}
 
 class NegativeButton extends StatelessWidget {
   final String title;
@@ -80,21 +123,17 @@ class NegativeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Text textWidget = Text(title, textAlign: TextAlign.center);
-    return ElevatedButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(backgroundColour),
-        foregroundColor: MaterialStateProperty.all<Color>(
-          getTheme().getH1Colour(context),
-        ),
-      ),
-      onPressed: (onTap != null) ? onTap : null,
-      child: padding != null
-          ? Padding(padding: padding!, child: textWidget)
-          : textWidget,
+    return BaseButton(
+      title: title,
+      eventString: eventString,
+      padding: padding,
+      backgroundColour: backgroundColour,
+      foregroundColour: getTheme().getH1Colour(context),
+      onTap: onTap,
     );
   }
 }
+
 
 Widget disabledButton({required String title}) => ElevatedButton(
       onPressed: null,

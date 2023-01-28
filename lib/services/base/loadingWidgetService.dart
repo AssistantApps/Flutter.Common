@@ -56,10 +56,10 @@ class LoadingWidgetService implements ILoadingWidgetService {
     return Center(
       child: Column(
         children: [
-          localImage(
-            AppImage.error,
+          const LocalImage(
+            imagePath: AppImage.error,
             width: 500,
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
             imagePackage: UIConstants.commonPackage,
           ),
           Text(

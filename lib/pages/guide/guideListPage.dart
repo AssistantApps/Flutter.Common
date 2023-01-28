@@ -79,7 +79,7 @@ class _GuideListWidget extends State<GuideListPage> {
                       AppImage.authSVG,
                       package: UIConstants.commonPackage,
                     ),
-                    genericItemDescription(
+                    GenericItemDescription(
                       getTranslations().fromKey(LocaleKey.loginRequiredMessage),
                     ),
                   ],
@@ -134,11 +134,14 @@ class _GuideListWidget extends State<GuideListPage> {
   Widget getBody(GuideDraftModel draftModel, String searchObjHash) {
     List<Widget> columnWidgets = List.empty(growable: true);
     columnWidgets.add(
-      searchBar(context, TextEditingController(), null, (String search) {
-        setState(() {
-          searchObj = searchObj.copyWith(name: search);
-        });
-      }),
+      SearchBar(
+        controller: TextEditingController(),
+        onSearchTextChanged: (String search) {
+          setState(() {
+            searchObj = searchObj.copyWith(name: search);
+          });
+        },
+      ),
     );
     columnWidgets.add(Expanded(
       child: PaginationSearchableList<GuideSearchResultViewModel>(

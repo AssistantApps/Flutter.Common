@@ -21,10 +21,10 @@ Widget guideTilePresenter(
 }) {
   // Widget imageWidget =
   //     (guide.imageUrl == null || guide.imageUrl.length < 5)
-  //         ? localImage(AppImage.error1, boxfit: BoxFit.fitWidth)
-  //         : networkImage(post.coverImageUrl, boxfit: BoxFit.fitWidth);
-  Widget imageWidget = localImage(
-    getPath().defaultGuideImage,
+  //         ? LocalImage(imagePath: AppImage.error1, boxfit: BoxFit.fitWidth)
+  //         : ImageFromNetwork(imageUrl:post.coverImageUrl, boxfit: BoxFit.fitWidth);
+  Widget imageWidget = LocalImage(
+    imagePath: getPath().defaultGuideImage,
     imagePackage: UIConstants.commonPackage,
   );
 
@@ -78,8 +78,8 @@ Widget guideTilePresenter(
       ),
     ],
   );
-  return wrapInCommonCard(
-    bodyWidget,
+  return WrapInCommonCard(
+    child: bodyWidget,
     onTap: () async => await getNavigation().navigateAsync(
       context,
       navigateTo: (context) => GuideViewPage(guideContentGuid: guide.guid),
@@ -113,9 +113,10 @@ Widget draftGuideTilePresenter(
   }
   Column child = Column(
     children: <Widget>[
-      localImage(
-        // guide.image == null
-        getPath().defaultGuideImage,
+      LocalImage(
+        imagePath:
+            // guide.image == null
+            getPath().defaultGuideImage,
       ),
       Padding(
         padding: const EdgeInsets.only(top: 8),
@@ -152,30 +153,29 @@ Widget draftGuideTilePresenter(
           isEdit: false,
         ),
       );
-  return wrapInCommonCard(
-    Stack(
+  return WrapInCommonCard(
+    onTap: editFunc,
+    child: Stack(
       children: [
         child,
         Positioned(
           top: 0,
           right: 0,
-          child: iconBackgroundCover(
-            context,
-            popupMenu(
+          child: IconBackgroundCover(
+            backgroundColour: getTheme().getCardBackgroundColour(context),
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(10),
+            ),
+            child: popupMenu(
                   context,
                   iconColour: Colors.white,
                   onEdit: editFunc,
                   onDelete: onDelete,
                 ) ??
                 Container(),
-            backgroundColour: getTheme().getCardBackgroundColour(context),
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(10),
-            ),
           ),
         ),
       ],
     ),
-    onTap: editFunc,
   );
 }

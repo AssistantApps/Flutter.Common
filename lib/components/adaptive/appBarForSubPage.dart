@@ -26,43 +26,22 @@ class AppBarForSubPage extends StatelessWidget
         super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-      _appBarForAndroid(context, title, actions, shortcutActions);
+  Widget build(BuildContext context) {
+    IconButton? leadingWidget = showBackAction
+        ? IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () async =>
+                await getNavigation().navigateBackOrHomeAsync(context),
+          )
+        : null;
 
-  Widget _appBarForAndroid(context, Widget? title, List<ActionItem> actions,
-      List<ActionItem>? shortcutActions) {
-    List<Widget> actionWidgets = List.empty(growable: true);
-    return adaptiveAppBar(context, title, actionWidgets,
-        leading: showBackAction
-            ? IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () async =>
-                    await getNavigation().navigateBackOrHomeAsync(context),
-              )
-            : null);
+    return AdaptiveAppBar(
+      title: title,
+      actions: List.empty(),
+      leading: leadingWidget,
+    );
   }
 
   @override
   bool shouldFullyObstruct(BuildContext context) => true;
-}
-
-PreferredSizeWidget adaptiveAppBarForSubPageHelper(
-  context, {
-  Widget? title,
-  List<ActionItem>? actions,
-  List<ActionItem>? shortcutActions,
-  bool showHomeAction = false,
-  bool showBackAction = true,
-}) {
-  if (actions == null || actions.isEmpty) {
-    actions = List.empty(growable: true);
-  }
-  if (showHomeAction) {
-    actions.add(ActionItem(
-        icon: Icons.home,
-        onPressed: () async =>
-            await getNavigation().navigateHomeAsync(context)));
-  }
-  return AppBarForSubPage(
-      title, actions, showHomeAction, showBackAction, shortcutActions);
 }

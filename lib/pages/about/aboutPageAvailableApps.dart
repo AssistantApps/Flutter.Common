@@ -52,17 +52,18 @@ class AboutPageAvailableApps extends StatelessWidget {
       whenDoneLoading: (List<AssistantAppsLinkViewModel> assistantAppLinks) {
         List<Widget> widgets = List.empty(growable: true);
 
-        widgets.add(emptySpace1x());
+        widgets.add(const EmptySpace1x());
         widgets.add(
-          localImage(
-            '${AppImage.base}${AppImage.assistantApps}',
+          const LocalImage(
+            imagePath: '${AppImage.base}${AppImage.assistantApps}',
             imagePackage: UIConstants.commonPackage,
             height: 75,
           ),
         );
-        widgets.add(genericItemName(
-            getTranslations().fromKey(LocaleKey.assistantApps)));
-        widgets.add(genericItemDescription(
+        widgets.add(GenericItemName(
+          getTranslations().fromKey(LocaleKey.assistantApps),
+        ));
+        widgets.add(const GenericItemDescription(
           'This app is part of the AssistantApps range',
         ));
 
@@ -101,7 +102,7 @@ class AboutPageAvailableApps extends StatelessWidget {
           widgets.add(
             assistantAppLinkPresenter(context, appLinkVm, platforms, popups),
           );
-          widgets.add(emptySpace1x());
+          widgets.add(const EmptySpace1x());
         }
 
         widgets.add(
@@ -114,7 +115,7 @@ class AboutPageAvailableApps extends StatelessWidget {
             ),
           ),
         );
-        widgets.add(emptySpace(1));
+        widgets.add(const EmptySpace(1));
 
         return ListView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
