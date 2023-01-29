@@ -10,7 +10,7 @@ Widget? asyncSnapshotHandler<T>(
   Widget Function()? invalidBuilder,
   Widget Function()? loader,
 }) {
-  Widget errorWidget = getLoading().customErrorWidget(context);
+  Widget? errorWidget = getLoading().customErrorWidget(context);
   switch (snapshot.connectionState) {
     case ConnectionState.none:
       return errorWidget;

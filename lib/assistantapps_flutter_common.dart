@@ -26,6 +26,8 @@ export './components/common/newBanner.dart';
 export './components/common/percent.dart';
 export './components/common/space.dart';
 export './components/common/text.dart';
+export './components/desktop/window_buttons.dart';
+export './components/desktop/window_title_bar.dart';
 export './components/forms/starRating.dart';
 export './components/forms/textInput.dart';
 export './components/feedback/feedback_options.dart';

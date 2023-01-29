@@ -71,7 +71,7 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
               additionalContentTextController: TextEditingController(),
             ));
           });
-          Navigator.of(innerContext).pop();
+          getNavigation().pop(innerContext);
         },
       ),
     );
@@ -99,7 +99,7 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
             });
             return;
           }
-          Navigator.of(context).pop(_section);
+          getNavigation().pop(context, _section);
         },
       ),
     );

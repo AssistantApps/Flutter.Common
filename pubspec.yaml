@@ -26,11 +26,12 @@ dependencies:
   animated_background: 2.0.0
   auth_buttons: 3.0.0
   badges: 3.0.2
+  bitsdojo_window: 0.1.5
   breakpoint: 1.2.0
   cached_network_image: 3.2.2
   collection: 1.17.0
   country_icons: 2.0.2
-  dotted_border: 2.0.0+2
+  dotted_border: 2.0.0+3
   dropdown_button2: 1.9.2
   enum_to_string: 2.0.1
   extended_masked_text: 2.3.1
