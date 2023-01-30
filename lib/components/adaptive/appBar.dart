@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+import '../../helpers/colourHelper.dart';
 import '../../integration/dependencyInjection.dart';
 
 class AdaptiveAppBar extends StatelessWidget {
@@ -26,6 +28,9 @@ class AdaptiveAppBar extends StatelessWidget {
       backgroundColor: getTheme().getPrimaryColour(context),
       foregroundColor: getTheme().getTextColour(context),
       bottom: bottom,
+      systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
+        statusBarColor: darken(getTheme().getPrimaryColour(context), 0.08),
+      ),
     );
   }
 }
