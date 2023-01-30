@@ -4,6 +4,8 @@ import '../../assistantapps_flutter_common.dart';
 import '../../constants/AppImage.dart';
 
 class AboutPageTeam extends StatelessWidget {
+  const AboutPageTeam({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     List<Widget> widgets = List.empty(growable: true);
@@ -13,7 +15,7 @@ class AboutPageTeam extends StatelessWidget {
         context,
         imageUrl: AppImage.teamPictureUrlKhaozTopsy,
         name: 'KhaozTopsy',
-        subtitle: Text('Full Stack Developer'),
+        subtitle: const Text('Full Stack Developer'),
       ),
     );
     widgets.add(
@@ -21,7 +23,7 @@ class AboutPageTeam extends StatelessWidget {
         context,
         imageUrl: AppImage.teamPictureUrlRobo,
         name: 'Robo',
-        subtitle: Text('App Developer'),
+        subtitle: const Text('App Developer'),
       ),
     );
     widgets.add(
@@ -29,7 +31,7 @@ class AboutPageTeam extends StatelessWidget {
         context,
         imageUrl: AppImage.teamPictureUrlLilo,
         name: 'LionessLilo',
-        subtitle: Text('Graphic Designer'),
+        subtitle: const Text('Graphic Designer'),
       ),
     );
     widgets.add(
@@ -37,7 +39,7 @@ class AboutPageTeam extends StatelessWidget {
         context,
         imageUrl: AppImage.teamPictureUrlSphynxcolt,
         name: 'Sphynxcolt',
-        subtitle: Text('Discord Admin'),
+        subtitle: const Text('Discord Admin'),
       ),
     );
     widgets.add(
@@ -45,7 +47,7 @@ class AboutPageTeam extends StatelessWidget {
         context,
         imageUrl: AppImage.teamPictureUrlLenni,
         name: 'Lenni',
-        subtitle: Text('German Translator | Bug finder | NMS Expert'),
+        subtitle: const Text('German Translator | Bug finder | NMS Expert'),
       ),
     );
     widgets.add(
@@ -53,14 +55,14 @@ class AboutPageTeam extends StatelessWidget {
         context,
         imageUrl: AppImage.teamPictureUrlCyberpunk,
         name: 'Cyberpunk2350',
-        subtitle:
-            Text('Moderator | NMS Dataminer | Keeper of Obscure Knowledge'),
+        subtitle: const Text(
+            'Moderator | NMS Dataminer | Keeper of Obscure Knowledge'),
       ),
     );
-    widgets.add(emptySpace(1));
+    widgets.add(const EmptySpace(1));
 
     return ListView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       itemCount: widgets.length,
       itemBuilder: (_, int index) => widgets[index],
       shrinkWrap: true,

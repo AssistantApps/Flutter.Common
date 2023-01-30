@@ -1,8 +1,8 @@
 enum SignalRSendEvent {
-  JoinOAuthGroup,
-  LeaveOAuthGroup,
+  joinOAuthGroup,
+  leaveOAuthGroup,
 }
 
 enum SignalRReceiveEvent {
-  OAuthComplete,
+  oAuthComplete,
 }

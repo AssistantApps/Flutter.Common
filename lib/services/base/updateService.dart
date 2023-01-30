@@ -14,22 +14,25 @@ import '../../integration/dependencyInjection.dart';
 import './interface/IUpdateService.dart';
 
 class UpdateService implements IUpdateService {
+  //
+  @override
   Future<void> checkForUpdate(BuildContext context, String externalUrl) async {
     if (getEnv().isProduction == false) return;
-    ResultWithValue<bool> isOutdatedResult =
-        await this.isOutdatedVersionCheck();
+    ResultWithValue<bool> isOutdatedResult = await isOutdatedVersionCheck();
 
     bool isUpToDate = !isOutdatedResult.value;
     if (isOutdatedResult.hasFailed || isUpToDate) return;
     getLog().i('Update available');
-    this.showUpdateSnackbar(context, externalUrl);
+    // ignore: use_build_context_synchronously
+    showUpdateSnackbar(context, externalUrl);
   }
 
+  @override
   Future<ResultWithValue<bool>> isOutdatedVersionCheck() async {
     ResultWithValue<VersionDetail> versionResult = await getPackageInfo();
     if (versionResult.hasFailed) {
-      getLog().d('Could not get version number from app. ' +
-          versionResult.errorMessage);
+      getLog().d(
+          'Could not get version number from app. ${versionResult.errorMessage}');
       return ResultWithValue<bool>(false, false, versionResult.errorMessage);
     }
 
@@ -68,6 +71,7 @@ class UpdateService implements IUpdateService {
     }
   }
 
+  @override
   Future<ResultWithValue<VersionDetail>> getPackageInfo() async {
     VersionDetail result = VersionDetail(
       buildNumber: '',
@@ -78,7 +82,7 @@ class UpdateService implements IUpdateService {
     ResultWithValue<PackageInfo> versionResult = await currentAppVersion();
     if (versionResult.hasFailed) {
       getLog().d(
-        'Could not get version number from app. ' + versionResult.errorMessage,
+        'Could not get version number from app. ${versionResult.errorMessage}',
       );
       return ResultWithValue<VersionDetail>(
         false,
@@ -115,7 +119,7 @@ class UpdateService implements IUpdateService {
     }
   }
 
-  void showUpdateSnackbar(BuildContext context, String externalUrl) {
+  void showUpdateSnackbar(BuildContext snackCtx, String externalUrl) {
     LocaleKey storeLocale = LocaleKey.appStore;
 
     if (isAndroid) {
@@ -123,9 +127,9 @@ class UpdateService implements IUpdateService {
     }
 
     getSnackbar().showSnackbar(
-      context,
+      snackCtx,
       LocaleKey.updateAvailable,
-      duration: Duration(minutes: 5),
+      duration: const Duration(minutes: 5),
       onPositive: () => launchExternalURL(externalUrl),
       onPositiveText: getTranslations().fromKey(storeLocale),
     );

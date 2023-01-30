@@ -4,22 +4,22 @@ import 'package:storybook_flutter/storybook_flutter.dart';
 List<Option<AssistantAppType>> getAssistantAppTypeOptions() => [
       const Option<AssistantAppType>(
         label: 'Unknown',
-        value: AssistantAppType.Unknown,
+        value: AssistantAppType.unknown,
       ),
       const Option<AssistantAppType>(
         label: 'NMS',
-        value: AssistantAppType.NMS,
+        value: AssistantAppType.nms,
       ),
       const Option<AssistantAppType>(
         label: 'SMS',
-        value: AssistantAppType.SMS,
+        value: AssistantAppType.sms,
       ),
       const Option<AssistantAppType>(
         label: 'DKM',
-        value: AssistantAppType.DKM,
+        value: AssistantAppType.dkm,
       ),
       const Option<AssistantAppType>(
         label: 'KGZ',
-        value: AssistantAppType.KGZ,
+        value: AssistantAppType.kgz,
       ),
     ];

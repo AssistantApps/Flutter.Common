@@ -8,6 +8,8 @@ import '../../integration/dependencyInjection.dart';
 import '../dialog/optionsListPageDialog.dart';
 
 class LanguageSelectionPageContent extends StatelessWidget {
+  const LanguageSelectionPageContent({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     List<LocalizationMap> supportedLanguageMaps =
@@ -31,13 +33,13 @@ class LanguageSelectionPageContent extends StatelessWidget {
         int index, {
         void Function()? onTap,
       }) {
-        LocalizationMap supportedLang =
-            supportedLanguageMaps.firstWhere((sl) => sl.code == opt.value);
+        LocalizationMap supportedLang = supportedLanguageMaps //
+            .firstWhere((sl) => sl.code == opt.value);
         return languageTilePresenter(
           innerC,
           opt.title,
           supportedLang.countryCode,
-          onTap: () => Navigator.of(context).pop(opt.value),
+          onTap: () => getNavigation().pop(context, opt.value),
         );
       },
     );

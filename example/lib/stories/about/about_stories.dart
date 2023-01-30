@@ -16,7 +16,7 @@ List<Story> getAboutStories() {
         key: Key(context.knobs.toString()),
         appType: context.knobs.options(
           label: 'AppType',
-          initial: AssistantAppType.Unknown,
+          initial: AssistantAppType.unknown,
           options: getAssistantAppTypeOptions(),
         ),
       ),
@@ -24,12 +24,13 @@ List<Story> getAboutStories() {
     Story(
       name: StorybookNames.aboutPageContent,
       description: 'First tab of the about page',
-      builder: (context) => AboutPageAvailableApps(AssistantAppType.Unknown),
+      builder: (context) =>
+          const AboutPageAvailableApps(AssistantAppType.unknown),
     ),
     Story(
       name: StorybookNames.aboutTeamPage,
       description: 'Lists the Team members',
-      builder: (context) => AboutPageTeam(),
+      builder: (context) => const AboutPageTeam(),
     ),
     Story(
       name: StorybookNames.aboutPageCustom,
@@ -38,7 +39,7 @@ List<Story> getAboutStories() {
         key: Key(context.knobs.toString()),
         appType: context.knobs.options(
           label: 'AppType',
-          initial: AssistantAppType.Unknown,
+          initial: AssistantAppType.unknown,
           options: getAssistantAppTypeOptions(),
         ),
         aboutPageWidgetsFunc: (innerCtx) => [

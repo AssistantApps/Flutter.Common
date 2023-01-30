@@ -11,10 +11,11 @@ class WhatIsNewPage extends StatelessWidget {
 
   WhatIsNewPage(
     this.analyticsKey, {
+    Key? key,
     required this.selectedLanguage,
     this.overriddenPlatforms,
     this.additionalBuilder,
-  }) {
+  }) : super(key: key) {
     getAnalytics().trackEvent(analyticsKey);
   }
 
@@ -30,9 +31,9 @@ class WhatIsNewPage extends StatelessWidget {
       ),
       body: WhatIsNewPageComponent(
         currentWhatIsNewGuid,
-        this.selectedLanguage,
+        selectedLanguage,
         overriddenPlatforms ?? getPlatforms(),
-        smallLoadMorePageButton(context),
+        const SmallLoadMorePageButton(),
         (version) async => await getNavigation().navigateAsync(
           context,
           navigateTo: (context) => WhatIsNewDetailPage(

@@ -19,7 +19,6 @@ class ResponsiveListDetailView<T> extends StatefulWidget {
   final bool Function(T, String) listItemSearch;
   final void Function()? deleteAll;
   final int minListForSearch;
-  final Key? key;
   final String? hintText;
   final String? loadingText;
   final bool addFabPadding;
@@ -28,7 +27,7 @@ class ResponsiveListDetailView<T> extends StatefulWidget {
     this.listGetter,
     this.listItemDisplayer,
     this.listItemSearch, {
-    this.key,
+    Key? key,
     this.firstListItemWidget,
     this.listItemMobileOnTap,
     this.listItemDesktopOnTap,
@@ -40,13 +39,12 @@ class ResponsiveListDetailView<T> extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ResponsiveListDetailWidget<T> createState() =>
-      _ResponsiveListDetailWidget<T>();
+  createState() => _ResponsiveListDetailWidget<T>();
 }
 
 class _ResponsiveListDetailWidget<T>
     extends State<ResponsiveListDetailView<T>> {
-  Key detailViewKey = Key('Initial');
+  Key detailViewKey = const Key('Initial');
   Widget detailView = Center(child: getLoading().smallLoadingIndicator());
   _ResponsiveListDetailWidget();
 
@@ -66,7 +64,7 @@ class _ResponsiveListDetailWidget<T>
   }
 
   void updateDetailView(Widget newDetailView) {
-    this.setState(() {
+    setState(() {
       detailViewKey = Key(DateTime.now().millisecondsSinceEpoch.toString());
       detailView = newDetailView;
     });
@@ -82,9 +80,9 @@ class _ResponsiveListDetailWidget<T>
         Future<ResultWithValue<List<T>>> interceptedListGetter() async {
           ResultWithValue<List<T>> actualResult = await widget.listGetter();
           if (actualResult.isSuccess &&
-              actualResult.value.length > 0 &&
+              actualResult.value.isNotEmpty &&
               flexData.isMobile == false) {
-            this.setState(() {
+            setState(() {
               detailViewKey =
                   Key(DateTime.now().millisecondsSinceEpoch.toString());
               detailView = widget.listItemDesktopOnTap!(

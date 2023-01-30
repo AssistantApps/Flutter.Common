@@ -20,7 +20,7 @@ class SteamApiService extends BaseApiService implements ISteamApiService {
       AssistantAppType appType) async {
     try {
       String url = ApiUrls.steamNews + EnumToString.convertToString(appType);
-      final response = await this.apiGet(url);
+      final response = await apiGet(url);
       if (response.hasFailed) {
         return ResultWithValue<List<SteamNewsItemViewModel>>(
             false, List.empty(growable: true), response.errorMessage);
@@ -42,7 +42,7 @@ class SteamApiService extends BaseApiService implements ISteamApiService {
     try {
       String url =
           ApiUrls.steamBranches + EnumToString.convertToString(appType);
-      final response = await this.apiGet(url);
+      final response = await apiGet(url);
       if (response.hasFailed) {
         return ResultWithValue<List<SteamBranchesViewModel>>(
             false, List.empty(growable: true), response.errorMessage);

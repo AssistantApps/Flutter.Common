@@ -23,12 +23,7 @@ Widget Function(
   String versionGuid,
   void Function(VersionViewModel) onTap,
 ) {
-  Widget Function(
-    BuildContext,
-    VersionViewModel,
-    int index,
-    int totalRows,
-  ) presenter = (
+  presenter(
     BuildContext context,
     VersionViewModel version,
     int index,
@@ -53,24 +48,27 @@ Widget Function(
         name: getTranslations()
             .fromKey(LocaleKey.release)
             .replaceAll('{0}', version.buildName),
-        subtitle: genericEllipsesText(dateToDisplay),
-        trailing: Icon(Icons.chevron_right),
-        onTap: () => onTap(version),
+        subtitle: GenericEllipsesText(dateToDisplay),
+        trailing: const Icon(Icons.chevron_right),
       ),
       hideTopConnector: index == 0,
       hideBottomConnector: index == totalRows,
       customIndicatorIcon: iconToDisplay,
     );
 
-    Widget paddedChild = Padding(
-      padding: EdgeInsets.only(left: 12, right: 12),
-      child: child,
+    Widget paddedChild = InkWell(
+      onTap: () => onTap(version),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 12, right: 12),
+        child: child,
+      ),
     );
     if (version.guid.toLowerCase() == versionGuid.toLowerCase()) {
-      return wrapInNewBanner(context, LocaleKey.current, paddedChild);
+      return WrapInNewBanner(message: LocaleKey.current, child: paddedChild);
     }
     return paddedChild;
-  };
+  }
+
   return presenter;
 }
 
@@ -102,8 +100,8 @@ Widget packageVersionTile(String gameVersion, {Function()? onTap}) {
       }
 
       return ListTile(
-        key: Key('versionNumber'),
-        leading: getCorrectlySizedImageFromIcon(context, Icons.code),
+        key: const Key('versionNumber'),
+        leading: const CorrectlySizedImageFromIcon(icon: Icons.code),
         title: titleWidget,
         subtitle: subtitleWidget,
         onTap: onTap,

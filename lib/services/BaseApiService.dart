@@ -7,14 +7,12 @@ import '../contracts/results/resultWithValue.dart';
 import '../integration/dependencyInjection.dart';
 
 class BaseApiService {
-  late String _baseUrl;
-  BaseApiService(String baseUrl) {
-    _baseUrl = baseUrl;
-  }
+  final String _baseUrl;
+  BaseApiService(this._baseUrl);
 
   Future<ResultWithValue<String>> apiGet(String url,
       {Map<String, String>? headers}) async {
-    return await this.webGet('$_baseUrl/$url', headers: headers);
+    return await webGet('$_baseUrl/$url', headers: headers);
   }
 
   Future<ResultWithValue<String>> webGet(String url,
@@ -49,7 +47,8 @@ class BaseApiService {
       );
       if (response.statusCode != 200) {
         getLog().e('Status Code: ${response.statusCode}.');
-        getLog().e('Not a 200 OK response ${response.body}');
+        getLog().e(
+            'Not a 200 OK response "${response.body}". ${response.toString()}');
         return ResultWithValue<String>(
           false,
           response.body,

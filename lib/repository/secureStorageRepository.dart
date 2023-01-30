@@ -6,7 +6,7 @@ import '../integration/dependencyInjection.dart';
 import './interface/ILocalStorageRepository.dart';
 
 class SecureStorageRepository implements ILocalStorageRepository {
-  FlutterSecureStorage _storage = new FlutterSecureStorage();
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   @override
   Future<Result> saveToStorage(String key, String stateString) async {
@@ -14,7 +14,7 @@ class SecureStorageRepository implements ILocalStorageRepository {
       await _storage.write(key: key, value: stateString);
       return Result(true, '');
     } catch (exception) {
-      getLog().e('saveToStorage. ' + exception.toString());
+      getLog().e('saveToStorage. $exception');
       return Result(false, exception.toString());
     }
   }
@@ -28,7 +28,7 @@ class SecureStorageRepository implements ILocalStorageRepository {
       }
       return ResultWithValue<String>(true, stateString, '');
     } catch (exception) {
-      getLog().e('_loadStringFromStorageCommon. ' + exception.toString());
+      getLog().e('_loadStringFromStorageCommon. $exception');
       return ResultWithValue<String>(false, '', exception.toString());
     }
   }

@@ -12,6 +12,7 @@ class TranslationApiService extends BaseApiService
     implements ITranslationApiService {
   TranslationApiService() : super(getEnv().assistantAppsApiUrl);
 
+  @override
   Future<ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>>
       getTranslationsPerLanguageChart() async {
     var url = ApiUrls.translationsPerLanguageGraph;
@@ -19,7 +20,7 @@ class TranslationApiService extends BaseApiService
       appGuidList: [getEnv().assistantAppsAppGuid],
     );
     try {
-      final response = await this.apiPost(url, data.toRawJson());
+      final response = await apiPost(url, data.toRawJson());
       if (response.hasFailed) {
         return ResultWithValue<List<TranslationsPerLanguageGraphViewModel>>(
             false, List.empty(growable: true), response.errorMessage);

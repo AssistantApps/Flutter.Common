@@ -25,7 +25,7 @@ class BaseJsonService {
 
   Future<dynamic> getJsonFromCommonPackage(context, String jsonFileName) async {
     String jsonString = await DefaultAssetBundle.of(context).loadString(
-        'packages/${UIConstants.CommonPackage}/assets/$jsonFileName.json');
+        'packages/${UIConstants.commonPackage}/assets/$jsonFileName.json');
     return jsonString;
   }
 }

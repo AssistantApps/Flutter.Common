@@ -6,7 +6,8 @@ import '../../helpers/validationHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../adaptive/checkbox.dart';
 
-var textEditingPadding = EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0);
+EdgeInsets textEditingPadding =
+    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0);
 
 Widget formTextInput(
   BuildContext context,
@@ -103,7 +104,7 @@ Widget formBoolInput(
         mainAxisAlignment:
             isMobile ? MainAxisAlignment.center : MainAxisAlignment.start,
         children: [
-          adaptiveCheckbox(
+          AdaptiveCheckbox(
             value: value,
             onChanged: onChange,
           ),

@@ -37,7 +37,7 @@ export './dependencyInjectionApi.dart';
 export './dependencyInjectionBase.dart';
 
 void initAssistantAppsDependencyInjection(
-  AssistantAppsEnvironmentSettings _env, {
+  AssistantAppsEnvironmentSettings env, {
   // Base Services
   ILoggerService? logger,
   IAnalyticsService? analytics,
@@ -71,7 +71,7 @@ void initAssistantAppsDependencyInjection(
   IBackupJsonService? backup,
   IDataJsonService? data,
 }) {
-  GetIt.instance.registerSingleton<AssistantAppsEnvironmentSettings>(_env);
+  GetIt.instance.registerSingleton<AssistantAppsEnvironmentSettings>(env);
 
   // Base
   initAssistantAppsDependencyInjectionForBaseServices(

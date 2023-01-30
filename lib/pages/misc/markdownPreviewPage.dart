@@ -5,11 +5,16 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 class MarkdownPreviewPage extends StatelessWidget {
   final bool showAppBar;
   final String markdownContent;
-  MarkdownPreviewPage(this.markdownContent, {this.showAppBar = false});
+
+  const MarkdownPreviewPage(
+    this.markdownContent, {
+    Key? key,
+    this.showAppBar = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (this.showAppBar) return Markdown(data: this.markdownContent);
+    if (showAppBar) return Markdown(data: markdownContent);
 
     return getBaseWidget().appScaffold(
       context,
@@ -20,7 +25,7 @@ class MarkdownPreviewPage extends StatelessWidget {
           LocaleKey.guideSectionAddMarkdownPreview,
         )),
       ),
-      body: Markdown(data: this.markdownContent),
+      body: Markdown(data: markdownContent),
     );
   }
 }

@@ -21,7 +21,10 @@ class UserApiService extends BaseApiService implements IUserApiService {
       List<String> filename, List<Uint8List> fileToUpload) async {
     // var url = getEnv().assistantAppsApi + ApiUrls.userTempImage;
     // return await this.apiPostFormData(url, fileToUpload);
-    return await this
-        .apiPostFile(ApiUrls.userTempImage, filename, fileToUpload);
+    return await apiPostFile(
+      ApiUrls.userTempImage,
+      filename,
+      fileToUpload,
+    );
   }
 }

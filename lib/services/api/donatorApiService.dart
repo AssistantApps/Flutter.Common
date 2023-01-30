@@ -8,11 +8,12 @@ import './interface/IDonatorApiService.dart';
 class DonatorApiService extends BaseApiService implements IDonatorApiService {
   DonatorApiService() : super(getEnv().assistantAppsApiUrl);
 
+  @override
   Future<PaginationResultWithValue<List<DonationViewModel>>> getDonators(
       {int page = 1}) async {
     String url = '${ApiUrls.donator}?page=$page';
     try {
-      final response = await this.apiGet(url);
+      final response = await apiGet(url);
       if (response.hasFailed) {
         return PaginationResultWithValue<List<DonationViewModel>>(
             false, List.empty(growable: true), 1, 0, response.errorMessage);

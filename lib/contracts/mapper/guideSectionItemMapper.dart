@@ -6,12 +6,12 @@ import '../guide/guideSectionItem.dart';
 extension GuideSectionItemViewModelMapper on GuideSectionItem {
   GuideSectionItemViewModel toViewModel() {
     return GuideSectionItemViewModel(
-      guid: this.guid,
-      type: this.type,
-      content: this.content ?? '',
-      additionalContent: this.additionalContent ?? '',
-      tableColumnNames: this.tableColumnNames ?? List.empty(),
-      tableData: this.tableData ?? List.empty(),
+      guid: guid,
+      type: type,
+      content: content ?? '',
+      additionalContent: additionalContent ?? '',
+      tableColumnNames: tableColumnNames ?? List.empty(),
+      tableData: tableData ?? List.empty(),
     );
   }
 }
@@ -19,15 +19,15 @@ extension GuideSectionItemViewModelMapper on GuideSectionItem {
 extension GuideSectionItemMapper on GuideSectionItemViewModel {
   GuideSectionItem toDomain() {
     return GuideSectionItem(
-      guid: this.guid,
-      type: this.type,
-      content: this.content,
-      contentTextController: TextEditingController(text: this.content),
-      additionalContent: this.additionalContent,
+      guid: guid,
+      type: type,
+      content: content,
+      contentTextController: TextEditingController(text: content),
+      additionalContent: additionalContent,
       additionalContentTextController:
-          TextEditingController(text: this.additionalContent),
-      tableColumnNames: this.tableColumnNames,
-      tableData: this.tableData,
+          TextEditingController(text: additionalContent),
+      tableColumnNames: tableColumnNames,
+      tableData: tableData,
     );
   }
 }

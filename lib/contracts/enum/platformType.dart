@@ -1,28 +1,28 @@
 import '../enum/enumBase.dart';
 
 enum PlatformType {
-  Android,
-  Apple,
-  Web,
-  API,
-  Windows,
-  GithubWindowsInstaller,
+  android,
+  apple,
+  web,
+  api,
+  windows,
+  githubWindowsInstaller,
 }
 
 final platformTypeValues = EnumValues({
-  "0": PlatformType.Android,
-  "1": PlatformType.Apple,
-  "2": PlatformType.Web,
-  "3": PlatformType.API,
-  "4": PlatformType.Windows,
-  "5": PlatformType.GithubWindowsInstaller,
+  "0": PlatformType.android,
+  "1": PlatformType.apple,
+  "2": PlatformType.web,
+  "3": PlatformType.api,
+  "4": PlatformType.windows,
+  "5": PlatformType.githubWindowsInstaller,
 });
 
 final platformTypeToIntValues = EnumValues({
-  PlatformType.Android.toString(): "0",
-  PlatformType.Apple.toString(): "1",
-  PlatformType.Web.toString(): "2",
-  PlatformType.API.toString(): "3",
-  PlatformType.Windows.toString(): "4",
-  PlatformType.GithubWindowsInstaller.toString(): "5",
+  PlatformType.android.toString(): "0",
+  PlatformType.apple.toString(): "1",
+  PlatformType.web.toString(): "2",
+  PlatformType.api.toString(): "3",
+  PlatformType.windows.toString(): "4",
+  PlatformType.githubWindowsInstaller.toString(): "5",
 });

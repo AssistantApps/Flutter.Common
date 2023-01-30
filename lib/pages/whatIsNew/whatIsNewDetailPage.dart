@@ -11,9 +11,10 @@ class WhatIsNewDetailPage extends StatelessWidget {
   WhatIsNewDetailPage(
     this.analyticsKey,
     this.version, {
+    Key? key,
     this.additionalBuilder,
-  }) {
-    getAnalytics().trackEvent(this.analyticsKey);
+  }) : super(key: key) {
+    getAnalytics().trackEvent(analyticsKey);
   }
 
   @override
@@ -23,7 +24,7 @@ class WhatIsNewDetailPage extends StatelessWidget {
       appBar: getBaseWidget().appBarForSubPage(
         context,
         showHomeAction: true,
-        title: Text(this.version.buildName),
+        title: Text(version.buildName),
       ),
       body: WhatIsNewDetailPageComponent(
         getEnv().assistantAppsAppGuid,

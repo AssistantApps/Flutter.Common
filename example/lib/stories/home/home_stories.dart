@@ -19,9 +19,9 @@ List<Story> getHomeStories() {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(
-            children: [
-              emptySpace2x(),
-              const Text(
+            children: const [
+              EmptySpace2x(),
+              Text(
                 'Welcome to the Storybook page of the AssistantApps common library',
                 textAlign: TextAlign.center,
               ),

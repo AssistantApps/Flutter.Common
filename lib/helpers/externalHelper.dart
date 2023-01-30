@@ -7,7 +7,7 @@ Future<void> launchExternalURL(String externalUrl) async {
       Uri.parse(externalUrl),
       mode: LaunchMode.externalApplication,
       webOnlyWindowName: '_blank',
-      webViewConfiguration: WebViewConfiguration(
+      webViewConfiguration: const WebViewConfiguration(
         enableJavaScript: true,
         // forceSafariVC: false,
       ),

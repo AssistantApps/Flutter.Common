@@ -3,12 +3,14 @@ import 'package:badges/badges.dart';
 
 import '../../integration/dependencyInjection.dart';
 
-Widget basicBadge(BuildContext context, String badgeText, Widget child) {
+Widget basicBadge(BuildContext context, String badgeText, Widget? child) {
   return Badge(
     badgeContent: Text(badgeText),
-    badgeColor: getTheme().getSecondaryColour(context),
+    badgeStyle: BadgeStyle(
+      badgeColor: getTheme().getSecondaryColour(context),
+      padding: const EdgeInsets.all(8),
+    ),
     position: BadgePosition.bottomEnd(),
     child: child,
-    padding: EdgeInsets.all(8),
   );
 }

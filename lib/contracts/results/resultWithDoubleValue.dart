@@ -1,10 +1,8 @@
 import './resultWithValue.dart';
 
 class ResultWithDoubleValue<T, K> extends ResultWithValue<T> {
-  late K secondValue;
+  K secondValue;
   ResultWithDoubleValue(
-      bool isSuccess, T value, K secondValue, String errorMessage)
-      : super(isSuccess, value, errorMessage) {
-    this.secondValue = secondValue;
-  }
+      bool isSuccess, T value, this.secondValue, String errorMessage)
+      : super(isSuccess, value, errorMessage);
 }

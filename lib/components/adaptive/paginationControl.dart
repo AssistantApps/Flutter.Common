@@ -5,26 +5,63 @@ import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
 import './button.dart';
 
-Widget paginationControl(BuildContext context, int currentPage, int totalPages,
-        Function() next, Function() prev) =>
-    Row(
+class PaginationControl extends StatelessWidget {
+  final int currentPage;
+  final int totalPages;
+  final void Function() next;
+  final void Function() prev;
+
+  const PaginationControl({
+    Key? key,
+    required this.currentPage,
+    required this.totalPages,
+    required this.next,
+    required this.prev,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         if (currentPage > 1) ...[
-          Center(child: positiveButton(context, title: '<', onPress: prev))
+          Center(child: PositiveButton(title: '<', onTap: prev))
         ],
         if (currentPage < totalPages) ...[
-          Center(child: positiveButton(context, title: '>', onPress: next))
+          Center(child: PositiveButton(title: '>', onTap: next))
         ],
       ],
     );
+  }
+}
 
-Widget smallLoadMorePageButton(BuildContext context) => smallPageButton(context,
-    getTranslations().fromKey(LocaleKey.loadMore), Icons.navigate_next);
+class SmallLoadMorePageButton extends StatelessWidget {
+  const SmallLoadMorePageButton({Key? key}) : super(key: key);
 
-Widget smallPageButton(BuildContext context, String title, IconData icon) {
-  return ListTile(
-    leading: getCorrectlySizedImageFromIcon(context, icon),
-    title: Text(title),
-  );
+  @override
+  Widget build(BuildContext context) {
+    return SmallPageButton(
+      title: getTranslations().fromKey(LocaleKey.loadMore),
+      icon: Icons.navigate_next,
+    );
+  }
+}
+
+class SmallPageButton extends StatelessWidget {
+  final String title;
+  final IconData icon;
+
+  const SmallPageButton({
+    Key? key,
+    required this.title,
+    required this.icon,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: CorrectlySizedImageFromIcon(icon: icon),
+      title: Text(title),
+    );
+  }
 }

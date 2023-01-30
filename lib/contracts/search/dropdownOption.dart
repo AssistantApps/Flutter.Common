@@ -6,13 +6,13 @@ class DropdownOption {
   String? icon;
 
   DropdownOption(this.title, {this.icon, String? value}) {
-    this.value = value ?? this.title;
+    this.value = value ?? title;
   }
 
   DropdownMenuItem<String> toDropdownMenuItem() {
     return DropdownMenuItem<String>(
-      child: Text(this.title),
-      value: this.value,
+      value: value,
+      child: Text(title),
     );
   }
 }

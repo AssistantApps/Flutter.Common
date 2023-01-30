@@ -34,10 +34,10 @@ class GuideSearchViewModel {
 
   factory GuideSearchViewModel.defaultSearch() => GuideSearchViewModel(
         appGuid: getEnv().assistantAppsAppGuid,
-        orderByName: SortDirection.None,
-        orderByDate: SortDirection.None,
-        orderByViews: SortDirection.None,
-        orderByLikes: SortDirection.None,
+        orderByName: SortDirection.none,
+        orderByDate: SortDirection.none,
+        orderByViews: SortDirection.none,
+        orderByLikes: SortDirection.none,
         page: 1,
       );
 

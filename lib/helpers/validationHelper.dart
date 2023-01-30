@@ -6,7 +6,7 @@ import './stringHelper.dart';
 
 OutlineInputBorder getTextFieldValidationBorderColour(
     BuildContext context, List<LocaleKey> errorLocales, bool showValidation) {
-  bool isValid = errorLocales.length > 0 && !showValidation;
+  bool isValid = errorLocales.isNotEmpty && !showValidation;
   return OutlineInputBorder(
     borderSide: BorderSide(
       color: isValid ? getTheme().getSecondaryColour(context) : Colors.red,
@@ -28,7 +28,7 @@ InputDecoration getTextFieldDecoration(
     showValidation,
   );
   return InputDecoration(
-    border: OutlineInputBorder(),
+    border: const OutlineInputBorder(),
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(
         color: getTheme().getPrimaryColour(context),

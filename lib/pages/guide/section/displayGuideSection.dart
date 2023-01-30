@@ -21,7 +21,7 @@ Widget sectionListItem(BuildContext context, String text, List<Widget> widgets,
     ),
     sliver: SliverList(
       delegate: SliverChildBuilderDelegate(
-        (_c, i) => widgets[i],
+        (c, i) => widgets[i],
         childCount: widgets.length,
       ),
     ),
@@ -67,7 +67,7 @@ Widget sectionHeadingItem(BuildContext context, String text,
           textAlign: TextAlign.center,
           maxLines: 5,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 20, color: Colors.white),
+          style: const TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),
       if (popupMenuWidget != null) ...[
@@ -98,32 +98,32 @@ Widget? getSectionItem(BuildContext context, GuideSectionItemViewModel item) {
   }
 }
 
-Widget textListItem(GuideSectionItemViewModel item) => flatCard(
+Widget textListItem(GuideSectionItemViewModel item) => FlatCard(
       child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
         child: Text(
           item.content,
           maxLines: 2000,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
       ),
     );
 
 Widget linkListItem(GuideSectionItemViewModel item) {
-  var onTap = () => launchExternalURL(item.content);
-  return flatCard(
+  onTap() => launchExternalURL(item.content);
+  return FlatCard(
     child: InkWell(
+      onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.all(12),
-        child: Chip(
+        padding: const EdgeInsets.all(12),
+        child: getBaseWidget().appChip(
           label: Text(item.additionalContent ?? ''),
           backgroundColor: Colors.transparent,
-          deleteIcon: Icon(Icons.open_in_new),
+          deleteIcon: const Icon(Icons.open_in_new),
           onDeleted: onTap,
         ),
       ),
-      onTap: onTap,
     ),
   );
 }
@@ -132,7 +132,7 @@ Widget imageListItem(context, GuideSectionItemViewModel item) {
   String imagePath = item.content;
 
   return InkWell(
-    child: flatCard(child: networkImage(imagePath)),
+    child: FlatCard(child: ImageFromNetwork(imageUrl: imagePath)),
     // onTap: () async {
     //   await navigateAsync(
     //     context,
@@ -143,10 +143,10 @@ Widget imageListItem(context, GuideSectionItemViewModel item) {
 }
 
 Widget markdownListItem(GuideSectionItemViewModel item) {
-  return flatCard(
+  return FlatCard(
     child: Padding(
-      child: MarkdownBody(data: item.content),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+      child: MarkdownBody(data: item.content),
     ),
   );
 }
@@ -175,19 +175,19 @@ Widget tableListItem(context, GuideSectionItemViewModel item) {
   //   rows.add(TableRow(children: rowChildren));
   // }
 
-  return flatCard(
+  return FlatCard(
     child: Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Table(
         children: rows,
         border:
             TableBorder.all(width: 1, color: getTheme().getH1Colour(context)),
       ),
-      padding: const EdgeInsets.all(16.0),
     ),
   );
 }
 
-Widget textItem(String text, {TextStyle? style}) => flatCard(
+Widget textItem(String text, {TextStyle? style}) => FlatCard(
       child: ListTile(
         title: Text(
           text,

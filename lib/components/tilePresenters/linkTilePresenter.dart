@@ -10,14 +10,14 @@ Widget linkSettingTilePresenter(
   Function()? onTap,
 }) {
   //
-  void Function() tempOnTap = () {
+  tempOnTap() {
     if (onTap != null) onTap();
-  };
+  }
 
-  return flatCard(
+  return FlatCard(
     child: ListTile(
       leading: icon != null //
-          ? getCorrectlySizedImageFromIcon(context, icon)
+          ? CorrectlySizedImageFromIcon(icon: icon)
           : null,
       title: Text(
         name,

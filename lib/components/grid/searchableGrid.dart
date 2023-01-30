@@ -18,7 +18,6 @@ class SearchableGrid<T> extends StatelessWidget {
   final void Function()? deleteAll;
   final LocaleKey? backupListWarningMessage;
   final int minListForSearch;
-  final Key? key;
   final Widget? firstListItemWidget;
   final bool? keepFirstListItemWidgetVisible;
   final Widget? lastListItemWidget;
@@ -26,13 +25,13 @@ class SearchableGrid<T> extends StatelessWidget {
   final String? loadingText;
   final bool addFabPadding;
 
-  SearchableGrid(
+  const SearchableGrid(
     this.listGetter, {
     this.gridItemSearch,
     this.gridItemDisplayer,
     this.gridItemWithIndexDisplayer,
     this.gridViewColumnCalculator,
-    this.key,
+    Key? key,
     this.firstListItemWidget,
     this.keepFirstListItemWidgetVisible,
     this.lastListItemWidget,
@@ -43,7 +42,7 @@ class SearchableGrid<T> extends StatelessWidget {
     this.addFabPadding = false,
     this.backupListGetter,
     this.backupListWarningMessage,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

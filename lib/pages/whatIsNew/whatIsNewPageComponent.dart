@@ -13,7 +13,7 @@ class WhatIsNewPageComponent extends StatelessWidget {
   final Widget loadMoreItemWidget;
   final void Function(VersionViewModel) onTap;
 
-  WhatIsNewPageComponent(
+  const WhatIsNewPageComponent(
     this.currentWhatIsNewGuid,
     this.selectedLanguage,
     this.platforms,
@@ -31,8 +31,11 @@ class WhatIsNewPageComponent extends StatelessWidget {
         page: page,
       ),
       20,
-      listItemWithIndexDisplayer:
-          versionTilePresenter(context, currentWhatIsNewGuid, onTap),
+      listItemWithIndexDisplayer: versionTilePresenter(
+        context,
+        currentWhatIsNewGuid,
+        onTap,
+      ),
       loadMoreItemWidget: loadMoreItemWidget,
     );
   }

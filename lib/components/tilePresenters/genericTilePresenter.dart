@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/enum/localeKey.dart';
 import '../../helpers/colourHelper.dart';
-import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/badge.dart';
 import '../common/image.dart';
@@ -22,9 +21,9 @@ ListTile genericListTileWithSubtitle(context,
     Function()? onTap,
     Function()? onLongPress}) {
   String title = description != null //
-      ? name + ' - ' + description
+      ? '$name - $description'
       : name;
-  if (title.length == 0) title = ' ';
+  if (title.isEmpty) title = ' ';
 
   return ListTile(
     leading: genericTileImage(
@@ -47,23 +46,26 @@ ListTile genericListTileWithSubtitle(context,
   );
 }
 
-ListTile genericListTileWithSubtitleAndImageCount(BuildContext context,
-    {required Widget leadingImage,
-    int? leadingImageCount,
-    bool? imageGreyScale = false,
-    required String title,
-    Widget? subtitle,
-    int maxLines = 1,
-    String? onTapAnalyticsEvent,
-    String? onLongPressAnalyticsEvent,
-    Widget? trailing,
-    bool? dense,
-    Function()? onTap,
-    Function()? onLongPress}) {
-  var leadingImageWidget = (leadingImageCount != null && leadingImageCount > 0)
-      // ? leadingImage
-      ? basicBadge(context, leadingImageCount.toString(), leadingImage)
-      : leadingImage;
+ListTile genericListTileWithSubtitleAndImageCount(
+  BuildContext context, {
+  required Widget? leadingImage,
+  int? leadingImageCount,
+  bool? imageGreyScale = false,
+  required String title,
+  Widget? subtitle,
+  int maxLines = 1,
+  String? onTapAnalyticsEvent,
+  String? onLongPressAnalyticsEvent,
+  Widget? trailing,
+  bool? dense,
+  Function()? onTap,
+  Function()? onLongPress,
+}) {
+  Widget? leadingImageWidget =
+      (leadingImageCount != null && leadingImageCount > 0)
+          // ? leadingImage
+          ? basicBadge(context, leadingImageCount.toString(), leadingImage)
+          : leadingImage;
   return ListTile(
     leading: leadingImageWidget,
     title: Text(
@@ -141,21 +143,15 @@ ListTile genericListTileWithNetworkImage(context,
     Function()? onTap,
     Function()? onLongPress}) {
   String title = description != null //
-      ? name + ' - ' + description
+      ? '$name - $description'
       : name;
   return ListTile(
-    leading: isWeb
-        ? Image.network(
-            imageUrl,
-            height: 50.0,
-            width: 50.0,
-          )
-        : networkImage(
-            imageUrl,
-            boxfit: BoxFit.contain,
-            height: 50.0,
-            width: 50.0,
-          ),
+    leading: ImageFromNetwork(
+      imageUrl: imageUrl,
+      boxfit: BoxFit.contain,
+      height: 50.0,
+      width: 50.0,
+    ),
     title: Text(
       title,
       maxLines: maxLines,
@@ -186,8 +182,8 @@ Widget? genericTileImage(
   }
 
   String fullPath = '$prefix$leadingImage';
-  Widget child = localImage(
-    fullPath,
+  Widget child = LocalImage(
+    imagePath: fullPath,
     imageHero: imageHero,
     imagePackage: imagePackage,
     borderRadius: borderRadius,
@@ -195,8 +191,8 @@ Widget? genericTileImage(
   if (imageBackgroundColour == null) return child;
 
   Widget container = Container(
-    child: child,
     color: HexColor(imageBackgroundColour),
+    child: child,
   );
   if (borderRadius != null) {
     return ClipRRect(

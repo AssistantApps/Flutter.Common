@@ -1,16 +1,16 @@
 enum SortDirection {
-  None,
-  Asc,
-  Desc,
+  none,
+  asc,
+  desc,
 }
 
 int sortDirectionTypeToInt(SortDirection type) {
   switch (type) {
-    case SortDirection.None:
+    case SortDirection.none:
       return 0;
-    case SortDirection.Asc:
+    case SortDirection.asc:
       return 1;
-    case SortDirection.Desc:
+    case SortDirection.desc:
       return 2;
     default:
       return 0;

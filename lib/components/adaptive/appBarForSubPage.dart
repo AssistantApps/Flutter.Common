@@ -2,66 +2,70 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/misc/actionItem.dart';
+import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';
+import '../common/actionItem.dart';
 import './appBar.dart';
+import 'shortcutActionButton.dart';
 
-class AppBarForSubPage extends StatelessWidget
+class AdaptiveAppBarForSubPage extends StatelessWidget
     implements PreferredSizeWidget, ObstructingPreferredSizeWidget {
   final Widget? title;
   final List<ActionItem> actions;
   final List<ActionItem>? shortcutActions;
   final bool showHomeAction;
   final bool showBackAction;
-  final preferredSize;
-  final bottom;
-  final backgroundColor;
-  static final kMinInteractiveDimensionCupertino = 44.0;
+  @override
+  final Size preferredSize;
+  final PreferredSizeWidget? bottom;
+  final Color? backgroundColor;
+  static const kMinInteractiveDimensionCupertino = 44.0;
 
-  AppBarForSubPage(this.title, this.actions, this.showHomeAction,
-      this.showBackAction, this.shortcutActions,
-      {this.bottom, this.backgroundColor})
-      : preferredSize = Size.fromHeight(
-            kToolbarHeight + (bottom?.preferredSize?.height ?? 0.0)),
-        super();
+  AdaptiveAppBarForSubPage(
+    this.title,
+    this.actions,
+    this.showHomeAction,
+    this.showBackAction,
+    this.shortcutActions, {
+    Key? key,
+    this.bottom,
+    this.backgroundColor,
+  })  : preferredSize = Size.fromHeight(
+            kToolbarHeight + (bottom?.preferredSize.height ?? 0.0)),
+        super(key: key);
 
   @override
-  Widget build(BuildContext context) =>
-      _appBarForAndroid(context, title, actions, shortcutActions);
+  Widget build(BuildContext context) {
+    IconButton? leadingWidget = showBackAction
+        ? IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () async =>
+                await getNavigation().navigateBackOrHomeAsync(context),
+          )
+        : null;
 
-  Widget _appBarForAndroid(context, Widget? title, List<ActionItem> actions,
-      List<ActionItem>? shortcutActions) {
     List<Widget> actionWidgets = List.empty(growable: true);
-    return adaptiveAppBar(context, title, actionWidgets,
-        leading: this.showBackAction
-            ? IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () async =>
-                    await getNavigation().navigateBackOrHomeAsync(context),
-              )
-            : null);
+
+    if (shortcutActions != null && shortcutActions!.isNotEmpty) {
+      actionWidgets.add(
+        ShortcutActionButton(shortcutActions!),
+      );
+    }
+    actionWidgets.addAll(actionItemToAndroidAction(context, actions));
+
+    if (showHomeAction) {
+      actionWidgets.addAll(
+        actionItemToAndroidAction(context, [goHomeAction(context)]),
+      );
+    }
+
+    return AdaptiveAppBar(
+      title: title,
+      actions: actionWidgets,
+      leading: leadingWidget,
+    );
   }
 
   @override
   bool shouldFullyObstruct(BuildContext context) => true;
-}
-
-PreferredSizeWidget adaptiveAppBarForSubPageHelper(
-  context, {
-  Widget? title,
-  List<ActionItem>? actions,
-  List<ActionItem>? shortcutActions,
-  bool showHomeAction = false,
-  bool showBackAction = true,
-}) {
-  if (actions == null || actions.length == 0) {
-    actions = List.empty(growable: true);
-  }
-  if (showHomeAction) {
-    actions.add(ActionItem(
-        icon: Icons.home,
-        onPressed: () async =>
-            await getNavigation().navigateHomeAsync(context)));
-  }
-  return AppBarForSubPage(
-      title, actions, showHomeAction, showBackAction, shortcutActions);
 }

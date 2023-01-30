@@ -23,31 +23,34 @@ import './sectionItemOption.dart';
 class SectionAddEditPage extends StatefulWidget {
   final bool isEdit;
   final GuideSection section;
-  SectionAddEditPage(this.section, {this.isEdit = false});
+
+  const SectionAddEditPage(
+    this.section, {
+    Key? key,
+    this.isEdit = false,
+  }) : super(key: key);
 
   @override
-  _SectionAddEditWidget createState() => _SectionAddEditWidget(
-        section,
-      );
+  // ignore: no_logic_in_create_state
+  createState() => _SectionAddEditWidget(section);
 }
 
 class _SectionAddEditWidget extends State<SectionAddEditPage> {
-  GuideSection _section;
+  final GuideSection _section;
   Widget _optionsMenu = Container();
   //
-  late Map<LocaleKey, List<LocaleKey> Function()> _validationMap;
+  final Map<LocaleKey, List<LocaleKey> Function()> _validationMap = {
+    // LocaleKey.guideName: () =>
+    //     nameValidator(_titleController.text, minLength: 1, maxLength: 50),
+    // LocaleKey.guideSubTitle: () => nameValidator(_subTitleController.text,
+    //     minLength: 10, maxLength: 100),
+    // LocaleKey.guideMinutes: () =>
+    //     numberValidator(_minutesController.text, min: 0, max: 1000),
+    // LocaleKey.guideTags: () => noValidator(),
+  };
   bool _showValidation = false;
 
   _SectionAddEditWidget(this._section) {
-    _validationMap = {
-      // LocaleKey.guideName: () =>
-      //     nameValidator(_titleController.text, minLength: 1, maxLength: 50),
-      // LocaleKey.guideSubTitle: () => nameValidator(_subTitleController.text,
-      //     minLength: 10, maxLength: 100),
-      // LocaleKey.guideMinutes: () =>
-      //     numberValidator(_minutesController.text, min: 0, max: 1000),
-      // LocaleKey.guideTags: () => noValidator(),
-    };
     _optionsMenu = gridWithScrollbar(
       gridViewColumnCalculator: sectionItemCustomColumnCount,
       itemCount: availableSectionTypes.length,
@@ -56,19 +59,19 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
         innerContext,
         availableSectionTypes[index],
         (GuideSectionItemType type) {
-          this.setState(() {
+          setState(() {
             if (_section.items.isEmpty) {
               _section.items = List.empty(growable: true);
             }
             _section.items.add(GuideSectionItem(
-              guid: Uuid().v1(),
+              guid: const Uuid().v1(),
               type: type,
-              sortOrder: this._section.items.length + 1,
+              sortOrder: _section.items.length + 1,
               contentTextController: TextEditingController(),
               additionalContentTextController: TextEditingController(),
             ));
           });
-          Navigator.of(innerContext).pop();
+          getNavigation().pop(innerContext);
         },
       ),
     );
@@ -86,17 +89,17 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
       body: getBody(),
       floatingActionButton: FloatingActionButton(
         heroTag: 'AddEditSection',
-        child: Icon(Icons.check),
         backgroundColor: getTheme().fabColourSelector(context),
         foregroundColor: getTheme().fabForegroundColourSelector(context),
+        child: const Icon(Icons.check),
         onPressed: () {
           if (!_allValidationsPassed()) {
-            this.setState(() {
-              this._showValidation = true;
+            setState(() {
+              _showValidation = true;
             });
             return;
           }
-          Navigator.of(context).pop(_section);
+          getNavigation().pop(context, _section);
         },
       ),
     );
@@ -109,7 +112,12 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
       // bool isMobile = isMobileScreenWidth(breakpoint);
 
       griWidgets.add(
-        ResponsiveGridCol(lg: 12, md: 12, sm: 12, child: emptySpace1x()),
+        ResponsiveGridCol(
+          lg: 12,
+          md: 12,
+          sm: 12,
+          child: const EmptySpace1x(),
+        ),
       );
       griWidgets.add(ResponsiveGridCol(
         xl: 3,
@@ -124,7 +132,7 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
           validator: getValidator(LocaleKey.guideSectionHeading),
           showValidation: _showValidation,
           onChange: (String newValue) {
-            this.setState(() {
+            setState(() {
               _section.heading = newValue;
             });
           },
@@ -135,9 +143,9 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
         griWidgets.add(ResponsiveGridCol(
           lg: 12,
           child: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: Center(
-                child: genericItemName(
+                child: GenericItemName(
               getTranslations().fromKey(LocaleKey.noItems),
             )),
           ),
@@ -154,27 +162,27 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
               _section.items[itemIndex],
               itemIndex,
               (GuideSectionItem newValue) {
-                this.setState(() {
+                setState(() {
                   _section.items[itemIndex] = newValue;
                 });
               },
               onDelete: () {
-                this.setState(() {
+                setState(() {
                   _section.items.removeAt(itemIndex);
                 });
               },
               moveUp: (itemIndex <= 0)
                   ? null
                   : () {
-                      this.setState(() {
+                      setState(() {
                         var itemToMove = _section.items.removeAt(itemIndex);
                         _section.items.insert(itemIndex - 1, itemToMove);
                       });
                     },
-              moveDown: (itemIndex >= (this._section.items.length - 1))
+              moveDown: (itemIndex >= (_section.items.length - 1))
                   ? null
                   : () {
-                      this.setState(() {
+                      setState(() {
                         var itemToMove = _section.items.removeAt(itemIndex);
                         _section.items.insert(itemIndex + 1, itemToMove);
                       });
@@ -188,10 +196,10 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
         lg: 12,
         child: Padding(
           padding: PaddingConstant.listViewPadding,
-          child: positiveIconButton(
-            getTheme().getSecondaryColour(context),
+          child: PositiveIconButton(
             icon: Icons.add,
-            padding: EdgeInsets.all(8),
+            colour: getTheme().getSecondaryColour(context),
+            padding: const EdgeInsets.all(8),
             onPress: () {
               adaptiveBottomModalSheet(
                 context,
@@ -202,7 +210,7 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
         ),
       ));
 
-      griWidgets.add(ResponsiveGridCol(lg: 12, child: emptySpace8x()));
+      griWidgets.add(ResponsiveGridCol(lg: 12, child: const EmptySpace8x()));
       return SingleChildScrollView(
         child: ResponsiveGridRow(children: griWidgets),
       );
@@ -210,11 +218,11 @@ class _SectionAddEditWidget extends State<SectionAddEditPage> {
   }
 
   List<LocaleKey> Function() getValidator(LocaleKey validationKey) {
-    return this._validationMap[validationKey] ?? () => List.empty();
+    return _validationMap[validationKey] ?? () => List.empty();
   }
 
   bool _allValidationsPassed() {
-    for (LocaleKey validationKey in this._validationMap.keys) {
+    for (LocaleKey validationKey in _validationMap.keys) {
       List<LocaleKey> Function() validate = getValidator(validationKey);
       List<LocaleKey> vResult = validate();
       if (vResult.isNotEmpty) return false;

@@ -35,8 +35,11 @@ class VersionViewModel {
         markdown: readStringSafe(json, 'markdown'),
         buildName: readStringSafe(json, 'buildName'),
         buildNumber: readIntSafe(json, 'buildNumber'),
-        platforms: readListSafe(json, 'platforms',
-            (dynamic innerJson) => platformTypeValues.map[innerJson]!),
+        platforms: readListSafe(
+          json,
+          'platforms',
+          (dynamic innerJson) => platformTypeValues.map[innerJson.toString()]!,
+        ),
         activeDate: readDateSafe(json, 'activeDate'),
       );
 }

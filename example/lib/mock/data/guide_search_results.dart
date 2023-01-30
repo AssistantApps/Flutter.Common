@@ -14,7 +14,7 @@ GuideSearchResultViewModel sampleGuide1() => GuideSearchResultViewModel(
       guideDetailGuid: sampleGuideGuidContent1,
       minutes: 20,
       showCreatedByUser: true,
-      status: AdminApprovalStatus.Pending,
+      status: AdminApprovalStatus.pending,
       tags: ['test', 'tag'],
       version: 3,
     );
@@ -32,7 +32,7 @@ GuideSearchResultViewModel sampleGuide2() => GuideSearchResultViewModel(
       guideDetailGuid: sampleGuideGuidContent2,
       minutes: 20,
       showCreatedByUser: true,
-      status: AdminApprovalStatus.Pending,
+      status: AdminApprovalStatus.pending,
       tags: ['test', 'tag'],
       version: 3,
     );

@@ -1,6 +1,9 @@
 import 'package:assistantapps_flutter_common/contracts/misc/actionItem.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/adaptive/checkbox.dart';
+import '../../../components/adaptive/chip.dart';
+
 class IBaseWidgetService {
   Widget appScaffold(
     BuildContext context, {
@@ -14,8 +17,13 @@ class IBaseWidgetService {
   }) =>
       Container();
 
-  Widget appBar(BuildContext context, Widget title, List<Widget> actions,
-          {Widget? leading, PreferredSizeWidget? bottom}) =>
+  Widget appBar(
+    BuildContext context,
+    Widget title,
+    List<Widget> actions, {
+    Widget? leading,
+    PreferredSizeWidget? bottom,
+  }) =>
       Container();
 
   PreferredSizeWidget appBarForSubPage(
@@ -27,4 +35,46 @@ class IBaseWidgetService {
     bool showBackAction = true,
   }) =>
       AppBar();
+
+  Widget appChip({
+    Key? key,
+    String? text,
+    Widget? label,
+    TextStyle? style,
+    EdgeInsets? labelPadding,
+    double? elevation,
+    EdgeInsets? padding,
+    Color? shadowColor,
+    Icon? deleteIcon,
+    void Function()? onDeleted,
+    void Function()? onTap,
+    Color backgroundColor = Colors.white,
+  }) =>
+      AdaptiveChip(
+        key: key,
+        text: text,
+        label: label,
+        style: style,
+        labelPadding: labelPadding,
+        elevation: elevation,
+        padding: padding,
+        shadowColor: shadowColor,
+        deleteIcon: deleteIcon,
+        onDeleted: onDeleted,
+        onTap: onTap,
+        backgroundColor: backgroundColor,
+      );
+
+  Widget adaptiveCheckbox({
+    Key? key,
+    required bool value,
+    required void Function(bool newValue) onChanged,
+    Color? activeColor,
+  }) =>
+      AdaptiveCheckbox(
+        key: key,
+        value: value,
+        onChanged: onChanged,
+        activeColor: activeColor,
+      );
 }

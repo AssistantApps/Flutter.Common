@@ -45,8 +45,11 @@ class AppNoticeViewModel {
         iconUrl: readStringSafe(json, 'iconUrl'),
         externalUrl: readStringSafe(json, 'externalUrl'),
         languageCode: readStringSafe(json, 'languageCode'),
-        platforms: readListSafe(json, 'platforms',
-            (dynamic innerJson) => platformTypeValues.map[innerJson]!),
+        platforms: readListSafe(
+          json,
+          'platforms',
+          (dynamic innerJson) => platformTypeValues.map[innerJson.toString()]!,
+        ),
         isVisible: readBoolSafe(json, 'isVisible'),
         endDate: readDateSafe(json, 'endDate'),
         sortOrder: readIntSafe(json, 'sortOrder'),

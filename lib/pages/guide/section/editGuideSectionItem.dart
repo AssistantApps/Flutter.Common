@@ -35,7 +35,7 @@ Widget getSectionEditItem(BuildContext context, GuideSectionItem item,
     default:
       return Padding(
         key: Key('${item.guid}-padding'),
-        padding: EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         child: Container(),
       );
   }
@@ -63,17 +63,17 @@ List<Widget> getActions(
   List<Widget> widgets = List.empty(growable: true);
   if (moveUp != null) {
     widgets.add(
-      IconButton(icon: Icon(Icons.arrow_upward), onPressed: moveUp),
+      IconButton(icon: const Icon(Icons.arrow_upward), onPressed: moveUp),
     );
   }
   if (moveDown != null) {
     widgets.add(
-      IconButton(icon: Icon(Icons.arrow_downward), onPressed: moveDown),
+      IconButton(icon: const Icon(Icons.arrow_downward), onPressed: moveDown),
     );
   }
   if (onDelete != null) {
     widgets.add(
-      IconButton(icon: Icon(Icons.delete), onPressed: onDelete),
+      IconButton(icon: const Icon(Icons.delete), onPressed: onDelete),
     );
   }
   return widgets;
@@ -89,7 +89,7 @@ Widget textEditItem(
     void Function()? onDelete) {
   return Padding(
     key: Key('${item.guid}-padding'),
-    padding: EdgeInsets.symmetric(vertical: 8),
+    padding: const EdgeInsets.symmetric(vertical: 8),
     child: Column(
       key: Key('${item.guid}-column'),
       children: [
@@ -122,7 +122,7 @@ Widget linkEditItem(
     void Function()? onDelete) {
   return Padding(
     key: Key('${item.guid}-padding'),
-    padding: EdgeInsets.symmetric(vertical: 8),
+    padding: const EdgeInsets.symmetric(vertical: 8),
     child: Column(
       children: [
         getSectionItemHeading(index, getActions(moveUp, moveDown, onDelete)),
@@ -158,16 +158,18 @@ class ImageEditItem extends StatefulWidget {
   final void Function()? moveUp;
   final void Function()? moveDown;
   final void Function()? onDelete;
-  ImageEditItem(
+
+  const ImageEditItem(
     this.item,
     this.index,
     this.onChange,
     this.moveUp,
     this.moveDown,
-    this.onDelete,
-  );
+    this.onDelete, {
+    Key? key,
+  }) : super(key: key);
   @override
-  _ImageEditItemWidget createState() => _ImageEditItemWidget();
+  createState() => _ImageEditItemWidget();
 }
 
 class _ImageEditItemWidget extends State<ImageEditItem> {
@@ -176,41 +178,41 @@ class _ImageEditItemWidget extends State<ImageEditItem> {
 
   @override
   Widget build(BuildContext context) {
-    void Function() imageOnTap = () {
-      this.setState(() {
+    imageOnTap() {
+      setState(() {
         _imageUploading = true;
       });
       adaptiveImageUploadToServer(
         (UploadedImageViewModel imageViewModel) {
-          this.setState(() {
+          setState(() {
             _imageData = imageViewModel;
             _imageUploading = false;
           });
         },
         (_) {
           // Failed
-          this.setState(() {
+          setState(() {
             _imageUploading = false;
           });
         },
       );
-    };
+    }
 
-    Widget imageWidget = placeholderImage(context, onTap: imageOnTap);
+    Widget imageWidget = PlaceholderImage(onTap: imageOnTap);
     UploadedImageViewModel? localImageData = _imageData;
     if ((localImageData != null &&
         localImageData.url.isNotEmpty &&
         localImageData.blurHash != null)) {
-      imageWidget = networkBlurHashImage(
-        localImageData.url,
-        localImageData.blurHash ?? '',
+      imageWidget = NetworkBlurHashImage(
+        imageUrl: localImageData.url,
+        blurHash: localImageData.blurHash ?? '',
         onTap: imageOnTap,
         key: Key('${widget.item.guid}-sectionImage'),
       );
     }
     return Padding(
       key: Key('${widget.item.guid}-padding'),
-      padding: EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
         children: [
           getSectionItemHeading(
@@ -245,7 +247,7 @@ Widget markdownEditItem(
     void Function()? onDelete) {
   return Padding(
     key: Key('${item.guid}-padding'),
-    padding: EdgeInsets.only(top: 8, bottom: 24),
+    padding: const EdgeInsets.only(top: 8, bottom: 24),
     child: Column(
       children: [
         getSectionItemHeading(index, getActions(moveUp, moveDown, onDelete)),
@@ -260,11 +262,10 @@ Widget markdownEditItem(
             ));
           },
         ),
-        positiveButton(
-          context,
+        PositiveButton(
           title: getTranslations()
               .fromKey(LocaleKey.guideSectionAddMarkdownPreview),
-          onPress: () {
+          onTap: () {
             adaptiveBottomModalSheet(
               context,
               builder: (context) => MarkdownPreviewPage(
@@ -283,7 +284,7 @@ Widget tableEditItem(BuildContext context, GuideSectionItem item, int index,
     Function(GuideSectionItem) onChange) {
   List<TextEditingController> controllers =
       item.tableColumnNameTextController ?? List.empty(growable: true);
-  if (controllers.length < 1) {
+  if (controllers.isEmpty) {
     controllers.add(TextEditingController());
     controllers.add(TextEditingController());
   }
@@ -339,17 +340,19 @@ Widget tableEditItem(BuildContext context, GuideSectionItem item, int index,
 
   return Padding(
     key: Key('${item.guid}-padding'),
-    padding: EdgeInsets.symmetric(vertical: 8),
+    padding: const EdgeInsets.symmetric(vertical: 8),
     child: Card(
+      margin: const EdgeInsets.all(0.0),
       child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Table(
           children: rows,
-          border:
-              TableBorder.all(width: 1, color: getTheme().getH1Colour(context)),
+          border: TableBorder.all(
+            width: 1,
+            color: getTheme().getH1Colour(context),
+          ),
         ),
-        padding: const EdgeInsets.all(16.0),
       ),
-      margin: const EdgeInsets.all(0.0),
     ),
   );
 }

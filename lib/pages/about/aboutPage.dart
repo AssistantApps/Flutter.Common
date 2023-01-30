@@ -11,17 +11,17 @@ import './aboutPageAvailableApps.dart';
 import './aboutPageTeam.dart';
 
 class AboutPage extends StatefulWidget {
-  final Key key;
   final AssistantAppType appType;
   final List<Widget> Function(BuildContext context)? aboutPageWidgetsFunc;
-  AboutPage({
-    required this.key,
-    this.appType = AssistantAppType.Unknown,
+
+  const AboutPage({
+    Key? key,
+    this.appType = AssistantAppType.unknown,
     this.aboutPageWidgetsFunc,
   }) : super(key: key);
 
   @override
-  _AboutPageWidget createState() => _AboutPageWidget();
+  createState() => _AboutPageWidget();
 }
 
 class _AboutPageWidget extends State<AboutPage> {
@@ -30,19 +30,19 @@ class _AboutPageWidget extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     List<Widget> options = [
-      getSegmentedControlWithIconOption(
-        Icons.apps_rounded,
-        'AssistantApps',
+      const SegmentedControlWithIconOption(
+        icon: Icons.apps_rounded,
+        text: 'AssistantApps',
       ),
       if (widget.aboutPageWidgetsFunc != null) ...[
-        getSegmentedControlWithIconOption(
-          Icons.help_outline,
-          'This app',
+        const SegmentedControlWithIconOption(
+          icon: Icons.help_outline,
+          text: 'This app',
         ),
       ],
-      getSegmentedControlWithIconOption(
-        Icons.people_alt,
-        'Team',
+      const SegmentedControlWithIconOption(
+        icon: Icons.people_alt,
+        text: 'Team',
       ),
     ];
     return getBaseWidget().appScaffold(
@@ -56,23 +56,20 @@ class _AboutPageWidget extends State<AboutPage> {
         key: Key('currentSelection: $tabSelection'),
         children: <Widget>[
           if (options.length > 1) ...[
-            Container(
-              child: adaptiveSegmentedControl(
-                context,
-                verticalOffset: 8,
-                controlItems: options,
-                currentSelection: tabSelection,
-                onSegmentChosen: (int newTab) => this.setState(() {
-                  this.tabSelection = newTab;
-                }),
-              ),
+            AdaptiveSegmentedControl(
+              verticalOffset: 8,
+              controlItems: options,
+              currentSelection: tabSelection,
+              onSegmentChosen: (int newTab) => setState(() {
+                tabSelection = newTab;
+              }),
             ),
             customDivider(),
           ],
           Column(
             key: Key(widget.appType.toString()),
             mainAxisSize: MainAxisSize.max,
-            children: buildPage(context, this.tabSelection),
+            children: buildPage(context, tabSelection),
           ),
         ],
       ),
@@ -85,7 +82,7 @@ class _AboutPageWidget extends State<AboutPage> {
       if (widget.aboutPageWidgetsFunc != null) ...[
         () => widget.aboutPageWidgetsFunc!(pageContext),
       ],
-      () => [AboutPageTeam()],
+      () => [const AboutPageTeam()],
     ];
   }
 
@@ -97,12 +94,12 @@ class _AboutPageWidget extends State<AboutPage> {
     } //
     catch (ex) {
       return [
-        emptySpace1x(),
+        const EmptySpace1x(),
         Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            genericItemName(getTranslations().fromKey(LocaleKey.noItems)),
+            GenericItemName(getTranslations().fromKey(LocaleKey.noItems)),
           ],
         )
       ];

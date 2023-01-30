@@ -14,8 +14,8 @@ class StorageWithExpiry {
   String toRawJson() => json.encode(toJson());
 
   Map<String, dynamic> toJson() => {
-        "data": this.data,
-        "expiryDateTime": this.expiryDateTime.toIso8601String(),
+        "data": data,
+        "expiryDateTime": expiryDateTime.toIso8601String(),
       };
 
   factory StorageWithExpiry.fromRawJson(String str) =>

@@ -13,13 +13,15 @@ class SteamNewsPage extends StatelessWidget {
   final AssistantAppType appType;
   final Future<ResultWithValue<List<SteamNewsItemViewModel>>> Function(
       BuildContext) backupFunc;
+
   SteamNewsPage(
     this.analyticsKey,
     this.appType, {
+    Key? key,
     this.bottomNavigationBar,
     required this.backupFunc,
-  }) {
-    getAnalytics().trackEvent(this.analyticsKey);
+  }) : super(key: key) {
+    getAnalytics().trackEvent(analyticsKey);
   }
 
   @override
@@ -31,8 +33,8 @@ class SteamNewsPage extends StatelessWidget {
         showHomeAction: true,
         title: Text(getTranslations().fromKey(LocaleKey.steamNews)),
       ),
-      body: SteamNewsListPageComponent(appType, backupFunc: this.backupFunc),
-      bottomNavigationBar: this.bottomNavigationBar,
+      body: SteamNewsListPageComponent(appType, backupFunc: backupFunc),
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 }

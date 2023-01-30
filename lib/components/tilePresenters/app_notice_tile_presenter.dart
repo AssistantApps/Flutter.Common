@@ -2,7 +2,7 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
 Widget appNoticeTile(AppNoticeViewModel notice) {
-  return flatCard(
+  return FlatCard(
     child: Padding(
       padding: const EdgeInsets.all(4),
       child: appNoticeTileCore(notice),
@@ -20,7 +20,7 @@ Widget appNoticeTileCore(AppNoticeViewModel notice) {
   return ListTile(
     leading: ClipRRect(
       borderRadius: UIConstants.tileLeadingBorderRadius,
-      child: networkImage(notice.iconUrl, width: 50.0),
+      child: ImageFromNetwork(imageUrl: notice.iconUrl, width: 50.0),
     ),
     title: Text(notice.name, maxLines: 1),
     subtitle: Text(notice.subtitle, maxLines: 1),

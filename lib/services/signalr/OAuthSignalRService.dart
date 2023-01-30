@@ -4,20 +4,20 @@ import '../../integration/dependencyInjection.dart';
 import '../BaseSignalRService.dart';
 
 class OAuthSignalRService extends BaseSignalRService {
-  OAuthSignalRService() : super(getEnv().assistantAppsApiUrl + '/hubs/oauth');
+  OAuthSignalRService() : super('${getEnv().assistantAppsApiUrl}/hubs/oauth');
 
   Future<Result> connectToAuth(void Function({Exception? error}) onClose) =>
-      this.createConnection(onClose);
+      createConnection(onClose);
 
   void listenToOAuth(void Function(List<Object?>?) onFunc) =>
-      this.addListener(SignalRReceiveEvent.OAuthComplete, onFunc);
+      addListener(SignalRReceiveEvent.oAuthComplete, onFunc);
 
   void removeListenToOAuth() =>
-      this.removeListener(SignalRReceiveEvent.OAuthComplete);
+      removeListener(SignalRReceiveEvent.oAuthComplete);
 
   void joinGroup(String id) =>
-      this.sendPayload(SignalRSendEvent.JoinOAuthGroup, <Object>[id]);
+      sendPayload(SignalRSendEvent.joinOAuthGroup, <Object>[id]);
 
   void leaveGroup(String id) =>
-      this.sendPayload(SignalRSendEvent.LeaveOAuthGroup, [id]);
+      sendPayload(SignalRSendEvent.leaveOAuthGroup, [id]);
 }

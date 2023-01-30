@@ -57,7 +57,7 @@ class GuideContentViewModel {
       languageCode: orig.languageCode,
       minutes: orig.minutes,
       tags: orig.tags,
-      status: AdminApprovalStatus.Pending,
+      status: AdminApprovalStatus.pending,
       dateUpdated: DateTime.now(),
       dateCreated: DateTime.now(),
       sections: orig.sections,
@@ -73,7 +73,7 @@ class GuideContentViewModel {
       languageCode: langCode,
       minutes: 0,
       tags: [],
-      status: AdminApprovalStatus.Pending,
+      status: AdminApprovalStatus.pending,
       dateUpdated: DateTime.now(),
       dateCreated: DateTime.now(),
       sections: [],
@@ -142,7 +142,7 @@ class GuideContentViewModel {
         originalGuideGuid: readStringSafe(json, 'originalGuideGuid'),
         translatorGuid: readStringSafe(json, 'translatorGuid'),
         status: adminApprovalStatusValues.map[readIntSafe(json, 'status')] ??
-            AdminApprovalStatus.Pending,
+            AdminApprovalStatus.pending,
         dateCreated: readDateSafe(json, 'dateCreated'),
         dateUpdated: readDateSafe(json, 'dateUpdated'),
         sections: readListSafe(

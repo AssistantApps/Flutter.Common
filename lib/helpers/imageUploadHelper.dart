@@ -58,7 +58,7 @@ void adaptiveImageUpload({
       FilePickerResult? myFile = await FilePicker.platform.pickFiles(
         type: FileType.image,
       );
-      if (myFile == null || myFile.files.length < 1) {
+      if (myFile == null || myFile.files.isEmpty) {
         getLog().e('pickFiles result is null');
         uploadError('pickFiles result is null');
         return;

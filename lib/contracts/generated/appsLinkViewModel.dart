@@ -37,7 +37,7 @@ class AssistantAppsLinkViewModel {
       AssistantAppsLinkViewModel(
         guid: readStringSafe(json, 'guid'),
         type: assistantAppTypeValues.map[readStringSafe(json, 'type')] ??
-            AssistantAppType.Unknown,
+            AssistantAppType.unknown,
         name: readStringSafe(json, 'name'),
         gameName: readStringSafe(json, 'gameName'),
         iconUrl: readStringSafe(json, 'iconUrl'),

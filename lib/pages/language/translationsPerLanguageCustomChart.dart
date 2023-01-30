@@ -10,6 +10,8 @@ import '../../integration/dependencyInjection.dart';
 import '../../services/api/translationApiService.dart';
 
 class TranslationsPerLanguageCustomChart extends StatelessWidget {
+  const TranslationsPerLanguageCustomChart({Key? key}) : super(key: key);
+
   Widget graphItemDisplayer(
       BuildContext context, TranslationsPerLanguageGraphViewModel item) {
     return ListTile(
@@ -22,16 +24,15 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
       ),
       title: Text(item.name),
       subtitle: Padding(
-        padding: EdgeInsets.only(top: 4.0, bottom: 4.0),
-        child: horizontalProgressBar(
-          context,
-          (item.percentage / 1),
+        padding: const EdgeInsets.only(top: 4.0, bottom: 4.0),
+        child: HorizontalProgressBar(
+          percent: (item.percentage / 1),
           animation: false,
           text: Text(
             getTranslations()
                 .fromKey(LocaleKey.percentage)
                 .replaceAll('{0}', item.percentage.toString()),
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
         ),
       ),

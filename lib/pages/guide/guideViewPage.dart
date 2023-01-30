@@ -16,15 +16,18 @@ class GuideViewPage extends StatelessWidget {
   final String? analyticsKey;
   final String guideContentGuid;
 
-  GuideViewPage({this.analyticsKey, required this.guideContentGuid}) {
-    if (this.analyticsKey != null)
-      getAnalytics().trackEvent(this.analyticsKey!);
+  GuideViewPage({
+    Key? key,
+    this.analyticsKey,
+    required this.guideContentGuid,
+  }) : super(key: key) {
+    if (analyticsKey != null) getAnalytics().trackEvent(analyticsKey!);
   }
 
   @override
   Widget build(BuildContext context) {
     return CachedFutureBuilder(
-      future: getAssistantAppsGuide().getGuideContent(this.guideContentGuid),
+      future: getAssistantAppsGuide().getGuideContent(guideContentGuid),
       whileLoading: () => getBaseWidget().appScaffold(
         context,
         appBar: getBaseWidget().appBarForSubPage(
@@ -40,9 +43,11 @@ class GuideViewPage extends StatelessWidget {
           context,
           appBar: getBaseWidget().appBarForSubPage(
             context,
-            title: Text(guideContentResult.isSuccess
-                ? guideContentResult.value.title
-                : 'Error'), // TODO translate
+            title: Text(
+              guideContentResult.isSuccess
+                  ? guideContentResult.value.title
+                  : 'Error',
+            ), // TODO translate
           ),
           body: getBody(context, guideContentResult),
         );
@@ -67,9 +72,9 @@ class GuideViewPage extends StatelessWidget {
         guideContent.userName!.isNotEmpty) {
       sectionWidgets.add(textItem(guideContent.userName!));
     }
-    sectionWidgets.add(flatCard(
+    sectionWidgets.add(FlatCard(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -78,8 +83,8 @@ class GuideViewPage extends StatelessWidget {
             //   guideContent.likes,
             //   colour: getPrimaryColour(context),
             // ),
-            iconWithValueRow(Icons.thumb_up, guideContent.likes),
-            iconWithValueRow(Icons.remove_red_eye, guideContent.views),
+            IconWithValueRow(Icons.thumb_up, guideContent.likes),
+            IconWithValueRow(Icons.remove_red_eye, guideContent.views),
           ],
         ),
       ),

@@ -1,4 +1,3 @@
-import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -9,8 +8,8 @@ import 'package:responsive_grid/responsive_grid.dart';
 import 'package:uuid/uuid.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
+import '../../assistantapps_flutter_common.dart';
 import '../../components/common/placeholder.dart';
-import '../../components/forms/textInput.dart';
 import '../../constants/AppImage.dart';
 import '../../contracts/generated/uploadedImageViewModel.dart';
 import '../../contracts/mapper/guideSectionMapper.dart';
@@ -28,16 +27,18 @@ class GuideAddEditPage extends StatefulWidget {
   GuideAddEditPage(
     this._guideDetails,
     this.sections, {
+    Key? key,
     this.analyticsKey,
     this.isEdit = false,
     required this.draftModel,
-  }) {
-    if (this.analyticsKey != null) {
-      getAnalytics().trackEvent(this.analyticsKey!);
+  }) : super(key: key) {
+    if (analyticsKey != null) {
+      getAnalytics().trackEvent(analyticsKey!);
     }
   }
   @override
-  _GuideAddEditWidget createState() => _GuideAddEditWidget(
+  // ignore: no_logic_in_create_state
+  createState() => _GuideAddEditWidget(
         _guideDetails,
         sections,
       );
@@ -57,12 +58,11 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
   bool _imageUploading = false;
 
   _GuideAddEditWidget(this._guideDetails, this.sections) {
-    _titleController = TextEditingController(text: this._guideDetails.title);
-    _subTitleController =
-        TextEditingController(text: this._guideDetails.subTitle);
+    _titleController = TextEditingController(text: _guideDetails.title);
+    _subTitleController = TextEditingController(text: _guideDetails.subTitle);
     _minutesController =
-        TextEditingController(text: this._guideDetails.minutes.toString());
-    tags = this._guideDetails.tags;
+        TextEditingController(text: _guideDetails.minutes.toString());
+    tags = _guideDetails.tags;
     bannerImageData = UploadedImageViewModel(url: AppImage.onlinePatreonIcon);
     //
     _validationMap = {
@@ -77,7 +77,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
   }
 
   updateDetailsObj(GuideDraftModel reduxViewModel, {bool? showCreatedByUser}) {
-    this.setState(() {
+    setState(() {
       bool showByUser = showCreatedByUser ?? _guideDetails.showCreatedByUser;
       _guideDetails = _guideDetails.copyWith(
         title: _titleController.text,
@@ -89,21 +89,21 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
       );
     });
     reduxViewModel.updateGuide(AddGuideViewModel.fromGuideDetails(
-      this._guideDetails,
-      sections: this.sections,
+      _guideDetails,
+      sections: sections,
       appGuid: getEnv().assistantAppsAppGuid,
     ));
   }
 
   fabOnPressed(GuideDraftModel reduxViewModel) async {
     if (!_allValidationsPassed()) {
-      this.setState(() {
-        this._showValidation = true;
+      setState(() {
+        _showValidation = true;
       });
       return;
     }
 
-    this.setState(() {
+    setState(() {
       _isLoading = true;
     });
 
@@ -111,25 +111,26 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
       // Send full object to API
     } else {
       AddGuideViewModel apiAdObj = AddGuideViewModel.fromGuideDetails(
-        this._guideDetails,
-        sections: this.sections,
+        _guideDetails,
+        sections: sections,
         appGuid: getEnv().assistantAppsAppGuid,
       );
       Result addResult = await getAssistantAppsGuide().addGuide(apiAdObj);
-      this.setState(() {
+      setState(() {
         _isLoading = false;
       });
       if (addResult.hasFailed) {
+        // ignore: use_build_context_synchronously
         getDialog().showSimpleDialog(
           context,
           getTranslations().fromKey(LocaleKey.guideSubmissionFailedTitle),
           Column(
             children: [
-              localImage(
-                AppImage.error,
-                imagePackage: UIConstants.CommonPackage,
+              const LocalImage(
+                imagePath: AppImage.error,
+                imagePackage: UIConstants.commonPackage,
               ),
-              genericItemDescription(
+              GenericItemDescription(
                 getTranslations()
                     .fromKey(LocaleKey.guideSubmissionFailedMessage),
               ),
@@ -145,7 +146,8 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
           },
         );
       } else {
-        reduxViewModel.deleteGuide(this._guideDetails.guid);
+        reduxViewModel.deleteGuide(_guideDetails.guid);
+        // ignore: use_build_context_synchronously
         getDialog().showSimpleDialog(
           context,
           getTranslations().fromKey(LocaleKey.guideSubmissionSuccessTitle),
@@ -153,9 +155,9 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
             children: [
               WebsafeSvg.asset(
                 AppImage.successGuideSVG,
-                package: UIConstants.CommonPackage,
+                package: UIConstants.commonPackage,
               ),
-              genericItemDescription(
+              GenericItemDescription(
                 getTranslations()
                     .fromKey(LocaleKey.guideSubmissionSuccessMessage),
               ),
@@ -185,10 +187,10 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
       body: getBody(widget.draftModel),
       floatingActionButton: FloatingActionButton(
         heroTag: 'AddEditGuide',
-        child: Icon(Icons.file_upload),
         backgroundColor: getTheme().fabColourSelector(context),
         foregroundColor: getTheme().fabForegroundColourSelector(context),
-        onPressed: () => this.fabOnPressed(widget.draftModel),
+        onPressed: () => fabOnPressed(widget.draftModel),
+        child: const Icon(Icons.file_upload),
       ),
     );
   }
@@ -201,38 +203,37 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
       List<ResponsiveGridCol> griWidgets = List.empty(growable: true);
       bool isMobile = isMobileScreenWidth(breakpoint);
 
-      Function(dynamic) formFieldOnChange =
-          (_) => this.updateDetailsObj(reduxViewModel);
+      formFieldOnChange(_) => updateDetailsObj(reduxViewModel);
 
-      void Function() imageOnTap = () {
-        this.setState(() {
+      imageOnTap() {
+        setState(() {
           _imageUploading = true;
         });
         adaptiveImageUploadToServer(
           (UploadedImageViewModel imageViewModel) {
-            this.setState(() {
+            setState(() {
               bannerImageData = imageViewModel;
               _imageUploading = false;
             });
           },
           (_) {
             // Failed
-            this.setState(() {
+            setState(() {
               _imageUploading = false;
             });
           },
         );
-      };
+      }
 
-      Widget imageWidget = placeholderImage(context, onTap: imageOnTap);
+      Widget imageWidget = PlaceholderImage(onTap: imageOnTap);
       if ((bannerImageData != null &&
           bannerImageData?.url != null &&
           bannerImageData?.blurHash != null)) {
-        imageWidget = networkBlurHashImage(
-          bannerImageData!.url,
-          bannerImageData!.blurHash ?? '',
+        imageWidget = NetworkBlurHashImage(
+          imageUrl: bannerImageData!.url,
+          blurHash: bannerImageData!.blurHash ?? '',
           onTap: imageOnTap,
-          key: Key('BannerImage'),
+          key: const Key('BannerImage'),
         );
       }
 
@@ -257,7 +258,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
           innerContext,
           _titleController,
           LocaleKey.guideName,
-          validator: this._validationMap[LocaleKey.guideName],
+          validator: _validationMap[LocaleKey.guideName],
           showValidation: _showValidation,
           onChange: formFieldOnChange,
         ),
@@ -273,7 +274,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
           innerContext,
           _subTitleController,
           LocaleKey.guideSubTitle,
-          validator: this._validationMap[LocaleKey.guideSubTitle],
+          validator: _validationMap[LocaleKey.guideSubTitle],
           showValidation: _showValidation,
           onChange: formFieldOnChange,
         ),
@@ -289,7 +290,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
           innerContext,
           _minutesController,
           LocaleKey.guideMinutes,
-          validator: this._validationMap[LocaleKey.guideMinutes],
+          validator: _validationMap[LocaleKey.guideMinutes],
           showValidation: _showValidation,
           onChange: formFieldOnChange,
         ),
@@ -306,7 +307,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
           _guideDetails.showCreatedByUser,
           LocaleKey.showCreatedBy,
           isMobile: isMobile,
-          onChange: (bool newValue) => this.updateDetailsObj(
+          onChange: (bool newValue) => updateDetailsObj(
             reduxViewModel,
             showCreatedByUser: newValue,
           ),
@@ -327,7 +328,7 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
               iconColor: Colors.white,
               textColor: Colors.white,
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 labelText: getTranslations().fromKey(LocaleKey.guideTags),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
@@ -343,9 +344,9 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
 
       List<Widget> stickyWidgets = List.empty(growable: true);
       for (var sectionIndex = 0;
-          sectionIndex < this.sections.length;
+          sectionIndex < sections.length;
           sectionIndex++) {
-        GuideSectionViewModel section = this.sections[sectionIndex];
+        GuideSectionViewModel section = sections[sectionIndex];
         List<Widget> sectionItemWidgets = List.empty(growable: true);
         for (GuideSectionItemViewModel sectionItem in section.items) {
           var sectionItemItemWidget = getSectionItem(context, sectionItem);
@@ -361,20 +362,20 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
             moveUp: (sectionIndex <= 0)
                 ? null
                 : () {
-                    this.setState(() {
+                    setState(() {
                       var itemToMove = sections.removeAt(sectionIndex);
                       sections.insert(sectionIndex - 1, itemToMove);
                     });
-                    this.updateDetailsObj(reduxViewModel);
+                    updateDetailsObj(reduxViewModel);
                   },
-            moveDown: (sectionIndex >= (this.sections.length - 1))
+            moveDown: (sectionIndex >= (sections.length - 1))
                 ? null
                 : () {
-                    this.setState(() {
+                    setState(() {
                       var itemToMove = sections.removeAt(sectionIndex);
                       sections.insert(sectionIndex + 1, itemToMove);
                     });
-                    this.updateDetailsObj(reduxViewModel);
+                    updateDetailsObj(reduxViewModel);
                   },
             onEdit: () async {
               GuideSection? result =
@@ -383,56 +384,55 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
                 navigateTo: (context) => SectionAddEditPage(section.toDomain()),
               );
               if (result == null) return;
-              this.setState(() {
+              setState(() {
                 sections[sectionIndex] = result.toViewModel();
               });
-              this.updateDetailsObj(reduxViewModel);
+              updateDetailsObj(reduxViewModel);
             },
             onDelete: () {
-              this.setState(() {
+              setState(() {
                 sections.removeAt(sectionIndex);
               });
-              this.updateDetailsObj(reduxViewModel);
+              updateDetailsObj(reduxViewModel);
             },
           ),
         );
       }
 
       List<Widget> sectionStickyWidgets = [
-        placeholderFullRow(
-          context,
+        PlaceholderFullRow(
           icon: Icons.add_box,
           onTap: () async {
             GuideSection? result =
                 await getNavigation().navigateAsync<GuideSection>(
               context,
               navigateTo: (context) => SectionAddEditPage(GuideSection(
-                guid: Uuid().v1(),
+                guid: const Uuid().v1(),
                 heading: '',
                 headingTextController: TextEditingController(text: ''),
                 items: List.empty(),
-                sortOrder: this.sections.length + 1,
+                sortOrder: sections.length + 1,
               )),
             );
             if (result == null) return;
-            this.setState(() {
+            setState(() {
               sections.add(result.toViewModel());
             });
           },
         ),
-        emptySpace10x(),
+        const EmptySpace10x(),
       ];
 
       stickyWidgets.add(SliverStickyHeader(
-        header: (stickyWidgets.length == 0)
+        header: (stickyWidgets.isEmpty)
             ? sectionHeadingItem(
                 context,
                 getTranslations().fromKey(LocaleKey.guideSectionsAdd),
               )
-            : Container(width: 0, height: 0),
+            : const SizedBox(width: 0, height: 0),
         sliver: SliverList(
           delegate: SliverChildBuilderDelegate(
-            (_c, i) => sectionStickyWidgets[i],
+            (c, i) => sectionStickyWidgets[i],
             childCount: sectionStickyWidgets.length,
           ),
         ),
@@ -441,16 +441,16 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
       List<Widget> stickyGuideDetailsWidgets = [
         ResponsiveGridRow(children: griWidgets),
         customDivider(),
-        emptySpace1x(),
+        const EmptySpace1x(),
       ];
       return CustomScrollView(
         shrinkWrap: true,
         slivers: [
           SliverStickyHeader(
-            header: Container(height: 0, width: 0),
+            header: const SizedBox(height: 0, width: 0),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
-                (_c, i) => stickyGuideDetailsWidgets[i],
+                (c, i) => stickyGuideDetailsWidgets[i],
                 childCount: stickyGuideDetailsWidgets.length,
               ),
             ),
@@ -462,11 +462,11 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
   }
 
   List<LocaleKey> Function() getValidator(LocaleKey validationKey) {
-    return this._validationMap[validationKey] ?? () => List.empty();
+    return _validationMap[validationKey] ?? () => List.empty();
   }
 
   bool _allValidationsPassed() {
-    for (var validationKey in this._validationMap.keys) {
+    for (var validationKey in _validationMap.keys) {
       List<LocaleKey> Function() validate = getValidator(validationKey);
       List<LocaleKey> vResult = validate();
       if (vResult.isNotEmpty) return false;

@@ -16,58 +16,89 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
   final VersionViewModel version;
   final List<Widget> Function(VersionViewModel)? additionalBuilder;
 
-  WhatIsNewDetailPageComponent(
+  const WhatIsNewDetailPageComponent(
     this.currentWhatIsNewGuid,
     this.version, {
+    Key? key,
     this.additionalBuilder,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     List<Widget> columnWidgets = List.empty(growable: true);
-    columnWidgets.add(emptySpace(1));
+    columnWidgets.add(const EmptySpace(1));
 
     bool isCurrentVersion =
         version.guid.toLowerCase() == currentWhatIsNewGuid.toLowerCase();
 
-    columnWidgets.add(genericItemText(getVersionReleaseDate(
+    columnWidgets.add(GenericItemText(getVersionReleaseDate(
       isCurrentVersion,
-      this.version.activeDate,
+      version.activeDate,
     )));
 
-    columnWidgets.add(emptySpace(1));
+    columnWidgets.add(const EmptySpace(1));
 
     List<Widget> wrapChildren = List.empty(growable: true);
-    for (PlatformType plat in this.version.platforms) {
-      if (plat == PlatformType.Apple) {
-        wrapChildren.add(Chip(
-          label: Text('iOS', style: TextStyle(color: Colors.white)),
+    for (PlatformType plat in version.platforms) {
+      if (plat == PlatformType.apple) {
+        wrapChildren.add(getBaseWidget().appChip(
+          label: const Text(
+            'iOS',
+            style: TextStyle(color: Colors.white),
+          ),
           backgroundColor: getTheme().getIosColour(),
         ));
       }
       if (!isApple) {
-        if (plat == PlatformType.Android)
-          wrapChildren.add(Chip(
-            label: Text('Android', style: TextStyle(color: Colors.white)),
-            backgroundColor: getTheme().getAndroidColour(),
-          ));
-        if (plat == PlatformType.Web) {
-          wrapChildren.add(Chip(label: Text('Web')));
+        if (plat == PlatformType.android) {
+          wrapChildren.add(
+            getBaseWidget().appChip(
+              label: const Text(
+                'Android',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: getTheme().getAndroidColour(),
+            ),
+          );
+        }
+        if (plat == PlatformType.web) {
+          wrapChildren.add(
+            getBaseWidget().appChip(
+              label: const Text(
+                'Web',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.purple,
+            ),
+          );
+        }
+        if (plat == PlatformType.githubWindowsInstaller) {
+          wrapChildren.add(
+            getBaseWidget().appChip(
+              label: const Text(
+                'Windows',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.blue,
+            ),
+          );
         }
       }
     }
 
     columnWidgets.add(Wrap(
       alignment: WrapAlignment.center,
+      spacing: 4,
       children: wrapChildren,
     ));
+    columnWidgets.add(const EmptySpace2x());
 
     if (additionalBuilder != null) {
-      columnWidgets.addAll(additionalBuilder!(this.version));
+      columnWidgets.addAll(additionalBuilder!(version));
     }
 
     columnWidgets.add(MarkdownBody(
-      data: this.version.markdown,
+      data: version.markdown,
       onTapLink: (String text, String? link, String? title) =>
           launchExternalURL(link ?? 'https://assistantapps.com'),
     ));
@@ -75,7 +106,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
     return listWithScrollbar(
       itemCount: columnWidgets.length,
       itemBuilder: (BuildContext context, int index) => columnWidgets[index],
-      padding: EdgeInsets.only(left: 16, right: 16, bottom: 32),
+      padding: const EdgeInsets.only(left: 16, right: 16, bottom: 32),
     );
   }
 }

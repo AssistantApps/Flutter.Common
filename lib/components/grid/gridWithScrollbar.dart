@@ -40,12 +40,12 @@ ListOrGridDisplayType gridWithScrollbar = (
       crossAxisCount: crossAxisCount,
       crossAxisSpacing: 4,
       mainAxisSpacing: 4,
+      key: Key('grid-cross-axis$crossAxisCount'),
       children: List.filled(itemCount, 1)
           .asMap()
           .entries
           .map((entry) => itemBuilder(innerContext, entry.key))
           .toList(),
-      key: Key('grid-cross-axis$crossAxisCount'),
     );
 
     // ListView listView = ListView(

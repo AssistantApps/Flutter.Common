@@ -13,7 +13,7 @@ class LocalStorageRepository implements ILocalStorageRepository {
       await preferences.setString(key, stateString);
       return Result(true, '');
     } catch (exception) {
-      getLog().e('saveToStorage. ' + exception.toString());
+      getLog().e('saveToStorage. $exception');
       return Result(false, exception.toString());
     }
   }
@@ -28,7 +28,7 @@ class LocalStorageRepository implements ILocalStorageRepository {
       }
       return ResultWithValue<String>(true, stateString, '');
     } catch (exception) {
-      getLog().e('_loadStringFromStorageCommon. ' + exception.toString());
+      getLog().e('_loadStringFromStorageCommon. $exception');
       return ResultWithValue<String>(false, '', exception.toString());
     }
   }

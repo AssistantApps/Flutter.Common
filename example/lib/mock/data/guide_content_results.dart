@@ -15,7 +15,7 @@ GuideContentViewModel sampleGuideContent1() => GuideContentViewModel(
       likes: 2,
       minutes: 20,
       showCreatedByUser: true,
-      status: AdminApprovalStatus.Pending,
+      status: AdminApprovalStatus.pending,
       tags: ['test', 'tag'],
       sections: [
         GuideSectionViewModel(
@@ -56,7 +56,7 @@ GuideContentViewModel sampleGuideContent2() => GuideContentViewModel(
       likes: 2,
       minutes: 20,
       showCreatedByUser: true,
-      status: AdminApprovalStatus.Pending,
+      status: AdminApprovalStatus.pending,
       tags: ['test', 'tag'],
       sections: [
         GuideSectionViewModel(

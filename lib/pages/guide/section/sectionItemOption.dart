@@ -47,16 +47,17 @@ Widget sectionItemOptionTilePresenter(BuildContext context,
         SectionItemOption item, void Function(GuideSectionItemType) onTap) =>
     InkWell(
       child: Card(
+        margin: const EdgeInsets.all(4),
         child: Container(
-          constraints: BoxConstraints(minHeight: 150),
-          padding: EdgeInsets.all(10),
+          constraints: const BoxConstraints(minHeight: 150),
+          padding: const EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Icon(item.icon, size: 48),
               Padding(
-                padding: EdgeInsets.only(top: 8, left: 8, right: 8),
+                padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
                 child: Text(
                   getTranslations().fromKey(item.titleLocale),
                   overflow: TextOverflow.ellipsis,
@@ -67,7 +68,6 @@ Widget sectionItemOptionTilePresenter(BuildContext context,
             ],
           ),
         ),
-        margin: const EdgeInsets.all(4),
       ),
       onTap: () => onTap(item.type),
     );

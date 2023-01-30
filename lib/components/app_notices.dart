@@ -18,7 +18,9 @@ class AppNoticesWrapper extends StatefulWidget {
 
 class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
     with AfterLayoutMixin<AppNoticesWrapper> {
-  NetworkState networkState = NetworkState.Loading;
+  //
+  final Key _appNoticesKey = const Key('appnotices');
+  NetworkState networkState = NetworkState.loading;
   List<AppNoticeViewModel> notices = List.empty(growable: true);
 
   @override
@@ -32,26 +34,35 @@ class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
     bool hasNotices = apiResult.isSuccess && apiResult.value.isNotEmpty;
     if (hasNotices == false) {
       setState(() {
-        networkState = NetworkState.Error;
+        networkState = NetworkState.error;
       });
       return;
     }
 
     setState(() {
       notices = apiResult.value;
-      networkState = NetworkState.Success;
+      networkState = NetworkState.success;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    KeyedSubtree innerChild = KeyedSubtree(
+      key: _appNoticesKey,
+      child: widget.child,
+    );
+
+    if (notices.isEmpty) {
+      return innerChild;
+    }
+
     return Column(
       children: [
         ...notices
             .map((n) => AnimateScaleHeightFrom0ToFull(child: appNoticeTile(n)))
             .toList(),
-        emptySpace1x(),
-        Expanded(child: widget.child),
+        const EmptySpace1x(),
+        Expanded(child: innerChild),
       ],
     );
   }

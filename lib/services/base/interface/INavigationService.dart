@@ -5,10 +5,12 @@ class INavigationService {
     return Future.value(true);
   }
 
-  Future<bool> navigateHomeAsync(BuildContext context,
-      {Widget Function(BuildContext)? navigateTo,
-      String? navigateToNamed,
-      bool? pushReplacement}) async {
+  Future<bool> navigateHomeAsync(
+    BuildContext context, {
+    Widget Function(BuildContext)? navigateTo,
+    String? navigateToNamed,
+    bool? pushReplacement,
+  }) async {
     return Future.value(false);
   }
 
@@ -19,9 +21,11 @@ class INavigationService {
     Map<String, String>? navigateToNamedParameters,
   }) async {}
 
-  Future<T?> navigateAsync<T extends Object>(context,
-      {Widget Function(BuildContext)? navigateTo,
-      String? navigateToNamed}) async {
+  Future<T?> navigateAsync<T extends Object>(
+    context, {
+    Widget Function(BuildContext)? navigateTo,
+    String? navigateToNamed,
+  }) async {
     return Future.value(null);
   }
 

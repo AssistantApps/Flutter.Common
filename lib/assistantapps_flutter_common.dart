@@ -1,14 +1,19 @@
 library assistantapps_flutter_common;
 
 // Components
+export './components/adaptive/appBar.dart';
+export './components/adaptive/appBarForSubPage.dart';
+export './components/adaptive/appScaffold.dart';
 export './components/adaptive/bottomModal.dart';
 export './components/adaptive/button.dart';
 export './components/adaptive/checkbox.dart';
 export './components/adaptive/checkboxGroup.dart';
+export './components/adaptive/chip.dart';
 export './components/adaptive/paginationControl.dart';
 export './components/adaptive/searchBar.dart';
 export './components/adaptive/segmentedControl.dart';
 export './components/app_notices.dart';
+export './components/common/actionItem.dart';
 export './components/common/animation.dart';
 export './components/common/authButtons.dart';
 export './components/common/badge.dart';
@@ -21,6 +26,12 @@ export './components/common/newBanner.dart';
 export './components/common/percent.dart';
 export './components/common/space.dart';
 export './components/common/text.dart';
+export './components/desktop/window_buttons.dart';
+export './components/desktop/window_title_bar.dart';
+export './components/forms/starRating.dart';
+export './components/forms/textInput.dart';
+export './components/feedback/feedback_options.dart';
+export './components/feedback/feedback_wrapper.dart';
 export './components/fun/backgroundWrapper.dart';
 export './components/grid/gridWithScrollbar.dart';
 export './components/grid/responsiveStaggeredGrid.dart';
