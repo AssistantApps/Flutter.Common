@@ -39,7 +39,9 @@ class SearchBar extends StatelessWidget {
                             getTranslations().fromKey(LocaleKey.searchItems),
                         border: InputBorder.none,
                       ),
-                      onChanged: onSearchTextChanged,
+                      onChanged: (String text) => onSearchTextChanged(
+                        text.trim(),
+                      ),
                     ),
                   ),
                   Padding(

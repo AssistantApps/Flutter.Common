@@ -53,10 +53,7 @@ List<Widget> actionItemToAndroidAction(
     } else {
       result.add(
         IconButton(
-          icon: Icon(
-            action.icon,
-            color: getTheme().getTextColour(context),
-          ),
+          icon: Icon(action.icon),
           tooltip: action.text,
           onPressed: action.onPressed,
         ),

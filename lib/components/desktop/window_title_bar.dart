@@ -37,21 +37,19 @@ class WindowTitleBar extends StatelessWidget
         color: getTheme().getScaffoldBackgroundColour(context),
         child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: LocalImage(
-                imagePath: iconPath,
-                borderRadius: BorderRadius.circular(4.0),
-              ),
-            ),
             Expanded(
               child: MoveWindow(
-                child: Center(
-                  child: Row(
-                    children: [
-                      GenericItemDescription(title),
-                    ],
-                  ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: LocalImage(
+                        imagePath: iconPath,
+                        borderRadius: BorderRadius.circular(4.0),
+                      ),
+                    ),
+                    GenericItemDescription(title),
+                  ],
                 ),
               ),
             ),
