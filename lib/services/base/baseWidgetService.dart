@@ -6,6 +6,7 @@ import '../../components/adaptive/checkbox.dart';
 import '../../components/adaptive/chip.dart';
 import '../../components/adaptive/appScaffold.dart';
 import '../../contracts/misc/actionItem.dart';
+import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjectionBase.dart';
 import './interface/IBaseWidgetService.dart';
 
@@ -119,4 +120,9 @@ class BaseWidgetService implements IBaseWidgetService {
         onChanged: onChanged,
         activeColor: activeColor,
       );
+
+  @override
+  Widget customDivider() => isWeb
+      ? Divider(thickness: .5, color: Colors.grey[600])
+      : Divider(color: Colors.grey[600]);
 }

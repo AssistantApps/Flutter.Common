@@ -77,4 +77,6 @@ class IBaseWidgetService {
         onChanged: onChanged,
         activeColor: activeColor,
       );
+
+  Widget customDivider() => Divider(color: Colors.grey[600]);
 }
