@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -172,7 +173,10 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
                 horizontal: (screenMediaQuery.width - miniAppWidth) / 2,
               ),
               child: feedbackIsClosed
-                  ? FeedbackForm(feedbackServices: _services)
+                  ? FeedbackForm(
+                      feedbackServices: _services,
+                      screenMediaQuery: screenMediaQuery,
+                    )
                   : const EmptySpace(0),
             ),
           ),

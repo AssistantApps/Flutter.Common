@@ -19,10 +19,12 @@ import 'feedback_services.dart';
 
 class FeedbackForm extends StatefulWidget {
   final FeedbackServices feedbackServices;
+  final Size screenMediaQuery;
 
   const FeedbackForm({
     Key? key,
     required this.feedbackServices,
+    required this.screenMediaQuery,
   }) : super(key: key);
 
   @override
@@ -76,10 +78,36 @@ class _FeedbackFormState extends State<FeedbackForm>
     });
   }
 
+  void sendFeedbackToServer() async {
+    setState(() {
+      networkState = NetworkState.loading;
+    });
+    String deviceId = await getDeviceId();
+    FeedbackFormAnswerSubmissionViewModel payload =
+        FeedbackFormAnswerSubmissionViewModel(
+      items: answers,
+      feedbackFormGuid: viewmodel!.guid,
+      platformType: EnumToString.convertToString(
+        getPlatforms().first,
+      ),
+      userUniqueIdentifier: deviceId,
+    );
+    Result submissionResult =
+        await getAssistantAppsApi().submitFeedbackFormAnswers(payload);
+    if (submissionResult.hasFailed) {
+      setState(() {
+        networkState = NetworkState.error;
+      });
+      return;
+    }
+    setState(() {
+      networkState = NetworkState.success;
+      feedbackSubmitted = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    Size screenMediaQuery = MediaQuery.of(context).size;
-
     if (networkState == NetworkState.loading) {
       return Center(
         child: Padding(
@@ -89,14 +117,44 @@ class _FeedbackFormState extends State<FeedbackForm>
       );
     }
     if (networkState == NetworkState.error) {
-      return Center(child: getLoading().customErrorWidget(context));
+      return Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const EmptySpace(5),
+          Center(child: getLoading().customErrorWidget(context)),
+          const EmptySpace1x(),
+          Center(
+            child: PositiveButton(
+              title: 'Retry',
+              onTap: sendFeedbackToServer,
+            ),
+          ),
+          const EmptySpace3x(),
+        ],
+      );
     }
 
     List<Widget> columnWidgets = List.empty(growable: true);
     if (feedbackSubmitted) {
-      columnWidgets.add(const LocalImage(imagePath: AppImage.successGuide));
+      columnWidgets.addAll([
+        const EmptySpace3x(),
+        animateSlideInFromLeft(
+          child: const LocalImage(imagePath: AppImage.successGuide),
+        ),
+        const EmptySpace1x(),
+        Center(
+          child: Text(
+            getTranslations().fromKey(LocaleKey.thankYou),
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(fontSize: 28),
+          ),
+        ),
+        const EmptySpace3x(),
+      ]);
     } else {
-      columnWidgets = _getFormComponents(screenMediaQuery);
+      columnWidgets = _getFormComponents(widget.screenMediaQuery);
     }
 
     return AnimatedSize(
@@ -236,34 +294,7 @@ class _FeedbackFormState extends State<FeedbackForm>
     if ((qIndex + 1) >= numItems) {
       positiveButtonWidget = () => PositiveButton(
             title: 'Submit', //TODO translate
-            onTap: () async {
-              setState(() {
-                networkState = NetworkState.loading;
-              });
-              String deviceId = await getDeviceId();
-              FeedbackFormAnswerSubmissionViewModel payload =
-                  FeedbackFormAnswerSubmissionViewModel(
-                items: answers,
-                feedbackFormGuid: viewmodel!.guid,
-                platformType: EnumToString.convertToString(
-                  getPlatforms().first,
-                ),
-                userUniqueIdentifier: deviceId,
-              );
-              Result submissionResult = await getAssistantAppsApi()
-                  .submitFeedbackFormAnswers(payload);
-              if (submissionResult.hasFailed) {
-                setState(() {
-                  networkState = NetworkState.error;
-                });
-                return;
-              }
-              setState(() {
-                networkState = NetworkState.success;
-                feedbackSubmitted = true;
-              });
-              widget.feedbackServices.close();
-            },
+            onTap: sendFeedbackToServer,
           );
     }
 
