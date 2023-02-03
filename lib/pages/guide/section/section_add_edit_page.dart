@@ -18,7 +18,7 @@ import '../../../helpers/column_helper.dart';
 import '../../../helpers/device_helper.dart';
 import '../../../integration/dependency_injection.dart';
 import './editguide_section_item.dart';
-import './sectionItemOption.dart';
+import './section_item_option.dart';
 
 class SectionAddEditPage extends StatefulWidget {
   final bool isEdit;

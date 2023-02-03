@@ -11,7 +11,7 @@ import '../../contracts/enum/locale_key.dart';
 import '../../contracts/localization_map.dart';
 import '../../contracts/search/dropdown_option.dart';
 import '../../integration/dependency_injection.dart';
-import '../../pages/dialog/optionsListPageDialog.dart';
+import '../../pages/dialog/options_list_page_dialog.dart';
 import './interface/ITranslationsService.dart';
 
 class TranslationService implements ITranslationService {

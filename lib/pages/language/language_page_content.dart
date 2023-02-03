@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
-import './translationsPerLanguageCustomChart.dart';
+import './translations_per_language_custom_chart.dart';
 
 class LanguagePageContent extends StatelessWidget {
   final List<Widget>? additionalButtons;

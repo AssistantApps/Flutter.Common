@@ -1,6 +1,6 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common/pages/about/aboutPageAvailableApps.dart';
-import 'package:assistantapps_flutter_common/pages/about/aboutPageTeam.dart';
+import 'package:assistantapps_flutter_common/pages/about/about_page_available_apps.dart';
+import 'package:assistantapps_flutter_common/pages/about/about_page_team.dart';
 import 'package:flutter/material.dart';
 import 'package:storybook_flutter/storybook_flutter.dart';
 

@@ -5,7 +5,7 @@ import '../../contracts/enum/locale_key.dart';
 import '../../contracts/localization_map.dart';
 import '../../contracts/search/dropdown_option.dart';
 import '../../integration/dependency_injection.dart';
-import '../dialog/optionsListPageDialog.dart';
+import '../dialog/options_list_page_dialog.dart';
 
 class LanguageSelectionPageContent extends StatelessWidget {
   const LanguageSelectionPageContent({Key? key}) : super(key: key);

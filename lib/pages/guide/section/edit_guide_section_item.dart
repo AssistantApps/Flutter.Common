@@ -11,7 +11,7 @@ import '../../../contracts/generated/uploaded_image_view_model.dart';
 import '../../../contracts/guide/guide_section_item.dart';
 import '../../../helpers/image_upload_helper.dart';
 import '../../../integration/dependency_injection.dart';
-import '../../misc/markdownPreviewPage.dart';
+import '../../misc/markdown_preview_page.dart';
 
 Widget getSectionEditItem(BuildContext context, GuideSectionItem item,
     int index, Function(GuideSectionItem) onChange,

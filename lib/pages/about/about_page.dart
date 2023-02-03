@@ -7,8 +7,8 @@ import '../../contracts/enum/assistant_app_type.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../helpers/device_helper.dart';
 import '../../integration/dependency_injection.dart';
-import './aboutPageAvailableApps.dart';
-import './aboutPageTeam.dart';
+import './about_page_available_apps.dart';
+import './about_page_team.dart';
 
 class AboutPage extends StatefulWidget {
   final AssistantAppType appType;
