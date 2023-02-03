@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../components/grid/searchable_grid.dart';
-import '../../components/tilePresenters/steamTilePresenter.dart';
+import '../../components/tilePresenters/steam_tile_presenter.dart';
 import '../../contracts/enum/assistantAppType.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/steamNewsItemViewModel.dart';

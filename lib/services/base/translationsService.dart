@@ -6,7 +6,7 @@ import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-import '../../components/tilePresenters/languageTilePresenter.dart';
+import '../../components/tilePresenters/language_tile_presenter.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/localizationMap.dart';
 import '../../contracts/search/dropdownOption.dart';

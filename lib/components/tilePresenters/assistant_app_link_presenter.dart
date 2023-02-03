@@ -2,8 +2,8 @@ import 'package:assistantapps_flutter_common/contracts/generated/appsLinkViewMod
 import 'package:flutter/material.dart';
 
 import '../../contracts/misc/popupMenuaction_item.dart';
-import '../menu/popupMenu.dart';
-import './genericTilePresenter.dart';
+import '../menu/popup_menu.dart';
+import './generic_tile_presenter.dart';
 
 Widget assistantAppLinkPresenter(
   BuildContext context,

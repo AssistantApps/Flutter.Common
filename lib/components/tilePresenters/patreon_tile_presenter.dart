@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constants/ExternalUrls.dart';
 import '../../contracts/generated/patreonViewModel.dart';
 import '../../helpers/externalHelper.dart';
-import './genericTilePresenter.dart';
+import './generic_tile_presenter.dart';
 
 Widget patronTilePresenter(
   BuildContext context,

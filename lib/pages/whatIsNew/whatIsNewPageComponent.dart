@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../components/list/lazy_loaded_searchable_list.dart';
-import '../../components/tilePresenters/versionTilePresenter.dart';
+import '../../components/tilePresenters/version_tile_presenter.dart';
 import '../../contracts/enum/platformType.dart';
 import '../../contracts/generated/versionViewModel.dart';
 import '../../integration/dependencyInjection.dart';

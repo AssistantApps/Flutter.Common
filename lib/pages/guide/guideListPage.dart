@@ -5,7 +5,7 @@ import '../../components/adaptive/search_bar.dart';
 import '../../components/common/cached_future_builder.dart';
 import '../../components/common/text.dart';
 import '../../components/list/pagination_searchable_list.dart';
-import '../../components/tilePresenters/guideTilePresenter.dart';
+import '../../components/tilePresenters/guide_tile_presenter.dart';
 import '../../constants/AppImage.dart';
 import '../../constants/LocalStorageKey.dart';
 import '../../constants/UIConstants.dart';

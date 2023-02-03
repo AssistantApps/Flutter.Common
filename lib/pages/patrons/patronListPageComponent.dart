@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
-import '../../components/tilePresenters/patreonTilePresenter.dart';
+import '../../components/tilePresenters/patreon_tile_presenter.dart';
 import '../../constants/AppImage.dart';
 
 class PatronListPageComponent extends StatelessWidget {

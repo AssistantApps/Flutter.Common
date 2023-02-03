@@ -5,7 +5,7 @@ import '../../contracts/misc/versionDetail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import './linkTilePresenter.dart';
+import './link_tile_presenter.dart';
 
 Widget legalTilePresenter({LocaleKey? description}) {
   return FutureBuilder<ResultWithValue<VersionDetail>>(

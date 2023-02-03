@@ -12,7 +12,7 @@ import '../../pages/guide/guideViewPage.dart';
 import '../common/card.dart';
 import '../common/icon.dart';
 import '../common/image.dart';
-import '../menu/popupMenu.dart';
+import '../menu/popup_menu.dart';
 
 Widget guideTilePresenter(
   BuildContext context,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/search/dropdownOption.dart';
 import '../../integration/dependencyInjection.dart';
-import '../menu/popupMenu.dart';
-import './genericTilePresenter.dart';
+import '../menu/popup_menu.dart';
+import './generic_tile_presenter.dart';
 
 Widget optionTilePresenter(
   BuildContext context,
