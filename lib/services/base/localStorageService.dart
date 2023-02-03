@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
 import '../../contracts/misc/storage_with_expiry.dart';
-import '../../repository/interface/ILocalStorageRepository.dart';
+import '../../repository/interface/i_local_storage_repository.dart';
 import './interface/ILocalStorageService.dart';
 
 class LocalStorageService implements ILocalStorageService {

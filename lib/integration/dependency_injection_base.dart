@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 
-import '../repository/localStorageRepository.dart';
-import '../repository/secureStorageRepository.dart';
+import '../repository/local_storage_repository.dart';
+import '../repository/secure_storage_repository.dart';
 import '../services/base/analyticsService.dart';
 import '../services/base/baseWidgetService.dart';
 import '../services/base/dialogService.dart';

@@ -1,16 +1,17 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../contracts/results/result.dart';
 import '../contracts/results/result_with_value.dart';
 import '../integration/dependency_injection.dart';
-import './interface/ILocalStorageRepository.dart';
+import './interface/i_local_storage_repository.dart';
 
-class LocalStorageRepository implements ILocalStorageRepository {
+class SecureStorageRepository implements ILocalStorageRepository {
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
+
   @override
   Future<Result> saveToStorage(String key, String stateString) async {
     try {
-      SharedPreferences preferences = await SharedPreferences.getInstance();
-      await preferences.setString(key, stateString);
+      await _storage.write(key: key, value: stateString);
       return Result(true, '');
     } catch (exception) {
       getLog().e('saveToStorage. $exception');
@@ -21,8 +22,7 @@ class LocalStorageRepository implements ILocalStorageRepository {
   @override
   Future<ResultWithValue<String>> loadStringFromStorage(String key) async {
     try {
-      SharedPreferences preferences = await SharedPreferences.getInstance();
-      String? stateString = preferences.getString(key);
+      String? stateString = await _storage.read(key: key);
       if (stateString == null) {
         return ResultWithValue<String>(false, '', 'StateString is null');
       }
