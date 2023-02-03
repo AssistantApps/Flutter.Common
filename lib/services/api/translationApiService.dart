@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import '../../constants/api_urls.dart';
-import '../../contracts/generated/translationGetGraphViewModel.dart';
-import '../../contracts/generated/translationsPerLanguageGraphViewModel.dart';
+import '../../contracts/generated/translation_get_graph_view_model.dart';
+import '../../contracts/generated/translations_per_language_graph_view_model.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';

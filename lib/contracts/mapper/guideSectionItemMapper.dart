@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../generated/guide/guideSectionItemViewModel.dart';
+import '../generated/guide/guide_section_item_view_model.dart';
 import '../guide/guideSectionItem.dart';
 
 extension GuideSectionItemViewModelMapper on GuideSectionItem {

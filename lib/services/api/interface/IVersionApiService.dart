@@ -1,5 +1,5 @@
 import '../../../contracts/enum/platform_type.dart';
-import '../../../contracts/generated/versionViewModel.dart';
+import '../../../contracts/generated/version_view_model.dart';
 import '../../../contracts/results/paginationResultWithValue.dart';
 import '../../../contracts/results/resultWithValue.dart';
 

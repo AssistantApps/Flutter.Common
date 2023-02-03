@@ -1,4 +1,4 @@
-import '../../../contracts/generated/patreonViewModel.dart';
+import '../../../contracts/generated/patreon_view_model.dart';
 import '../../../contracts/results/resultWithValue.dart';
 
 class IPatreonApiService {

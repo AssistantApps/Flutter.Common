@@ -2,9 +2,9 @@ import 'package:assistantapps_flutter_common/constants/ui_constants.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
-import '../../contracts/generated/guide/addGuideViewModel.dart';
-import '../../contracts/generated/guide/guideContentViewModel.dart';
-import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
+import '../../contracts/generated/guide/add_guide_view_model.dart';
+import '../../contracts/generated/guide/guide_content_view_model.dart';
+import '../../contracts/generated/guide/guide_search_result_view_model.dart';
 import '../../contracts/guide/guideDraftModel.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../pages/guide/guideAddEditPage.dart';

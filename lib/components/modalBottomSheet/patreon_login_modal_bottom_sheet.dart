@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/network_state.dart';
-import '../../contracts/generated/auth/patreonOAuthResponseViewModel.dart';
-import '../../contracts/generated/auth/patreonOAuthViewModel.dart';
+import '../../contracts/generated/auth/patreon_o_auth_response_view_model.dart';
+import '../../contracts/generated/auth/patreon_o_auth_view_model.dart';
 import '../../contracts/results/result.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';

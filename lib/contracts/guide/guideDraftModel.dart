@@ -1,4 +1,4 @@
-import '../generated/guide/addGuideViewModel.dart';
+import '../generated/guide/add_guide_view_model.dart';
 
 class GuideDraftModel {
   final String selectedLanguage;

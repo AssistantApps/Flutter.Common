@@ -1,7 +1,7 @@
 import '../../constants/api_header.dart';
 import '../../constants/api_urls.dart';
 import '../../constants/local_storage_key.dart';
-import '../../contracts/generated/auth/oAuthUserViewModel.dart';
+import '../../contracts/generated/auth/o_auth_user_view_model.dart';
 import '../../contracts/results/result.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';

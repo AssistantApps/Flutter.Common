@@ -5,7 +5,7 @@ import '../../components/common/space.dart';
 import '../../components/common/text.dart';
 import '../../components/list/list_with_scrollbar.dart';
 import '../../contracts/enum/platform_type.dart';
-import '../../contracts/generated/versionViewModel.dart';
+import '../../contracts/generated/version_view_model.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../helpers/updateHelper.dart';

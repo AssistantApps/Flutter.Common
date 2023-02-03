@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import '../../contracts/generated/donationViewModel.dart';
-import '../../contracts/generated/patreonViewModel.dart';
+import '../../contracts/generated/donation_view_model.dart';
+import '../../contracts/generated/patreon_view_model.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';

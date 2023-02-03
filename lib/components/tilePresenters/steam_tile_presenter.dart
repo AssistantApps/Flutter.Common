@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../constants/ui_constants.dart';
-import '../../contracts/generated/steamBranchesViewModel.dart';
-import '../../contracts/generated/steamNewsItemViewModel.dart';
+import '../../contracts/generated/steam_branches_view_model.dart';
+import '../../contracts/generated/steam_news_item_view_model.dart';
 import '../../helpers/dateHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../integration/dependencyInjection.dart';

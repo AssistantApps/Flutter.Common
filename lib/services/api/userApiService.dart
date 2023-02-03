@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
 import '../../constants/api_urls.dart';
-import '../../contracts/generated/uploadedImageViewModel.dart';
+import '../../contracts/generated/uploaded_image_view_model.dart';
 import '../../integration/dependencyInjection.dart';
 import './interface/IUserApiService.dart';
 

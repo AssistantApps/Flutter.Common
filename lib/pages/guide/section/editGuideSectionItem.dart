@@ -7,7 +7,7 @@ import '../../../components/common/placeholder.dart';
 import '../../../components/forms/text_input.dart';
 import '../../../contracts/enum/guide_section_item_type.dart';
 import '../../../contracts/enum/locale_key.dart';
-import '../../../contracts/generated/uploadedImageViewModel.dart';
+import '../../../contracts/generated/uploaded_image_view_model.dart';
 import '../../../contracts/guide/guideSectionItem.dart';
 import '../../../helpers/imageUploadHelper.dart';
 import '../../../integration/dependencyInjection.dart';

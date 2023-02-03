@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import '../../constants/api_urls.dart';
-import '../../contracts/generated/patreonViewModel.dart';
+import '../../contracts/generated/patreon_view_model.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';

@@ -1,7 +1,7 @@
-import '../../../contracts/generated/appNoticeViewModel.dart';
+import '../../../contracts/generated/app_notice_view_model.dart';
 import '../../../contracts/generated/feedback/feedback_form_answer_submission_viewmodel.dart';
 import '../../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
-import '../../../contracts/generated/translatorLeaderboardItemViewModel.dart';
+import '../../../contracts/generated/translator_leaderboard_item_view_model.dart';
 import '../../../contracts/results/paginationResultWithValue.dart';
 import '../../../contracts/results/result.dart';
 import '../../../contracts/results/resultWithValue.dart';

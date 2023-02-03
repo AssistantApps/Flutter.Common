@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings, prefer_adjacent_string_concatenation
 
-import '../contracts/generated/auth/patreonOAuthViewModel.dart';
+import '../contracts/generated/auth/patreon_o_auth_view_model.dart';
 import './dependencyInjection.dart';
 
 String patreonApiUrl = 'https://www.patreon.com';

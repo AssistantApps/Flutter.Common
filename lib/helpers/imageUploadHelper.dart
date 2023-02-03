@@ -5,7 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
 import '../contracts/results/resultWithValue.dart';
-import '../contracts/generated/uploadedImageViewModel.dart';
+import '../contracts/generated/uploaded_image_view_model.dart';
 import '../integration/dependencyInjection.dart';
 import 'deviceHelper.dart';
 

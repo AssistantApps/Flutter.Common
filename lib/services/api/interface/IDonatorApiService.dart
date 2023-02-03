@@ -1,4 +1,4 @@
-import '../../../contracts/generated/donationViewModel.dart';
+import '../../../contracts/generated/donation_view_model.dart';
 import '../../../contracts/results/paginationResultWithValue.dart';
 
 class IDonatorApiService {

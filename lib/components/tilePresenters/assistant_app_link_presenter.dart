@@ -1,4 +1,4 @@
-import 'package:assistantapps_flutter_common/contracts/generated/appsLinkViewModel.dart';
+import 'package:assistantapps_flutter_common/contracts/generated/apps_link_view_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/misc/popupMenuaction_item.dart';

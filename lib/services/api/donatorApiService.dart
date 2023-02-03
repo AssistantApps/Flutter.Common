@@ -1,5 +1,5 @@
 import '../../constants/api_urls.dart';
-import '../../contracts/generated/donationViewModel.dart';
+import '../../contracts/generated/donation_view_model.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseApiService.dart';

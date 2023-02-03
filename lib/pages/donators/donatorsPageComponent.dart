@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../components/list/lazy_loaded_searchable_list.dart';
 import '../../components/tilePresenters/donation_tile_presenter.dart';
 import '../../constants/ui_constants.dart';
-import '../../contracts/generated/donationViewModel.dart';
+import '../../contracts/generated/donation_view_model.dart';
 import '../../integration/dependencyInjection.dart';
 
 class DonatorsPageComponent extends StatelessWidget {

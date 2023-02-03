@@ -1,6 +1,6 @@
 import '../../../contracts/enum/assistant_app_type.dart';
-import '../../../contracts/generated/steamBranchesViewModel.dart';
-import '../../../contracts/generated/steamNewsItemViewModel.dart';
+import '../../../contracts/generated/steam_branches_view_model.dart';
+import '../../../contracts/generated/steam_news_item_view_model.dart';
 import '../../../contracts/results/resultWithValue.dart';
 
 class ISteamApiService {

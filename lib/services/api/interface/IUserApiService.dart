@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
-import '../../../contracts/generated/uploadedImageViewModel.dart';
+import '../../../contracts/generated/uploaded_image_view_model.dart';
 
 class IUserApiService {
   Future<ResultWithValue<String>> uploadNativeImage() async {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/donation_type.dart';
-import '../../contracts/generated/donationViewModel.dart';
+import '../../contracts/generated/donation_view_model.dart';
 import '../../contracts/types/listTypes.dart';
 import '../../helpers/dateHelper.dart';
 import '../common/donation_image.dart';

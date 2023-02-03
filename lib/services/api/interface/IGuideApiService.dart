@@ -1,7 +1,7 @@
-import '../../../contracts/generated/guide/guideSearchResultViewModel.dart';
-import '../../../contracts/generated/guide/addGuideViewModel.dart';
-import '../../../contracts/generated/guide/guideContentViewModel.dart';
-import '../../../contracts/generated/guide/guideSearchViewModel.dart';
+import '../../../contracts/generated/guide/guide_search_result_view_model.dart';
+import '../../../contracts/generated/guide/add_guide_view_model.dart';
+import '../../../contracts/generated/guide/guide_content_view_model.dart';
+import '../../../contracts/generated/guide/guide_search_view_model.dart';
 import '../../../contracts/results/paginationResultWithValue.dart';
 import '../../../contracts/results/result.dart';
 import '../../../contracts/results/resultWithValue.dart';

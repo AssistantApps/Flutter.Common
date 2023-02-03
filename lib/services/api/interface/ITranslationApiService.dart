@@ -1,4 +1,4 @@
-import '../../../contracts/generated/translationsPerLanguageGraphViewModel.dart';
+import '../../../contracts/generated/translations_per_language_graph_view_model.dart';
 import '../../../contracts/results/resultWithValue.dart';
 
 class ITranslationApiService {

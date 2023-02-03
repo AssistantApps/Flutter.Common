@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../contracts/generated/appsLinkViewModel.dart';
+import '../../../contracts/generated/apps_link_view_model.dart';
 import '../../../contracts/results/resultWithValue.dart';
 
 class IDataJsonService {

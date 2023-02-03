@@ -10,7 +10,7 @@ import '../../constants/app_image.dart';
 import '../../constants/ui_constants.dart';
 import '../../contracts/enum/assistant_app_type.dart';
 import '../../contracts/enum/locale_key.dart';
-import '../../contracts/generated/appsLinkViewModel.dart';
+import '../../contracts/generated/apps_link_view_model.dart';
 import '../../contracts/misc/popupMenuaction_item.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/deviceHelper.dart';
