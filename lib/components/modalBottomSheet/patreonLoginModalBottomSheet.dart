@@ -11,7 +11,7 @@ import '../../integration/patreonApi.dart';
 import '../../services/signalr/OAuthSignalRService.dart';
 import '../common/auth_buttons.dart';
 import '../common/space.dart';
-import '../list/listWithScrollbar.dart';
+import '../list/list_with_scrollbar.dart';
 
 class PatreonLoginModalBottomSheet extends StatefulWidget {
   final String analyticsKey;

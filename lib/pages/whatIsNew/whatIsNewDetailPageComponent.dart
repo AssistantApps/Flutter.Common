@@ -3,7 +3,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 
 import '../../components/common/space.dart';
 import '../../components/common/text.dart';
-import '../../components/list/listWithScrollbar.dart';
+import '../../components/list/list_with_scrollbar.dart';
 import '../../contracts/enum/platformType.dart';
 import '../../contracts/generated/versionViewModel.dart';
 import '../../helpers/deviceHelper.dart';

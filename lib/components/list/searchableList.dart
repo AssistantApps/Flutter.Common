@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/types/listTypes.dart';
 import '../searchable.dart';
-import './listWithScrollbar.dart';
+import './list_with_scrollbar.dart';
 
 class SearchableList<T> extends StatelessWidget {
   final ListGetterType<T> listGetter;
