@@ -8,7 +8,7 @@ import '../../components/adaptive/app_scaffold.dart';
 import '../../contracts/misc/action_item.dart';
 import '../../helpers/device_helper.dart';
 import '../../integration/dependency_injection_base.dart';
-import './interface/IBaseWidgetService.dart';
+import './interface/i_base_widget_service.dart';
 
 class BaseWidgetService implements IBaseWidgetService {
   @override

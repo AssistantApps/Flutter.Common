@@ -2,7 +2,7 @@ import 'package:assistantapps_flutter_common/components/common/image.dart';
 import 'package:assistantapps_flutter_common/constants/ui_constants.dart';
 import 'package:flutter/cupertino.dart';
 
-import './interface/IPathService.dart';
+import './interface/i_path_service.dart';
 
 class PathService implements IPathService {
   @override

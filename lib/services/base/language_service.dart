@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/localization_map.dart';
-import './interface/ILanguageService.dart';
+import './interface/i_language_service.dart';
 
 class LanguageService implements ILanguageService {
   @override

@@ -7,7 +7,7 @@ import '../../constants/ui_constants.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../helpers/device_helper.dart';
 import '../../integration/dependency_injection.dart';
-import './interface/ILoadingWidgetService.dart';
+import './interface/i_loading_widget_service.dart';
 
 class LoadingWidgetService implements ILoadingWidgetService {
   @override

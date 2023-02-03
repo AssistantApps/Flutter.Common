@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/search/dropdown_option.dart';
-import './interface/IDialogService.dart';
+import './interface/i_dialog_service.dart';
 
 class DialogService implements IDialogService {
   //

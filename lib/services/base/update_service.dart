@@ -11,7 +11,7 @@ import '../../contracts/results/result_with_value.dart';
 import '../../helpers/device_helper.dart';
 import '../../helpers/external_helper.dart';
 import '../../integration/dependency_injection.dart';
-import './interface/IUpdateService.dart';
+import './interface/i_update_service.dart';
 
 class UpdateService implements IUpdateService {
   //

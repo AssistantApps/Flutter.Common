@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../services/base/interface/ITranslationsService.dart';
+import '../services/base/interface/i_translations_service.dart';
 import './dependency_injection.dart';
 
 class TranslationsDelegate extends LocalizationsDelegate<ITranslationService> {

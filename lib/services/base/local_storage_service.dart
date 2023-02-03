@@ -4,7 +4,7 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
 import '../../contracts/misc/storage_with_expiry.dart';
 import '../../repository/interface/i_local_storage_repository.dart';
-import './interface/ILocalStorageService.dart';
+import './interface/i_local_storage_service.dart';
 
 class LocalStorageService implements ILocalStorageService {
   final ILocalStorageRepository _localRepo;

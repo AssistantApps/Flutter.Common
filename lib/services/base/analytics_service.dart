@@ -1,4 +1,4 @@
-import './interface/IAnalyticsService.dart';
+import './interface/i_analytics_service.dart';
 
 class AnalyticsService implements IAnalyticsService {
   @override

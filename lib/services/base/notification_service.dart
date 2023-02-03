@@ -1,4 +1,4 @@
-import './interface/INotificationService.dart';
+import './interface/i_notification_service.dart';
 
 class NotificationService implements INotificationService {
   @override

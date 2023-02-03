@@ -154,19 +154,19 @@ export './services/BaseJsonService.dart';
 export './services/BaseSignalRService.dart';
 //
 //Base Interfaces
-export './services/base/interface/IAnalyticsService.dart';
-export './services/base/interface/ILoggingService.dart';
-export './services/base/interface/INavigationService.dart';
-export './services/base/interface/INotificationService.dart';
-export './services/base/interface/ISnackbarService.dart';
-export './services/base/interface/ILoadingWidgetService.dart';
-export './services/base/interface/IPathService.dart';
-export './services/base/interface/IThemeService.dart';
-export './services/base/interface/IBaseWidgetService.dart';
-export './services/base/interface/IDialogService.dart';
-export './services/base/interface/ITranslationsService.dart';
-export './services/base/interface/ILanguageService.dart';
-export './services/base/interface/IUpdateService.dart';
+export './services/base/interface/i_analytics_service.dart';
+export './services/base/interface/i_logging_service.dart';
+export './services/base/interface/i_navigation_service.dart';
+export './services/base/interface/i_notification_service.dart';
+export './services/base/interface/i_snackbar_service.dart';
+export './services/base/interface/i_loading_widget_service.dart';
+export './services/base/interface/i_path_service.dart';
+export './services/base/interface/i_theme_service.dart';
+export './services/base/interface/i_base_widget_service.dart';
+export './services/base/interface/i_dialog_service.dart';
+export './services/base/interface/i_translations_service.dart';
+export './services/base/interface/i_language_service.dart';
+export './services/base/interface/i_update_service.dart';
 //
 //Api Interfaces
 export './services/api/interface/i_assistant_apps_api_service.dart';
