@@ -4,7 +4,7 @@ import '../../../components/adaptive/bottom_modal.dart';
 import '../../../components/adaptive/button.dart';
 import '../../../components/common/image.dart';
 import '../../../components/common/placeholder.dart';
-import '../../../components/forms/textInput.dart';
+import '../../../components/forms/text_input.dart';
 import '../../../contracts/enum/guideSectionItemType.dart';
 import '../../../contracts/enum/localeKey.dart';
 import '../../../contracts/generated/uploadedImageViewModel.dart';

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/types/listTypes.dart';
 import '../searchable.dart';
-import './gridWithScrollbar.dart';
+import './grid_with_scrollbar.dart';
 
 class SearchableGrid<T> extends StatelessWidget {
   final ListGetterType<T> listGetter;

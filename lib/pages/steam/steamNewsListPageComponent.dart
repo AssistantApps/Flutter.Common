@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/grid/searchableGrid.dart';
+import '../../components/grid/searchable_grid.dart';
 import '../../components/tilePresenters/steamTilePresenter.dart';
 import '../../contracts/enum/assistantAppType.dart';
 import '../../contracts/enum/localeKey.dart';
