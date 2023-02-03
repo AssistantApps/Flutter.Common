@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import './guideSectionItem.dart';
+import './guide_section_item.dart';
 
 class GuideSection {
   String guid;

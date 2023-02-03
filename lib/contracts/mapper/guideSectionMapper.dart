@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import './guideSectionItemMapper.dart';
 import '../generated/guide/guide_section_view_model.dart';
-import '../guide/guideSection.dart';
+import '../guide/guide_section.dart';
 
 extension GuideSectionViewModelMapper on GuideSection {
   GuideSectionViewModel toViewModel() {

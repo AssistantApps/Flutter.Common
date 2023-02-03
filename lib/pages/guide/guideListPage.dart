@@ -13,7 +13,7 @@ import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/guide/guide_content_view_model.dart';
 import '../../contracts/generated/guide/guide_search_result_view_model.dart';
 import '../../contracts/generated/guide/guide_search_view_model.dart';
-import '../../contracts/guide/guideDraftModel.dart';
+import '../../contracts/guide/guide_draft_model.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/columnHelper.dart';
 import '../../helpers/guidHelper.dart';

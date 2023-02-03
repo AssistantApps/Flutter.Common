@@ -12,12 +12,12 @@ import '../../../components/grid/grid_with_scrollbar.dart';
 import '../../../constants/padding_constant.dart';
 import '../../../contracts/enum/guide_section_item_type.dart';
 import '../../../contracts/enum/locale_key.dart';
-import '../../../contracts/guide/guideSection.dart';
-import '../../../contracts/guide/guideSectionItem.dart';
+import '../../../contracts/guide/guide_section.dart';
+import '../../../contracts/guide/guide_section_item.dart';
 import '../../../helpers/columnHelper.dart';
 import '../../../helpers/deviceHelper.dart';
 import '../../../integration/dependencyInjection.dart';
-import './editGuideSectionItem.dart';
+import './editguide_section_item.dart';
 import './sectionItemOption.dart';
 
 class SectionAddEditPage extends StatefulWidget {
