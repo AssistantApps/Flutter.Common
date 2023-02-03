@@ -9,7 +9,7 @@ import '../../helpers/externalHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../integration/patreonApi.dart';
 import '../../services/signalr/OAuthSignalRService.dart';
-import '../common/authButtons.dart';
+import '../common/auth_buttons.dart';
 import '../common/space.dart';
 import '../list/listWithScrollbar.dart';
 

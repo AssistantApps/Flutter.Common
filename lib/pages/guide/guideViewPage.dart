@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/common/cachedFutureBuilder.dart';
+import '../../components/common/cached_future_builder.dart';
 import '../../components/common/card.dart';
 import '../../components/common/icon.dart';
 import '../../contracts/enum/localeKey.dart';

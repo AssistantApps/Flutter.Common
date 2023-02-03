@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/misc/actionItem.dart';
+import '../../contracts/misc/action_item.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';
-import '../common/actionItem.dart';
+import '../common/action_item.dart';
 import './app_bar.dart';
 import 'shortcut_action_button.dart';
 

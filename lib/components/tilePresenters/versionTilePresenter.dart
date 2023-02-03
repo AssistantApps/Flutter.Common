@@ -8,7 +8,7 @@ import '../../helpers/snapshotHelper.dart';
 import '../../helpers/updateHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/image.dart';
-import '../common/newBanner.dart';
+import '../common/new_banner.dart';
 import '../common/text.dart';
 import './genericTilePresenter.dart';
 import './timelineTileItemPresenter.dart';

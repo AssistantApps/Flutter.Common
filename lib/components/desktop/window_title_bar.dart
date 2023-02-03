@@ -2,7 +2,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/cupertino.dart' show ObstructingPreferredSizeWidget;
 import 'package:flutter/material.dart';
 
-import '../../contracts/misc/actionItem.dart';
+import '../../contracts/misc/action_item.dart';
 import '../../integration/dependencyInjectionBase.dart';
 import '../common/image.dart';
 import '../common/text.dart';

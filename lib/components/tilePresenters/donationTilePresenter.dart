@@ -4,7 +4,7 @@ import '../../contracts/enum/donationType.dart';
 import '../../contracts/generated/donationViewModel.dart';
 import '../../contracts/types/listTypes.dart';
 import '../../helpers/dateHelper.dart';
-import '../common/donationImage.dart';
+import '../common/donation_image.dart';
 
 ListItemDisplayerType<DonationViewModel> donationTilePresenter = (
   BuildContext context,

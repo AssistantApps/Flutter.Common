@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/common/cachedFutureBuilder.dart';
+import '../../components/common/cached_future_builder.dart';
 import '../../components/common/image.dart';
 import '../../components/common/space.dart';
 import '../../components/common/text.dart';
@@ -11,7 +11,7 @@ import '../../constants/UIConstants.dart';
 import '../../contracts/enum/assistantAppType.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../contracts/generated/appsLinkViewModel.dart';
-import '../../contracts/misc/popupMenuActionItem.dart';
+import '../../contracts/misc/popupMenuaction_item.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';

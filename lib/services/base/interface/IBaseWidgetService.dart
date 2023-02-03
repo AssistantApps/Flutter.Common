@@ -1,4 +1,4 @@
-import 'package:assistantapps_flutter_common/contracts/misc/actionItem.dart';
+import 'package:assistantapps_flutter_common/contracts/misc/action_item.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/adaptive/checkbox.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../helpers/colourHelper.dart';
-import './donationImage.dart';
+import './donation_image.dart';
 
 class PatreonAuthButton extends StatelessWidget {
   final VoidCallback onPressed;

@@ -1,4 +1,4 @@
-import 'patreonAuthButton.dart';
+import 'patreon_auth_button.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_buttons/auth_buttons.dart' show GoogleAuthButton;
 
