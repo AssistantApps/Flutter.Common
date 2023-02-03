@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/assistantAppType.dart';
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/assistant_app_type.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/steamNewsItemViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../integration/dependencyInjection.dart';

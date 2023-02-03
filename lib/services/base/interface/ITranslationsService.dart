@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../contracts/enum/localeKey.dart';
+import '../../../contracts/enum/locale_key.dart';
 import '../../../contracts/localizationMap.dart';
 
 abstract class ITranslationService {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../contracts/types/listTypes.dart';
 import '../searchable.dart';
 import './list_with_scrollbar.dart';

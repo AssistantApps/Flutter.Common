@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../components/common/cached_future_builder.dart';
 import '../../components/common/card.dart';
 import '../../components/common/icon.dart';
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSectionItemViewModel.dart';
 import '../../contracts/generated/guide/guideSectionViewModel.dart';

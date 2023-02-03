@@ -5,7 +5,7 @@
 import 'dart:convert';
 
 import '../../../helpers/jsonHelper.dart';
-import '../../enum/adminApprovalStatus.dart';
+import '../../enum/admin_approval_status.dart';
 import './addGuideViewModel.dart';
 import './guideSectionViewModel.dart';
 

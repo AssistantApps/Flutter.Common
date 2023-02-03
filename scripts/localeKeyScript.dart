@@ -39,8 +39,8 @@ Future<List<String>> getTranslationKeys() async {
 
 Future writeServerData(List<String> keys) async {
   if (keys.isEmpty) return;
-  print('Writing to LocaleKey.dart');
-  final file = File('./lib/contracts/enum/localeKey.dart');
+  print('Writing to locale_key.dart');
+  final file = File('./lib/contracts/enum/locale_key.dart');
   await file.writeAsString('enum LocaleKey {\n');
   for (int keyIndex = 0; keyIndex < (keys.length - 1); keyIndex++) {
     var key = keys[keyIndex];

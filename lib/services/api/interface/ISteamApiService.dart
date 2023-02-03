@@ -1,4 +1,4 @@
-import '../../../contracts/enum/assistantAppType.dart';
+import '../../../contracts/enum/assistant_app_type.dart';
 import '../../../contracts/generated/steamBranchesViewModel.dart';
 import '../../../contracts/generated/steamNewsItemViewModel.dart';
 import '../../../contracts/results/resultWithValue.dart';

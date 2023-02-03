@@ -1,4 +1,4 @@
-import './enumBase.dart';
+import './enum_base.dart';
 
 enum AssistantAppType {
   unknown,

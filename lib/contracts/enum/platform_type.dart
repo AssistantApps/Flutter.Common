@@ -1,4 +1,4 @@
-import '../enum/enumBase.dart';
+import '../enum/enum_base.dart';
 
 enum PlatformType {
   android,

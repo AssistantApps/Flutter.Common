@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../contracts/misc/versionDetail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';

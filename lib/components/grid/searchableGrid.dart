@@ -2,7 +2,7 @@ import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../contracts/types/listTypes.dart';
 import '../searchable.dart';
 import './grid_with_scrollbar.dart';

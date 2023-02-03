@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/donationType.dart';
+import '../../contracts/enum/donation_type.dart';
 import '../../contracts/generated/donationViewModel.dart';
 import '../../contracts/types/listTypes.dart';
 import '../../helpers/dateHelper.dart';

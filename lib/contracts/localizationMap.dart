@@ -1,4 +1,4 @@
-import './enum/localeKey.dart';
+import './enum/locale_key.dart';
 
 class LocalizationMap {
   LocaleKey name;

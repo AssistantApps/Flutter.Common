@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import '../../constants/api_urls.dart';
-import '../../contracts/enum/assistantAppType.dart';
+import '../../contracts/enum/assistant_app_type.dart';
 import '../../contracts/generated/steamBranchesViewModel.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:platform_device_id/platform_device_id.dart';
 import 'package:universal_platform/universal_platform.dart';
 
-import '../contracts/enum/platformType.dart';
+import '../contracts/enum/platform_type.dart';
 import '../contracts/misc/action_item.dart';
 import '../integration/dependencyInjection.dart';
 import './guidHelper.dart';

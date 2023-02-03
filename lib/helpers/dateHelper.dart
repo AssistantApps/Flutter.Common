@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:time_formatter/time_formatter.dart';
 
 import '../components/common/percent.dart';
-import '../contracts/enum/localeKey.dart';
+import '../contracts/enum/locale_key.dart';
 import '../integration/dependencyInjection.dart';
 import './timeHelper.dart';
 

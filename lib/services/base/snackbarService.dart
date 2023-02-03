@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sweetsheet/sweetsheet.dart';
 
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../integration/dependencyInjection.dart';
 import './interface/ISnackbarService.dart';
 

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../enum/platformType.dart';
+import '../enum/platform_type.dart';
 
 class VersionSearchViewModel {
   String appGuid;

@@ -3,7 +3,7 @@ import 'package:animated_background/animated_background.dart';
 
 import '../../constants/app_image.dart';
 import '../../constants/ui_constants.dart';
-import '../../contracts/enum/backgroundType.dart';
+import '../../contracts/enum/background_type.dart';
 
 class BackgroundWrapper extends StatelessWidget {
   final Widget body;

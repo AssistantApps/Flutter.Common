@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-import '../../contracts/enum/localeKey.dart';
-import '../../contracts/enum/platformType.dart';
+import '../../contracts/enum/locale_key.dart';
+import '../../contracts/enum/platform_type.dart';
 import '../../contracts/generated/versionViewModel.dart';
 import '../../contracts/misc/versionDetail.dart';
 import '../../contracts/results/resultWithValue.dart';

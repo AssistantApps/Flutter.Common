@@ -60,14 +60,14 @@ export './constants/external_urls.dart';
 export './constants/ui_constants.dart';
 //
 // Contracts
-export './contracts/enum/assistantAppType.dart';
-export './contracts/enum/backgroundType.dart';
-export './contracts/enum/donationType.dart';
-export './contracts/enum/enumBase.dart';
-export './contracts/enum/localeKey.dart';
-export './contracts/enum/networkState.dart';
-export './contracts/enum/oAuthProviderType.dart';
-export './contracts/enum/platformType.dart';
+export './contracts/enum/assistant_app_type.dart';
+export './contracts/enum/background_type.dart';
+export './contracts/enum/donation_type.dart';
+export './contracts/enum/enum_base.dart';
+export './contracts/enum/locale_key.dart';
+export './contracts/enum/network_state.dart';
+export './contracts/enum/o_auth_provider_type.dart';
+export './contracts/enum/platform_type.dart';
 export './contracts/generated/appNoticeViewModel.dart';
 export './contracts/generated/appsLinkViewModel.dart';
 export './contracts/generated/donationViewModel.dart';

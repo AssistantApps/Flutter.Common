@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../enum/oAuthProviderType.dart';
+import '../../enum/o_auth_provider_type.dart';
 
 class OAuthUserViewModel {
   OAuthProviderType oAuthType;

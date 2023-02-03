@@ -9,7 +9,7 @@ import '../../components/tilePresenters/guide_tile_presenter.dart';
 import '../../constants/app_image.dart';
 import '../../constants/local_storage_key.dart';
 import '../../constants/ui_constants.dart';
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
 import '../../contracts/generated/guide/guideSearchViewModel.dart';

@@ -7,7 +7,7 @@ import 'dart:convert';
 
 import '../../../helpers/stringHelper.dart';
 import '../../../integration/dependencyInjection.dart';
-import '../../enum/sortDirection.dart';
+import '../../enum/sort_direction.dart';
 
 class GuideSearchViewModel {
   String appGuid;

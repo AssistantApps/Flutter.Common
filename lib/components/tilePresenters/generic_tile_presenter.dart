@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../helpers/colourHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/badge.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/networkState.dart';
+import '../../contracts/enum/network_state.dart';
 import '../../contracts/generated/auth/patreonOAuthResponseViewModel.dart';
 import '../../contracts/generated/auth/patreonOAuthViewModel.dart';
 import '../../contracts/results/result.dart';

@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import '../../contracts/enum/donationType.dart';
+import '../../contracts/enum/donation_type.dart';
 import '../../helpers/jsonHelper.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import '../../helpers/jsonHelper.dart';
-import '../enum/platformType.dart';
+import '../enum/platform_type.dart';
 
 class VersionViewModel {
   String guid;

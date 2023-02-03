@@ -1,7 +1,7 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
-import '../../../contracts/enum/guideSectionItemType.dart';
+import '../../../contracts/enum/guide_section_item_type.dart';
 
 class SectionItemOption {
   GuideSectionItemType type;

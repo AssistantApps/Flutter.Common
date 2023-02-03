@@ -1,7 +1,7 @@
 import 'package:assistantapps_flutter_common/constants/ui_constants.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/localeKey.dart';
+import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/guide/addGuideViewModel.dart';
 import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';
