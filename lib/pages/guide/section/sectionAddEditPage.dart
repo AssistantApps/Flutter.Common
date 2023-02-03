@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../components/adaptive/bottomModal.dart';
+import '../../../components/adaptive/bottom_modal.dart';
 import '../../../components/adaptive/button.dart';
 import '../../../components/common/space.dart';
 import '../../../components/common/text.dart';

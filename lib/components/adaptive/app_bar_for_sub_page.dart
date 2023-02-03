@@ -5,8 +5,8 @@ import '../../contracts/misc/actionItem.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/actionItem.dart';
-import './appBar.dart';
-import 'shortcutActionButton.dart';
+import './app_bar.dart';
+import 'shortcut_action_button.dart';
 
 class AdaptiveAppBarForSubPage extends StatelessWidget
     implements PreferredSizeWidget, ObstructingPreferredSizeWidget {

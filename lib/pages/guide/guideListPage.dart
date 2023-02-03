@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
-import '../../components/adaptive/searchBar.dart';
+import '../../components/adaptive/search_bar.dart';
 import '../../components/common/cachedFutureBuilder.dart';
 import '../../components/common/text.dart';
 import '../../components/list/paginationSearchableList.dart';

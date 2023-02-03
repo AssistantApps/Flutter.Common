@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/adaptive/segmentedControl.dart';
+import '../../components/adaptive/segmented_control.dart';
 import '../../components/common/space.dart';
 import '../../components/common/text.dart';
 import '../../contracts/enum/assistantAppType.dart';

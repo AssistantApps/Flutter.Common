@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/adaptive/bottomModal.dart';
+import '../../../components/adaptive/bottom_modal.dart';
 import '../../../components/adaptive/button.dart';
 import '../../../components/common/image.dart';
 import '../../../components/common/placeholder.dart';

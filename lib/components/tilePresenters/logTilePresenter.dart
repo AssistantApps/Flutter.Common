@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../adaptive/bottomModal.dart';
+import '../adaptive/bottom_modal.dart';
 import '../modalBottomSheet/logsModalBottomSheet.dart';
 import './linkTilePresenter.dart';
 

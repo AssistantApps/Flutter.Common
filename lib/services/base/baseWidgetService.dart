@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../components/adaptive/appBar.dart';
-import '../../components/adaptive/appBarForSubPage.dart';
+import '../../components/adaptive/app_bar.dart';
+import '../../components/adaptive/app_bar_for_sub_page.dart';
 import '../../components/adaptive/checkbox.dart';
 import '../../components/adaptive/chip.dart';
-import '../../components/adaptive/appScaffold.dart';
+import '../../components/adaptive/app_scaffold.dart';
 import '../../contracts/misc/actionItem.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjectionBase.dart';

@@ -5,7 +5,7 @@ import '../contracts/enum/localeKey.dart';
 import '../contracts/results/resultWithValue.dart';
 import '../contracts/types/listTypes.dart';
 import '../integration/dependencyInjection.dart';
-import './adaptive/searchBar.dart';
+import './adaptive/search_bar.dart';
 import './common/animation.dart';
 import './common/space.dart';
 
