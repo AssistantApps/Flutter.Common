@@ -15,7 +15,7 @@ import '../../contracts/generated/uploaded_image_view_model.dart';
 import '../../contracts/mapper/guide_section_mapper.dart';
 import '../../helpers/image_upload_helper.dart';
 import '../../integration/dependency_injection.dart';
-import '../../validation/commonValidator.dart';
+import '../../validation/common_validator.dart';
 
 class GuideAddEditPage extends StatefulWidget {
   final String? analyticsKey;
