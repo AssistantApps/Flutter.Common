@@ -10,7 +10,7 @@ import '../../contracts/results/result.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
 import '../BaseApiService.dart';
-import './interface/IAssistantAppsApiService.dart';
+import './interface/i_assistant_apps_api_service.dart';
 
 class AssistantAppsApiService extends BaseApiService
     implements IAssistantAppsApiService {

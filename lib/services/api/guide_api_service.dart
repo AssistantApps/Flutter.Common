@@ -2,7 +2,7 @@ import '../../contracts/results/pagination_result_with_value.dart';
 import '../../contracts/results/result.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../BaseApiService.dart';
-import './interface/IGuideApiService.dart';
+import './interface/i_guide_api_service.dart';
 import '../../constants/api_urls.dart';
 import '../../contracts/generated/guide/add_guide_view_model.dart';
 import '../../contracts/generated/guide/guide_content_view_model.dart';

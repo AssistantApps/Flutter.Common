@@ -1,14 +1,14 @@
 import 'package:get_it/get_it.dart';
 
 import '../env/assistant_apps_environment_settings.dart';
-import '../services/api/interface/IAssistantAppsApiService.dart';
-import '../services/api/interface/IDonatorApiService.dart';
-import '../services/api/interface/IGuideApiService.dart';
-import '../services/api/interface/IPatreonApiService.dart';
-import '../services/api/interface/ISteamApiService.dart';
-import '../services/api/interface/ITranslationApiService.dart';
-import '../services/api/interface/IUserApiService.dart';
-import '../services/api/interface/IVersionApiService.dart';
+import '../services/api/interface/i_assistant_apps_api_service.dart';
+import '../services/api/interface/i_donator_api_service.dart';
+import '../services/api/interface/i_guide_api_service.dart';
+import '../services/api/interface/i_patreon_api_service.dart';
+import '../services/api/interface/i_steam_api_service.dart';
+import '../services/api/interface/i_translation_api_service.dart';
+import '../services/api/interface/i_user_api_service.dart';
+import '../services/api/interface/i_version_api_service.dart';
 import '../services/base/interface/IAnalyticsService.dart';
 import '../services/base/interface/IAuthApiService.dart';
 import '../services/base/interface/IBaseWidgetService.dart';

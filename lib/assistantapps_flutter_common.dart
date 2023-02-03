@@ -169,20 +169,20 @@ export './services/base/interface/ILanguageService.dart';
 export './services/base/interface/IUpdateService.dart';
 //
 //Api Interfaces
-export './services/api/interface/IAssistantAppsApiService.dart';
-export './services/api/interface/IDonatorApiService.dart';
-export './services/api/interface/IGuideApiService.dart';
-export './services/api/interface/IPatreonApiService.dart';
-export './services/api/interface/ISteamApiService.dart';
-export './services/api/interface/ITranslationApiService.dart';
-export './services/api/interface/IVersionApiService.dart';
-export './services/api/assistantAppsApiService.dart';
-export './services/api/donatorApiService.dart';
-export './services/api/guideApiService.dart';
-export './services/api/patreonApiService.dart';
-export './services/api/steamApiService.dart';
-export './services/api/translationApiService.dart';
-export './services/api/versionApiService.dart';
+export './services/api/interface/i_assistant_apps_api_service.dart';
+export './services/api/interface/i_donator_api_service.dart';
+export './services/api/interface/i_guide_api_service.dart';
+export './services/api/interface/i_patreon_api_service.dart';
+export './services/api/interface/i_steam_api_service.dart';
+export './services/api/interface/i_translation_api_service.dart';
+export './services/api/interface/i_version_api_service.dart';
+export './services/api/assistant_apps_api_service.dart';
+export './services/api/donator_api_service.dart';
+export './services/api/guide_api_service.dart';
+export './services/api/patreon_api_service.dart';
+export './services/api/steam_api_service.dart';
+export './services/api/translation_api_service.dart';
+export './services/api/version_api_service.dart';
 export './services/signalr/OAuthSignalRService.dart';
 //
 //Data Interfaces

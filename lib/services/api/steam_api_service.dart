@@ -10,7 +10,7 @@ import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
 
 import '../BaseApiService.dart';
-import './interface/ISteamApiService.dart';
+import './interface/i_steam_api_service.dart';
 
 class SteamApiService extends BaseApiService implements ISteamApiService {
   SteamApiService() : super(getEnv().assistantAppsApiUrl);

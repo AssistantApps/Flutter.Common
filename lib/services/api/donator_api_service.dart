@@ -3,7 +3,7 @@ import '../../contracts/generated/donation_view_model.dart';
 import '../../contracts/results/pagination_result_with_value.dart';
 import '../../integration/dependency_injection.dart';
 import '../BaseApiService.dart';
-import './interface/IDonatorApiService.dart';
+import './interface/i_donator_api_service.dart';
 
 class DonatorApiService extends BaseApiService implements IDonatorApiService {
   DonatorApiService() : super(getEnv().assistantAppsApiUrl);
