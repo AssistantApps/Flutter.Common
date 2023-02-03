@@ -101,7 +101,7 @@ export './contracts/search/dropdown_option.dart';
 export './contracts/types/list_types.dart';
 //
 // Environment
-export './env/assistantAppsEnvironmentSettings.dart';
+export './env/assistant_apps_environment_settings.dart';
 //
 // Helpers
 export './helpers/colourHelper.dart';

@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
 
-import '../env/assistantAppsEnvironmentSettings.dart';
+import '../env/assistant_apps_environment_settings.dart';
 import '../services/api/interface/IAssistantAppsApiService.dart';
 import '../services/api/interface/IDonatorApiService.dart';
 import '../services/api/interface/IGuideApiService.dart';
