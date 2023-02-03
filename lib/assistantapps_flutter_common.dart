@@ -149,9 +149,9 @@ export './pages/whatIsNew/what_is_new_page.dart';
 export './pages/whatIsNew/what_is_new_page_component.dart';
 //
 //Base Services
-export './services/BaseApiService.dart';
-export './services/BaseJsonService.dart';
-export './services/BaseSignalRService.dart';
+export './services/base_api_service.dart';
+export './services/base_json_service.dart';
+export './services/base_signal_r_service.dart';
 //
 //Base Interfaces
 export './services/base/interface/i_analytics_service.dart';
@@ -183,10 +183,10 @@ export './services/api/patreon_api_service.dart';
 export './services/api/steam_api_service.dart';
 export './services/api/translation_api_service.dart';
 export './services/api/version_api_service.dart';
-export './services/signalr/OAuthSignalRService.dart';
+export './services/signalr/o_auth_signal_r_service.dart';
 //
 //Data Interfaces
-export './services/json/interface/IbackupJsonService.dart';
-export './services/json/interface/IdataJsonService.dart';
-export './services/json/backupJsonService.dart';
-export './services/json/dataJsonService.dart';
+export './services/json/interface/ibackup_json_service.dart';
+export './services/json/interface/idata_json_service.dart';
+export './services/json/backup_json_service.dart';
+export './services/json/data_json_service.dart';

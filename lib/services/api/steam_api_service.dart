@@ -9,7 +9,7 @@ import '../../contracts/generated/steam_news_item_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
 
-import '../BaseApiService.dart';
+import '../base_api_service.dart';
 import './interface/i_steam_api_service.dart';
 
 class SteamApiService extends BaseApiService implements ISteamApiService {

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../../contracts/generated/apps_link_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
-import '../BaseJsonService.dart';
-import './interface/IdataJsonService.dart';
+import '../base_json_service.dart';
+import './interface/idata_json_service.dart';
 
 class DataJsonService extends BaseJsonService implements IDataJsonService {
   //

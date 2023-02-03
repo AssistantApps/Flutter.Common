@@ -1,7 +1,7 @@
 import '../../constants/signal_r_events.dart';
 import '../../contracts/results/result.dart';
 import '../../integration/dependency_injection.dart';
-import '../BaseSignalRService.dart';
+import '../base_signal_r_service.dart';
 
 class OAuthSignalRService extends BaseSignalRService {
   OAuthSignalRService() : super('${getEnv().assistantAppsApiUrl}/hubs/oauth');

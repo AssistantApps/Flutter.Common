@@ -5,7 +5,7 @@ import '../../contracts/generated/auth/o_auth_user_view_model.dart';
 import '../../contracts/results/result.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
-import '../BaseApiService.dart';
+import '../base_api_service.dart';
 import './interface/i_auth_api_service.dart';
 
 class AuthApiService extends BaseApiService implements IAuthApiService {

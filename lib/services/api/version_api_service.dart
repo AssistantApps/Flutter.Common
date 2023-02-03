@@ -5,7 +5,7 @@ import '../../contracts/generated/version_view_model.dart';
 import '../../contracts/results/pagination_result_with_value.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
-import '../BaseApiService.dart';
+import '../base_api_service.dart';
 import './interface/i_version_api_service.dart';
 
 class VersionApiService extends BaseApiService implements IVersionApiService {

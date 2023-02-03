@@ -5,8 +5,8 @@ import '../../contracts/generated/patreon_view_model.dart';
 import '../../contracts/results/pagination_result_with_value.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
-import '../BaseJsonService.dart';
-import './interface/IbackupJsonService.dart';
+import '../base_json_service.dart';
+import './interface/ibackup_json_service.dart';
 
 class BackupJsonService extends BaseJsonService implements IBackupJsonService {
   @override

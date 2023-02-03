@@ -8,7 +8,7 @@ import '../../helpers/device_helper.dart';
 import '../../helpers/external_helper.dart';
 import '../../integration/dependency_injection.dart';
 import '../../integration/patreon_api.dart';
-import '../../services/signalr/OAuthSignalRService.dart';
+import '../../services/signalr/o_auth_signal_r_service.dart';
 import '../common/auth_buttons.dart';
 import '../common/space.dart';
 import '../list/list_with_scrollbar.dart';

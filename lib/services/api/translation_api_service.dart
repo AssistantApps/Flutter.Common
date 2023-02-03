@@ -5,7 +5,7 @@ import '../../contracts/generated/translation_get_graph_view_model.dart';
 import '../../contracts/generated/translations_per_language_graph_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependency_injection.dart';
-import '../BaseApiService.dart';
+import '../base_api_service.dart';
 import './interface/i_translation_api_service.dart';
 
 class TranslationApiService extends BaseApiService

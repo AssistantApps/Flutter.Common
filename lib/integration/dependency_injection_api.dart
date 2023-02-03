@@ -18,7 +18,7 @@ import '../services/api/user_api_service.dart';
 import '../services/api/version_api_service.dart';
 import '../services/base/auth_api_service.dart';
 import '../services/base/interface/i_auth_api_service.dart';
-import '../services/signalr/OAuthSignalRService.dart';
+import '../services/signalr/o_auth_signal_r_service.dart';
 import './common_dependency_injection.dart';
 
 void initAssistantAppsDependencyInjectionForApi({
