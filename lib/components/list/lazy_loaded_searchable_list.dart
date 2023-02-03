@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pagination_view/pagination_view.dart';
 
 import '../../contracts/results/pagination_result_with_value.dart';
-import '../../contracts/types/listTypes.dart';
+import '../../contracts/types/list_types.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/animation.dart';
 

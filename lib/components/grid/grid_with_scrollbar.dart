@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../contracts/types/listTypes.dart';
+import '../../contracts/types/list_types.dart';
 import '../../helpers/columnHelper.dart';
 import '../../helpers/deviceHelper.dart';
 

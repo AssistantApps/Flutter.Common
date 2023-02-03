@@ -98,7 +98,7 @@ export './contracts/results/result.dart';
 export './contracts/results/result_with_double_value.dart';
 export './contracts/results/result_with_value.dart';
 export './contracts/search/dropdown_option.dart';
-export './contracts/types/listTypes.dart';
+export './contracts/types/list_types.dart';
 //
 // Environment
 export './env/assistantAppsEnvironmentSettings.dart';
