@@ -93,10 +93,10 @@ export './contracts/staggeredGridTileItem.dart';
 export './contracts/misc/action_item.dart';
 export './contracts/misc/popupMenuaction_item.dart';
 export './contracts/misc/responsive_flex_data.dart';
-export './contracts/results/paginationResultWithValue.dart';
+export './contracts/results/pagination_result_with_value.dart';
 export './contracts/results/result.dart';
-export './contracts/results/resultWithDoubleValue.dart';
-export './contracts/results/resultWithValue.dart';
+export './contracts/results/result_with_double_value.dart';
+export './contracts/results/result_with_value.dart';
 export './contracts/search/dropdownOption.dart';
 export './contracts/types/listTypes.dart';
 //

@@ -6,7 +6,7 @@ import '../../contracts/generated/steam_branches_view_model.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 
 import '../../contracts/generated/steam_news_item_view_model.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependencyInjection.dart';
 
 import '../BaseApiService.dart';

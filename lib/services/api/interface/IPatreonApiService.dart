@@ -1,5 +1,5 @@
 import '../../../contracts/generated/patreon_view_model.dart';
-import '../../../contracts/results/resultWithValue.dart';
+import '../../../contracts/results/result_with_value.dart';
 
 class IPatreonApiService {
   Future<ResultWithValue<List<PatreonViewModel>>> getPatrons() async {

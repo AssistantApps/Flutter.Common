@@ -1,5 +1,5 @@
 import '../../../contracts/generated/donation_view_model.dart';
-import '../../../contracts/results/paginationResultWithValue.dart';
+import '../../../contracts/results/pagination_result_with_value.dart';
 
 class IDonatorApiService {
   //

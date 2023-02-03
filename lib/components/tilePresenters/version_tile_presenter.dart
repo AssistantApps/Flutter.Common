@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/version_view_model.dart';
 import '../../contracts/misc/version_detail.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../helpers/snapshotHelper.dart';
 import '../../helpers/updateHelper.dart';
 import '../../integration/dependencyInjection.dart';

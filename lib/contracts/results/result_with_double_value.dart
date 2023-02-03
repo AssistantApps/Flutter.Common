@@ -1,4 +1,4 @@
-import './resultWithValue.dart';
+import './result_with_value.dart';
 
 class ResultWithDoubleValue<T, K> extends ResultWithValue<T> {
   K secondValue;

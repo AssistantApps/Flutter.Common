@@ -2,9 +2,9 @@ import '../../../contracts/generated/app_notice_view_model.dart';
 import '../../../contracts/generated/feedback/feedback_form_answer_submission_viewmodel.dart';
 import '../../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';
 import '../../../contracts/generated/translator_leaderboard_item_view_model.dart';
-import '../../../contracts/results/paginationResultWithValue.dart';
+import '../../../contracts/results/pagination_result_with_value.dart';
 import '../../../contracts/results/result.dart';
-import '../../../contracts/results/resultWithValue.dart';
+import '../../../contracts/results/result_with_value.dart';
 
 class IAssistantAppsApiService {
   //

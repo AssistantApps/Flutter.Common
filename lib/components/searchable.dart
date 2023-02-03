@@ -2,7 +2,7 @@ import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../contracts/enum/locale_key.dart';
-import '../contracts/results/resultWithValue.dart';
+import '../contracts/results/result_with_value.dart';
 import '../contracts/types/listTypes.dart';
 import '../integration/dependencyInjection.dart';
 import './adaptive/search_bar.dart';

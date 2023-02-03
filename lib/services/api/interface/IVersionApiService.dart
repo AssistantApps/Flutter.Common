@@ -1,7 +1,7 @@
 import '../../../contracts/enum/platform_type.dart';
 import '../../../contracts/generated/version_view_model.dart';
-import '../../../contracts/results/paginationResultWithValue.dart';
-import '../../../contracts/results/resultWithValue.dart';
+import '../../../contracts/results/pagination_result_with_value.dart';
+import '../../../contracts/results/result_with_value.dart';
 
 class IVersionApiService {
   Future<ResultWithValue<VersionViewModel>> getLatest(

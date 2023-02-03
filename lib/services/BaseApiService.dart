@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:http/http.dart' as http;
 
 import '../contracts/generated/uploaded_image_view_model.dart';
-import '../contracts/results/resultWithValue.dart';
+import '../contracts/results/result_with_value.dart';
 import '../integration/dependencyInjection.dart';
 
 class BaseApiService {

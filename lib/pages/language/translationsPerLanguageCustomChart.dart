@@ -4,7 +4,7 @@ import '../../components/common/animation.dart';
 import '../../components/common/percent.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/translations_per_language_graph_view_model.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../helpers/snapshotHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../services/api/translationApiService.dart';

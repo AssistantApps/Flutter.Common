@@ -7,7 +7,7 @@ import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/guide/guide_content_view_model.dart';
 import '../../contracts/generated/guide/guide_section_item_view_model.dart';
 import '../../contracts/generated/guide/guide_section_view_model.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../helpers/dateHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import './section/displayguide_section.dart';

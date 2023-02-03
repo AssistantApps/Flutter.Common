@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../contracts/generated/apps_link_view_model.dart';
-import '../../../contracts/results/resultWithValue.dart';
+import '../../../contracts/results/result_with_value.dart';
 
 class IDataJsonService {
   Future<ResultWithValue<List<AssistantAppsLinkViewModel>>> getAssistantApps(

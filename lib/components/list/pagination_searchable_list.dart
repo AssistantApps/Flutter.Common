@@ -2,8 +2,8 @@ import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
-import '../../contracts/results/paginationResultWithValue.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/pagination_result_with_value.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependencyInjection.dart';
 import './searchable_list.dart';
 

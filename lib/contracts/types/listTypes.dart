@@ -1,8 +1,8 @@
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
-import '../results/paginationResultWithValue.dart';
-import '../results/resultWithValue.dart';
+import '../results/pagination_result_with_value.dart';
+import '../results/result_with_value.dart';
 
 typedef ListGetterType<T> = Future<ResultWithValue<List<T>>> Function();
 

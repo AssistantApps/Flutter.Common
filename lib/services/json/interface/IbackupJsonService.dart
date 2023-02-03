@@ -1,7 +1,7 @@
 import '../../../contracts/generated/donation_view_model.dart';
 import '../../../contracts/generated/patreon_view_model.dart';
-import '../../../contracts/results/paginationResultWithValue.dart';
-import '../../../contracts/results/resultWithValue.dart';
+import '../../../contracts/results/pagination_result_with_value.dart';
+import '../../../contracts/results/result_with_value.dart';
 
 class IBackupJsonService {
   //

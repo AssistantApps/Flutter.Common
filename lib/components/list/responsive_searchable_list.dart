@@ -2,7 +2,7 @@ import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/misc/responsive_flex_data.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../helpers/columnHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import './searchable_list.dart';

@@ -1,4 +1,4 @@
-import '../contracts/results/resultWithValue.dart';
+import '../contracts/results/result_with_value.dart';
 
 Future<ResultWithValue<List<T>>> Function() getSearchListFutureFromList<T>(
     List<T> list,

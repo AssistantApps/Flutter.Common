@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../../contracts/generated/apps_link_view_model.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseJsonService.dart';
 import './interface/IdataJsonService.dart';

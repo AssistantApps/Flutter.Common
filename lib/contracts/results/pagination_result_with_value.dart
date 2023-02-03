@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import '../../helpers/jsonHelper.dart';
 
-import './resultWithValue.dart';
+import './result_with_value.dart';
 
 class PaginationResultWithValue<T> extends ResultWithValue<T> {
   int currentPage;

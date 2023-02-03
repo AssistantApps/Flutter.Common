@@ -7,7 +7,7 @@ import '../../contracts/enum/locale_key.dart';
 import '../../contracts/enum/platform_type.dart';
 import '../../contracts/generated/version_view_model.dart';
 import '../../contracts/misc/version_detail.dart';
-import '../../contracts/results/resultWithValue.dart';
+import '../../contracts/results/result_with_value.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';
 import '../../integration/dependencyInjection.dart';
