@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import './guideSectionItemMapper.dart';
+import './guide_section_item_mapper.dart';
 import '../generated/guide/guide_section_view_model.dart';
 import '../guide/guide_section.dart';
 

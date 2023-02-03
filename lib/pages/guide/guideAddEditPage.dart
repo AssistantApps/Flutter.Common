@@ -12,7 +12,7 @@ import '../../assistantapps_flutter_common.dart';
 import '../../components/common/placeholder.dart';
 import '../../constants/app_image.dart';
 import '../../contracts/generated/uploaded_image_view_model.dart';
-import '../../contracts/mapper/guideSectionMapper.dart';
+import '../../contracts/mapper/guide_section_mapper.dart';
 import '../../helpers/imageUploadHelper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../validation/commonValidator.dart';
