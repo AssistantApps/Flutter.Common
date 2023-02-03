@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../contracts/enum/locale_key.dart';
-import '../integration/dependencyInjection.dart';
+import '../integration/dependency_injection.dart';
 import './date_helper.dart';
 
 String getVersionReleaseDate(bool isCurrentVersion, DateTime dateTime) {

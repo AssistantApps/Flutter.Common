@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/misc/responsive_flex_data.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/column_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './searchable_list.dart';
 
 class ResponsiveListDetailView<T> extends StatefulWidget {

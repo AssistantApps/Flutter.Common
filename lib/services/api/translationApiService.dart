@@ -4,7 +4,7 @@ import '../../constants/api_urls.dart';
 import '../../contracts/generated/translation_get_graph_view_model.dart';
 import '../../contracts/generated/translations_per_language_graph_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../BaseApiService.dart';
 import './interface/ITranslationApiService.dart';
 

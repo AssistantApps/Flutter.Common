@@ -9,7 +9,7 @@ import '../../contracts/generated/guide/guide_section_item_view_model.dart';
 import '../../contracts/generated/guide/guide_section_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/date_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './section/displayguide_section.dart';
 
 class GuideViewPage extends StatelessWidget {

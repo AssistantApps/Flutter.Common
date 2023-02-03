@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../contracts/enum/locale_key.dart';
 import '../../helpers/validation_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../adaptive/checkbox.dart';
 
 EdgeInsets textEditingPadding =

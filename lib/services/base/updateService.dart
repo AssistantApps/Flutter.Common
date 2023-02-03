@@ -10,7 +10,7 @@ import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/device_helper.dart';
 import '../../helpers/external_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './interface/IUpdateService.dart';
 
 class UpdateService implements IUpdateService {

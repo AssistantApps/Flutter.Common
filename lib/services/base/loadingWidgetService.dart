@@ -6,7 +6,7 @@ import '../../constants/app_image.dart';
 import '../../constants/ui_constants.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../helpers/device_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './interface/ILoadingWidgetService.dart';
 
 class LoadingWidgetService implements ILoadingWidgetService {

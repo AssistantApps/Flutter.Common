@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class AdaptiveCheckboxGroup extends StatelessWidget {
   final List<String> allItemList;

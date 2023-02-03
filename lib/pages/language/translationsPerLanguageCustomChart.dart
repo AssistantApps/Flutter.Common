@@ -6,7 +6,7 @@ import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/translations_per_language_graph_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/snapshot_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../../services/api/translationApiService.dart';
 
 class TranslationsPerLanguageCustomChart extends StatelessWidget {

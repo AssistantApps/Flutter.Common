@@ -16,7 +16,7 @@ import '../../contracts/results/result_with_value.dart';
 import '../../helpers/device_helper.dart';
 import '../../helpers/external_helper.dart';
 import '../../helpers/string_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class AboutPageAvailableApps extends StatelessWidget {
   final AssistantAppType appType;

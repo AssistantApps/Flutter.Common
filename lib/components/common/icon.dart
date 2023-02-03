@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class IconWithValueRow extends StatelessWidget {
   final IconData icon;

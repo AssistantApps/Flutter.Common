@@ -6,7 +6,7 @@ import '../../components/common/text.dart';
 import '../../contracts/enum/assistant_app_type.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../helpers/device_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './aboutPageAvailableApps.dart';
 import './aboutPageTeam.dart';
 

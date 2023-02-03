@@ -30,7 +30,7 @@ import '../services/base/snackbarService.dart';
 import '../services/base/themeService.dart';
 import '../services/base/translationsService.dart';
 import '../services/base/updateService.dart';
-import './commonDependencyInjection.dart';
+import './common_dependency_injection.dart';
 
 const normalStorageInstanceName = 'normalStorage';
 const secureStorageInstanceName = 'secureStorage';

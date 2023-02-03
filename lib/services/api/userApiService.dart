@@ -4,7 +4,7 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
 import '../../constants/api_urls.dart';
 import '../../contracts/generated/uploaded_image_view_model.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './interface/IUserApiService.dart';
 
 class UserApiService extends BaseApiService implements IUserApiService {

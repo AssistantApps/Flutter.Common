@@ -1,7 +1,7 @@
 import '../../constants/api_urls.dart';
 import '../../contracts/generated/donation_view_model.dart';
 import '../../contracts/results/pagination_result_with_value.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../BaseApiService.dart';
 import './interface/IDonatorApiService.dart';
 

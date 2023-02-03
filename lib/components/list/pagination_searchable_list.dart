@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/results/pagination_result_with_value.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './searchable_list.dart';
 
 class PaginationSearchableList<T> extends StatefulWidget {

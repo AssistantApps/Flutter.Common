@@ -9,7 +9,7 @@ import '../../contracts/generated/version_view_model.dart';
 import '../../helpers/device_helper.dart';
 import '../../helpers/external_helper.dart';
 import '../../helpers/update_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class WhatIsNewDetailPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;

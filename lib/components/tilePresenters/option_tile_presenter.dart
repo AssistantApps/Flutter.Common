@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../contracts/search/dropdown_option.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../menu/popup_menu.dart';
 import './generic_tile_presenter.dart';
 

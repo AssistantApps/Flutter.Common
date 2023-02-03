@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-import '../integration/dependencyInjectionBase.dart';
+import '../integration/dependency_injection_base.dart';
 
 String readStringSafe(Map<String, dynamic>? json, String prop) {
   if (json == null) return '';

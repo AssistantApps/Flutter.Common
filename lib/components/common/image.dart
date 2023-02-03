@@ -7,7 +7,7 @@ import '../../constants/app_image.dart';
 import '../../constants/ui_constants.dart';
 import '../../helpers/device_helper.dart';
 import '../../helpers/path_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class ImageFromNetwork extends StatelessWidget {
   final String imageUrl;

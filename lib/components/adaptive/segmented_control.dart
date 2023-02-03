@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_segmented_control/material_segmented_control.dart';
 
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../common/image.dart';
 
 const defaultPadding = EdgeInsets.only(top: 12, bottom: 6);

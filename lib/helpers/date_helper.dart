@@ -4,7 +4,7 @@ import 'package:time_formatter/time_formatter.dart';
 
 import '../components/common/percent.dart';
 import '../contracts/enum/locale_key.dart';
-import '../integration/dependencyInjection.dart';
+import '../integration/dependency_injection.dart';
 import './time_helper.dart';
 
 String simpleDate(DateTime dateTime) =>

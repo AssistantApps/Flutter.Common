@@ -1,6 +1,6 @@
 import '../../constants/signal_r_events.dart';
 import '../../contracts/results/result.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../BaseSignalRService.dart';
 
 class OAuthSignalRService extends BaseSignalRService {

@@ -6,7 +6,7 @@ import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/snapshot_helper.dart';
 import '../../helpers/update_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../common/image.dart';
 import '../common/new_banner.dart';
 import '../common/text.dart';

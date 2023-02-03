@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/misc/action_item.dart';
 import '../../helpers/device_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../common/action_item.dart';
 import './app_bar.dart';
 import 'shortcut_action_button.dart';

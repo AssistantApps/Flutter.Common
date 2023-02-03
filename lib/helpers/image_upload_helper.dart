@@ -6,7 +6,7 @@ import 'package:path/path.dart';
 
 import '../contracts/results/result_with_value.dart';
 import '../contracts/generated/uploaded_image_view_model.dart';
-import '../integration/dependencyInjection.dart';
+import '../integration/dependency_injection.dart';
 import 'device_helper.dart';
 
 void adaptiveImageUploadToServer(

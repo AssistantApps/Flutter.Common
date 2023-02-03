@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sweetsheet/sweetsheet.dart';
 
 import '../../contracts/enum/locale_key.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './interface/ISnackbarService.dart';
 
 class SnackbarService implements ISnackbarService {

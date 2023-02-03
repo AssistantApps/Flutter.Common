@@ -16,7 +16,7 @@ import '../../../contracts/guide/guide_section.dart';
 import '../../../contracts/guide/guide_section_item.dart';
 import '../../../helpers/column_helper.dart';
 import '../../../helpers/device_helper.dart';
-import '../../../integration/dependencyInjection.dart';
+import '../../../integration/dependency_injection.dart';
 import './editguide_section_item.dart';
 import './sectionItemOption.dart';
 

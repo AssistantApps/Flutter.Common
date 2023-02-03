@@ -4,7 +4,7 @@ import '../../contracts/enum/locale_key.dart';
 import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/snapshot_helper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import './link_tile_presenter.dart';
 
 Widget legalTilePresenter({LocaleKey? description}) {

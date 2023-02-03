@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 Widget timelineTilePresenter(
   BuildContext context,

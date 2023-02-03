@@ -2,7 +2,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../contracts/results/result.dart';
 import '../contracts/results/result_with_value.dart';
-import '../integration/dependencyInjection.dart';
+import '../integration/dependency_injection.dart';
 import './interface/ILocalStorageRepository.dart';
 
 class SecureStorageRepository implements ILocalStorageRepository {

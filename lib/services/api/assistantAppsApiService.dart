@@ -8,7 +8,7 @@ import '../../contracts/generated/translator_leaderboard_item_view_model.dart';
 import '../../contracts/results/pagination_result_with_value.dart';
 import '../../contracts/results/result.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../BaseApiService.dart';
 import './interface/IAssistantAppsApiService.dart';
 

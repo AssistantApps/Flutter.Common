@@ -4,7 +4,7 @@ import '../../components/list/lazy_loaded_searchable_list.dart';
 import '../../components/tilePresenters/version_tile_presenter.dart';
 import '../../contracts/enum/platform_type.dart';
 import '../../contracts/generated/version_view_model.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class WhatIsNewPageComponent extends StatelessWidget {
   final String currentWhatIsNewGuid;

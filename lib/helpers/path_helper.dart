@@ -1,4 +1,4 @@
-import '../integration/dependencyInjection.dart';
+import '../integration/dependency_injection.dart';
 
 String getImagePath(String imagePath, {String? imagePackage}) {
   String prefix = '';

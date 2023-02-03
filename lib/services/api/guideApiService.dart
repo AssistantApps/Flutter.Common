@@ -8,7 +8,7 @@ import '../../contracts/generated/guide/add_guide_view_model.dart';
 import '../../contracts/generated/guide/guide_content_view_model.dart';
 import '../../contracts/generated/guide/guide_search_result_view_model.dart';
 import '../../contracts/generated/guide/guide_search_view_model.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class GuideApiService extends BaseApiService implements IGuideApiService {
   GuideApiService() : super(getEnv().assistantAppsApiUrl);

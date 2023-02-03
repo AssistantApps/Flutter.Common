@@ -1,4 +1,4 @@
-// import '../integration/dependencyInjection.dart';
+// import '../integration/dependency_injection.dart';
 
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 

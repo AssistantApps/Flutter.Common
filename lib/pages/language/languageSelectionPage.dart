@@ -4,7 +4,7 @@ import '../../components/tilePresenters/language_tile_presenter.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/localization_map.dart';
 import '../../contracts/search/dropdown_option.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 import '../dialog/optionsListPageDialog.dart';
 
 class LanguageSelectionPageContent extends StatelessWidget {

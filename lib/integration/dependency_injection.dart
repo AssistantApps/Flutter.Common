@@ -29,12 +29,12 @@ import '../services/json/dataJsonService.dart';
 import '../services/json/interface/IbackupJsonService.dart';
 import '../services/json/interface/IdataJsonService.dart';
 import '../services/signalr/OAuthSignalRService.dart';
-import './commonDependencyInjection.dart';
-import './dependencyInjectionApi.dart';
-import './dependencyInjectionBase.dart';
+import './common_dependency_injection.dart';
+import './dependency_injection_api.dart';
+import './dependency_injection_base.dart';
 
-export './dependencyInjectionApi.dart';
-export './dependencyInjectionBase.dart';
+export './dependency_injection_api.dart';
+export './dependency_injection_base.dart';
 
 void initAssistantAppsDependencyInjection(
   AssistantAppsEnvironmentSettings env, {

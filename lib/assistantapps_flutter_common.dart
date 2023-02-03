@@ -120,8 +120,8 @@ export './helpers/time_helper.dart';
 export './helpers/update_helper.dart';
 //
 // Integration
-export './integration/dependencyInjection.dart' hide getEnv;
-export './integration/translationDelegate.dart';
+export './integration/dependency_injection.dart' hide getEnv;
+export './integration/translation_delegate.dart';
 export './integration/share.dart';
 //
 // Pages

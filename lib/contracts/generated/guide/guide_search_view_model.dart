@@ -6,7 +6,7 @@
 import 'dart:convert';
 
 import '../../../helpers/string_helper.dart';
-import '../../../integration/dependencyInjection.dart';
+import '../../../integration/dependency_injection.dart';
 import '../../enum/sort_direction.dart';
 
 class GuideSearchViewModel {

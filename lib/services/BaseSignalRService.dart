@@ -3,7 +3,7 @@ import 'package:enum_to_string/enum_to_string.dart';
 import 'package:signalr_netcore/signalr_client.dart';
 
 import '../contracts/results/result.dart';
-import '../integration/dependencyInjection.dart';
+import '../integration/dependency_injection.dart';
 
 class BaseSignalRService {
   final String _baseUrl;
