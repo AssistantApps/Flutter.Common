@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
-import '../../contracts/misc/storageWithExpiry.dart';
+import '../../contracts/misc/storage_with_expiry.dart';
 import '../../repository/interface/ILocalStorageRepository.dart';
 import './interface/ILocalStorageService.dart';
 

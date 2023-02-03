@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/version_view_model.dart';
-import '../../contracts/misc/versionDetail.dart';
+import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';
 import '../../helpers/updateHelper.dart';

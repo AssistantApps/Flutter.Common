@@ -92,7 +92,7 @@ export './contracts/localizationMap.dart';
 export './contracts/staggeredGridTileItem.dart';
 export './contracts/misc/action_item.dart';
 export './contracts/misc/popupMenuaction_item.dart';
-export './contracts/misc/responsiveFlexData.dart';
+export './contracts/misc/responsive_flex_data.dart';
 export './contracts/results/paginationResultWithValue.dart';
 export './contracts/results/result.dart';
 export './contracts/results/resultWithDoubleValue.dart';

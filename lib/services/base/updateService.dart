@@ -6,7 +6,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/enum/platform_type.dart';
 import '../../contracts/generated/version_view_model.dart';
-import '../../contracts/misc/versionDetail.dart';
+import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../helpers/externalHelper.dart';

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../../contracts/misc/versionDetail.dart';
+import '../../../contracts/misc/version_detail.dart';
 import '../../../contracts/results/resultWithValue.dart';
 
 class IUpdateService {

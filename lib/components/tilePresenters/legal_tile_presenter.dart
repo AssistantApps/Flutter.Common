@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
-import '../../contracts/misc/versionDetail.dart';
+import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/snapshotHelper.dart';
 import '../../integration/dependencyInjection.dart';

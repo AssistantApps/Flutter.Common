@@ -1,7 +1,7 @@
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/misc/responsiveFlexData.dart';
+import '../../contracts/misc/responsive_flex_data.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../../helpers/columnHelper.dart';
 import '../../integration/dependencyInjection.dart';
