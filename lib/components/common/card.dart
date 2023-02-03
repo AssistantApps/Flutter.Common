@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/PaddingConstant.dart';
-import '../../constants/UIConstants.dart';
+import '../../constants/padding_constant.dart';
+import '../../constants/ui_constants.dart';
 
 class CommonCard extends StatelessWidget {
   final Widget imageWidget;

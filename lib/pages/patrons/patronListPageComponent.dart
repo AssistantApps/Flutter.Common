@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
 import '../../components/tilePresenters/patreon_tile_presenter.dart';
-import '../../constants/AppImage.dart';
+import '../../constants/app_image.dart';
 
 class PatronListPageComponent extends StatelessWidget {
   const PatronListPageComponent({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 
-import '../../constants/ApiUrls.dart';
+import '../../constants/api_urls.dart';
 import '../../contracts/generated/uploadedImageViewModel.dart';
 import '../../integration/dependencyInjection.dart';
 import './interface/IUserApiService.dart';

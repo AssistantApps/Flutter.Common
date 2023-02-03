@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-import '../../constants/AppDuration.dart';
-import '../../constants/Modal.dart';
+import '../../constants/app_duration.dart';
+import '../../constants/modal.dart';
 import '../../integration/talker.dart';
 
 class LogsModalBottomSheet extends StatelessWidget {

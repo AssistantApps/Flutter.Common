@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/Modal.dart';
+import '../../constants/modal.dart';
 import '../../contracts/enum/assistantAppType.dart';
 import '../../pages/about/aboutPageAvailableApps.dart';
 

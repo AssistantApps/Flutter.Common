@@ -3,7 +3,7 @@ import '../../contracts/results/result.dart';
 import '../../contracts/results/resultWithValue.dart';
 import '../BaseApiService.dart';
 import './interface/IGuideApiService.dart';
-import '../../constants/ApiUrls.dart';
+import '../../constants/api_urls.dart';
 import '../../contracts/generated/guide/addGuideViewModel.dart';
 import '../../contracts/generated/guide/guideContentViewModel.dart';
 import '../../contracts/generated/guide/guideSearchResultViewModel.dart';

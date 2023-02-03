@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
-import '../../constants/AppImage.dart';
+import '../../constants/app_image.dart';
 
 class AboutPageTeam extends StatelessWidget {
   const AboutPageTeam({Key? key}) : super(key: key);

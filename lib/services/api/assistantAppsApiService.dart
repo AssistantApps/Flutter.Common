@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../constants/ApiUrls.dart';
+import '../../constants/api_urls.dart';
 import '../../contracts/generated/appNoticeViewModel.dart';
 import '../../contracts/generated/feedback/feedback_form_answer_submission_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_with_questions_viewmodel.dart';

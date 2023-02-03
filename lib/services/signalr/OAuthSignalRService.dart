@@ -1,4 +1,4 @@
-import '../../constants/SignalREvents.dart';
+import '../../constants/signal_r_events.dart';
 import '../../contracts/results/result.dart';
 import '../../integration/dependencyInjection.dart';
 import '../BaseSignalRService.dart';

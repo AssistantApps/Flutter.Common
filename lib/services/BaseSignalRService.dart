@@ -1,4 +1,4 @@
-import 'package:assistantapps_flutter_common/constants/SignalREvents.dart';
+import 'package:assistantapps_flutter_common/constants/signal_r_events.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:signalr_netcore/signalr_client.dart';
 

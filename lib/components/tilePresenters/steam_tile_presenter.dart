@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../constants/UIConstants.dart';
+import '../../constants/ui_constants.dart';
 import '../../contracts/generated/steamBranchesViewModel.dart';
 import '../../contracts/generated/steamNewsItemViewModel.dart';
 import '../../helpers/dateHelper.dart';

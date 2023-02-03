@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../constants/ApiUrls.dart';
+import '../../constants/api_urls.dart';
 import '../../contracts/generated/translationGetGraphViewModel.dart';
 import '../../contracts/generated/translationsPerLanguageGraphViewModel.dart';
 import '../../contracts/results/resultWithValue.dart';

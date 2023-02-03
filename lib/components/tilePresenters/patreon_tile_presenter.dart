@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/ExternalUrls.dart';
+import '../../constants/external_urls.dart';
 import '../../contracts/generated/patreonViewModel.dart';
 import '../../helpers/externalHelper.dart';
 import './generic_tile_presenter.dart';

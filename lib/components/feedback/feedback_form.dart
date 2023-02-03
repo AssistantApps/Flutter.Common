@@ -5,7 +5,7 @@ import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 
 import '../../assistantapps_flutter_common.dart';
-import '../../constants/AppImage.dart';
+import '../../constants/app_image.dart';
 import '../../contracts/enum/feedback_question_type.dart';
 import '../../contracts/generated/feedback/feedback_form_answer_submission_viewmodel.dart';
 import '../../contracts/generated/feedback/feedback_form_answer_viewmodel.dart';

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/common/image.dart';
-import '../../constants/AppImage.dart';
-import '../../constants/UIConstants.dart';
+import '../../constants/app_image.dart';
+import '../../constants/ui_constants.dart';
 import '../../contracts/enum/localeKey.dart';
 import '../../helpers/deviceHelper.dart';
 import '../../integration/dependencyInjection.dart';

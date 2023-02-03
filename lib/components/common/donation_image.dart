@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/AppImage.dart';
-import '../../constants/UIConstants.dart';
+import '../../constants/app_image.dart';
+import '../../constants/ui_constants.dart';
 import './image.dart';
 
 class DonationImage {

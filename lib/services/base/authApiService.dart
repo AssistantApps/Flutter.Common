@@ -1,6 +1,6 @@
-import '../../constants/ApiHeader.dart';
-import '../../constants/ApiUrls.dart';
-import '../../constants/LocalStorageKey.dart';
+import '../../constants/api_header.dart';
+import '../../constants/api_urls.dart';
+import '../../constants/local_storage_key.dart';
 import '../../contracts/generated/auth/oAuthUserViewModel.dart';
 import '../../contracts/results/result.dart';
 import '../../contracts/results/resultWithValue.dart';

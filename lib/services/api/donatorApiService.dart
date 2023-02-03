@@ -1,4 +1,4 @@
-import '../../constants/ApiUrls.dart';
+import '../../constants/api_urls.dart';
 import '../../contracts/generated/donationViewModel.dart';
 import '../../contracts/results/paginationResultWithValue.dart';
 import '../../integration/dependencyInjection.dart';

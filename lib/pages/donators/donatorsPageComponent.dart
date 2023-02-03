@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/list/lazy_loaded_searchable_list.dart';
 import '../../components/tilePresenters/donation_tile_presenter.dart';
-import '../../constants/UIConstants.dart';
+import '../../constants/ui_constants.dart';
 import '../../contracts/generated/donationViewModel.dart';
 import '../../integration/dependencyInjection.dart';
 

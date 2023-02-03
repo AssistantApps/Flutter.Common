@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:assistantapps_flutter_common/constants/UIConstants.dart';
+import 'package:assistantapps_flutter_common/constants/ui_constants.dart';
 import 'package:flutter/material.dart';
 
 class BaseJsonService {

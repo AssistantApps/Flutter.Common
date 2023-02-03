@@ -56,8 +56,8 @@ export './components/tilePresenters/timeline_tile_item_presenter.dart';
 export './components/tilePresenters/version_tile_presenter.dart';
 //
 // Constants
-export './constants/ExternalUrls.dart';
-export './constants/UIConstants.dart';
+export './constants/external_urls.dart';
+export './constants/ui_constants.dart';
 //
 // Contracts
 export './contracts/enum/assistantAppType.dart';

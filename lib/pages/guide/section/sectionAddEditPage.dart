@@ -9,7 +9,7 @@ import '../../../components/common/space.dart';
 import '../../../components/common/text.dart';
 import '../../../components/forms/text_input.dart';
 import '../../../components/grid/grid_with_scrollbar.dart';
-import '../../../constants/PaddingConstant.dart';
+import '../../../constants/padding_constant.dart';
 import '../../../contracts/enum/guideSectionItemType.dart';
 import '../../../contracts/enum/localeKey.dart';
 import '../../../contracts/guide/guideSection.dart';
