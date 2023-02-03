@@ -9,7 +9,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import '../../components/tilePresenters/language_tile_presenter.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/localizationMap.dart';
-import '../../contracts/search/dropdownOption.dart';
+import '../../contracts/search/dropdown_option.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../pages/dialog/optionsListPageDialog.dart';
 import './interface/ITranslationsService.dart';
