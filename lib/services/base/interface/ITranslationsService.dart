@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../../contracts/enum/locale_key.dart';
-import '../../../contracts/localizationMap.dart';
+import '../../../contracts/localization_map.dart';
 
 abstract class ITranslationService {
   Future<ITranslationService> load(Locale locale);

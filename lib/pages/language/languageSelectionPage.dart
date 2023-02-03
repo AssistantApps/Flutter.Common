@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/tilePresenters/language_tile_presenter.dart';
 import '../../contracts/enum/locale_key.dart';
-import '../../contracts/localizationMap.dart';
+import '../../contracts/localization_map.dart';
 import '../../contracts/search/dropdown_option.dart';
 import '../../integration/dependencyInjection.dart';
 import '../dialog/optionsListPageDialog.dart';
