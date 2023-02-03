@@ -15,8 +15,8 @@ import '../../contracts/generated/guide/guide_search_result_view_model.dart';
 import '../../contracts/generated/guide/guide_search_view_model.dart';
 import '../../contracts/guide/guide_draft_model.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../helpers/columnHelper.dart';
-import '../../helpers/guidHelper.dart';
+import '../../helpers/column_helper.dart';
+import '../../helpers/guid_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import 'guideAddEditPage.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../helpers/externalHelper.dart';
+import '../../helpers/external_helper.dart';
 import '../common/image.dart';
 
 Widget externalLinkPresenter(BuildContext context, String name, String url) {

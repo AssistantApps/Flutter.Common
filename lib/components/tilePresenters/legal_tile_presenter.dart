@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../helpers/snapshotHelper.dart';
+import '../../helpers/snapshot_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import './link_tile_presenter.dart';
 

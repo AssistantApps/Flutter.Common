@@ -13,7 +13,7 @@ import '../../components/common/placeholder.dart';
 import '../../constants/app_image.dart';
 import '../../contracts/generated/uploaded_image_view_model.dart';
 import '../../contracts/mapper/guide_section_mapper.dart';
-import '../../helpers/imageUploadHelper.dart';
+import '../../helpers/image_upload_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../../validation/commonValidator.dart';
 

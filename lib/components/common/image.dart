@@ -5,8 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants/app_image.dart';
 import '../../constants/ui_constants.dart';
-import '../../helpers/deviceHelper.dart';
-import '../../helpers/pathHelper.dart';
+import '../../helpers/device_helper.dart';
+import '../../helpers/path_helper.dart';
 import '../../integration/dependencyInjection.dart';
 
 class ImageFromNetwork extends StatelessWidget {

@@ -5,7 +5,7 @@ import '../../components/common/image.dart';
 import '../../constants/app_image.dart';
 import '../../constants/ui_constants.dart';
 import '../../contracts/enum/locale_key.dart';
-import '../../helpers/deviceHelper.dart';
+import '../../helpers/device_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import './interface/ILoadingWidgetService.dart';
 

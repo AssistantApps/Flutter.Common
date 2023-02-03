@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:assistantapps_flutter_common/helpers/jsonHelper.dart';
+import 'package:assistantapps_flutter_common/helpers/json_helper.dart';
 
 class SteamNewsItemViewModel {
   SteamNewsItemViewModel({

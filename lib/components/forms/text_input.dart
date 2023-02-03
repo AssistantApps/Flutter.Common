@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../contracts/enum/locale_key.dart';
-import '../../helpers/validationHelper.dart';
+import '../../helpers/validation_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../adaptive/checkbox.dart';
 

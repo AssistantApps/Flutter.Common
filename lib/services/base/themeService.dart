@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../helpers/colourHelper.dart';
+import '../../helpers/colour_helper.dart';
 import './interface/IThemeService.dart';
 
 class ThemeService implements IThemeService {

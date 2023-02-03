@@ -6,7 +6,7 @@
 import 'dart:convert';
 
 import '../../contracts/enum/donation_type.dart';
-import '../../helpers/jsonHelper.dart';
+import '../../helpers/json_helper.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 
 class DonationViewModel {

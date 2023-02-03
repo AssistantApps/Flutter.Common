@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../contracts/types/list_types.dart';
-import '../../helpers/deviceHelper.dart';
+import '../../helpers/device_helper.dart';
 
 ListOrGridDisplayType listWithScrollbar = (
     { //

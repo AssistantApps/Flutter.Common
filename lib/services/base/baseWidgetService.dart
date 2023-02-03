@@ -6,7 +6,7 @@ import '../../components/adaptive/checkbox.dart';
 import '../../components/adaptive/chip.dart';
 import '../../components/adaptive/app_scaffold.dart';
 import '../../contracts/misc/action_item.dart';
-import '../../helpers/deviceHelper.dart';
+import '../../helpers/device_helper.dart';
 import '../../integration/dependencyInjectionBase.dart';
 import './interface/IBaseWidgetService.dart';
 

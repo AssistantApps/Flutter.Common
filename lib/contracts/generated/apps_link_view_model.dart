@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import '../../helpers/jsonHelper.dart';
+import '../../helpers/json_helper.dart';
 import '../enum/assistant_app_type.dart';
 
 class AssistantAppsLinkViewModel {

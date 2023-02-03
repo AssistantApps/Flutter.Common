@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../helpers/snapshotHelper.dart';
+import '../../helpers/snapshot_helper.dart';
 
 class CachedFutureBuilder<T> extends StatefulWidget {
   final Future<T> future;

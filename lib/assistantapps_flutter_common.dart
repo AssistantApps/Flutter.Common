@@ -104,20 +104,20 @@ export './contracts/types/list_types.dart';
 export './env/assistant_apps_environment_settings.dart';
 //
 // Helpers
-export './helpers/colourHelper.dart';
-export './helpers/columnHelper.dart';
-export './helpers/dateHelper.dart';
-export './helpers/deviceHelper.dart';
-export './helpers/externalHelper.dart';
-export './helpers/guidHelper.dart';
-export './helpers/jsonHelper.dart';
-export './helpers/listHelper.dart';
-export './helpers/pathHelper.dart';
-export './helpers/searchListHelper.dart';
-export './helpers/snapshotHelper.dart';
-export './helpers/stringHelper.dart';
-export './helpers/timeHelper.dart';
-export './helpers/updateHelper.dart';
+export './helpers/colour_helper.dart';
+export './helpers/column_helper.dart';
+export './helpers/date_helper.dart';
+export './helpers/device_helper.dart';
+export './helpers/external_helper.dart';
+export './helpers/guid_helper.dart';
+export './helpers/json_helper.dart';
+export './helpers/list_helper.dart';
+export './helpers/path_helper.dart';
+export './helpers/searchlist_helper.dart';
+export './helpers/snapshot_helper.dart';
+export './helpers/string_helper.dart';
+export './helpers/time_helper.dart';
+export './helpers/update_helper.dart';
 //
 // Integration
 export './integration/dependencyInjection.dart' hide getEnv;

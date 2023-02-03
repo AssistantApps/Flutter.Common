@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../helpers/jsonHelper.dart';
+import '../../helpers/json_helper.dart';
 import '../enum/platform_type.dart';
 
 class VersionViewModel {

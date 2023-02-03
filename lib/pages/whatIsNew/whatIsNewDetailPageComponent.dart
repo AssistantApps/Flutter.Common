@@ -6,9 +6,9 @@ import '../../components/common/text.dart';
 import '../../components/list/list_with_scrollbar.dart';
 import '../../contracts/enum/platform_type.dart';
 import '../../contracts/generated/version_view_model.dart';
-import '../../helpers/deviceHelper.dart';
-import '../../helpers/externalHelper.dart';
-import '../../helpers/updateHelper.dart';
+import '../../helpers/device_helper.dart';
+import '../../helpers/external_helper.dart';
+import '../../helpers/update_helper.dart';
 import '../../integration/dependencyInjection.dart';
 
 class WhatIsNewDetailPageComponent extends StatelessWidget {

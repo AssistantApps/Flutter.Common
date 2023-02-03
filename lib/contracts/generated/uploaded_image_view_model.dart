@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../helpers/jsonHelper.dart';
+import '../../helpers/json_helper.dart';
 
 class UploadedImageViewModel {
   String? guid;

@@ -1,7 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 
-import '../../helpers/colourHelper.dart';
+import '../../helpers/colour_helper.dart';
 import '../../integration/dependencyInjectionBase.dart';
 
 class WindowButtons extends StatelessWidget {

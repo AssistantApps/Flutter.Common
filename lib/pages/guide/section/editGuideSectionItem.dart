@@ -9,7 +9,7 @@ import '../../../contracts/enum/guide_section_item_type.dart';
 import '../../../contracts/enum/locale_key.dart';
 import '../../../contracts/generated/uploaded_image_view_model.dart';
 import '../../../contracts/guide/guide_section_item.dart';
-import '../../../helpers/imageUploadHelper.dart';
+import '../../../helpers/image_upload_helper.dart';
 import '../../../integration/dependencyInjection.dart';
 import '../../misc/markdownPreviewPage.dart';
 

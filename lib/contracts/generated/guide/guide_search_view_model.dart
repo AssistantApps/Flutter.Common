@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import '../../../helpers/stringHelper.dart';
+import '../../../helpers/string_helper.dart';
 import '../../../integration/dependencyInjection.dart';
 import '../../enum/sort_direction.dart';
 

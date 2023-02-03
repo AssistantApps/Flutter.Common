@@ -6,7 +6,7 @@ import '../../contracts/enum/assistant_app_type.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/steam_news_item_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../helpers/columnHelper.dart';
+import '../../helpers/column_helper.dart';
 import '../../integration/dependencyInjection.dart';
 
 class SteamNewsListPageComponent extends StatelessWidget {

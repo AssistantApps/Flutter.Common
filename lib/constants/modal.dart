@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../helpers/deviceHelper.dart';
+import '../helpers/device_helper.dart';
 
 BoxConstraints modalDefaultSize(BuildContext context) {
   return BoxConstraints(

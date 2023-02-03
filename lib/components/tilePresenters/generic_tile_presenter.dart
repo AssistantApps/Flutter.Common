@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
-import '../../helpers/colourHelper.dart';
+import '../../helpers/colour_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import '../common/badge.dart';
 import '../common/image.dart';

@@ -5,7 +5,7 @@ import 'package:time_formatter/time_formatter.dart';
 import '../components/common/percent.dart';
 import '../contracts/enum/locale_key.dart';
 import '../integration/dependencyInjection.dart';
-import './timeHelper.dart';
+import './time_helper.dart';
 
 String simpleDate(DateTime dateTime) =>
     "${dateTime.year.toString().padLeft(4, '0')}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')}";

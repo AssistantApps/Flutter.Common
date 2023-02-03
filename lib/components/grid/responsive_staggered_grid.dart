@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../contracts/staggered_grid_tile_item.dart';
-import '../../helpers/columnHelper.dart';
+import '../../helpers/column_helper.dart';
 
 class ResponsiveStaggeredGrid extends StatelessWidget {
   final List<StaggeredGridTileItem> items;

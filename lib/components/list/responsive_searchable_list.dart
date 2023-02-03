@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../contracts/misc/responsive_flex_data.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../helpers/columnHelper.dart';
+import '../../helpers/column_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import './searchable_list.dart';
 

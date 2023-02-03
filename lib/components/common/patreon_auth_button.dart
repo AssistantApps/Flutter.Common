@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../helpers/colourHelper.dart';
+import '../../helpers/colour_helper.dart';
 import './donation_image.dart';
 
 class PatreonAuthButton extends StatelessWidget {

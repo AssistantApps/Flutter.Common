@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../contracts/enum/donation_type.dart';
 import '../../contracts/generated/donation_view_model.dart';
 import '../../contracts/types/list_types.dart';
-import '../../helpers/dateHelper.dart';
+import '../../helpers/date_helper.dart';
 import '../common/donation_image.dart';
 
 ListItemDisplayerType<DonationViewModel> donationTilePresenter = (

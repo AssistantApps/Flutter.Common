@@ -8,8 +8,8 @@ import '../../contracts/enum/platform_type.dart';
 import '../../contracts/generated/version_view_model.dart';
 import '../../contracts/misc/version_detail.dart';
 import '../../contracts/results/result_with_value.dart';
-import '../../helpers/deviceHelper.dart';
-import '../../helpers/externalHelper.dart';
+import '../../helpers/device_helper.dart';
+import '../../helpers/external_helper.dart';
 import '../../integration/dependencyInjection.dart';
 import './interface/IUpdateService.dart';
 
