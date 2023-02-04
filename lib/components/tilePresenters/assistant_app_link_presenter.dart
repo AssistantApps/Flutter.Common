@@ -1,7 +1,7 @@
 import 'package:assistantapps_flutter_common/contracts/generated/apps_link_view_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/misc/popupMenuaction_item.dart';
+import '../../contracts/misc/popup_menu_action_item.dart';
 import '../menu/popup_menu.dart';
 import './generic_tile_presenter.dart';
 

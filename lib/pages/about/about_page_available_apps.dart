@@ -11,7 +11,7 @@ import '../../constants/ui_constants.dart';
 import '../../contracts/enum/assistant_app_type.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/apps_link_view_model.dart';
-import '../../contracts/misc/popupMenuaction_item.dart';
+import '../../contracts/misc/popup_menu_action_item.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/device_helper.dart';
 import '../../helpers/external_helper.dart';

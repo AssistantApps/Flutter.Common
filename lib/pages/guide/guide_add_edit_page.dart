@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/pages/guide/section/display_guide_section.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -8,14 +9,29 @@ import 'package:responsive_grid/responsive_grid.dart';
 import 'package:uuid/uuid.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
-import '../../assistantapps_flutter_common.dart';
+import '../../components/common/image.dart';
 import '../../components/common/placeholder.dart';
+import '../../components/common/space.dart';
+import '../../components/common/text.dart';
+import '../../components/forms/text_input.dart';
 import '../../constants/app_image.dart';
+import '../../constants/ui_constants.dart';
+import '../../contracts/enum/locale_key.dart';
+import '../../contracts/generated/guide/add_guide_view_model.dart';
+import '../../contracts/generated/guide/guide_content_view_model.dart';
+import '../../contracts/generated/guide/guide_section_item_view_model.dart';
+import '../../contracts/generated/guide/guide_section_view_model.dart';
 import '../../contracts/generated/uploaded_image_view_model.dart';
+import '../../contracts/guide/guide_draft_model.dart';
+import '../../contracts/guide/guide_section.dart';
 import '../../contracts/mapper/guide_section_mapper.dart';
+import '../../contracts/results/result.dart';
+import '../../helpers/column_helper.dart';
+import '../../helpers/device_helper.dart';
 import '../../helpers/image_upload_helper.dart';
 import '../../integration/dependency_injection.dart';
 import '../../validation/common_validator.dart';
+import 'section/section_add_edit_page.dart';
 
 class GuideAddEditPage extends StatefulWidget {
   final String? analyticsKey;

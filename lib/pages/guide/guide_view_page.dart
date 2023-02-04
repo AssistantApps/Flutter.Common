@@ -10,7 +10,7 @@ import '../../contracts/generated/guide/guide_section_view_model.dart';
 import '../../contracts/results/result_with_value.dart';
 import '../../helpers/date_helper.dart';
 import '../../integration/dependency_injection.dart';
-import './section/displayguide_section.dart';
+import './section/display_guide_section.dart';
 
 class GuideViewPage extends StatelessWidget {
   final String? analyticsKey;

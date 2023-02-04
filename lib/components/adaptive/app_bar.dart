@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-import '../../helpers/colour_helper.dart';
 import '../../integration/dependency_injection.dart';
 
 class AdaptiveAppBar extends StatelessWidget {
