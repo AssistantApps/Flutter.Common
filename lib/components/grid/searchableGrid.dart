@@ -2,10 +2,10 @@ import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../contracts/enum/localeKey.dart';
-import '../../contracts/types/listTypes.dart';
+import '../../contracts/enum/locale_key.dart';
+import '../../contracts/types/list_types.dart';
 import '../searchable.dart';
-import './gridWithScrollbar.dart';
+import './grid_with_scrollbar.dart';
 
 class SearchableGrid<T> extends StatelessWidget {
   final ListGetterType<T> listGetter;

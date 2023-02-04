@@ -1,8 +1,8 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 
-import '../../helpers/colourHelper.dart';
-import '../../integration/dependencyInjectionBase.dart';
+import '../../helpers/colour_helper.dart';
+import '../../integration/dependency_injection_base.dart';
 
 class WindowButtons extends StatelessWidget {
   const WindowButtons({Key? key}) : super(key: key);

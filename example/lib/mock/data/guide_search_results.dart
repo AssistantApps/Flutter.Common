@@ -1,5 +1,5 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common/contracts/enum/adminApprovalStatus.dart';
+import 'package:assistantapps_flutter_common/contracts/enum/admin_approval_status.dart';
 
 final sampleGuideGuid1 = getNewGuid();
 final sampleGuideGuidContent1 = getNewGuid();

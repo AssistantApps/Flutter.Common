@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:octo_image/octo_image.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../constants/AppImage.dart';
-import '../../constants/UIConstants.dart';
-import '../../helpers/deviceHelper.dart';
-import '../../helpers/pathHelper.dart';
-import '../../integration/dependencyInjection.dart';
+import '../../constants/app_image.dart';
+import '../../constants/ui_constants.dart';
+import '../../helpers/device_helper.dart';
+import '../../helpers/path_helper.dart';
+import '../../integration/dependency_injection.dart';
 
 class ImageFromNetwork extends StatelessWidget {
   final String imageUrl;

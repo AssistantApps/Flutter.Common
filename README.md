@@ -13,7 +13,7 @@ or
 flutter run -t example/lib/main.dart -d edge --no-sound-null-safety
 ```
 
-### Generate LocaleKey.dart
+### Generate locale_key.dart
 ```
-dart scripts\localeKeyScript.dart
+dart scripts\locale_key_script.dart
 ```

@@ -1,5 +1,5 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common/constants/ApiUrls.dart';
+import 'package:assistantapps_flutter_common/constants/api_urls.dart';
 
 import '../mock/data/guide_content_results.dart';
 import '../mock/data/guide_search_results.dart';

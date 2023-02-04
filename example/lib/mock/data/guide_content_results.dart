@@ -1,6 +1,6 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:assistantapps_flutter_common/contracts/enum/adminApprovalStatus.dart';
-import 'package:assistantapps_flutter_common/contracts/enum/guideSectionItemType.dart';
+import 'package:assistantapps_flutter_common/contracts/enum/admin_approval_status.dart';
+import 'package:assistantapps_flutter_common/contracts/enum/guide_section_item_type.dart';
 
 GuideContentViewModel sampleGuideContent1() => GuideContentViewModel(
       guid: getNewGuid(),

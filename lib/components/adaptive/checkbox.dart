@@ -1,8 +1,8 @@
-import 'package:assistantapps_flutter_common/helpers/deviceHelper.dart';
+import 'package:assistantapps_flutter_common/helpers/device_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../integration/dependencyInjectionBase.dart';
+import '../../integration/dependency_injection_base.dart';
 
 class AdaptiveCheckbox extends StatelessWidget {
   final bool value;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../integration/dependencyInjection.dart';
+import '../../integration/dependency_injection.dart';
 
 class BaseButton extends StatelessWidget {
   final String title;
