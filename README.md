@@ -4,6 +4,7 @@
   _Designed to be used by apps that belong to the [AssistantApps](https://assistantapps.com) range._
   
   <br />  
+  
   ![header](https://github.com/AssistantApps/.github/blob/main/img/animatedBanner.svg?raw=true) 
   
   <br />
