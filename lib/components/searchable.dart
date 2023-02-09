@@ -47,8 +47,9 @@ class Searchable<T> extends StatefulWidget {
     this.backupListGetter,
     this.backupListWarningMessage,
   }) : super(key: key);
+
   @override
-  SearchableWidget<T> createState() => SearchableWidget<T>();
+  createState() => SearchableWidget<T>();
 }
 
 class SearchableWidget<T> extends State<Searchable<T>> {
@@ -123,16 +124,21 @@ class SearchableWidget<T> extends State<Searchable<T>> {
 
   @override
   Widget build(BuildContext context) {
+    KeyedSubtree searchBarWidget = KeyedSubtree(
+      key: const Key('searchBar'),
+      child: SearchBar(
+        controller: controller,
+        hintText: widget.hintText,
+        onSearchTextChanged: onSearchTextChanged,
+      ),
+    );
+
     if (!hasLoaded) {
       if (widget.keepFirstListItemWidgetVisible == true &&
           widget.firstListItemWidget != null) {
         return Column(
           children: [
-            SearchBar(
-              controller: controller,
-              hintText: widget.hintText,
-              onSearchTextChanged: onSearchTextChanged,
-            ),
+            searchBarWidget,
             widget.firstListItemWidget!,
             Expanded(
               child: Center(
@@ -142,20 +148,16 @@ class SearchableWidget<T> extends State<Searchable<T>> {
           ],
         );
       }
-      return getLoading().fullPageLoading(context,
-          loadingText: widget.loadingText ??
-              getTranslations().fromKey(LocaleKey.loading));
+      return getLoading().fullPageLoading(
+        context,
+        loadingText:
+            widget.loadingText ?? getTranslations().fromKey(LocaleKey.loading),
+      );
     }
 
     List<Widget> columnWidgets = List.empty(growable: true);
     if (_listResults.length > widget.minListForSearch) {
-      columnWidgets.add(
-        SearchBar(
-          controller: controller,
-          hintText: widget.hintText,
-          onSearchTextChanged: onSearchTextChanged,
-        ),
-      );
+      columnWidgets.add(searchBarWidget);
     }
 
     if (this.usingBackupGetter && widget.backupListWarningMessage != null) {
@@ -234,10 +236,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       ));
     }
 
-    return animateWidgetIn(
-      key: widget.key,
-      child: Column(key: widget.key, children: columnWidgets),
-    );
+    return Column(key: widget.key, children: columnWidgets);
   }
 
   Widget deleteAllButton(context) {
