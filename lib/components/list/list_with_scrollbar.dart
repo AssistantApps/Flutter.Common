@@ -5,16 +5,15 @@ import 'package:flutter/material.dart';
 import '../../contracts/types/list_types.dart';
 import '../../helpers/device_helper.dart';
 
-ListOrGridDisplayType listWithScrollbar = (
-    { //
-    required int itemCount,
-    Key? key,
-    required Widget Function(BuildContext, int) itemBuilder,
-    int Function(Breakpoint)? gridViewColumnCalculator,
-    bool? shrinkWrap,
-    EdgeInsetsGeometry? padding,
-    ScrollController? scrollController //
-    }) {
+ListOrGridDisplayType listWithScrollbar = ({
+  required int itemCount,
+  Key? key,
+  required Widget Function(BuildContext, int) itemBuilder,
+  int Function(Breakpoint)? gridViewColumnCalculator,
+  bool? shrinkWrap,
+  EdgeInsetsGeometry? padding,
+  ScrollController? scrollController,
+}) {
   ListView listView = ListView.builder(
     primary: false,
     // physics: isApple ? BouncingScrollPhysics() : ClampingScrollPhysics(),

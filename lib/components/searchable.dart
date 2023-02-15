@@ -1,3 +1,4 @@
+import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +7,6 @@ import '../contracts/results/result_with_value.dart';
 import '../contracts/types/list_types.dart';
 import '../integration/dependency_injection.dart';
 import './adaptive/search_bar.dart';
-import './common/animation.dart';
 import './common/space.dart';
 
 class Searchable<T> extends StatefulWidget {
@@ -53,8 +53,8 @@ class Searchable<T> extends StatefulWidget {
 }
 
 class SearchableWidget<T> extends State<Searchable<T>> {
-  TextEditingController controller = TextEditingController();
-  ScrollController listScrollController = ScrollController();
+  final TextEditingController _controller = TextEditingController();
+  final ScrollController _listScrollController = ScrollController();
   final List<T> _searchResult = [];
   List<T> _listResults = [];
   bool hasLoaded = false;
@@ -114,11 +114,11 @@ class SearchableWidget<T> extends State<Searchable<T>> {
     });
   }
 
-  Widget useItemDisplayer(BuildContext context, T data, int index) {
+  Widget useItemDisplayer(BuildContext itemCtx, T data, int index) {
     if (widget.itemDisplayer != null) {
-      return widget.itemDisplayer!(context, data);
+      return widget.itemDisplayer!(itemCtx, data);
     } else {
-      return widget.itemWithIndexDisplayer!(context, data, index);
+      return widget.itemWithIndexDisplayer!(itemCtx, data, index);
     }
   }
 
@@ -127,7 +127,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
     KeyedSubtree searchBarWidget = KeyedSubtree(
       key: const Key('searchBar'),
       child: SearchBar(
-        controller: controller,
+        controller: _controller,
         hintText: widget.hintText,
         onSearchTextChanged: onSearchTextChanged,
       ),
@@ -178,8 +178,8 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       );
     }
 
-    if (_searchResult.isEmpty && controller.text.isNotEmpty ||
-        _listResults.isEmpty && controller.text.isEmpty) {
+    if (_searchResult.isEmpty && _controller.text.isNotEmpty ||
+        _listResults.isEmpty && _controller.text.isEmpty) {
       List<Widget> noItemsList = List.empty(growable: true);
       if (widget.firstListItemWidget != null) {
         noItemsList.add(widget.firstListItemWidget!);
@@ -198,13 +198,13 @@ class SearchableWidget<T> extends State<Searchable<T>> {
       );
       columnWidgets.add(Column(children: noItemsList));
     } else {
-      List<T> list = (_searchResult.isNotEmpty || controller.text.isNotEmpty)
+      List<T> list = (_searchResult.isNotEmpty || _controller.text.isNotEmpty)
           ? _searchResult
           : _listResults;
 
       List<Widget> additionalWidgets = List.empty(growable: true);
       if (widget.deleteAll != null) {
-        additionalWidgets.add(deleteAllButton(context));
+        additionalWidgets.add(deleteAllButton());
       }
       if (widget.addFabPadding ?? false) {
         additionalWidgets.add(const EmptySpace10x());
@@ -218,10 +218,10 @@ class SearchableWidget<T> extends State<Searchable<T>> {
 
       columnWidgets.add(Expanded(
         child: widget.listOrGridDisplay(
-          scrollController: listScrollController,
+          scrollController: _listScrollController,
           gridViewColumnCalculator: widget.gridViewColumnCalculator,
           itemCount: listLength,
-          itemBuilder: (context, index) {
+          itemBuilder: (itemCtx, index) {
             if (widget.firstListItemWidget != null) {
               if (index == 0) return widget.firstListItemWidget!;
               index = index - 1;
@@ -230,16 +230,25 @@ class SearchableWidget<T> extends State<Searchable<T>> {
               int modifier = (widget.firstListItemWidget != null) ? 2 : 1;
               return additionalWidgets[listLength - index - modifier];
             }
-            return useItemDisplayer(context, list[index], index);
+            return useItemDisplayer(itemCtx, list[index], index);
           },
         ),
       ));
     }
 
-    return Column(key: widget.key, children: columnWidgets);
+    Widget column = Column(key: widget.key, children: columnWidgets);
+
+    if (isDesktop) return column;
+
+    return Listener(
+      child: column,
+      onPointerDown: (_) {
+        FocusScope.of(context).unfocus();
+      },
+    );
   }
 
-  Widget deleteAllButton(context) {
+  Widget deleteAllButton() {
     return Container(
       margin: const EdgeInsets.all(4),
       child: MaterialButton(
@@ -267,5 +276,12 @@ class SearchableWidget<T> extends State<Searchable<T>> {
 
     if (mounted == false) return;
     setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _listScrollController.dispose();
+    super.dispose();
   }
 }

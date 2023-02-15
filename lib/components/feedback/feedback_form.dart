@@ -66,7 +66,7 @@ class _FeedbackFormState extends State<FeedbackForm>
 
     int existingItemIndex =
         answers.indexWhere((q) => q.feedbackQuestionGuid == questionGuid);
-    if (existingItemIndex > 0) {
+    if (existingItemIndex >= 0) {
       setState(() {
         answers[existingItemIndex] = answerVm;
       });
