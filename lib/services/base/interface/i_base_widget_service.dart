@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/adaptive/checkbox.dart';
 import '../../../components/adaptive/chip.dart';
+import '../../../components/common/badge.dart';
 
 class IBaseWidgetService {
   Widget appScaffold(
@@ -76,6 +77,17 @@ class IBaseWidgetService {
         value: value,
         onChanged: onChanged,
         activeColor: activeColor,
+      );
+
+  Widget basicBadge({
+    Key? key,
+    required String text,
+    required Widget? child,
+  }) =>
+      BasicBadge(
+        key: key,
+        text: text,
+        child: child,
       );
 
   Widget customDivider() => Divider(color: Colors.grey[600]);

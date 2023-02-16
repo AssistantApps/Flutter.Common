@@ -64,7 +64,10 @@ ListTile genericListTileWithSubtitleAndImageCount(
   Widget? leadingImageWidget =
       (leadingImageCount != null && leadingImageCount > 0)
           // ? leadingImage
-          ? basicBadge(context, leadingImageCount.toString(), leadingImage)
+          ? getBaseWidget().basicBadge(
+              text: leadingImageCount.toString(),
+              child: leadingImage,
+            )
           : leadingImage;
   return ListTile(
     leading: leadingImageWidget,

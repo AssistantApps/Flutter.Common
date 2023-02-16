@@ -5,6 +5,7 @@ import '../../components/adaptive/app_bar_for_sub_page.dart';
 import '../../components/adaptive/checkbox.dart';
 import '../../components/adaptive/chip.dart';
 import '../../components/adaptive/app_scaffold.dart';
+import '../../components/common/badge.dart';
 import '../../contracts/misc/action_item.dart';
 import '../../helpers/device_helper.dart';
 import '../../integration/dependency_injection_base.dart';
@@ -119,6 +120,18 @@ class BaseWidgetService implements IBaseWidgetService {
         value: value,
         onChanged: onChanged,
         activeColor: activeColor,
+      );
+
+  @override
+  Widget basicBadge({
+    Key? key,
+    required String text,
+    required Widget? child,
+  }) =>
+      BasicBadge(
+        key: key,
+        text: text,
+        child: child,
       );
 
   @override
