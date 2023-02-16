@@ -127,10 +127,12 @@ class BaseWidgetService implements IBaseWidgetService {
     Key? key,
     required String text,
     required Widget? child,
+    required Color? textColour,
   }) =>
       BasicBadge(
         key: key,
         text: text,
+        textColour: textColour,
         child: child,
       );
 
