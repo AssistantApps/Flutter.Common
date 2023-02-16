@@ -83,7 +83,7 @@ class IBaseWidgetService {
     Key? key,
     required String text,
     required Widget? child,
-    required Color? textColour,
+    Color? textColour,
   }) =>
       BasicBadge(
         key: key,
