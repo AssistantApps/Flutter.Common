@@ -606,6 +606,7 @@ enum LocaleKey {
   randomPortal,
   forceNumberOfColumns,
   allItemsListUseCompactTiles,
+  tapAndHoldToDrag,
   //
   inputTooShort,
   inputTooLong,
