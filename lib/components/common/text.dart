@@ -105,6 +105,7 @@ class GenericItemGroup extends StatelessWidget {
       margin: const EdgeInsets.all(4.0),
       child: Text(
         group,
+        maxLines: maxLines,
         textAlign: TextAlign.center,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(fontSize: 18),

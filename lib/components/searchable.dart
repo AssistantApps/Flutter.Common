@@ -2,13 +2,6 @@ import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
-import '../contracts/enum/locale_key.dart';
-import '../contracts/results/result_with_value.dart';
-import '../contracts/types/list_types.dart';
-import '../integration/dependency_injection.dart';
-import './adaptive/search_bar.dart';
-import './common/space.dart';
-
 class Searchable<T> extends StatefulWidget {
   final ListGetterType<T> listGetter;
   final ListGetterType<T>? backupListGetter;
