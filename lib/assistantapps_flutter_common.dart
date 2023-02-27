@@ -93,6 +93,7 @@ export './contracts/staggered_grid_tile_item.dart';
 export './contracts/misc/action_item.dart';
 export './contracts/misc/popup_menu_action_item.dart';
 export './contracts/misc/responsive_flex_data.dart';
+export './contracts/misc/version_detail.dart';
 export './contracts/results/pagination_result_with_value.dart';
 export './contracts/results/result.dart';
 export './contracts/results/result_with_double_value.dart';
