@@ -8,7 +8,7 @@ import Foundation
 import bitsdojo_window_macos
 import flutter_secure_storage_macos
 import package_info_plus
-import path_provider_macos
+import path_provider_foundation
 import platform_device_id
 import platform_device_id_macos
 import share_plus
