@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../components/adaptive/checkbox.dart';
 import '../../../components/adaptive/chip.dart';
 import '../../../components/common/badge.dart';
+import '../../../constants/ui_constants.dart';
 
 class IBaseWidgetService {
   Widget appScaffold(
@@ -91,6 +92,9 @@ class IBaseWidgetService {
         textColour: textColour,
         child: child,
       );
+
+  int tabletBreakpoint() => 800;
+  int desktopBreakpoint() => 1440;
 
   Widget customDivider() => Divider(color: Colors.grey[600]);
 }

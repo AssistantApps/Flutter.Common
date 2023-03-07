@@ -26,10 +26,12 @@ class WhatIsNewDetailPage extends StatelessWidget {
         showHomeAction: true,
         title: Text(version.buildName),
       ),
-      body: WhatIsNewDetailPageComponent(
-        getEnv().assistantAppsAppGuid,
-        version,
-        additionalBuilder: additionalBuilder,
+      body: ContentHorizontalSpacing(
+        child: WhatIsNewDetailPageComponent(
+          getEnv().assistantAppsAppGuid,
+          version,
+          additionalBuilder: additionalBuilder,
+        ),
       ),
     );
   }

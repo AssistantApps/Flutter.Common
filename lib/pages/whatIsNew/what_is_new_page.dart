@@ -1,4 +1,5 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../../integration/dependency_injection.dart';
@@ -29,17 +30,19 @@ class WhatIsNewPage extends StatelessWidget {
         showHomeAction: true,
         title: Text(getTranslations().fromKey(LocaleKey.whatIsNew)),
       ),
-      body: WhatIsNewPageComponent(
-        currentWhatIsNewGuid,
-        selectedLanguage,
-        overriddenPlatforms ?? getPlatforms(),
-        const SmallLoadMorePageButton(),
-        (version) async => await getNavigation().navigateAsync(
-          context,
-          navigateTo: (context) => WhatIsNewDetailPage(
-            currentWhatIsNewGuid,
-            version,
-            additionalBuilder: additionalBuilder,
+      body: ContentHorizontalSpacing(
+        child: WhatIsNewPageComponent(
+          currentWhatIsNewGuid,
+          selectedLanguage,
+          overriddenPlatforms ?? getPlatforms(),
+          const SmallLoadMorePageButton(),
+          (version) async => await getNavigation().navigateAsync(
+            context,
+            navigateTo: (context) => WhatIsNewDetailPage(
+              currentWhatIsNewGuid,
+              version,
+              additionalBuilder: additionalBuilder,
+            ),
           ),
         ),
       ),
