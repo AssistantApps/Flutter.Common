@@ -1,5 +1,4 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
-import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 
 import '../../integration/dependency_injection.dart';
