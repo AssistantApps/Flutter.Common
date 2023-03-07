@@ -42,7 +42,7 @@ class AdaptiveSegmentedControl extends StatelessWidget {
       borderRadius: borderRadius ?? 4.0,
       verticalOffset: verticalOffset,
       horizontalPadding: padding ?? defaultPadding,
-      onSegmentChosen: onSegmentChosen,
+      onSegmentTapped: onSegmentChosen,
     );
   }
 }

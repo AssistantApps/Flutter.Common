@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
+import './about_page_available_apps.dart';
+import './about_page_team.dart';
 import '../../components/adaptive/segmented_control.dart';
+import '../../components/common/content_horizontal_spacing.dart';
 import '../../components/common/space.dart';
 import '../../components/common/text.dart';
 import '../../contracts/enum/assistant_app_type.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../helpers/device_helper.dart';
 import '../../integration/dependency_injection.dart';
-import './about_page_available_apps.dart';
-import './about_page_team.dart';
 
 class AboutPage extends StatefulWidget {
   final AssistantAppType appType;
@@ -52,26 +53,28 @@ class _AboutPageWidget extends State<AboutPage> {
         showHomeAction: true,
         title: Text(getTranslations().fromKey(LocaleKey.about)),
       ),
-      body: Column(
-        key: Key('currentSelection: $tabSelection'),
-        children: <Widget>[
-          if (options.length > 1) ...[
-            AdaptiveSegmentedControl(
-              verticalOffset: 8,
-              controlItems: options,
-              currentSelection: tabSelection,
-              onSegmentChosen: (int newTab) => setState(() {
-                tabSelection = newTab;
-              }),
+      body: ContentHorizontalSpacing(
+        child: Column(
+          key: Key('currentSelection: $tabSelection'),
+          children: <Widget>[
+            if (options.length > 1) ...[
+              AdaptiveSegmentedControl(
+                verticalOffset: 8,
+                controlItems: options,
+                currentSelection: tabSelection,
+                onSegmentChosen: (int newTab) => setState(() {
+                  tabSelection = newTab;
+                }),
+              ),
+              customDivider(),
+            ],
+            Column(
+              key: Key(widget.appType.toString()),
+              mainAxisSize: MainAxisSize.max,
+              children: buildPage(context, tabSelection),
             ),
-            customDivider(),
           ],
-          Column(
-            key: Key(widget.appType.toString()),
-            mainAxisSize: MainAxisSize.max,
-            children: buildPage(context, tabSelection),
-          ),
-        ],
+        ),
       ),
     );
   }

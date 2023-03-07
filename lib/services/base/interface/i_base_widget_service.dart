@@ -92,5 +92,8 @@ class IBaseWidgetService {
         child: child,
       );
 
+  int tabletBreakpoint() => 800;
+  int desktopBreakpoint() => 1440;
+
   Widget customDivider() => Divider(color: Colors.grey[600]);
 }

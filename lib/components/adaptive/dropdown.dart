@@ -50,8 +50,8 @@ class _AdaptiveDropdownState extends State<AdaptiveDropdown> {
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
         isExpanded: true,
-        hint: Row(
-          children: const [
+        hint: const Row(
+          children: [
             Icon(Icons.list, size: 32),
             SizedBox(width: 4),
             Expanded(
@@ -64,26 +64,31 @@ class _AdaptiveDropdownState extends State<AdaptiveDropdown> {
         ),
         items: items,
         value: currentValue,
-        icon: widget.icon ?? const Icon(Icons.keyboard_arrow_down),
-        iconSize: 32,
-        buttonPadding: const EdgeInsets.only(right: 8),
-        buttonDecoration: BoxDecoration(
-          borderRadius: borderRadius,
-          border: Border.all(color: darken(primaryColour, 0.25)),
-          color: backgroundColour,
+        iconStyleData: IconStyleData(
+          icon: widget.icon ?? const Icon(Icons.keyboard_arrow_down),
+          iconSize: 32,
         ),
-        dropdownDecoration: BoxDecoration(borderRadius: borderRadius),
-        scrollbarRadius: const Radius.circular(40),
-        scrollbarThickness: 6,
+        buttonStyleData: ButtonStyleData(
+          padding: const EdgeInsets.only(right: 8),
+          decoration: BoxDecoration(
+            borderRadius: borderRadius,
+            border: Border.all(color: darken(primaryColour, 0.25)),
+            color: backgroundColour,
+          ),
+        ),
+        dropdownStyleData: DropdownStyleData(
+            decoration: BoxDecoration(borderRadius: borderRadius),
+            scrollbarTheme: ScrollbarThemeData(
+              radius: const Radius.circular(40),
+              thickness: MaterialStateProperty.resolveWith((_) => 6.0),
+            )),
         //
-        onChanged: (value) {
+        onChanged: (String? value) {
           if (value == null) return;
-          if ((value is String) == false) return;
 
-          String result = value as String;
-          widget.onChanged(result);
+          widget.onChanged(value);
           setState(() {
-            currentValue = result;
+            currentValue = value;
           });
         },
       ),

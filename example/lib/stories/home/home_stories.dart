@@ -16,10 +16,10 @@ List<Story> getHomeStories() {
           showBackAction: false,
           title: const Text('Welcome!'),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+        body: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 8),
           child: Column(
-            children: const [
+            children: [
               EmptySpace2x(),
               Text(
                 'Welcome to the Storybook page of the AssistantApps common library',
