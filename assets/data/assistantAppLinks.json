@@ -48,6 +48,30 @@
         "sortOrder": 2
     },
     {
+        "guid": "fbf64506-284a-d570-813d-e7d71e6d455d",
+        "type": "FRC",
+        "name": "The Forest Companion App",
+        "gameName": "The Forest",
+        "iconUrl": "https://cdn.assistantapps.com/icon/forest.png",
+        "logoUrl": "https://cdn.assistantapps.com/forest.png",
+        "links": [
+            {
+                "type": "ios",
+                "url": "https://apps.apple.com/us/app/id1576018666"
+            },
+            {
+                "type": "android",
+                "url": "https://play.google.com/store/apps/details?id=companion.sotf"
+            },
+            {
+                "type": "web",
+                "url": "https://app.theforestmap.app/"
+            }
+        ],
+        "isVisible": true,
+        "sortOrder": 4
+    },
+    {
         "guid": "0bb0db37-be1e-4480-8f6d-16655bf4a804",
         "type": "KGZ",
         "name": "Kronos: Guides for Zombies",
@@ -65,6 +89,6 @@
             }
         ],
         "isVisible": true,
-        "sortOrder": 4
+        "sortOrder": 5
     }
 ]
