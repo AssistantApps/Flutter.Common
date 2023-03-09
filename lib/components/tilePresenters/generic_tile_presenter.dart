@@ -175,15 +175,11 @@ Widget? genericTileImage(
   BorderRadius? borderRadius,
 }) {
   if (leadingImage == null) return null;
-  String prefix = '';
+  String fullPath = leadingImage;
   if (imagePackage == null) {
-    String imageAssetsPathPrefix = getPath().imageAssetPathPrefix;
-    if (!leadingImage.contains(imageAssetsPathPrefix)) {
-      prefix = '$imageAssetsPathPrefix/';
-    }
+    fullPath = getPath().ofImage(leadingImage);
   }
 
-  String fullPath = '$prefix$leadingImage';
   Widget child = LocalImage(
     imagePath: fullPath,
     imageHero: imageHero,

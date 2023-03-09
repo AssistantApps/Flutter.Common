@@ -24,7 +24,7 @@ class ImageViewerPage extends StatelessWidget {
     if (!localImage.contains('http') &&
         !localImage.contains('assets/') &&
         !localImage.contains(getPath().imageAssetPathPrefix)) {
-      localImage = '${getPath().imageAssetPathPrefix}/$imageUrl';
+      localImage = getPath().ofImage(imageUrl);
     }
 
     dynamic imageProvider = imageUrl.contains('http')

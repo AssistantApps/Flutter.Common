@@ -5,8 +5,6 @@ class AssistantAppsEnvironmentSettings {
   String currentWhatIsNewGuid;
   String patreonOAuthClientId;
 
-  String? buildName;
-  String? buildNum;
   String? commitHash;
   String? githubViewAppRepoAtCommit;
 
@@ -21,8 +19,6 @@ class AssistantAppsEnvironmentSettings {
     required this.patreonOAuthClientId,
 
     // Settings page debug info
-    this.buildName,
-    this.buildNum,
     this.commitHash,
     this.githubViewAppRepoAtCommit,
 
