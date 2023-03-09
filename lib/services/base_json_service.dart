@@ -18,8 +18,8 @@ class BaseJsonService {
   }
 
   Future<dynamic> getJsonFromAssets(context, String jsonFileName) async {
-    String jsonString = await DefaultAssetBundle.of(context)
-        .loadString('assets/$jsonFileName.json');
+    String jsonString =
+        await DefaultAssetBundle.of(context).loadString('assets/$jsonFileName');
     return jsonString;
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../components/common/content_horizontal_spacing.dart';
 import '../../components/list/lazy_loaded_searchable_list.dart';
 import '../../components/tilePresenters/donation_tile_presenter.dart';
 import '../../constants/ui_constants.dart';
@@ -13,16 +14,18 @@ class DonatorsPageComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LazyLoadSearchableList<DonationViewModel>(
-      (int page) => getAssistantAppsDonators().getDonators(page: page),
-      UIConstants.donationsPageSize,
-      listItemDisplayer: donationTilePresenter,
-      backupListGetter: (int page) => getAssistantAppsBackup().getDonations(
-        context,
-        page: page,
-        pageSize: UIConstants.donationsPageSize,
+    return ContentHorizontalSpacing(
+      child: LazyLoadSearchableList<DonationViewModel>(
+        (int page) => getAssistantAppsDonators().getDonators(page: page),
+        UIConstants.donationsPageSize,
+        listItemDisplayer: donationTilePresenter,
+        backupListGetter: (int page) => getAssistantAppsBackup().getDonations(
+          context,
+          page: page,
+          pageSize: UIConstants.donationsPageSize,
+        ),
+        loadMoreItemWidget: loadMoreItemWidget,
       ),
-      loadMoreItemWidget: loadMoreItemWidget,
     );
   }
 }

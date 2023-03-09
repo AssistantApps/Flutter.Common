@@ -4,6 +4,12 @@ class AssistantAppsEnvironmentSettings {
   String assistantAppsAppGuid;
   String currentWhatIsNewGuid;
   String patreonOAuthClientId;
+
+  String? buildName;
+  String? buildNum;
+  String? commitHash;
+  String? githubViewAppRepoAtCommit;
+
   int? appVersionBuildNumberOverride;
   String? appVersionBuildNameOverride;
 
@@ -13,6 +19,14 @@ class AssistantAppsEnvironmentSettings {
     required this.assistantAppsAppGuid,
     required this.currentWhatIsNewGuid,
     required this.patreonOAuthClientId,
+
+    // Settings page debug info
+    this.buildName,
+    this.buildNum,
+    this.commitHash,
+    this.githubViewAppRepoAtCommit,
+
+    // Version fixes
     this.appVersionBuildNumberOverride,
     this.appVersionBuildNameOverride,
   });

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../assistantapps_flutter_common.dart';
 import './translations_per_language_custom_chart.dart';
+import '../../components/common/content_horizontal_spacing.dart';
+import '../../components/common/space.dart';
+import '../../components/common/text.dart';
+import '../../contracts/enum/locale_key.dart';
+import '../../integration/dependency_injection_base.dart';
 
 class LanguagePageContent extends StatelessWidget {
   final List<Widget>? additionalButtons;
@@ -22,10 +26,12 @@ class LanguagePageContent extends StatelessWidget {
     widgets.add(const TranslationsPerLanguageCustomChart());
     if (additionalButtons != null) widgets.addAll(additionalButtons!);
 
-    return ListView(
-      shrinkWrap: true,
-      padding: const EdgeInsets.all(12),
-      children: widgets,
+    return ContentHorizontalSpacing(
+      child: ListView(
+        shrinkWrap: true,
+        padding: const EdgeInsets.all(12),
+        children: widgets,
+      ),
     );
   }
 }

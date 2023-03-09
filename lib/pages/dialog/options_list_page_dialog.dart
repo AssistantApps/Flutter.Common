@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../components/common/content_horizontal_spacing.dart';
 import '../../components/list/searchable_list.dart';
 import '../../components/tilePresenters/option_tile_presenter.dart';
 import '../../contracts/enum/locale_key.dart';
@@ -79,13 +80,15 @@ class _OptionsListPageDialogWidget extends State<OptionsListPageDialog> {
         context,
         title: Text(widget.title),
       ),
-      body: SearchableList<DropdownOption>(
-        getSearchListFutureFromList(widget.options),
-        listItemWithIndexDisplayer: presenter,
-        listItemSearch: (DropdownOption option, String search) =>
-            option.title.toLowerCase().contains(search),
-        minListForSearch: widget.minListForSearch,
-        key: Key('num Items: ${widget.options.length.toString()}'),
+      body: ContentHorizontalSpacing(
+        child: SearchableList<DropdownOption>(
+          getSearchListFutureFromList(widget.options),
+          listItemWithIndexDisplayer: presenter,
+          listItemSearch: (DropdownOption option, String search) =>
+              option.title.toLowerCase().contains(search),
+          minListForSearch: widget.minListForSearch,
+          key: Key('num Items: ${widget.options.length.toString()}'),
+        ),
       ),
       floatingActionButton: floatingActionButtonWidget,
     );
