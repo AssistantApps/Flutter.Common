@@ -13,13 +13,17 @@ class ContentHorizontalSpacing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     int maxWidth = getBaseWidget().tabletBreakpoint();
-    double screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth < maxWidth) return child;
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        double screenWidth = constraints.maxWidth;
+        if (screenWidth < maxWidth) return child;
 
-    double padding = (screenWidth - maxWidth) / 2;
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: padding),
-      child: child,
+        double padding = (screenWidth - maxWidth) / 2;
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: padding),
+          child: child,
+        );
+      },
     );
   }
 }
