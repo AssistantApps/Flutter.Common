@@ -29,19 +29,7 @@ class AboutPageAvailableApps extends StatelessWidget {
         await getAssistantAppsData().getAssistantApps(context);
     if (assistantAppsResult.hasFailed) return List.empty();
 
-    List<AssistantAppsLinkViewModel> sortModifiedAssistantAppLinks =
-        List.empty(growable: true);
-
-    for (AssistantAppsLinkViewModel item
-        in assistantAppsResult.value.toList()) {
-      int newSortOrder = item.type == appType ? -10 : item.sortOrder;
-      sortModifiedAssistantAppLinks.add(item.copyWith(sortOrder: newSortOrder));
-    }
-    sortModifiedAssistantAppLinks.sort(
-      (a, b) => (a.sortOrder.compareTo(b.sortOrder)),
-    );
-
-    return sortModifiedAssistantAppLinks;
+    return assistantAppsResult.value;
   }
 
   @override
@@ -71,25 +59,39 @@ class AboutPageAvailableApps extends StatelessWidget {
 
         for (AssistantAppsLinkViewModel appLinkVm in assistantAppLinks) {
           List<PopupMenuActionItem> popups = List.empty(growable: true);
-          for (Link appLink in appLinkVm.links) {
-            if (isiOS == false && appLink.type == 'android') {
+          for (AssistantAppsLinkLinkViewModel appLink in appLinkVm.links) {
+            if (isiOS == false && appLink.icon == 'googlePlay') {
               popups.add(PopupMenuActionItem(
                 icon: Icons.phone_android,
                 text: 'Android',
                 onPressed: () => launchExternalURL(appLink.url),
               ));
             }
-            if (appLink.type == 'ios') {
+            if (appLink.icon == 'apple') {
               popups.add(PopupMenuActionItem(
                 icon: Icons.phone_iphone,
                 text: 'iOS',
                 onPressed: () => launchExternalURL(appLink.url),
               ));
             }
-            if (appLink.type == 'web') {
+            if (appLink.icon == 'web') {
               popups.add(PopupMenuActionItem(
                 icon: Icons.language,
                 text: 'Web',
+                onPressed: () => launchExternalURL(appLink.url),
+              ));
+            }
+            if (appLink.icon == 'windows') {
+              popups.add(PopupMenuActionItem(
+                icon: Icons.desktop_windows_rounded,
+                text: appLink.title,
+                onPressed: () => launchExternalURL(appLink.url),
+              ));
+            }
+            if (appLink.icon == 'github') {
+              popups.add(PopupMenuActionItem(
+                icon: Icons.code,
+                text: 'Github',
                 onPressed: () => launchExternalURL(appLink.url),
               ));
             }

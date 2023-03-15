@@ -33,7 +33,7 @@ class _AboutPageWidget extends State<AboutPage> {
     List<Widget> options = [
       const SegmentedControlWithIconOption(
         icon: Icons.apps_rounded,
-        text: 'AssistantApps',
+        text: 'All apps',
       ),
       if (widget.aboutPageWidgetsFunc != null) ...[
         const SegmentedControlWithIconOption(
@@ -54,25 +54,25 @@ class _AboutPageWidget extends State<AboutPage> {
         title: Text(getTranslations().fromKey(LocaleKey.about)),
       ),
       body: ContentHorizontalSpacing(
-        child: Column(
+        child: ListView(
           key: Key('currentSelection: $tabSelection'),
-          children: <Widget>[
+          children: [
             if (options.length > 1) ...[
-              AdaptiveSegmentedControl(
-                verticalOffset: 8,
-                controlItems: options,
-                currentSelection: tabSelection,
-                onSegmentChosen: (int newTab) => setState(() {
-                  tabSelection = newTab;
-                }),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: AdaptiveSegmentedControl(
+                  verticalOffset: 8,
+                  controlItems: options,
+                  currentSelection: tabSelection,
+                  onSegmentChosen: (int newTab) => setState(() {
+                    tabSelection = newTab;
+                  }),
+                ),
               ),
               customDivider(),
             ],
-            Column(
-              key: Key(widget.appType.toString()),
-              mainAxisSize: MainAxisSize.max,
-              children: buildPage(context, tabSelection),
-            ),
+            ...buildPage(context, tabSelection),
+            const EmptySpace8x(),
           ],
         ),
       ),
