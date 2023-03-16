@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../components/common/cached_future_builder.dart';
+import '../../components/common/content_horizontal_spacing.dart';
 import '../../components/common/image.dart';
 import '../../components/common/space.dart';
 import '../../components/common/text.dart';
@@ -119,12 +120,14 @@ class AboutPageAvailableApps extends StatelessWidget {
         );
         widgets.add(const EmptySpace(1));
 
-        return ListView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          itemCount: widgets.length,
-          itemBuilder: (_, int index) => widgets[index],
-          shrinkWrap: true,
-          controller: ScrollController(),
+        return ContentHorizontalSpacing(
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            itemCount: widgets.length,
+            itemBuilder: (_, int index) => widgets[index],
+            shrinkWrap: true,
+            controller: ScrollController(),
+          ),
         );
       },
     );

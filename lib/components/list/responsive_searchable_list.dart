@@ -103,9 +103,14 @@ class _ResponsiveListDetailWidget<T>
             T item,
             int index, {
             void Function()? onTap,
-          }) =>
-              widget.listItemDisplayer(innerC, item, index,
-                  onTap: () => onTapFunc(innerC, item)),
+          }) {
+            return widget.listItemDisplayer(
+              innerC,
+              item,
+              index,
+              onTap: () => onTapFunc(innerC, item),
+            );
+          },
           listItemSearch: widget.listItemSearch,
           key: widget.key,
           hintText: widget.hintText,
