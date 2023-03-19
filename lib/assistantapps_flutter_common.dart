@@ -119,6 +119,7 @@ export './helpers/path_helper.dart';
 export './helpers/search_list_helper.dart';
 export './helpers/snapshot_helper.dart';
 export './helpers/string_helper.dart';
+export './helpers/theme_helper.dart';
 export './helpers/time_helper.dart';
 export './helpers/update_helper.dart';
 //
