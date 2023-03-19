@@ -132,28 +132,38 @@ ListTile genericListTile(context,
   );
 }
 
-ListTile genericListTileWithNetworkImage(context,
-    {required String imageUrl,
-    required String name,
-    String? description,
-    Widget? subtitle,
-    int maxLines = 1,
-    String? onTapAnalyticsEvent,
-    String? onLongPressAnalyticsEvent,
-    Widget? trailing,
-    bool? dense,
-    Function()? onTap,
-    Function()? onLongPress}) {
+ListTile genericListTileWithNetworkImage(
+  context, {
+  required String imageUrl,
+  BorderRadius? borderRadius,
+  required String name,
+  String? description,
+  Widget? subtitle,
+  int maxLines = 1,
+  String? onTapAnalyticsEvent,
+  String? onLongPressAnalyticsEvent,
+  Widget? trailing,
+  bool? dense,
+  Function()? onTap,
+  Function()? onLongPress,
+}) {
   String title = description != null //
       ? '$name - $description'
       : name;
+  Widget networkImage = ImageFromNetwork(
+    imageUrl: imageUrl,
+    boxfit: BoxFit.contain,
+    height: 50.0,
+    width: 50.0,
+  );
+  if (borderRadius != null) {
+    networkImage = ClipRRect(
+      borderRadius: borderRadius,
+      child: networkImage,
+    );
+  }
   return ListTile(
-    leading: ImageFromNetwork(
-      imageUrl: imageUrl,
-      boxfit: BoxFit.contain,
-      height: 50.0,
-      width: 50.0,
-    ),
+    leading: networkImage,
     title: Text(
       title,
       maxLines: maxLines,

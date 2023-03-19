@@ -1,94 +1,185 @@
 [
     {
-        "guid": "589405b4-e40f-4cd9-b793-6bf37944ee09",
-        "type": "NMS",
-        "name": "Assistant for No Man's Sky",
-        "gameName": "No Man's Sky",
-        "iconUrl": "https://cdn.assistantapps.com/icon/assistantNMS.png",
-        "logoUrl": "https://cdn.assistantapps.com/assistantNMS.png",
+        "shortCode": "nms",
+        "game": "No Man's Sky",
+        "title": "Assistant for No Man's Sky",
+        "titleStart": "Assistant for",
+        "titleEnd": "No Man's Sky",
+        "link": "https://nmsassistant.com",
+        "image": "https://cdn.assistantapps.com/assistantNMS.webp",
+        "icon": "https://cdn.assistantapps.com/icon/assistantNMS.webp",
+        "screenshotLeft": "/assets/img/screenshot-assistantNMS1.png",
+        "screenshotRight": "/assets/img/screenshot-assistantNMS2.png",
+        "description": "The first of the Assistant apps! This app was relased on the 12th of August 2019 and reached 70 000 active users on Android & iOS 2 years later. The app is available on Android, iOS and a simplified version is available for Web",
+        "documentation": "https://docs.assistantapps.com/#/apps/nms-main",
+        "downloadAppLink": "https://play.google.com/store/apps/details?id=com.kurtlourens.no_mans_sky_recipes",
+        "customPrimaryColour": "#7986cb",
+        "twitter": {
+            "handle": "@AssistantNMS",
+            "url": "https://twitter.com/AssistantNMS",
+            "imageAlt": "Logo of the AssistantNMS"
+        },
         "links": [
             {
-                "type": "ios",
+                "title": "Apple App Store",
+                "icon": "apple",
                 "url": "https://apps.apple.com/us/app/id1480287625"
             },
             {
-                "type": "android",
+                "title": "Google Play Store",
+                "icon": "googlePlay",
                 "url": "https://play.google.com/store/apps/details?id=com.kurtlourens.no_mans_sky_recipes"
             },
             {
-                "type": "web",
+                "title": "Web App",
+                "icon": "webapp",
                 "url": "https://app.nmsassistant.com"
+            },
+            {
+                "title": "Windows",
+                "icon": "windows",
+                "url": "https://apps.microsoft.com/store/detail/assistant-for-no-mans-sky/9NQLF7XD0LF3"
+            },
+            {
+                "title": "Homepage",
+                "icon": "web",
+                "url": "https://nmsassistant.com"
+            },
+            {
+                "title": "Github organisation",
+                "icon": "github",
+                "url": "https://github.com/AssistantNMS"
             }
-        ],
-        "isVisible": true,
-        "sortOrder": 1
+        ]
     },
     {
-        "guid": "dfe0dbc7-8df4-47fb-a5a5-49af1937c4e2",
-        "type": "SMS",
-        "name": "Assistant for Scrap Mechanic",
-        "gameName": "Scrap Mechanic",
-        "iconUrl": "https://cdn.assistantapps.com/icon/assistantSMS.png",
-        "logoUrl": "https://cdn.assistantapps.com/assistantSMS.png",
+        "shortCode": "for",
+        "shortCodeAlt": "forest",
+        "game": "The Forest",
+        "title": "Companion of the Forest",
+        "titleStart": "Assistant for",
+        "titleEnd": "The Forest",
+        "link": "https://theforestmap.app",
+        "image": "https://cdn.assistantapps.com/forest.png",
+        "icon": "https://cdn.assistantapps.com/icon/forest.jpg",
+        "screenshotLeft": "/assets/img/screenshot-assistantFOR1.png",
+        "screenshotRight": "/assets/img/screenshot-assistantFOR2.png",
+        "description": "Do you play The Forest? Tired of searching for item locations while playing? Companion of the Forest is an interactive Forest Map that shows you where items in the game are. Whether you're a new or returning player, this app's got you covered with locations of items from the original Forest and it's sequel, Sons of the Forest!",
+        "documentation": "https://docs.assistantapps.com/#/apps/for-main",
+        "customPrimaryColour": "#CAB735",
         "links": [
             {
-                "type": "ios",
-                "url": "https://apps.apple.com/us/app/id1519215611"
+                "title": "Apple App Store",
+                "icon": "apple",
+                "url": "https://apps.apple.com/us/app/companion-of-the-forest/id1576018666"
             },
             {
-                "type": "android",
-                "url": "https://play.google.com/store/apps/details?id=com.kurtlourens.scrap_mechanic"
-            },
-            {
-                "type": "web",
-                "url": "https://scrapassistant.com"
-            }
-        ],
-        "isVisible": true,
-        "sortOrder": 2
-    },
-    {
-        "guid": "fbf64506-284a-d570-813d-e7d71e6d455d",
-        "type": "FRC",
-        "name": "The Forest Companion App",
-        "gameName": "The Forest",
-        "iconUrl": "https://cdn.assistantapps.com/icon/forest.jpg",
-        "logoUrl": "https://cdn.assistantapps.com/forest.png",
-        "links": [
-            {
-                "type": "ios",
-                "url": "https://apps.apple.com/us/app/id1576018666"
-            },
-            {
-                "type": "android",
+                "title": "Google Play Store",
+                "icon": "googlePlay",
                 "url": "https://play.google.com/store/apps/details?id=companion.sotf"
             },
             {
-                "type": "web",
+                "title": "Web",
+                "icon": "webapp",
                 "url": "https://app.theforestmap.app/"
+            },
+            {
+                "title": "Homepage",
+                "icon": "web",
+                "url": "https://theforestmap.app"
             }
-        ],
-        "isVisible": true,
-        "sortOrder": 4
+        ]
     },
     {
-        "guid": "0bb0db37-be1e-4480-8f6d-16655bf4a804",
-        "type": "KGZ",
-        "name": "Kronos: Guides for Zombies",
-        "gameName": "Guides for Zombies",
-        "iconUrl": "https://cdn.assistantapps.com/icon/kronos.jpg",
-        "logoUrl": "https://cdn.assistantapps.com/kronos.jpg",
+        "shortCode": "sms",
+        "game": "Scrap Mechanic",
+        "title": "Assistant for Scrap Mechanic",
+        "titleStart": "Assistant for",
+        "titleEnd": "Scrap Mechanic",
+        "link": "https://scrapassistant.com",
+        "image": "https://cdn.assistantapps.com/assistantSMS.webp",
+        "icon": "https://cdn.assistantapps.com/icon/assistantSMS.webp",
+        "screenshotLeft": "/assets/img/screenshot-assistantSMS1.png",
+        "screenshotRight": "/assets/img/screenshot-assistantSMS2.png",
+        "description": "The Assistant for Scrap Mechanic app would not have been started if the developers of the game did not make it easy for modders to look at and edit the game's files. This made reading the game files a lot easier than No Man's Sky and helped in completing this project in a short period of time (2-3 weeks part time). This is also the first completely open source project.",
+        "documentation": "https://docs.assistantapps.com/#/apps/sms-main",
+        "customPrimaryColour": "#F2931F",
         "links": [
             {
-                "type": "ios",
+                "title": "Apple App Store",
+                "icon": "apple",
+                "url": "https://apps.apple.com/us/app/id1519215611"
+            },
+            {
+                "title": "Google Play Store",
+                "icon": "googlePlay",
+                "url": "https://play.google.com/store/apps/details?id=com.kurtlourens.scrap_mechanic"
+            },
+            {
+                "title": "Web",
+                "icon": "webapp",
+                "url": "https://scrapassistant.com"
+            },
+            {
+                "title": "Github organisation",
+                "icon": "github",
+                "url": "https://github.com/AssistantSMS"
+            }
+        ]
+    },
+    {
+        "shortCode": "kronos",
+        "game": "Guides for Zombies",
+        "title": "Kronos: Guides for Zombies",
+        "titleStart": "Kronos:",
+        "titleEnd": "Guides for Zombies",
+        "link": "https://kronosguides.app",
+        "image": "https://cdn.assistantapps.com/kronos.jpg",
+        "icon": "https://cdn.assistantapps.com/icon/kronos.jpg",
+        "screenshotLeft": "/assets/img/screenshot-assistantKGZ1.png",
+        "screenshotRight": "/assets/img/screenshot-assistantKGZ2.png",
+        "description": "Do you play Zombies? Tired of having to search for guides when playing? Let this app do the work for you! Join the community of over 50,000 to stay up-to-date with the latest Zombies Easter Eggs with Kronos - the zombies companion!",
+        "documentation": "https://docs.assistantapps.com/#/apps/kgz-main",
+        "links": [
+            {
+                "title": "Apple App Store",
+                "icon": "apple",
                 "url": "https://apps.apple.com/us/app/id1438078478"
             },
             {
-                "type": "android",
+                "title": "Google Play Store",
+                "icon": "googlePlay",
                 "url": "https://play.google.com/store/apps/details?id=companion.kronosflutter"
             }
-        ],
-        "isVisible": true,
-        "sortOrder": 5
+        ]
+    },
+    {
+        "shortCode": "dkm",
+        "hiddenOnMenu": true,
+        "hiddenOnFrontPage": true,
+        "game": "Dinkum",
+        "title": "Assistant for Dinkum",
+        "titleStart": "Assistant for",
+        "titleEnd": "Dinkum",
+        "link": "https://dinkum.assistantapps.com",
+        "image": "https://cdn.assistantapps.com/assistantDKM.png",
+        "icon": "https://cdn.assistantapps.com/icon/assistantDKM.png",
+        "screenshotLeft": "/assets/img/screenshot-assistantSMS1.png",
+        "screenshotRight": "/assets/img/screenshot-assistantSMS2.png",
+        "description": "The Assistant for Scrap Mechanic app would not have been started if the developers of the game did not make it easy for modders to look at and edit the game's files. This made reading the game files a lot easier than No Man's Sky and helped in completing this project in a short period of time (2-3 weeks part time). This is also the first completely open source project.",
+        "documentation": "https://docs.assistantapps.com/#/apps/dkm-main",
+        "customPrimaryColour": "#8B432B",
+        "links": [
+            {
+                "title": "Web",
+                "icon": "webapp",
+                "url": "https://dinkum.assistantapps.com"
+            },
+            {
+                "title": "Github organisation",
+                "icon": "github",
+                "url": "https://github.com/AssistantDKM"
+            }
+        ]
     }
 ]
