@@ -118,7 +118,7 @@ class AboutPageAvailableApps extends StatelessWidget {
             ),
           ),
         );
-        widgets.add(const EmptySpace(1));
+        widgets.add(const EmptySpace1x());
 
         return ContentHorizontalSpacing(
           child: ListView.builder(

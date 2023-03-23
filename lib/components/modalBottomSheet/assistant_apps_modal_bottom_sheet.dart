@@ -15,7 +15,7 @@ class AssistantAppsModalBottomSheet extends StatelessWidget {
     return AnimatedSize(
       duration: const Duration(milliseconds: 150),
       child: Container(
-        constraints: modalMiniSize(context),
+        constraints: modalDefaultSize(context),
         child: AboutPageAvailableApps(appType),
       ),
     );

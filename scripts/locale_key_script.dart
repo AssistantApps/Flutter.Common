@@ -42,12 +42,43 @@ Future writeServerData(List<String> keys) async {
   print('Writing to locale_key.dart');
   final file = File('./lib/contracts/enum/locale_key.dart');
   await file.writeAsString('enum LocaleKey {\n');
-  for (int keyIndex = 0; keyIndex < (keys.length - 1); keyIndex++) {
-    var key = keys[keyIndex];
+  for (String key in [...keys, ...additionalKeys]) {
     await file.writeAsString('  $key,\n', mode: FileMode.append);
   }
-  var lastItem = keys[(keys.length - 1)];
-  await file.writeAsString('  $lastItem\n', mode: FileMode.append);
+
   await file.writeAsString('}\n', mode: FileMode.append);
   print('Writing to file Success');
 }
+
+List<String> additionalKeys = [
+  '//',
+  'inputTooShort',
+  'inputTooLong',
+  'emailNotValid',
+  'inputTooLow',
+  'inputTooHigh',
+  'guideName',
+  'guideSubTitle',
+  'guideMinutes',
+  'guideTags',
+  'showCreatedBy',
+  'guideSectionHeading',
+  'guideSectionsAdd',
+  'guideSectionAddText',
+  'guideSectionAddLink',
+  'guideSectionAddLinkName',
+  'guideSectionAddLinkAddress',
+  'guideSectionAddImage',
+  'guideSectionAddImageCaption',
+  'guideSectionAddMarkdown',
+  'guideSectionAddMarkdownContent',
+  'guideSectionAddMarkdownPreview',
+  'guideSectionMoveUp',
+  'guideSectionMoveDown',
+  'guideSubmissionFailedTitle',
+  'guideSubmissionFailedMessage',
+  'guideSubmissionSuccessTitle',
+  'guideSubmissionSuccessMessage',
+  'loginRequiredTitle',
+  'loginRequiredMessage',
+];
