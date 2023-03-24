@@ -47,7 +47,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.2.29"
+    version: "0.2.30"
   async:
     dependency: transitive
     description:

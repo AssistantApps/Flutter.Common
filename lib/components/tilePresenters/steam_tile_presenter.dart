@@ -22,53 +22,56 @@ Widget steamNewsItemTilePresenter(
     boxfit: BoxFit.fitWidth,
     loading: getPath().steamNewsDefaultImage,
   );
-  return Card(
-    semanticContainer: true,
-    clipBehavior: Clip.antiAliasWithSaveLayer,
-    margin: const EdgeInsets.all(4),
-    child: InkWell(
-      child: Column(
-        children: <Widget>[
-          image,
-          Padding(
-            padding: const EdgeInsets.only(top: 4, right: 8, left: 8),
-            child: Text(
-              newsItem.name,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 20),
+  return Padding(
+    padding: const EdgeInsets.all(8),
+    child: Card(
+      semanticContainer: true,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      margin: const EdgeInsets.all(4),
+      child: InkWell(
+        child: Column(
+          children: <Widget>[
+            image,
+            Padding(
+              padding: const EdgeInsets.only(top: 4, right: 8, left: 8),
+              child: Text(
+                newsItem.name,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 20),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4, right: 4, left: 4),
-            child: Text(
-              DateFormat(UIConstants.dateFormat)
-                  .format(newsItem.date.toLocal()),
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 14),
+            Padding(
+              padding: const EdgeInsets.only(top: 4, right: 4, left: 4),
+              child: Text(
+                DateFormat(UIConstants.dateFormat)
+                    .format(newsItem.date.toLocal()),
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 14),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Text(
-              newsItem.shortDescription,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Text(
+                newsItem.shortDescription,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 16),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8, bottom: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconWithValueRow(Icons.thumb_up, newsItem.upVotes),
-                IconWithValueRow(Icons.thumb_down, newsItem.downVotes),
-                IconWithValueRow(Icons.comment, newsItem.commentCount),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconWithValueRow(Icons.thumb_up, newsItem.upVotes),
+                  IconWithValueRow(Icons.thumb_down, newsItem.downVotes),
+                  IconWithValueRow(Icons.comment, newsItem.commentCount),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+        onTap: () => launchExternalURL(newsItem.link),
       ),
-      onTap: () => launchExternalURL(newsItem.link),
     ),
   );
 }
