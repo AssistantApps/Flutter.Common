@@ -134,7 +134,7 @@ class _GuideListWidget extends State<GuideListPage> {
   Widget getBody(GuideDraftModel draftModel, String searchObjHash) {
     List<Widget> columnWidgets = List.empty(growable: true);
     columnWidgets.add(
-      SearchBar(
+      AdaptiveSearchBar(
         controller: TextEditingController(),
         onSearchTextChanged: (String search) {
           setState(() {

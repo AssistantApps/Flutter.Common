@@ -1,12 +1,12 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart';
 import 'package:flutter/material.dart';
 
-class SearchBar extends StatelessWidget {
+class AdaptiveSearchBar extends StatelessWidget {
   final TextEditingController controller;
   final String? hintText;
   final void Function(String) onSearchTextChanged;
 
-  const SearchBar({
+  const AdaptiveSearchBar({
     Key? key,
     required this.controller,
     this.hintText,

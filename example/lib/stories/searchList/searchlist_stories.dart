@@ -16,7 +16,7 @@ List<Story> getSearchListStories() {
           showBackAction: false,
           title: const Text('SearchBar'),
         ),
-        body: SearchBar(
+        body: AdaptiveSearchBar(
           controller: TextEditingController(),
           hintText: context.knobs.text(
             label: 'Hint text',

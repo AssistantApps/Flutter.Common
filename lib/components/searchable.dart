@@ -119,7 +119,7 @@ class SearchableWidget<T> extends State<Searchable<T>> {
   Widget build(BuildContext context) {
     KeyedSubtree searchBarWidget = KeyedSubtree(
       key: const Key('searchBar'),
-      child: SearchBar(
+      child: AdaptiveSearchBar(
         controller: _controller,
         hintText: widget.hintText,
         onSearchTextChanged: onSearchTextChanged,
