@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.2.33
+version: 0.2.34
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -24,7 +24,6 @@ dependencies:
   after_layout: 1.2.0
   animate_do: 3.0.2
   animated_background: 2.0.0
-  auth_buttons: 3.0.0
   badges: 3.0.2
   bitsdojo_window: 0.1.5
   breakpoint: 1.2.0

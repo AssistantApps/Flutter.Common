@@ -47,7 +47,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.2.33"
+    version: "0.2.34"
   async:
     dependency: transitive
     description:
@@ -56,14 +56,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
-  auth_buttons:
-    dependency: transitive
-    description:
-      name: auth_buttons
-      sha256: "5254571a08863044a05b860cfa3d209807025b14d3990f52f9610d3a09081bf9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.0"
   badges:
     dependency: transitive
     description:
@@ -471,14 +463,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.2.0"
-  google_fonts:
-    dependency: transitive
-    description:
-      name: google_fonts
-      sha256: "8f099045e2f2a30e4d4d0a35f40c6bc941a8f2ca0e10ad9d214ee9edd3f37483"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   group_button:
     dependency: transitive
     description:
