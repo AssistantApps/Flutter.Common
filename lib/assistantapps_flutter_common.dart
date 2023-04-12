@@ -143,6 +143,7 @@ export './pages/language/language_help_page.dart';
 export './pages/language/language_page_content.dart';
 export './pages/language/language_selection_page.dart';
 export './pages/misc/image_viewer_page.dart';
+export './pages/misc/logs_view_page.dart';
 export './pages/patrons/patron_list_page.dart';
 export './pages/patrons/patron_list_page_component.dart';
 export './pages/steam/steam_news_list_page.dart';

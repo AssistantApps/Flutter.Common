@@ -21,8 +21,13 @@ import '../../integration/dependency_injection.dart';
 
 class AboutPageAvailableApps extends StatelessWidget {
   final AssistantAppType appType;
+  final ScrollController? controller;
 
-  const AboutPageAvailableApps(this.appType, {Key? key}) : super(key: key);
+  const AboutPageAvailableApps(
+    this.appType, {
+    this.controller,
+    Key? key,
+  }) : super(key: key);
 
   Future<List<AssistantAppsLinkViewModel>> getAppLinksFuture(
       BuildContext context) async {
@@ -126,7 +131,7 @@ class AboutPageAvailableApps extends StatelessWidget {
             itemCount: widgets.length,
             itemBuilder: (_, int index) => widgets[index],
             shrinkWrap: true,
-            controller: ScrollController(),
+            controller: controller ?? ScrollController(),
           ),
         );
       },

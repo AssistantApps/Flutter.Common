@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:talker_flutter/talker_flutter.dart';
 
 import '../../constants/app_duration.dart';
 import '../../constants/modal.dart';
-import '../../integration/talker.dart';
+import '../../pages/misc/logs_view_page.dart';
 
 class LogsModalBottomSheet extends StatelessWidget {
   final String title;
@@ -16,10 +15,7 @@ class LogsModalBottomSheet extends StatelessWidget {
       duration: AppDuration.modal,
       child: Container(
         constraints: logsModalFullHeightSize(context),
-        child: TalkerScreen(
-          talker: talkerInstance,
-          appBarTitle: title,
-        ),
+        child: LogsViewPage(title: title),
       ),
     );
   }

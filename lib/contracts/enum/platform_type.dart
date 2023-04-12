@@ -2,7 +2,7 @@ import '../enum/enum_base.dart';
 
 enum PlatformType {
   android,
-  apple,
+  iOS,
   web,
   api,
   windows,
@@ -11,7 +11,7 @@ enum PlatformType {
 
 final platformTypeValues = EnumValues({
   "0": PlatformType.android,
-  "1": PlatformType.apple,
+  "1": PlatformType.iOS,
   "2": PlatformType.web,
   "3": PlatformType.api,
   "4": PlatformType.windows,
@@ -20,7 +20,7 @@ final platformTypeValues = EnumValues({
 
 final platformTypeToIntValues = EnumValues({
   PlatformType.android.toString(): "0",
-  PlatformType.apple.toString(): "1",
+  PlatformType.iOS.toString(): "1",
   PlatformType.web.toString(): "2",
   PlatformType.api.toString(): "3",
   PlatformType.windows.toString(): "4",

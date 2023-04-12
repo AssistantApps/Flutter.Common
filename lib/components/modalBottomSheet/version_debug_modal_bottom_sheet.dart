@@ -6,7 +6,9 @@ import '../../constants/modal.dart';
 import '../../integration/dependency_injection.dart';
 
 class VersionDebugBottomSheet extends StatelessWidget {
-  const VersionDebugBottomSheet({Key? key}) : super(key: key);
+  final ScrollController? controller;
+
+  const VersionDebugBottomSheet({Key? key, this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +93,7 @@ class VersionDebugBottomSheet extends StatelessWidget {
               itemCount: widgets.length,
               itemBuilder: (_, int index) => widgets[index],
               shrinkWrap: true,
-              controller: ScrollController(),
+              controller: controller ?? ScrollController(),
             ),
           ),
         );

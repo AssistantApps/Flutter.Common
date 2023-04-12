@@ -30,7 +30,7 @@ Future<String> getDeviceId() async {
 
 List<PlatformType> getPlatforms() {
   List<PlatformType> plats = List.empty(growable: true);
-  if (isiOS || isApple) plats.add(PlatformType.apple);
+  if (isiOS || isApple) plats.add(PlatformType.iOS);
   if (isAndroid) plats.add(PlatformType.android);
   if (isWindows) plats.add(PlatformType.windows);
   if (isWeb) plats.add(PlatformType.web);

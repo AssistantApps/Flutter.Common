@@ -40,7 +40,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
 
     List<Widget> wrapChildren = List.empty(growable: true);
     for (PlatformType plat in version.platforms) {
-      if (plat == PlatformType.apple) {
+      if (plat == PlatformType.iOS) {
         wrapChildren.add(getBaseWidget().appChip(
           label: const Text(
             'iOS',
