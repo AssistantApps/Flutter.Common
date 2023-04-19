@@ -72,7 +72,7 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
             ),
           );
         }
-        if (plat == PlatformType.githubWindowsInstaller) {
+        if (plat == PlatformType.windows) {
           wrapChildren.add(
             getBaseWidget().appChip(
               label: const Text(
@@ -80,6 +80,17 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               backgroundColor: Colors.blue,
+            ),
+          );
+        }
+        if (plat == PlatformType.githubWindowsInstaller) {
+          wrapChildren.add(
+            getBaseWidget().appChip(
+              label: const Text(
+                'Windows (Github)',
+                style: TextStyle(color: Colors.white),
+              ),
+              backgroundColor: Colors.blue[900]!,
             ),
           );
         }
