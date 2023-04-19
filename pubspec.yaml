@@ -54,7 +54,7 @@ dependencies:
   photo_view: 0.14.0
   platform_device_id: 1.0.1
   responsive_grid: 2.2.0
-  screenshot: 1.3.0
+  # screenshot: 1.3.0
   share_plus: 6.3.1
   shimmer: 2.0.0
   spring: 2.0.2
@@ -69,6 +69,12 @@ dependencies:
   time_formatter:
     git:
       url: https://github.com/Vishal-Isharani/time_formatter
+      ref: master
+
+  # Screenshot package with a fix for Flutter master channel
+  screenshot:
+    git:
+      url: https://github.com/AssistantApps/screenshot
       ref: master
 
   # logging
