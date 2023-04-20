@@ -20,42 +20,37 @@ class AdaptiveSearchBar extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Card(
-          child: Column(
-            // TODO remove column
+          child: Flex(
+            direction: Axis.horizontal,
             children: [
-              Flex(
-                direction: Axis.horizontal,
-                children: [
-                  const Padding(
-                      padding: EdgeInsets.all(16), child: Icon(Icons.search)),
-                  Flexible(
-                    flex: 3,
-                    child: TextField(
-                      controller: controller,
-                      keyboardType: TextInputType.text,
-                      cursorColor: getTheme().getSecondaryColour(context),
-                      decoration: InputDecoration(
-                        hintText: hintText ??
-                            getTranslations().fromKey(LocaleKey.searchItems),
-                        border: InputBorder.none,
-                      ),
-                      onChanged: (String text) => onSearchTextChanged(
-                        text.trim(),
-                      ),
-                    ),
+              const Padding(
+                  padding: EdgeInsets.all(16), child: Icon(Icons.search)),
+              Flexible(
+                flex: 3,
+                child: TextField(
+                  controller: controller,
+                  keyboardType: TextInputType.text,
+                  cursorColor: getTheme().getSecondaryColour(context),
+                  decoration: InputDecoration(
+                    hintText: hintText ??
+                        getTranslations().fromKey(LocaleKey.searchItems),
+                    border: InputBorder.none,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 6),
-                    child: IconButton(
-                      icon: const Icon(Icons.cancel),
-                      onPressed: () {
-                        controller.clear();
-                        onSearchTextChanged('');
-                        // FocusScope.of(context).requestFocus(new FocusNode());
-                      },
-                    ),
+                  onChanged: (String text) => onSearchTextChanged(
+                    text.trim(),
                   ),
-                ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+                child: IconButton(
+                  icon: const Icon(Icons.cancel),
+                  onPressed: () {
+                    controller.clear();
+                    onSearchTextChanged('');
+                    // FocusScope.of(context).requestFocus(new FocusNode());
+                  },
+                ),
               ),
             ],
           ),

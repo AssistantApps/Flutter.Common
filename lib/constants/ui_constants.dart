@@ -9,4 +9,12 @@ class UIConstants {
   static const String commonPackage = 'assistantapps_flutter_common';
   static BorderRadius tileLeadingBorderRadius = BorderRadius.circular(4.0);
   static BorderRadius generalBorderRadius = BorderRadius.circular(8.0);
+  static const Map<TargetPlatform, PageTransitionsBuilder> pageTransitions = {
+    TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+    TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+    TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+    TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
+    TargetPlatform.fuchsia: FadeUpwardsPageTransitionsBuilder(),
+    TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
+  };
 }
