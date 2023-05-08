@@ -86,7 +86,7 @@ class LocalImage extends StatelessWidget {
   final BoxFit? boxfit;
   final double? height;
   final double? width;
-  final BorderRadius? borderRadius;
+  final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry padding;
 
   const LocalImage({
