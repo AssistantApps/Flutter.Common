@@ -119,7 +119,7 @@ class LocalImage extends StatelessWidget {
       return Padding(
         padding: padding,
         child: ClipRRect(
-          borderRadius: borderRadius,
+          borderRadius: borderRadius!,
           child: imgWidget,
         ),
       );
