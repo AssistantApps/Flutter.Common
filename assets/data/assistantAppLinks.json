@@ -171,6 +171,11 @@
         "customPrimaryColour": "#8B432B",
         "links": [
             {
+                "title": "Google Play Store",
+                "icon": "googlePlay",
+                "url": "https://play.google.com/store/apps/details?id=com.assistantapps.assistant_dinkum_app"
+            },
+            {
                 "title": "Web",
                 "icon": "webapp",
                 "url": "https://dinkum.assistantapps.com"
