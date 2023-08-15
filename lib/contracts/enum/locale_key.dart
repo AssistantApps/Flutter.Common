@@ -625,6 +625,7 @@ enum LocaleKey {
   menuMilestones,
   menuFood,
   menuCrafting,
+  copiedToClipboard,
   requiredLicence,
   requirement,
   requirementInKm,
