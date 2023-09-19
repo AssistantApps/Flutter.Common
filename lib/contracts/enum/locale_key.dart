@@ -633,6 +633,7 @@ enum LocaleKey {
   processIn,
   processFrom,
   usedToProcess,
+  ukrainian,
   //,
   inputTooShort,
   inputTooLong,
