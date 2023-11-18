@@ -214,6 +214,8 @@ class NetworkBlurHashImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String netImage =
+        (imageUrl.contains('http')) ? imageUrl : getPath().defaultProfilePic;
     return InkWell(
       key: key,
       child: SizedBox(
@@ -221,12 +223,11 @@ class NetworkBlurHashImage extends StatelessWidget {
         width: width,
         child: OctoImage(
           fit: boxfit,
-          image: CachedNetworkImageProvider(
-            (imageUrl.contains('http'))
-                ? imageUrl
-                : getPath().defaultProfilePic,
-          ),
-          placeholderBuilder: OctoPlaceholder.blurHash(blurHash),
+          image: CachedNetworkImageProvider(netImage),
+          // placeholderBuilder: NetworkBlurHashImage(
+          //   imageUrl: netImage,
+          //   blurHash: blurHash,
+          // ),
           errorBuilder: (_, __, ___) =>
               errorWidget ??
               LocalImage(
