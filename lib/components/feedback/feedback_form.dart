@@ -162,7 +162,10 @@ class _FeedbackFormState extends State<FeedbackForm>
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: columnWidgets,
+        children: [
+          const EmptySpace3x(),
+          ...columnWidgets,
+        ],
       ),
     );
   }
