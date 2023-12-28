@@ -4,6 +4,7 @@ class AssistantAppsEnvironmentSettings {
   String assistantAppsAppGuid;
   String currentWhatIsNewGuid;
   String patreonOAuthClientId;
+  bool isGithubRelease;
 
   String? commitHash;
   String? githubViewAppRepoAtCommit;
@@ -13,6 +14,7 @@ class AssistantAppsEnvironmentSettings {
 
   AssistantAppsEnvironmentSettings({
     this.isProduction = true,
+    this.isGithubRelease = false,
     this.assistantAppsApiUrl = 'https://api.assistantapps.com',
     required this.assistantAppsAppGuid,
     required this.currentWhatIsNewGuid,

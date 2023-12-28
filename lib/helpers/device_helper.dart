@@ -29,6 +29,9 @@ Future<String> getDeviceId() async {
 }
 
 List<PlatformType> getPlatforms() {
+  if (getEnv().isGithubRelease) {
+    return [PlatformType.githubWindowsInstaller];
+  }
   List<PlatformType> plats = List.empty(growable: true);
   if (isiOS || isApple) plats.add(PlatformType.iOS);
   if (isAndroid) plats.add(PlatformType.android);

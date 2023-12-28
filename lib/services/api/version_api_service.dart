@@ -20,10 +20,11 @@ class VersionApiService extends BaseApiService implements IVersionApiService {
           false, VersionViewModel.empty(), 'No Platforms specified');
     }
 
-    List<String?> queryParams =
-        platforms.map((p) => platformTypeToIntValues.map[p]).toList();
+    List<String?> queryParams = platforms
+        .map((p) => platformTypeToIntValues.map[p.toString()])
+        .toList();
     String queryPath = '';
-    for (var queryParam in queryParams) {
+    for (String? queryParam in queryParams) {
       if (queryParam == null || queryParam.isEmpty) continue;
       if (queryPath.isNotEmpty) {
         queryPath = '$queryPath&';
