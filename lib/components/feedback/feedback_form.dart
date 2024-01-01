@@ -19,12 +19,14 @@ import 'feedback_services.dart';
 
 class FeedbackForm extends StatefulWidget {
   final FeedbackServices feedbackServices;
+  final FeedbackOptions options;
   final Size screenMediaQuery;
 
   const FeedbackForm({
     Key? key,
     required this.feedbackServices,
     required this.screenMediaQuery,
+    required this.options,
   }) : super(key: key);
 
   @override
@@ -140,7 +142,10 @@ class _FeedbackFormState extends State<FeedbackForm>
       columnWidgets.addAll([
         const EmptySpace3x(),
         animateSlideInFromLeft(
-          child: const LocalImage(imagePath: AppImage.successGuide),
+          child: LocalImage(
+            imagePath: widget.options.successImageOnFormComplete ??
+                AppImage.successGuide,
+          ),
         ),
         const EmptySpace1x(),
         Center(
