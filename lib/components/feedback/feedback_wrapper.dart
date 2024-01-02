@@ -175,6 +175,7 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
                   ? FeedbackForm(
                       feedbackServices: _services,
                       screenMediaQuery: screenMediaQuery,
+                      options: widget.options,
                     )
                   : const EmptySpace(0),
             ),

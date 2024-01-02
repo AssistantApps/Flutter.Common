@@ -4,6 +4,7 @@ class FeedbackOptions {
   final String? buildNumber;
   final String? buildVersion;
   final String? buildCommit;
+  final String? successImageOnFormComplete;
   final Color? returnToAppBannerColour;
   final String currentLang;
   final bool isPatron;
@@ -14,6 +15,7 @@ class FeedbackOptions {
     required this.buildCommit,
     required this.currentLang,
     required this.isPatron,
+    this.successImageOnFormComplete,
     this.returnToAppBannerColour,
   });
 }
