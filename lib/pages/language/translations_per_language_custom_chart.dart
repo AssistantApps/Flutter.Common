@@ -10,7 +10,10 @@ import '../../integration/dependency_injection.dart';
 import '../../services/api/translation_api_service.dart';
 
 class TranslationsPerLanguageCustomChart extends StatelessWidget {
-  const TranslationsPerLanguageCustomChart({Key? key}) : super(key: key);
+  final int numberOfLanguagesToShow;
+  const TranslationsPerLanguageCustomChart(
+      {Key? key, required this.numberOfLanguagesToShow})
+      : super(key: key);
 
   Widget graphItemDisplayer(
       BuildContext context, TranslationsPerLanguageGraphViewModel item) {
@@ -68,7 +71,8 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
             if (errorWidget != null) return errorWidget;
 
             List<TranslationsPerLanguageGraphViewModel> list =
-                snapshot.data?.value.take(10).toList() ?? List.empty();
+                snapshot.data?.value.take(numberOfLanguagesToShow).toList() ??
+                    List.empty();
 
             return animateWidgetIn(
               child: Card(
