@@ -634,6 +634,7 @@ enum LocaleKey {
   processFrom,
   usedToProcess,
   ukrainian,
+  showReduxExpeditions,
   //,
   inputTooShort,
   inputTooLong,
