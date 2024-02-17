@@ -7,6 +7,7 @@ enum PlatformType {
   api,
   windows,
   githubWindowsInstaller,
+  fdroid,
 }
 
 final platformTypeValues = EnumValues({
@@ -16,6 +17,7 @@ final platformTypeValues = EnumValues({
   "3": PlatformType.api,
   "4": PlatformType.windows,
   "5": PlatformType.githubWindowsInstaller,
+  "6": PlatformType.fdroid,
 });
 
 final platformTypeToIntValues = EnumValues({
@@ -25,4 +27,5 @@ final platformTypeToIntValues = EnumValues({
   PlatformType.api.toString(): "3",
   PlatformType.windows.toString(): "4",
   PlatformType.githubWindowsInstaller.toString(): "5",
+  PlatformType.fdroid.toString(): "5",
 });

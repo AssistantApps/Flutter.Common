@@ -1,13 +1,13 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.2.55
+version: 0.2.56
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
-  flutter: '>=3.7.0'
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.7.0"
 
 dependencies:
   flutter:
@@ -34,7 +34,7 @@ dependencies:
   flutter_sticky_header: 0.6.5
   flutter_svg: 2.0.9
   get_it: 7.6.4
-  group_button: 5.3.3
+  group_button: 5.3.4
   http: 1.1.2
   image_painter: 0.6.1
   image_picker: 1.0.5

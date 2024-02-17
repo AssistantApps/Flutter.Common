@@ -1,6 +1,7 @@
 import 'package:assistantapps_flutter_common/assistantapps_flutter_common.dart'
     hide GuideApiService;
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import './constants/theme.dart';
 import './services/theme_service.dart';
@@ -38,6 +39,10 @@ class _StorybookWrapperState extends State<StorybookWrapper> {
       title: 'AssistantApps Storybook',
       home: widget.childWidget ?? Container(color: Colors.red),
       theme: darkTheme(),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate, //provides localised strings
+        GlobalWidgetsLocalizations.delegate, //provides RTL support
+      ],
     );
   }
 }

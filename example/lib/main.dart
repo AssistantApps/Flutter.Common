@@ -14,14 +14,6 @@ import './stories/searchList/searchlist_stories.dart';
 
 void main() => runApp(const StorybookApp());
 
-final _plugins = initializePlugins(
-  contentsSidePanel: true,
-  knobsSidePanel: true,
-  initialDeviceFrameData: DeviceFrameData(
-    device: Devices.ios.iPhone13ProMax,
-  ),
-);
-
 class StorybookApp extends StatefulWidget {
   const StorybookApp({Key? key}) : super(key: key);
 
@@ -75,7 +67,6 @@ class _StorybookAppState<T> extends State<StorybookApp>
 
     return Storybook(
       initialStory: StorybookNames.welcome,
-      plugins: _plugins,
       showPanel: true,
       stories: [
         ...getHomeStories(),
