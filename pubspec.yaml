@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.2.56
+version: 0.2.57
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -38,7 +38,7 @@ dependencies:
   http: 1.1.2
   image_painter: 0.6.1
   image_picker: 1.0.5
-  intl: 0.18.1
+  intl: 0.19.0
   material_segmented_control: 5.0.0
   octo_image: 2.0.0
   package_info_plus: 5.0.1
