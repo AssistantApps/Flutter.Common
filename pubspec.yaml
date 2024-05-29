@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.2.57
+version: 0.2.58
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -47,7 +47,7 @@ dependencies:
   photo_view: 0.14.0
   platform_device_id: 1.0.1
   responsive_grid: 2.4.4
-  screenshot: 2.1.0
+  screenshot: 3.0.0
   share_plus: 7.2.1
   shared_preferences: 2.2.2
   shimmer: 3.0.0
