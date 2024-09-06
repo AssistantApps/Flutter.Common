@@ -11,8 +11,7 @@ class LanguagePageContent extends StatelessWidget {
   final int numberOfLanguagesToShow;
   final List<Widget>? additionalButtons;
   const LanguagePageContent(
-      {Key? key, this.additionalButtons, this.numberOfLanguagesToShow = 10})
-      : super(key: key);
+      {super.key, this.additionalButtons, this.numberOfLanguagesToShow = 10});
 
   @override
   Widget build(BuildContext context) {

@@ -28,7 +28,7 @@ class Searchable<T> extends StatefulWidget {
     this.itemDisplayer,
     this.itemWithIndexDisplayer,
     this.gridViewColumnCalculator,
-    Key? key,
+    super.key,
     this.firstListItemWidget,
     this.keepFirstListItemWidgetVisible,
     this.lastListItemWidget,
@@ -39,7 +39,7 @@ class Searchable<T> extends StatefulWidget {
     this.addFabPadding = false,
     this.backupListGetter,
     this.backupListWarningMessage,
-  }) : super(key: key);
+  });
 
   @override
   createState() => SearchableWidget<T>();

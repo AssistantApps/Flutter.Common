@@ -8,9 +8,9 @@ class AppNoticesWrapper extends StatefulWidget {
   final Widget child;
 
   const AppNoticesWrapper({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _AppNoticesWrapperWidget();
@@ -19,7 +19,7 @@ class AppNoticesWrapper extends StatefulWidget {
 class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
     with AfterLayoutMixin<AppNoticesWrapper> {
   //
-  final Key _appNoticesKey = const Key('appnotices');
+  final Key _appNoticesKey = const Key('app-notices');
   NetworkState networkState = NetworkState.loading;
   List<AppNoticeViewModel> notices = List.empty(growable: true);
 
@@ -59,8 +59,7 @@ class _AppNoticesWrapperWidget extends State<AppNoticesWrapper>
     return Column(
       children: [
         ...notices
-            .map((n) => AnimateScaleHeightFrom0ToFull(child: appNoticeTile(n)))
-            .toList(),
+            .map((n) => AnimateScaleHeightFrom0ToFull(child: appNoticeTile(n))),
         const EmptySpace1x(),
         Expanded(child: innerChild),
       ],

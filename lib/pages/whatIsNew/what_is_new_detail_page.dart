@@ -11,9 +11,9 @@ class WhatIsNewDetailPage extends StatelessWidget {
   WhatIsNewDetailPage(
     this.analyticsKey,
     this.version, {
-    Key? key,
+    super.key,
     this.additionalBuilder,
-  }) : super(key: key) {
+  }) {
     getAnalytics().trackEvent(analyticsKey);
   }
 

@@ -26,9 +26,9 @@ class SectionAddEditPage extends StatefulWidget {
 
   const SectionAddEditPage(
     this.section, {
-    Key? key,
+    super.key,
     this.isEdit = false,
-  }) : super(key: key);
+  });
 
   @override
   // ignore: no_logic_in_create_state

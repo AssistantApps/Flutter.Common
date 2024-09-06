@@ -8,8 +8,7 @@ class PatronListPage extends StatelessWidget {
   final String analyticsKey;
   final Widget? bottomNavigationBar;
 
-  PatronListPage(this.analyticsKey, {Key? key, this.bottomNavigationBar})
-      : super(key: key) {
+  PatronListPage(this.analyticsKey, {super.key, this.bottomNavigationBar}) {
     getAnalytics().trackEvent(analyticsKey);
   }
 

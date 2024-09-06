@@ -141,6 +141,7 @@ class GuideContentViewModel {
         tags: readListSafe(json, 'tags', (x) => x.toString()),
         originalGuideGuid: readStringSafe(json, 'originalGuideGuid'),
         translatorGuid: readStringSafe(json, 'translatorGuid'),
+        // ignore: collection_methods_unrelated_type
         status: adminApprovalStatusValues.map[readIntSafe(json, 'status')] ??
             AdminApprovalStatus.pending,
         dateCreated: readDateSafe(json, 'dateCreated'),

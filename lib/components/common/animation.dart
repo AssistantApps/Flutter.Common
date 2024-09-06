@@ -60,10 +60,10 @@ class AnimateScaleHeightFrom0ToFull extends StatefulWidget {
   final Duration duration;
 
   const AnimateScaleHeightFrom0ToFull({
-    Key? key,
+    super.key,
     required this.child,
     this.duration = const Duration(milliseconds: 500),
-  }) : super(key: key);
+  });
 
   @override
   createState() => _AnimateScaleHeightFrom0ToFullState();

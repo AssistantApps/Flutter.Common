@@ -12,12 +12,12 @@ class PaginationControl extends StatelessWidget {
   final void Function() prev;
 
   const PaginationControl({
-    Key? key,
+    super.key,
     required this.currentPage,
     required this.totalPages,
     required this.next,
     required this.prev,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class PaginationControl extends StatelessWidget {
 }
 
 class SmallLoadMorePageButton extends StatelessWidget {
-  const SmallLoadMorePageButton({Key? key}) : super(key: key);
+  const SmallLoadMorePageButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +52,10 @@ class SmallPageButton extends StatelessWidget {
   final IconData icon;
 
   const SmallPageButton({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

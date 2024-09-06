@@ -26,7 +26,7 @@ class SearchableList<T> extends StatelessWidget {
     this.listItemSearch,
     this.listItemDisplayer,
     this.listItemWithIndexDisplayer,
-    Key? key,
+    super.key,
     this.firstListItemWidget,
     this.keepFirstListItemWidgetVisible,
     this.lastListItemWidget,
@@ -37,7 +37,7 @@ class SearchableList<T> extends StatelessWidget {
     this.addFabPadding = false,
     this.backupListGetter,
     this.backupListWarningMessage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class AdaptiveAppScaffold extends StatelessWidget {
   final FloatingActionButtonLocation? floatingActionButtonLocation;
 
   const AdaptiveAppScaffold({
-    Key? key,
+    super.key,
     this.appBar,
     this.body,
     this.builder,
@@ -21,7 +21,7 @@ class AdaptiveAppScaffold extends StatelessWidget {
     this.bottomNavigationBar,
     this.floatingActionButton,
     this.floatingActionButtonLocation,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,35 @@
 {
-  "cSpell.enableFiletypes": ["!yaml"]
+  "cSpell.enableFiletypes": ["!yaml"],
+  "cSpell.words": [
+    "anim",
+    "assistantapps",
+    "Behavior",
+    "bitsdojo",
+    "boxfit",
+    "Color",
+    "Colors",
+    "Ctxt",
+    "Dataminer",
+    "Dialog",
+    "Funcs",
+    "guideapi",
+    "iphone",
+    "Khaoz",
+    "Lenni",
+    "Lilo",
+    "LTRB",
+    "octo",
+    "Patreons",
+    "Perc",
+    "popups",
+    "Rect",
+    "redux",
+    "RGBO",
+    "Robo",
+    "signalr",
+    "Sphynxcolt",
+    "unfocus",
+    "viewmodel",
+    "vsync"
+  ]
 }

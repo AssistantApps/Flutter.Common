@@ -17,10 +17,10 @@ class GuideViewPage extends StatelessWidget {
   final String guideContentGuid;
 
   GuideViewPage({
-    Key? key,
+    super.key,
     this.analyticsKey,
     required this.guideContentGuid,
-  }) : super(key: key) {
+  }) {
     if (analyticsKey != null) getAnalytics().trackEvent(analyticsKey!);
   }
 

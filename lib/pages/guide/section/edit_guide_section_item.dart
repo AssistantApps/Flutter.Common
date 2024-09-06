@@ -166,8 +166,8 @@ class ImageEditItem extends StatefulWidget {
     this.moveUp,
     this.moveDown,
     this.onDelete, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   @override
   createState() => _ImageEditItemWidget();
 }

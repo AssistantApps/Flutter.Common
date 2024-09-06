@@ -7,9 +7,9 @@ class FeedbackFormPainter extends StatefulWidget {
   final FeedbackServices feedbackServices;
 
   const FeedbackFormPainter({
-    Key? key,
+    super.key,
     required this.feedbackServices,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _FeedbackFormPainterState();

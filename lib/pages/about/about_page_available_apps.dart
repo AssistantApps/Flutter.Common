@@ -26,8 +26,8 @@ class AboutPageAvailableApps extends StatelessWidget {
   const AboutPageAvailableApps(
     this.appType, {
     this.controller,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   Future<List<AssistantAppsLinkViewModel>> getAppLinksFuture(
       BuildContext context) async {

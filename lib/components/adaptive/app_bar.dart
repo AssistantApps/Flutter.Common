@@ -9,12 +9,12 @@ class AdaptiveAppBar extends StatelessWidget {
   final PreferredSizeWidget? bottom;
 
   const AdaptiveAppBar({
-    Key? key,
+    super.key,
     this.title,
     this.actions,
     this.leading,
     this.bottom,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

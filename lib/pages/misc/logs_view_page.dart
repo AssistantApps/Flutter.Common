@@ -6,7 +6,7 @@ import '../../integration/talker.dart';
 class LogsViewPage extends StatelessWidget {
   final String title;
 
-  const LogsViewPage({Key? key, this.title = 'Logs'}) : super(key: key);
+  const LogsViewPage({super.key, this.title = 'Logs'});
 
   @override
   Widget build(BuildContext context) {

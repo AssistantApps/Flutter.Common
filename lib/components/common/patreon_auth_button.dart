@@ -5,29 +5,28 @@ import './donation_image.dart';
 
 class PatreonAuthButton extends StatelessWidget {
   final VoidCallback onPressed;
-  const PatreonAuthButton({Key? key, required this.onPressed})
-      : super(key: key);
+  const PatreonAuthButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
-        backgroundColor: MaterialStateProperty.all(HexColor('FF424D')),
-        side: MaterialStateProperty.all(
+        padding: WidgetStateProperty.all(const EdgeInsets.all(0)),
+        backgroundColor: WidgetStateProperty.all(HexColor('FF424D')),
+        side: WidgetStateProperty.all(
           const BorderSide(
             width: 2.0,
             color: Colors.transparent,
           ),
         ),
-        shape: MaterialStateProperty.all(
+        shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
         ),
-        shadowColor: MaterialStateProperty.all(Colors.black),
-        overlayColor: MaterialStateProperty.all(HexColor('D13A40')),
+        shadowColor: WidgetStateProperty.all(Colors.black),
+        overlayColor: WidgetStateProperty.all(HexColor('D13A40')),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

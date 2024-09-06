@@ -12,14 +12,14 @@ class AdaptiveCheckboxGroup extends StatelessWidget {
   final void Function(List<String>)? onChanged;
 
   const AdaptiveCheckboxGroup({
-    Key? key,
+    super.key,
     required this.allItemList,
     this.selectedItems,
     this.disabledItems,
     this.activeColor,
     this.unselectedColor,
     this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

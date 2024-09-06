@@ -6,10 +6,10 @@ class ListTileShimmer extends StatelessWidget {
   final bool hideLongText;
 
   const ListTileShimmer({
-    Key? key,
+    super.key,
     this.hideShortText = false,
     this.hideLongText = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

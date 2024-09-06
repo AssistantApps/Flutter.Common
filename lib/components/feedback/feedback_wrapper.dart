@@ -15,10 +15,10 @@ class FeedbackWrapper extends StatefulWidget {
   final Widget child;
 
   const FeedbackWrapper({
-    Key? key,
+    super.key,
     required this.child,
     required this.options,
-  }) : super(key: key);
+  });
 
   @override
   createState() => FeedbackWrapperState();
@@ -34,7 +34,7 @@ class FeedbackWrapper extends StatefulWidget {
 
 class FeedbackWrapperState extends State<FeedbackWrapper>
     with TickerProviderStateMixin {
-  final GlobalKey _appKey = GlobalKey(debugLabel: 'feedbackapp');
+  final GlobalKey _appKey = GlobalKey(debugLabel: 'feedback-app');
   final FeedbackServices _services = FeedbackServices();
 
   Animation<double>? _openCloseAnimation;
@@ -57,7 +57,6 @@ class FeedbackWrapperState extends State<FeedbackWrapper>
   }
 
   void _rebuild() {
-    // rebuild the Wiredash widget state
     setState(() {});
   }
 

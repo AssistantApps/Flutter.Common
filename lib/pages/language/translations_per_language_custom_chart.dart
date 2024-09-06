@@ -12,8 +12,7 @@ import '../../services/api/translation_api_service.dart';
 class TranslationsPerLanguageCustomChart extends StatelessWidget {
   final int numberOfLanguagesToShow;
   const TranslationsPerLanguageCustomChart(
-      {Key? key, required this.numberOfLanguagesToShow})
-      : super(key: key);
+      {super.key, required this.numberOfLanguagesToShow});
 
   Widget graphItemDisplayer(
       BuildContext context, TranslationsPerLanguageGraphViewModel item) {

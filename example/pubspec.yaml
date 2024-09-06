@@ -5,16 +5,12 @@ homepage: https://assistantapps.com
 publish_to: none
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
-  flutter: '>=3.7.0'
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.7.0"
 
 dependencies:
   storybook_flutter: 0.14.0
   after_layout: 1.2.0
-
-  # temp
-  platform: ^3.1.0
-  flutter_localization: 0.2.0
 
   assistantapps_flutter_common:
     path: ../
@@ -22,6 +18,17 @@ dependencies:
   flutter:
     sdk: flutter
 
+  file_picker: any
+  file_selector_web: any
+  flutter_secure_storage_web: any
+  image_picker_for_web: any
+  package_info_plus_web: any
+  platform_device_id_web: any
+  share_plus_web: any
+  shared_preferences_web: any
+  url_launcher_web: any
+  flutter_web_plugins: any
+  flutter_localizations: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

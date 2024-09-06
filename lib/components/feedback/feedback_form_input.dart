@@ -10,11 +10,11 @@ class FeedbackFormInput extends StatelessWidget {
   final Size screenMediaQuery;
 
   const FeedbackFormInput({
-    Key? key,
+    super.key,
     required this.feedbackQuestionType,
     required this.saveAnswer,
     required this.screenMediaQuery,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

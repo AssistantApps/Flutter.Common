@@ -8,9 +8,9 @@ class MarkdownPreviewPage extends StatelessWidget {
 
   const MarkdownPreviewPage(
     this.markdownContent, {
-    Key? key,
+    super.key,
     this.showAppBar = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

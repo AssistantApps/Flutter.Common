@@ -27,12 +27,11 @@ class AdaptiveAppBarForSubPage extends StatelessWidget
     this.showHomeAction,
     this.showBackAction,
     this.shortcutActions, {
-    Key? key,
+    super.key,
     this.bottom,
     this.backgroundColor,
-  })  : preferredSize = Size.fromHeight(
-            kToolbarHeight + (bottom?.preferredSize.height ?? 0.0)),
-        super(key: key);
+  }) : preferredSize = Size.fromHeight(
+            kToolbarHeight + (bottom?.preferredSize.height ?? 0.0));
 
   @override
   Widget build(BuildContext context) {

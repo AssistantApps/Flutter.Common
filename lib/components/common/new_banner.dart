@@ -9,11 +9,11 @@ class WrapInNewBanner extends StatelessWidget {
   final BannerLocation location;
 
   const WrapInNewBanner({
-    Key? key,
+    super.key,
     required this.message,
     required this.child,
     this.location = BannerLocation.topEnd,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

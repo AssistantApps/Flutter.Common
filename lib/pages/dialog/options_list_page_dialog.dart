@@ -20,12 +20,12 @@ class OptionsListPageDialog extends StatefulWidget {
   const OptionsListPageDialog(
     this.title,
     this.options, {
-    Key? key,
+    super.key,
     this.minListForSearch = 10,
     this.customPresenter,
     this.addOption,
     this.onDelete,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _OptionsListPageDialogWidget();

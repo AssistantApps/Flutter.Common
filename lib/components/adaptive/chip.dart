@@ -15,7 +15,7 @@ class AdaptiveChip extends StatelessWidget {
   final Color? backgroundColor;
 
   const AdaptiveChip({
-    Key? key,
+    super.key,
     this.text,
     this.label,
     this.style,
@@ -27,8 +27,7 @@ class AdaptiveChip extends StatelessWidget {
     this.onDeleted,
     this.onTap,
     this.backgroundColor,
-  })  : assert(text != null || label != null),
-        super(key: key);
+  }) : assert(text != null || label != null);
 
   @override
   Widget build(BuildContext context) {

@@ -9,11 +9,11 @@ class CommonCard extends StatelessWidget {
   final void Function()? onTap;
 
   const CommonCard({
-    Key? key,
+    super.key,
     required this.imageWidget,
     required this.bodyWidget,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +37,10 @@ class WrapInCommonCard extends StatelessWidget {
   final void Function()? onTap;
 
   const WrapInCommonCard({
-    Key? key,
+    super.key,
     required this.child,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -68,10 +68,10 @@ class FlatCard extends StatelessWidget {
   final Color? shadowColor;
 
   const FlatCard({
-    Key? key,
+    super.key,
     required this.child,
     this.shadowColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

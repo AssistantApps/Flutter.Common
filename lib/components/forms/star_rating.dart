@@ -7,11 +7,11 @@ class StarRating extends StatefulWidget {
   final void Function(int)? onTap;
 
   const StarRating({
-    Key? key,
+    super.key,
     required this.currentRating,
     this.size = 32,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _StarRatingState();

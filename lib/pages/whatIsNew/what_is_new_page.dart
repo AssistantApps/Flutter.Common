@@ -11,11 +11,11 @@ class WhatIsNewPage extends StatelessWidget {
 
   WhatIsNewPage(
     this.analyticsKey, {
-    Key? key,
+    super.key,
     required this.selectedLanguage,
     this.overriddenPlatforms,
     this.additionalBuilder,
-  }) : super(key: key) {
+  }) {
     getAnalytics().trackEvent(analyticsKey);
   }
 

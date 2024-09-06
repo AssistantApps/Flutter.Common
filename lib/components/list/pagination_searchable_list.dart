@@ -30,7 +30,7 @@ class PaginationSearchableList<T> extends StatefulWidget {
     this.listGetter,
     this.listItemDisplayer,
     this.listItemSearch, {
-    Key? key,
+    super.key,
     this.customKey,
     this.hintText,
     this.loadingText,
@@ -43,7 +43,7 @@ class PaginationSearchableList<T> extends StatefulWidget {
     this.backupListWarningMessage,
     this.firstListItemWidget,
     this.lastListItemWidget,
-  }) : super(key: key);
+  });
   @override
   PaginationSearchableListWidget<T> createState() =>
       // ignore: no_logic_in_create_state

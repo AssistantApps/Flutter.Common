@@ -7,11 +7,11 @@ class AdaptiveSearchBar extends StatelessWidget {
   final void Function(String) onSearchTextChanged;
 
   const AdaptiveSearchBar({
-    Key? key,
+    super.key,
     required this.controller,
     this.hintText,
     required this.onSearchTextChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

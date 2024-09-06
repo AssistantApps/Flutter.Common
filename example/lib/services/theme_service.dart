@@ -24,7 +24,7 @@ class StorybookThemeService implements IThemeService {
 
   @override
   Color getBackgroundColour(BuildContext context) =>
-      darkTheme().colorScheme.background;
+      darkTheme().colorScheme.surface;
 
   @override
   Color getScaffoldBackgroundColour(BuildContext context) =>
@@ -61,7 +61,7 @@ class StorybookThemeService implements IThemeService {
 
   @override
   Color getCardBackgroundColour(BuildContext context) =>
-      darkTheme().colorScheme.background;
+      darkTheme().colorScheme.surface;
 
   @override
   bool useWhiteForeground(Color backgroundColor) =>

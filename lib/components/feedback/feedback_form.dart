@@ -23,11 +23,11 @@ class FeedbackForm extends StatefulWidget {
   final Size screenMediaQuery;
 
   const FeedbackForm({
-    Key? key,
+    super.key,
     required this.feedbackServices,
     required this.screenMediaQuery,
     required this.options,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _FeedbackFormState();

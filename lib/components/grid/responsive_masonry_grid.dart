@@ -11,8 +11,8 @@ class ResponsiveMasonryGrid extends StatelessWidget {
   const ResponsiveMasonryGrid(
     this.itemBuilder,
     this.columnCountFunc, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

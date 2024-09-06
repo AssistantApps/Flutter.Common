@@ -16,9 +16,9 @@ class SteamNewsListPageComponent extends StatelessWidget {
 
   const SteamNewsListPageComponent(
     this.appType, {
-    Key? key,
+    super.key,
     required this.backupFunc,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -9,10 +9,10 @@ class AssistantAppsModalBottomSheet extends StatelessWidget {
   final AssistantAppType appType;
   final ScrollController? controller;
   const AssistantAppsModalBottomSheet({
-    Key? key,
+    super.key,
     this.appType = AssistantAppType.unknown,
     this.controller,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -31,7 +31,7 @@ class SearchableGrid<T> extends StatelessWidget {
     this.gridItemDisplayer,
     this.gridItemWithIndexDisplayer,
     this.gridViewColumnCalculator,
-    Key? key,
+    super.key,
     this.firstListItemWidget,
     this.keepFirstListItemWidgetVisible,
     this.lastListItemWidget,
@@ -42,7 +42,7 @@ class SearchableGrid<T> extends StatelessWidget {
     this.addFabPadding = false,
     this.backupListGetter,
     this.backupListWarningMessage,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

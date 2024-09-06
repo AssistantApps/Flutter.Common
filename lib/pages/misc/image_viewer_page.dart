@@ -11,10 +11,10 @@ class ImageViewerPage extends StatelessWidget {
   ImageViewerPage(
     this.name,
     this.imageUrl, {
-    Key? key,
+    super.key,
     required this.analyticsKey,
     this.helpContent,
-  }) : super(key: key) {
+  }) {
     getAnalytics().trackEvent(analyticsKey);
   }
 

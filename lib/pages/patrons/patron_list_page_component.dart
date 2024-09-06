@@ -15,7 +15,7 @@ import '../../integration/dependency_injection_base.dart';
 import '../../services/json/backup_json_service.dart';
 
 class PatronListPageComponent extends StatelessWidget {
-  const PatronListPageComponent({Key? key}) : super(key: key);
+  const PatronListPageComponent({super.key});
 
   Future<ResultWithValue<List<PatreonViewModel>>> wrapPatronsListCall(
     BuildContext context,

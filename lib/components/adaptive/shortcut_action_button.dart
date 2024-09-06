@@ -6,8 +6,8 @@ class ShortcutActionButton extends StatelessWidget {
 
   const ShortcutActionButton(
     this.actions, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,8 @@ class ShortcutPresenter extends StatelessWidget {
 
   const ShortcutPresenter(
     this.action, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

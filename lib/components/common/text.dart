@@ -4,7 +4,7 @@ import 'package:extended_masked_text/extended_masked_text.dart';
 class GenericEllipsesText extends StatelessWidget {
   final String text;
 
-  const GenericEllipsesText(this.text, {Key? key}) : super(key: key);
+  const GenericEllipsesText(this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +21,8 @@ class GenericItemText extends StatelessWidget {
 
   const GenericItemText(
     this.text, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +43,9 @@ class GenericItemName extends StatelessWidget {
 
   const GenericItemName(
     this.name, {
-    Key? key,
+    super.key,
     this.maxLines,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +69,10 @@ class GenericItemDescription extends StatelessWidget {
 
   const GenericItemDescription(
     this.description, {
-    Key? key,
+    super.key,
     this.textStyle,
     this.maxLines = 10,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -94,9 +94,9 @@ class GenericItemGroup extends StatelessWidget {
 
   const GenericItemGroup(
     this.group, {
-    Key? key,
+    super.key,
     this.maxLines = 2,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

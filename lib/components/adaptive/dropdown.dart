@@ -10,13 +10,13 @@ class AdaptiveDropdown extends StatefulWidget {
   final void Function(String value) onChanged;
 
   const AdaptiveDropdown({
-    Key? key,
+    super.key,
     required this.options,
     required this.onChanged,
     this.initialValue,
     this.icon,
     this.borderRadius,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _AdaptiveDropdownState();
@@ -80,7 +80,7 @@ class _AdaptiveDropdownState extends State<AdaptiveDropdown> {
             decoration: BoxDecoration(borderRadius: borderRadius),
             scrollbarTheme: ScrollbarThemeData(
               radius: const Radius.circular(40),
-              thickness: MaterialStateProperty.resolveWith((_) => 6.0),
+              thickness: WidgetStateProperty.resolveWith((_) => 6.0),
             )),
         //
         onChanged: (String? value) {

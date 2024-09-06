@@ -8,7 +8,7 @@ import '../../integration/dependency_injection.dart';
 import '../dialog/options_list_page_dialog.dart';
 
 class LanguageSelectionPageContent extends StatelessWidget {
-  const LanguageSelectionPageContent({Key? key}) : super(key: key);
+  const LanguageSelectionPageContent({super.key});
 
   @override
   Widget build(BuildContext context) {

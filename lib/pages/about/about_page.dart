@@ -16,10 +16,10 @@ class AboutPage extends StatefulWidget {
   final List<Widget> Function(BuildContext context)? aboutPageWidgetsFunc;
 
   const AboutPage({
-    Key? key,
+    super.key,
     this.appType = AssistantAppType.unknown,
     this.aboutPageWidgetsFunc,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _AboutPageWidget();

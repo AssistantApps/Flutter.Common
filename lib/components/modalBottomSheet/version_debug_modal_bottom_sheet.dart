@@ -8,7 +8,7 @@ import '../../integration/dependency_injection.dart';
 class VersionDebugBottomSheet extends StatelessWidget {
   final ScrollController? controller;
 
-  const VersionDebugBottomSheet({Key? key, this.controller}) : super(key: key);
+  const VersionDebugBottomSheet({super.key, this.controller});
 
   @override
   Widget build(BuildContext context) {

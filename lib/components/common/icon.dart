@@ -6,7 +6,7 @@ class IconWithValueRow extends StatelessWidget {
   final IconData icon;
   final int value;
 
-  const IconWithValueRow(this.icon, this.value, {Key? key}) : super(key: key);
+  const IconWithValueRow(this.icon, this.value, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,12 @@ class IconBackgroundCover extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
 
   const IconBackgroundCover({
-    Key? key,
+    super.key,
     required this.child,
     this.backgroundColour,
     this.splashColour,
     this.borderRadius,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -7,7 +7,7 @@ import '../../pages/misc/logs_view_page.dart';
 class LogsModalBottomSheet extends StatelessWidget {
   final String title;
 
-  const LogsModalBottomSheet({Key? key, this.title = 'Logs'}) : super(key: key);
+  const LogsModalBottomSheet({super.key, this.title = 'Logs'});
 
   @override
   Widget build(BuildContext context) {

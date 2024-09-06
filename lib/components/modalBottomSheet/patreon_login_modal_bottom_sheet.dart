@@ -18,8 +18,7 @@ class PatreonLoginModalBottomSheet extends StatefulWidget {
   final void Function(Result) onLogin;
 
   const PatreonLoginModalBottomSheet(this.analyticsKey, this.onLogin,
-      {Key? key})
-      : super(key: key);
+      {super.key});
 
   @override
   createState() => _PatreonLoginModalBottomSheetWidget();

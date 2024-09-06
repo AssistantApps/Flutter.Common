@@ -1,6 +1,6 @@
 name: assistantapps_flutter_common
 description: Common functionality between the AssistantApps
-version: 0.2.56
+version: 0.2.58
 # author: Kurt Lourens
 homepage: https://assistantapps.com
 publish_to: none
@@ -14,31 +14,31 @@ dependencies:
     sdk: flutter
 
   after_layout: 1.2.0
-  animate_do: 3.1.2
+  animate_do: 3.3.3
   animated_background: 2.0.0
   badges: 3.1.2
-  bitsdojo_window: 0.1.5
+  bitsdojo_window: 0.1.6
   breakpoint: 1.2.0
-  cached_network_image: 3.3.0
+  cached_network_image: 3.3.1
   collection: 1.18.0
-  country_icons: 2.0.2
+  country_icons: 3.0.0
   dotted_border: 2.1.0
   dropdown_button2: 2.3.9
   enum_to_string: 2.0.1
   extended_masked_text: 2.3.1
   file_picker: 6.1.1
   flutter_chip_tags: 2.0.2
-  flutter_markdown: 0.6.18+2
+  flutter_markdown: 0.6.19
   flutter_secure_storage: 9.0.0
   flutter_staggered_grid_view: 0.7.0
   flutter_sticky_header: 0.6.5
   flutter_svg: 2.0.9
-  get_it: 7.6.4
+  get_it: 7.6.7
   group_button: 5.3.4
-  http: 1.1.2
+  http: 1.2.1
   image_painter: 0.6.1
-  image_picker: 1.0.5
-  intl: 0.18.1
+  image_picker: 1.0.7
+  intl: 0.19.0
   material_segmented_control: 5.0.0
   octo_image: 2.0.0
   package_info_plus: 5.0.1
@@ -48,17 +48,17 @@ dependencies:
   platform_device_id: 1.0.1
   responsive_grid: 2.4.4
   screenshot: 2.1.0
-  share_plus: 7.2.1
+  share_plus: 7.2.2
   shared_preferences: 2.2.2
   shimmer: 3.0.0
-  signalr_netcore: 1.3.6
+  signalr_netcore: 1.3.7
   spring: 2.0.2
   sweetsheet: 0.4.0
-  talker: 3.2.0
-  talker_flutter: 3.6.0
+  talker: 4.0.2
+  talker_flutter: 4.0.2
   timelines: 0.1.0
   universal_platform: 1.0.0+1
-  url_launcher: 6.2.2
+  url_launcher: 6.2.4
   uuid: 3.0.7
   websafe_svg: 3.0.1+1
 
@@ -71,7 +71,7 @@ dependencies:
 dev_dependencies:
   # flutter_test:
   #   sdk: flutter
-  flutter_lints: 2.0.3
+  flutter_lints: 3.0.1
 
 dependency_overrides:
   http: 1.1.2

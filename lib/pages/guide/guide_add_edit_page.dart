@@ -43,11 +43,11 @@ class GuideAddEditPage extends StatefulWidget {
   GuideAddEditPage(
     this._guideDetails,
     this.sections, {
-    Key? key,
+    super.key,
     this.analyticsKey,
     this.isEdit = false,
     required this.draftModel,
-  }) : super(key: key) {
+  }) {
     if (analyticsKey != null) {
       getAnalytics().trackEvent(analyticsKey!);
     }
@@ -136,8 +136,8 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
         _isLoading = false;
       });
       if (addResult.hasFailed) {
-        // ignore: use_build_context_synchronously
         getDialog().showSimpleDialog(
+          // ignore: use_build_context_synchronously
           context,
           getTranslations().fromKey(LocaleKey.guideSubmissionFailedTitle),
           Column(
@@ -163,8 +163,8 @@ class _GuideAddEditWidget extends State<GuideAddEditPage> {
         );
       } else {
         reduxViewModel.deleteGuide(_guideDetails.guid);
-        // ignore: use_build_context_synchronously
         getDialog().showSimpleDialog(
+          // ignore: use_build_context_synchronously
           context,
           getTranslations().fromKey(LocaleKey.guideSubmissionSuccessTitle),
           Column(

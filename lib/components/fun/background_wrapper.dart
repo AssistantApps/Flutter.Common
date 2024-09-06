@@ -9,10 +9,10 @@ class BackgroundWrapper extends StatelessWidget {
   final Widget body;
   final BackgroundType backgroundType;
   const BackgroundWrapper({
-    Key? key,
+    super.key,
     required this.body,
     required this.backgroundType,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +31,7 @@ class BackgroundWrapper extends StatelessWidget {
 
 class AnimatedBackgroundWrapper extends StatefulWidget {
   final BackgroundType backgroundType;
-  const AnimatedBackgroundWrapper(this.backgroundType, {Key? key})
-      : super(key: key);
+  const AnimatedBackgroundWrapper(this.backgroundType, {super.key});
 
   @override
   createState() => _AnimatedBackgroundWidget();

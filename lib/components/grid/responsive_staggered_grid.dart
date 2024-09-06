@@ -10,10 +10,10 @@ class ResponsiveStaggeredGrid extends StatelessWidget {
   final int Function(Breakpoint breakpoint)? columnCountFunc;
 
   const ResponsiveStaggeredGrid({
-    Key? key,
+    super.key,
     required this.items,
     this.columnCountFunc,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

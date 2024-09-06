@@ -10,12 +10,12 @@ class FeedbackFormHeader extends StatelessWidget {
   final void Function()? closeForm;
 
   const FeedbackFormHeader({
-    Key? key,
+    super.key,
     required this.currentStep,
     required this.totalSteps,
     required this.title,
     this.closeForm,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

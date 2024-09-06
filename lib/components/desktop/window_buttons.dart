@@ -5,7 +5,7 @@ import '../../helpers/colour_helper.dart';
 import '../../integration/dependency_injection_base.dart';
 
 class WindowButtons extends StatelessWidget {
-  const WindowButtons({Key? key}) : super(key: key);
+  const WindowButtons({super.key});
 
   @override
   Widget build(BuildContext context) {

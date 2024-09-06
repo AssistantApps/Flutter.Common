@@ -27,7 +27,7 @@ class ResponsiveListDetailView<T> extends StatefulWidget {
     this.listGetter,
     this.listItemDisplayer,
     this.listItemSearch, {
-    Key? key,
+    super.key,
     this.firstListItemWidget,
     this.listItemMobileOnTap,
     this.listItemDesktopOnTap,
@@ -36,7 +36,7 @@ class ResponsiveListDetailView<T> extends StatefulWidget {
     this.deleteAll,
     this.minListForSearch = 10,
     this.addFabPadding = false,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _ResponsiveListDetailWidget<T>();

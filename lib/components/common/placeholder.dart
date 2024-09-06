@@ -10,12 +10,12 @@ class PlaceholderImage extends StatelessWidget {
   final void Function()? onTap;
 
   const PlaceholderImage({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.padding = EdgeInsets.zero,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,13 +56,13 @@ class PlaceholderFullRow extends StatelessWidget {
   final void Function()? onTap;
 
   const PlaceholderFullRow({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.icon,
     this.padding = EdgeInsets.zero,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

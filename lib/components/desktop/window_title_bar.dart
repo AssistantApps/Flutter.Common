@@ -20,15 +20,14 @@ class WindowTitleBar extends StatelessWidget
   static const double kMinInteractiveDimensionCupertino = 44.0;
 
   WindowTitleBar({
-    Key? key,
+    super.key,
     required this.title,
     required this.iconPath,
     this.bottom,
     this.backgroundColor,
     this.actions,
-  })  : preferredSize = Size.fromHeight(
-            kToolbarHeight + (bottom?.preferredSize?.height ?? 0.0)),
-        super(key: key);
+  }) : preferredSize = Size.fromHeight(
+            kToolbarHeight + (bottom?.preferredSize?.height ?? 0.0));
 
   @override
   Widget build(BuildContext context) {

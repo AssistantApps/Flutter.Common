@@ -9,11 +9,11 @@ class BasicBadge extends StatelessWidget {
   final Color? textColour;
 
   const BasicBadge({
-    Key? key,
+    super.key,
     required this.text,
     required this.child,
     required this.textColour,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

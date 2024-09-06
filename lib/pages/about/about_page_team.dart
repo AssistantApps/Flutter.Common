@@ -4,7 +4,7 @@ import '../../assistantapps_flutter_common.dart';
 import '../../constants/app_image.dart';
 
 class AboutPageTeam extends StatelessWidget {
-  const AboutPageTeam({Key? key}) : super(key: key);
+  const AboutPageTeam({super.key});
 
   @override
   Widget build(BuildContext context) {

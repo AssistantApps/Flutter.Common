@@ -17,13 +17,13 @@ class ImageFromNetwork extends StatelessWidget {
   final Widget? loading;
 
   const ImageFromNetwork({
-    Key? key,
+    super.key,
     required this.imageUrl,
     this.boxfit,
     this.height,
     this.width,
     this.loading,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +90,7 @@ class LocalImage extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   const LocalImage({
-    Key? key,
+    super.key,
     required this.imagePath,
     this.imageHero,
     this.imagePackage,
@@ -99,7 +99,7 @@ class LocalImage extends StatelessWidget {
     this.width,
     this.borderRadius,
     this.padding = EdgeInsets.zero,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -138,11 +138,11 @@ class CorrectlySizedImageFromIcon extends StatelessWidget {
   final double maxSize;
 
   const CorrectlySizedImageFromIcon({
-    Key? key,
+    super.key,
     required this.icon,
     this.colour,
     this.maxSize = 35,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -169,12 +169,12 @@ class ListTileImage extends StatelessWidget {
   final String? package;
 
   const ListTileImage({
-    Key? key,
+    super.key,
     required this.partialPath,
     this.size = 35,
     this.padding,
     this.package,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +201,7 @@ class NetworkBlurHashImage extends StatelessWidget {
   final void Function()? onTap;
 
   const NetworkBlurHashImage({
-    Key? key,
+    super.key,
     required this.imageUrl,
     required this.blurHash,
     this.boxfit,
@@ -210,7 +210,7 @@ class NetworkBlurHashImage extends StatelessWidget {
     this.placeHolder,
     this.errorWidget,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

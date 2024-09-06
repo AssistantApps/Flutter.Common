@@ -23,7 +23,7 @@ class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
   const LazyLoadSearchableList(
     this.listGetter,
     this.pageSize, {
-    Key? key,
+    super.key,
     this.listItemDisplayer,
     this.listItemWithIndexDisplayer,
     this.customKey,
@@ -34,7 +34,7 @@ class LazyLoadSearchableList<T extends dynamic> extends StatefulWidget {
     this.loadMoreItemWidget,
     this.errorMessage,
     this.emptyMessage,
-  }) : super(key: key);
+  });
 
   @override
   createState() => _LazyLoadSearchableListWidget<T>();
@@ -113,7 +113,7 @@ class _LazyLoadSearchableListWidget<T extends dynamic>
         paginationViewType: PaginationViewType.listView,
         pageFetch: getMoreData,
         onError: (dynamic error) => Center(
-          child: Text(widget.errorMessage ?? 'Some error occured'),
+          child: Text(widget.errorMessage ?? 'Some error occurred'),
         ),
         onEmpty: Center(
           child: Text(widget.emptyMessage ?? 'Sorry! This is empty'),

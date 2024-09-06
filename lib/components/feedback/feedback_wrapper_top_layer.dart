@@ -11,10 +11,10 @@ class FeedbackWrapperTopLayer extends StatelessWidget {
   final FeedbackOptions options;
 
   const FeedbackWrapperTopLayer({
-    Key? key,
+    super.key,
     required this.feedbackServices,
     required this.options,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

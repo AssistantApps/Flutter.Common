@@ -7,9 +7,9 @@ class LanguageHelpPage extends StatelessWidget {
 
   LanguageHelpPage(
     this.analyticsKey, {
-    Key? key,
+    super.key,
     this.additionalButtons,
-  }) : super(key: key) {
+  }) {
     getAnalytics().trackEvent(analyticsKey);
   }
 

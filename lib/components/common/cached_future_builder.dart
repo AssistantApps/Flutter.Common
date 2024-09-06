@@ -8,11 +8,11 @@ class CachedFutureBuilder<T> extends StatefulWidget {
   final Widget Function(T data) whenDoneLoading;
 
   const CachedFutureBuilder({
-    Key? key,
+    super.key,
     required this.future,
     required this.whileLoading,
     required this.whenDoneLoading,
-  }) : super(key: key);
+  });
 
   @override
   // ignore: no_logic_in_create_state

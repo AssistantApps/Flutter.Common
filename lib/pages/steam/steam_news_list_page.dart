@@ -17,10 +17,10 @@ class SteamNewsPage extends StatelessWidget {
   SteamNewsPage(
     this.analyticsKey,
     this.appType, {
-    Key? key,
+    super.key,
     this.bottomNavigationBar,
     required this.backupFunc,
-  }) : super(key: key) {
+  }) {
     getAnalytics().trackEvent(analyticsKey);
   }
 

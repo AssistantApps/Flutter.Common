@@ -24,10 +24,10 @@ class GuideListPage extends StatefulWidget {
   final GuideDraftModel draftModel;
 
   GuideListPage({
-    Key? key,
+    super.key,
     required String analyticsKey,
     required this.draftModel,
-  }) : super(key: key) {
+  }) {
     getAnalytics().trackEvent(analyticsKey);
   }
 

@@ -9,11 +9,11 @@ class HorizontalProgressBar extends StatelessWidget {
   final Widget? text;
 
   const HorizontalProgressBar({
-    Key? key,
+    super.key,
     required this.percent,
     this.animation = true,
     this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

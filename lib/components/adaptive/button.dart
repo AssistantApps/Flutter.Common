@@ -12,7 +12,7 @@ class BaseButton extends StatelessWidget {
   final void Function()? onTap;
 
   const BaseButton({
-    Key? key,
+    super.key,
     required this.title,
     this.eventString,
     this.padding,
@@ -20,18 +20,18 @@ class BaseButton extends StatelessWidget {
     required this.backgroundColour,
     required this.foregroundColour,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     Text textWidget = Text(title, textAlign: TextAlign.center);
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(backgroundColour),
-        foregroundColor: MaterialStateProperty.all<Color>(
+        backgroundColor: WidgetStateProperty.all<Color>(backgroundColour),
+        foregroundColor: WidgetStateProperty.all<Color>(
           foregroundColour,
         ),
-        minimumSize: MaterialStateProperty.all<Size?>(minimumSize),
+        minimumSize: WidgetStateProperty.all<Size?>(minimumSize),
       ),
       onPressed: (onTap != null) ? onTap : null,
       child: padding != null
@@ -51,7 +51,7 @@ class PositiveButton extends StatelessWidget {
   final void Function()? onTap;
 
   const PositiveButton({
-    Key? key,
+    super.key,
     required this.title,
     this.eventString,
     this.padding,
@@ -59,7 +59,7 @@ class PositiveButton extends StatelessWidget {
     this.backgroundColour,
     this.foregroundColour,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -84,18 +84,18 @@ class PositiveIconButton extends StatelessWidget {
   final void Function()? onPress;
 
   const PositiveIconButton({
-    Key? key,
+    super.key,
     required this.icon,
     required this.colour,
     this.padding,
     this.onPress,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(colour),
+        backgroundColor: WidgetStateProperty.all<Color>(colour),
       ),
       onPressed: onPress,
       child: padding != null
@@ -113,13 +113,13 @@ class NegativeButton extends StatelessWidget {
   final void Function()? onTap;
 
   const NegativeButton({
-    Key? key,
+    super.key,
     required this.title,
     this.eventString,
     this.padding,
     this.backgroundColour = Colors.red,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

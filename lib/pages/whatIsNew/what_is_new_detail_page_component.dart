@@ -19,9 +19,9 @@ class WhatIsNewDetailPageComponent extends StatelessWidget {
   const WhatIsNewDetailPageComponent(
     this.currentWhatIsNewGuid,
     this.version, {
-    Key? key,
+    super.key,
     this.additionalBuilder,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -15,14 +15,14 @@ class AdaptiveSegmentedControl extends StatelessWidget {
   final EdgeInsets? padding;
 
   const AdaptiveSegmentedControl({
-    Key? key,
+    super.key,
     required this.controlItems,
     required this.currentSelection,
     required this.onSegmentChosen,
     this.verticalOffset = 12.0,
     this.borderRadius,
     this.padding,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +52,8 @@ class SegmentedControlOption extends StatelessWidget {
 
   const SegmentedControlOption(
     this.text, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +69,8 @@ class ImageSegmentedControlOption extends StatelessWidget {
 
   const ImageSegmentedControlOption(
     this.path, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -83,10 +83,10 @@ class SegmentedControlWithIconOption extends StatelessWidget {
   final String text;
 
   const SegmentedControlWithIconOption({
-    Key? key,
+    super.key,
     required this.icon,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
