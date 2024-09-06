@@ -4,7 +4,7 @@ import 'package:assistantapps_flutter_common/constants/ui_constants.dart';
 import 'package:flutter/material.dart';
 
 class BaseJsonService {
-  Future<List> getListfromJson(context, jsonFileName) async {
+  Future<List> getListFromJson(context, jsonFileName) async {
     dynamic jsonString = await getJsonFromAssets(context, 'json/$jsonFileName');
     return json.decode(jsonString);
   }

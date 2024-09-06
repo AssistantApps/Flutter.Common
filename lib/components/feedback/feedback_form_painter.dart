@@ -16,14 +16,18 @@ class FeedbackFormPainter extends StatefulWidget {
 }
 
 class _FeedbackFormPainterState extends State<FeedbackFormPainter> {
+  final imagePainterController = ImagePainterController(
+    strokeWidth: 8,
+    color: Colors.red,
+    mode: PaintMode.freeStyle,
+  );
+
   @override
   Widget build(BuildContext context) {
     return ImagePainter.memory(
       widget.feedbackServices.screenshotData!,
       scalable: false,
-      initialStrokeWidth: 8,
-      initialColor: Colors.red,
-      initialPaintMode: PaintMode.freeStyle,
+      controller: imagePainterController,
       clearAllIcon: const Icon(Icons.delete, color: Colors.black87),
       key: widget.feedbackServices.painterKey,
     );
