@@ -249,7 +249,7 @@ class NetworkBlurHashImage extends StatelessWidget {
 
 Image getCountryFlag(String countryCode) {
   return Image.asset(
-    'icons/flags/png/$countryCode.png',
+    'icons/flags/png100px/$countryCode.png',
     package: 'country_icons',
   );
 }

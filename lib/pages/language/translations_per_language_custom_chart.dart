@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../components/common/animation.dart';
+import '../../components/common/image.dart';
 import '../../components/common/percent.dart';
 import '../../contracts/enum/locale_key.dart';
 import '../../contracts/generated/translations_per_language_graph_view_model.dart';
@@ -18,11 +19,10 @@ class TranslationsPerLanguageCustomChart extends StatelessWidget {
       BuildContext context, TranslationsPerLanguageGraphViewModel item) {
     return ListTile(
       dense: true,
-      leading: Image.asset(
-        'icons/flags/png/${item.countryCode}.png',
-        package: 'country_icons',
-        height: 50,
+      leading: SizedBox(
         width: 50,
+        height: 50,
+        child: getCountryFlag(item.countryCode),
       ),
       title: Text(item.name),
       subtitle: Padding(

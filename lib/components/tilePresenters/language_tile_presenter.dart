@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../contracts/enum/locale_key.dart';
+import '../../components/common/image.dart';
 import '../../integration/dependency_injection.dart';
 
 Widget languageTilePresenter(
@@ -10,8 +11,7 @@ Widget languageTilePresenter(
     leading: SizedBox(
       width: 50,
       height: 50,
-      child: Image.asset('icons/flags/png/$countryCode.png',
-          package: 'country_icons'),
+      child: getCountryFlag(countryCode),
     ),
     title: Text(
       name,
