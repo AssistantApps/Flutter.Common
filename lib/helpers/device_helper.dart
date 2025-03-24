@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:platform_device_id/platform_device_id.dart';
+import 'package:flutter_udid/flutter_udid.dart';
 import 'package:universal_platform/universal_platform.dart';
 
 import '../contracts/enum/platform_type.dart';
@@ -21,8 +21,8 @@ bool isWindows = UniversalPlatform.isWindows;
 bool isLinux = UniversalPlatform.isLinux;
 
 Future<String> getDeviceId() async {
-  String? deviceId = await PlatformDeviceId.getDeviceId;
-  if (deviceId == null || deviceId.length < 5) {
+  String deviceId = await FlutterUdid.udid;
+  if (deviceId.length < 5) {
     deviceId = getNewGuid();
   }
   return deviceId.trim();

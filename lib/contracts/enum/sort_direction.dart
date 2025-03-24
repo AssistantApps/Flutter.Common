@@ -12,7 +12,5 @@ int sortDirectionTypeToInt(SortDirection type) {
       return 1;
     case SortDirection.desc:
       return 2;
-    default:
-      return 0;
   }
 }

@@ -18,7 +18,5 @@ int guideSectionItemTypeToInt(GuideSectionItemType type) {
       return 2;
     case GuideSectionItemType.table:
       return 2;
-    default:
-      return 0;
   }
 }

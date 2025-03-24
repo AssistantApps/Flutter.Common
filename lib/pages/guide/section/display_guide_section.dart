@@ -93,8 +93,6 @@ Widget? getSectionItem(BuildContext context, GuideSectionItemViewModel item) {
       return markdownListItem(item);
     case GuideSectionItemType.table:
       return tableListItem(context, item);
-    default:
-      return null;
   }
 }
 

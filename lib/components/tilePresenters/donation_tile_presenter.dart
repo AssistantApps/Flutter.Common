@@ -46,7 +46,6 @@ Widget getImage(DonationType donation) {
     case DonationType.paypal:
       return DonationImage.payPal();
     case DonationType.unknown:
-    default:
       return DonationImage.unknown();
   }
 }
